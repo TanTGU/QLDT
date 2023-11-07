@@ -106,10 +106,10 @@
             // tbTK
             // 
             this.tbTK.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbTK.Font = new System.Drawing.Font("Arial Narrow", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTK.Location = new System.Drawing.Point(339, 130);
+            this.tbTK.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTK.Location = new System.Drawing.Point(339, 137);
             this.tbTK.Name = "tbTK";
-            this.tbTK.Size = new System.Drawing.Size(220, 25);
+            this.tbTK.Size = new System.Drawing.Size(220, 20);
             this.tbTK.TabIndex = 64;
             // 
             // label1
@@ -131,10 +131,10 @@
             // tbMK
             // 
             this.tbMK.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbMK.Font = new System.Drawing.Font("Arial Narrow", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbMK.Location = new System.Drawing.Point(339, 182);
+            this.tbMK.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbMK.Location = new System.Drawing.Point(339, 189);
             this.tbMK.Name = "tbMK";
-            this.tbMK.Size = new System.Drawing.Size(220, 25);
+            this.tbMK.Size = new System.Drawing.Size(220, 20);
             this.tbMK.TabIndex = 65;
             this.tbMK.UseSystemPasswordChar = true;
             // 
@@ -151,7 +151,7 @@
             // picMK
             // 
             this.picMK.Image = global::Quan_Ly_Dao_Tao.Properties.Resources.padlock;
-            this.picMK.Location = new System.Drawing.Point(308, 180);
+            this.picMK.Location = new System.Drawing.Point(308, 184);
             this.picMK.Name = "picMK";
             this.picMK.Size = new System.Drawing.Size(25, 25);
             this.picMK.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -171,7 +171,7 @@
             // picTK
             // 
             this.picTK.Image = global::Quan_Ly_Dao_Tao.Properties.Resources.user;
-            this.picTK.Location = new System.Drawing.Point(309, 128);
+            this.picTK.Location = new System.Drawing.Point(309, 131);
             this.picTK.Name = "picTK";
             this.picTK.Size = new System.Drawing.Size(25, 25);
             this.picTK.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
