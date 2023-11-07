@@ -30,6 +30,7 @@ namespace Quan_Ly_Dao_Tao
             }
             try
             {
+                
                 string sql = "select * from TAIKHOAN";
                 DataTable dt = CSDL.LayDuLieu(sql);
                 bool DK = false;

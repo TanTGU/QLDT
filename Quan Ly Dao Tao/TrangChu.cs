@@ -62,7 +62,7 @@ namespace Quan_Ly_Dao_Tao
                     lbLoaiTK.Text = "Nhân viên phòng Đào tạo";
                     break;
                 case "NVPTV":
-                    UserNhanVienPhongDaoTao_TrangChu user5 = new UserNhanVienPhongDaoTao_TrangChu();
+                    UserNhanVienPhongTaiVu_TrangChu user5 = new UserNhanVienPhongTaiVu_TrangChu();
                     Add_UserControl(user5);
                     lbLoaiTK.Text = "Nhân viên phòng Tài vụ";
                     break;
