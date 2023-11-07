@@ -1,0 +1,584 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1603AE7B-21CB-48A3-A3D4-EC40F4089F76}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Quan_Ly_Dao_Tao</RootNamespace>
+    <AssemblyName>Quan Ly Dao Tao</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Chuc Nang\Quan Ly Dang Ky HP\InDanhSach_QuanLyDangKyHocPhan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Dang Ky HP\InDanhSach_QuanLyDangKyHocPhan.Designer.cs">
+      <DependentUpon>InDanhSach_QuanLyDangKyHocPhan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Dang Ky HP\DangKyHocPhan_QuanLyDangKyHocPhan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Dang Ky HP\DangKyHocPhan_QuanLyDangKyHocPhan.Designer.cs">
+      <DependentUpon>DangKyHocPhan_QuanLyDangKyHocPhan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Dang Ky HP\TraCuu_QuanLyDangKyHocPhan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Dang Ky HP\TraCuu_QuanLyDangKyHocPhan.Designer.cs">
+      <DependentUpon>TraCuu_QuanLyDangKyHocPhan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Diem\InDanhSachDiemRenLuyen_QuanLyDiem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Diem\InDanhSachDiemRenLuyen_QuanLyDiem.Designer.cs">
+      <DependentUpon>InDanhSachDiemRenLuyen_QuanLyDiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Diem\InDanhSachDiemThi_QuanLyDiem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Diem\InDanhSachDiemThi_QuanLyDiem.Designer.cs">
+      <DependentUpon>InDanhSachDiemThi_QuanLyDiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Diem\NhapDiemRenLuyen_QuanLyDiem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Diem\NhapDiemRenLuyen_QuanLyDiem.Designer.cs">
+      <DependentUpon>NhapDiemRenLuyen_QuanLyDiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Diem\NhapDiemThi_QuanLyDiem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Diem\NhapDiemThi_QuanLyDiem.Designer.cs">
+      <DependentUpon>NhapDiemThi_QuanLyDiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Diem\TraCuuDiemRenLuyen_QuanLyDiem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Diem\TraCuuDiemRenLuyen_QuanLyDiem.Designer.cs">
+      <DependentUpon>TraCuuDiemRenLuyen_QuanLyDiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Diem\TraCuuDiemThi_QuanLyDiem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Diem\TraCuuDiemThi_QuanLyDiem.Designer.cs">
+      <DependentUpon>TraCuuDiemThi_QuanLyDiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Giang Vien\InDanhSach_QuanLyGiangVien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Giang Vien\InDanhSach_QuanLyGiangVien.Designer.cs">
+      <DependentUpon>InDanhSach_QuanLyGiangVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Giang Vien\QuanLyGiangDay_QuanLyGiangVien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Giang Vien\QuanLyGiangDay_QuanLyGiangVien.Designer.cs">
+      <DependentUpon>QuanLyGiangDay_QuanLyGiangVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Giang Vien\QuanLyThongTinGiangVien_QuanLyGiangVien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Giang Vien\QuanLyThongTinGiangVien_QuanLyGiangVien.Designer.cs">
+      <DependentUpon>QuanLyThongTinGiangVien_QuanLyGiangVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Giang Vien\TraCuuThongTinGiangVien_QuanLyGiangVien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Giang Vien\TraCuuThongTinGiangVien_QuanLyGiangVien.Designer.cs">
+      <DependentUpon>TraCuuThongTinGiangVien_QuanLyGiangVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Giang Vien\XemThongTinGiangDay_QuanLyGiangVien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Giang Vien\XemThongTinGiangDay_QuanLyGiangVien.Designer.cs">
+      <DependentUpon>XemThongTinGiangDay_QuanLyGiangVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Hoc Phi\BaoCao_QuanLyHocPhi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Hoc Phi\BaoCao_QuanLyHocPhi.Designer.cs">
+      <DependentUpon>BaoCao_QuanLyHocPhi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Hoc Phi\NopHocPhi_QuanLyHocPhi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Hoc Phi\NopHocPhi_QuanLyHocPhi.Designer.cs">
+      <DependentUpon>NopHocPhi_QuanLyHocPhi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Hoc Phi\ThietLapMucHocPhi_QuanLyHocPhi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Hoc Phi\ThietLapMucHocPhi_QuanLyHocPhi.Designer.cs">
+      <DependentUpon>ThietLapMucHocPhi_QuanLyHocPhi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Mon Hoc\QuanLyThongTinMonHoc_QuanLyMonHoc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Mon Hoc\QuanLyThongTinMonHoc_QuanLyMonHoc.Designer.cs">
+      <DependentUpon>QuanLyThongTinMonHoc_QuanLyMonHoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Mon Hoc\TraCuuThongTinMonHoc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Mon Hoc\TraCuuThongTinMonHoc.Designer.cs">
+      <DependentUpon>TraCuuThongTinMonHoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Sinh Vien\InDanhSachSinhVien_QuanLySinhVien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Sinh Vien\InDanhSachSinhVien_QuanLySinhVien.Designer.cs">
+      <DependentUpon>InDanhSachSinhVien_QuanLySinhVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Sinh Vien\QuanLyLopHoc_QuanLySinhVien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Sinh Vien\QuanLyLopHoc_QuanLySinhVien.Designer.cs">
+      <DependentUpon>QuanLyLopHoc_QuanLySinhVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Sinh Vien\QuanLyThongTinSinhVien_QuanLySinhVien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Sinh Vien\QuanLyThongTinSinhVien_QuanLySinhVien.Designer.cs">
+      <DependentUpon>QuanLyThongTinSinhVien_QuanLySinhVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Sinh Vien\TraCuuLopHoc_QuanLySinhVien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Sinh Vien\TraCuuLopHoc_QuanLySinhVien.Designer.cs">
+      <DependentUpon>TraCuuLopHoc_QuanLySinhVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Sinh Vien\TraCuuSinhVien_QuanLySinhVien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Sinh Vien\TraCuuSinhVien_QuanLySinhVien.Designer.cs">
+      <DependentUpon>TraCuuSinhVien_QuanLySinhVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Thoi Khoa Bieu\InThoiKhoaBieu_QuanLyThoiKhoaBieu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Thoi Khoa Bieu\InThoiKhoaBieu_QuanLyThoiKhoaBieu.Designer.cs">
+      <DependentUpon>InThoiKhoaBieu_QuanLyThoiKhoaBieu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Thoi Khoa Bieu\LapLichDayHoc_QuanLyThoiKhoaBieu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Thoi Khoa Bieu\LapLichDayHoc_QuanLyThoiKhoaBieu.Designer.cs">
+      <DependentUpon>LapLichDayHoc_QuanLyThoiKhoaBieu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Thoi Khoa Bieu\TraCuuLichDayHoc_QuanLyThoiKhoaBieu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Ly Thoi Khoa Bieu\TraCuuLichDayHoc_QuanLyThoiKhoaBieu.Designer.cs">
+      <DependentUpon>TraCuuLichDayHoc_QuanLyThoiKhoaBieu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Tri Nguoi Dung\QuanLyTaiKhoan_QuanTriNguoiDung.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Tri Nguoi Dung\QuanLyTaiKhoan_QuanTriNguoiDung.Designer.cs">
+      <DependentUpon>QuanLyTaiKhoan_QuanTriNguoiDung.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Tri Nguoi Dung\TraCuuTaiKhoan_QuanTriNguoiDung.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Chuc Nang\Quan Tri Nguoi Dung\TraCuuTaiKhoan_QuanTriNguoiDung.Designer.cs">
+      <DependentUpon>TraCuuTaiKhoan_QuanTriNguoiDung.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DangNhap.Designer.cs">
+      <DependentUpon>DangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Database\CSDL.cs" />
+    <Compile Include="Menu\Quan ly dang ky hoc phan\QuanLyDangKyHocPhan_Menu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menu\Quan ly dang ky hoc phan\QuanLyDangKyHocPhan_Menu.Designer.cs">
+      <DependentUpon>QuanLyDangKyHocPhan_Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\Quan ly diem\QuanLyDiemRenLuyen_Menu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menu\Quan ly diem\QuanLyDiemRenLuyen_Menu.Designer.cs">
+      <DependentUpon>QuanLyDiemRenLuyen_Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\Quan ly diem\QuanLyDiemThi_Menu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menu\Quan ly diem\QuanLyDiemThi_Menu.Designer.cs">
+      <DependentUpon>QuanLyDiemThi_Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\Quan ly diem\ThongTin_Diem_Menu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menu\Quan ly diem\ThongTin_Diem_Menu.Designer.cs">
+      <DependentUpon>ThongTin_Diem_Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\Quan ly giang vien\QuanLyGiangVien_Menu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menu\Quan ly giang vien\QuanLyGiangVien_Menu.Designer.cs">
+      <DependentUpon>QuanLyGiangVien_Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\Quan ly hoc phi\QuanLyHocPhi_Menu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menu\Quan ly hoc phi\QuanLyHocPhi_Menu.Designer.cs">
+      <DependentUpon>QuanLyHocPhi_Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\Quan ly mon hoc\QuanLyMonHoc_Menu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menu\Quan ly mon hoc\QuanLyMonHoc_Menu.Designer.cs">
+      <DependentUpon>QuanLyMonHoc_Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\Quan ly sinh vien\QuanLySinhVien_Menu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menu\Quan ly sinh vien\QuanLySinhVien_Menu.Designer.cs">
+      <DependentUpon>QuanLySinhVien_Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\Quan ly thoi khoa bieu\QuanLyThoiKhoaBieu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menu\Quan ly thoi khoa bieu\QuanLyThoiKhoaBieu.Designer.cs">
+      <DependentUpon>QuanLyThoiKhoaBieu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\Quan tri nguoi dung\QuanTriNguoiDung_Menu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menu\Quan tri nguoi dung\QuanTriNguoiDung_Menu.Designer.cs">
+      <DependentUpon>QuanTriNguoiDung_Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\Quan ly giang vien\ThongTinGiangVien_Menu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menu\Quan ly giang vien\ThongTinGiangVien_Menu.Designer.cs">
+      <DependentUpon>ThongTinGiangVien_Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\Quan ly mon hoc\ThongTinMonHoc_Menu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menu\Quan ly mon hoc\ThongTinMonHoc_Menu.Designer.cs">
+      <DependentUpon>ThongTinMonHoc_Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\Quan ly sinh vien\ThongTinSinhVien_Menu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menu\Quan ly sinh vien\ThongTinSinhVien_Menu.Designer.cs">
+      <DependentUpon>ThongTinSinhVien_Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Trang Chu\UserGiaoVienChuNhiem_TrangChu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Trang Chu\UserGiaoVienChuNhiem_TrangChu.Designer.cs">
+      <DependentUpon>UserGiaoVienChuNhiem_TrangChu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Trang Chu\UserGiaoVienGiangDay_TrangChu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Trang Chu\UserGiaoVienGiangDay_TrangChu.Designer.cs">
+      <DependentUpon>UserGiaoVienGiangDay_TrangChu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Trang Chu\UserGiaoVuKhoa_TrangChu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Trang Chu\UserGiaoVuKhoa_TrangChu.Designer.cs">
+      <DependentUpon>UserGiaoVuKhoa_TrangChu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Trang Chu\UserNhanVienPhongCTCTSV_TrangChu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Trang Chu\UserNhanVienPhongCTCTSV_TrangChu.Designer.cs">
+      <DependentUpon>UserNhanVienPhongCTCTSV_TrangChu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Trang Chu\UserNhanVienPhongTaiVu_TrangChu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Trang Chu\UserNhanVienPhongTaiVu_TrangChu.Designer.cs">
+      <DependentUpon>UserNhanVienPhongTaiVu_TrangChu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TrangChu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TrangChu.Designer.cs">
+      <DependentUpon>TrangChu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Trang Chu\UserNhanVienPhongDaoTao_TrangChu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Trang Chu\UserNhanVienPhongDaoTao_TrangChu.Designer.cs">
+      <DependentUpon>UserNhanVienPhongDaoTao_TrangChu.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Chuc Nang\Quan Ly Dang Ky HP\InDanhSach_QuanLyDangKyHocPhan.resx">
+      <DependentUpon>InDanhSach_QuanLyDangKyHocPhan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chuc Nang\Quan Ly Dang Ky HP\DangKyHocPhan_QuanLyDangKyHocPhan.resx">
+      <DependentUpon>DangKyHocPhan_QuanLyDangKyHocPhan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chuc Nang\Quan Ly Dang Ky HP\TraCuu_QuanLyDangKyHocPhan.resx">
+      <DependentUpon>TraCuu_QuanLyDangKyHocPhan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chuc Nang\Quan Ly Diem\InDanhSachDiemRenLuyen_QuanLyDiem.resx">
+      <DependentUpon>InDanhSachDiemRenLuyen_QuanLyDiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chuc Nang\Quan Ly Diem\InDanhSachDiemThi_QuanLyDiem.resx">
+      <DependentUpon>InDanhSachDiemThi_QuanLyDiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chuc Nang\Quan Ly Diem\NhapDiemRenLuyen_QuanLyDiem.resx">
+      <DependentUpon>NhapDiemRenLuyen_QuanLyDiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chuc Nang\Quan Ly Diem\NhapDiemThi_QuanLyDiem.resx">
+      <DependentUpon>NhapDiemThi_QuanLyDiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chuc Nang\Quan Ly Diem\TraCuuDiemRenLuyen_QuanLyDiem.resx">
+      <DependentUpon>TraCuuDiemRenLuyen_QuanLyDiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chuc Nang\Quan Ly Diem\TraCuuDiemThi_QuanLyDiem.resx">
+      <DependentUpon>TraCuuDiemThi_QuanLyDiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chuc Nang\Quan Ly Giang Vien\InDanhSach_QuanLyGiangVien.resx">
+      <DependentUpon>InDanhSach_QuanLyGiangVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chuc Nang\Quan Ly Giang Vien\QuanLyGiangDay_QuanLyGiangVien.resx">
+      <DependentUpon>QuanLyGiangDay_QuanLyGiangVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chuc Nang\Quan Ly Giang Vien\QuanLyThongTinGiangVien_QuanLyGiangVien.resx">
+      <DependentUpon>QuanLyThongTinGiangVien_QuanLyGiangVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chuc Nang\Quan Ly Giang Vien\TraCuuThongTinGiangVien_QuanLyGiangVien.resx">
+      <DependentUpon>TraCuuThongTinGiangVien_QuanLyGiangVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chuc Nang\Quan Ly Giang Vien\XemThongTinGiangDay_QuanLyGiangVien.resx">
+      <DependentUpon>XemThongTinGiangDay_QuanLyGiangVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chuc Nang\Quan Ly Hoc Phi\BaoCao_QuanLyHocPhi.resx">
+      <DependentUpon>BaoCao_QuanLyHocPhi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chuc Nang\Quan Ly Hoc Phi\NopHocPhi_QuanLyHocPhi.resx">
+      <DependentUpon>NopHocPhi_QuanLyHocPhi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chuc Nang\Quan Ly Hoc Phi\ThietLapMucHocPhi_QuanLyHocPhi.resx">
+      <DependentUpon>ThietLapMucHocPhi_QuanLyHocPhi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chuc Nang\Quan Ly Mon Hoc\QuanLyThongTinMonHoc_QuanLyMonHoc.resx">
+      <DependentUpon>QuanLyThongTinMonHoc_QuanLyMonHoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chuc Nang\Quan Ly Mon Hoc\TraCuuThongTinMonHoc.resx">
+      <DependentUpon>TraCuuThongTinMonHoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chuc Nang\Quan Ly Sinh Vien\InDanhSachSinhVien_QuanLySinhVien.resx">
+      <DependentUpon>InDanhSachSinhVien_QuanLySinhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chuc Nang\Quan Ly Sinh Vien\QuanLyLopHoc_QuanLySinhVien.resx">
+      <DependentUpon>QuanLyLopHoc_QuanLySinhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chuc Nang\Quan Ly Sinh Vien\QuanLyThongTinSinhVien_QuanLySinhVien.resx">
+      <DependentUpon>QuanLyThongTinSinhVien_QuanLySinhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chuc Nang\Quan Ly Sinh Vien\TraCuuLopHoc_QuanLySinhVien.resx">
+      <DependentUpon>TraCuuLopHoc_QuanLySinhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chuc Nang\Quan Ly Sinh Vien\TraCuuSinhVien_QuanLySinhVien.resx">
+      <DependentUpon>TraCuuSinhVien_QuanLySinhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chuc Nang\Quan Ly Thoi Khoa Bieu\InThoiKhoaBieu_QuanLyThoiKhoaBieu.resx">
+      <DependentUpon>InThoiKhoaBieu_QuanLyThoiKhoaBieu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chuc Nang\Quan Ly Thoi Khoa Bieu\LapLichDayHoc_QuanLyThoiKhoaBieu.resx">
+      <DependentUpon>LapLichDayHoc_QuanLyThoiKhoaBieu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chuc Nang\Quan Ly Thoi Khoa Bieu\TraCuuLichDayHoc_QuanLyThoiKhoaBieu.resx">
+      <DependentUpon>TraCuuLichDayHoc_QuanLyThoiKhoaBieu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chuc Nang\Quan Tri Nguoi Dung\QuanLyTaiKhoan_QuanTriNguoiDung.resx">
+      <DependentUpon>QuanLyTaiKhoan_QuanTriNguoiDung.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chuc Nang\Quan Tri Nguoi Dung\TraCuuTaiKhoan_QuanTriNguoiDung.resx">
+      <DependentUpon>TraCuuTaiKhoan_QuanTriNguoiDung.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DangNhap.resx">
+      <DependentUpon>DangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\Quan ly dang ky hoc phan\QuanLyDangKyHocPhan_Menu.resx">
+      <DependentUpon>QuanLyDangKyHocPhan_Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\Quan ly diem\QuanLyDiemRenLuyen_Menu.resx">
+      <DependentUpon>QuanLyDiemRenLuyen_Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\Quan ly diem\QuanLyDiemThi_Menu.resx">
+      <DependentUpon>QuanLyDiemThi_Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\Quan ly diem\ThongTin_Diem_Menu.resx">
+      <DependentUpon>ThongTin_Diem_Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\Quan ly giang vien\QuanLyGiangVien_Menu.resx">
+      <DependentUpon>QuanLyGiangVien_Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\Quan ly hoc phi\QuanLyHocPhi_Menu.resx">
+      <DependentUpon>QuanLyHocPhi_Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\Quan ly mon hoc\QuanLyMonHoc_Menu.resx">
+      <DependentUpon>QuanLyMonHoc_Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\Quan ly sinh vien\QuanLySinhVien_Menu.resx">
+      <DependentUpon>QuanLySinhVien_Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\Quan ly thoi khoa bieu\QuanLyThoiKhoaBieu.resx">
+      <DependentUpon>QuanLyThoiKhoaBieu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\Quan tri nguoi dung\QuanTriNguoiDung_Menu.resx">
+      <DependentUpon>QuanTriNguoiDung_Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\Quan ly giang vien\ThongTinGiangVien_Menu.resx">
+      <DependentUpon>ThongTinGiangVien_Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\Quan ly mon hoc\ThongTinMonHoc_Menu.resx">
+      <DependentUpon>ThongTinMonHoc_Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\Quan ly sinh vien\ThongTinSinhVien_Menu.resx">
+      <DependentUpon>ThongTinSinhVien_Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Trang Chu\UserGiaoVienChuNhiem_TrangChu.resx">
+      <DependentUpon>UserGiaoVienChuNhiem_TrangChu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Trang Chu\UserGiaoVienGiangDay_TrangChu.resx">
+      <DependentUpon>UserGiaoVienGiangDay_TrangChu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Trang Chu\UserGiaoVuKhoa_TrangChu.resx">
+      <DependentUpon>UserGiaoVuKhoa_TrangChu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Trang Chu\UserNhanVienPhongCTCTSV_TrangChu.resx">
+      <DependentUpon>UserNhanVienPhongCTCTSV_TrangChu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Trang Chu\UserNhanVienPhongTaiVu_TrangChu.resx">
+      <DependentUpon>UserNhanVienPhongTaiVu_TrangChu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TrangChu.resx">
+      <DependentUpon>TrangChu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Trang Chu\UserNhanVienPhongDaoTao_TrangChu.resx">
+      <DependentUpon>UserNhanVienPhongDaoTao_TrangChu.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Screenshot 2023-10-29 142741.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Screenshot 2023-10-29 144000.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Screenshot 2023-10-29 145226.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\school-management-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teacher-management-3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-user-settings-icon-315-thumb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\421-4210457_transparent-article-icon-png-add-new-article-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\23-232432_book-icon-transparent-blue-book-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kisspng-computer-icons-project-management-icon-design-prog-automation-5ac01c9dda79b9.7765722115225396778949.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\classroom-300x300.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo_trường_Đại_học_Tiền_Giang.svg1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Screenshot 2023-10-29 1452261.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Data_security_05.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\padlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4196606.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7159433.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\test-icon-png-12.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8521795.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
