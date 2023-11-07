@@ -10,7 +10,7 @@ namespace Quan_Ly_Dao_Tao.Database
 {
     internal class CSDL
     {
-        public static string svName = @"DESKTOP-KM5JH95\SQLEXPRESS";
+        public static string svName = @"THAVICO-0HN4EKU\SQLEXPRESS";
         public static string dbName = "QLDT";
         
         public static string MaGV = "";
