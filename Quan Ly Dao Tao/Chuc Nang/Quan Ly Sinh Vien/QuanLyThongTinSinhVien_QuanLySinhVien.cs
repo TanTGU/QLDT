@@ -56,9 +56,33 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
             }
         }
 
+        void LayDuLieuKhoiTao()
+        {
+            cbGioiTinh.Items.Clear();
+            cbGioiTinh.Items.Add("Nam");
+            cbGioiTinh.Items.Add("Nữ");
+
+            string sql1 = "select Ten from BACDAOTAO";
+            DataTable dt1 = CSDL.LayDuLieu(sql1);
+            cbBacDaoTao.Items.Clear();
+            for(int i = 0; i < dt1.Rows.Count; i++)
+            {
+                cbBacDaoTao.Items.Add(dt1.Rows[i][0].ToString());
+            }
+
+            string sql2 = "select Ten from HINHTHUCDAOTAO";
+            DataTable dt2 = CSDL.LayDuLieu(sql2);
+            cbHinhThucDaoTao.Items.Clear();
+            for (int i = 0; i < dt2.Rows.Count; i++)
+            {
+                cbHinhThucDaoTao.Items.Add(dt2.Rows[i][0].ToString());
+            }
+        }
+
         private void QuanLyThongTinSinhVien_QuanLySinhVien_Load(object sender, EventArgs e)
         {
             LayDSDonVi();
+            LayDuLieuKhoiTao();
         }
 
         string LayMaDV(string Ten)
