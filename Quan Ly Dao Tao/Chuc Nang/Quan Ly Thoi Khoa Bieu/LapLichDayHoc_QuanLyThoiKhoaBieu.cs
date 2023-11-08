@@ -83,7 +83,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
 
         private void LapLichDayHoc_QuanLyThoiKhoaBieu_Load(object sender, EventArgs e)
         {
-            LoadComboBox();
+            LoadComboBox(); //
         }
         public void LoadComboBox()
         {
