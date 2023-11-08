@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Quan_Ly_Dao_Tao.Database;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -68,5 +69,41 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
             }
 
         }
+
+        private void InThoiKhoaBieu_QuanLyThoiKhoaBieu_Load(object sender, EventArgs e)
+        {
+            LoadDonVi();
+            LoadHocKy();
+            LoadNamHoc();
+        }
+
+        public void LoadNamHoc()
+        {
+            string sql = "select * from NAMHOC";
+            DataTable dt = new DataTable();
+            dt = CSDL.LayDuLieu(sql);
+            for(int i=0; i<dt.Rows.Count; i++)
+            {
+                cboNamHoc.Items.Add(dt.Rows[i][0].ToString());
+            }
+        }
+        public void LoadHocKy()
+        {
+            cboHocKy.Items.Add("1");
+            cboHocKy.Items.Add("2");
+        }
+        public void LoadDonVi()
+        {
+            string sql = "select MaDV from DONVI";
+            DataTable dt = new DataTable();
+            dt = CSDL.LayDuLieu(sql);
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                cboDonVi.Items.Add(dt.Rows[i][0].ToString());
+            }
+        }
+
+
+
     }
 }

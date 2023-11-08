@@ -488,6 +488,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "InThoiKhoaBieu_QuanLyThoiKhoaBieu";
             this.Size = new System.Drawing.Size(1359, 577);
+            this.Load += new System.EventHandler(this.InThoiKhoaBieu_QuanLyThoiKhoaBieu_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

@@ -83,5 +83,62 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
                 cboDonVi.Items.Add(dt.Rows[i][0].ToString());
             }
         }
+
+        private void btnTim_Click(object sender, EventArgs e)
+        {
+            if (cboDonVi.SelectedIndex != -1 && !string.IsNullOrEmpty(txtTimMaMH.Text))
+            {
+                string sql = "select MaMH, TenMH from MONHOC, NGANH where MaDV='" + cboDonVi.SelectedItem.ToString() + "' and MaMH='" + txtTimMaMH.Text + "' and MONHOC.TenNganh = NGANH.TenNganh";
+                DataTable dt = new DataTable();
+                dt = CSDL.LayDuLieu(sql);
+                int dem = dt.Rows.Count;
+                if (dem > 0)
+                {
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        string maMH = row["MaMH"].ToString();
+                        string tenMH = row["TenMH"].ToString();
+
+                        if (!IsMonHocDaTonTai(maMH))
+                        {
+                            ListViewItem listItem = new ListViewItem(maMH);
+                            listItem.SubItems.Add(tenMH);
+                            listMH.Items.Add(listItem);
+                        }
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Không có môn học cần tìm",
+                                    "Thông báo",
+                                     MessageBoxButtons.OKCancel,
+                                     MessageBoxIcon.Information);
+                }
+
+
+            }
+            else
+            {
+                MessageBox.Show("Dữ liệu không được để trống. Vui lòng nhập lại!",
+                                "Thông báo",
+                                MessageBoxButtons.OKCancel,
+                                MessageBoxIcon.Error);
+            }
+        }
+
+        // hàm kiểm tra môn học có tồn tại trong listMH chưa
+        private bool IsMonHocDaTonTai(string maMH)
+        {
+            foreach (ListViewItem item in listMH.Items)
+            {
+                if (item.Text == maMH)
+                {
+                    return true; // Môn học đã tồn tại trong ListView
+                }
+            }
+            return false; // Môn học chưa tồn tại trong ListView
+        }
+
     }
 }

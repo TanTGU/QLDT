@@ -179,6 +179,7 @@
             this.listMH.View = System.Windows.Forms.View.Details;
             this.listMH.DrawColumnHeader += new System.Windows.Forms.DrawListViewColumnHeaderEventHandler(this.listMH_DrawColumnHeader);
             this.listMH.DrawItem += new System.Windows.Forms.DrawListViewItemEventHandler(this.listMH_DrawItem);
+            this.listMH.Click += new System.EventHandler(this.listMH_Click);
             // 
             // columnHeader1
             // 
@@ -305,6 +306,7 @@
             this.btnXoa.TabIndex = 47;
             this.btnXoa.Text = "XÓA";
             this.btnXoa.UseVisualStyleBackColor = false;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // txtTiet
             // 
@@ -328,6 +330,7 @@
             this.btnCapNhat.TabIndex = 46;
             this.btnCapNhat.Text = "CẬP NHẬT";
             this.btnCapNhat.UseVisualStyleBackColor = false;
+            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
             // 
             // btnThem
             // 
@@ -342,6 +345,7 @@
             this.btnThem.TabIndex = 30;
             this.btnThem.Text = "THÊM MỚI";
             this.btnThem.UseVisualStyleBackColor = false;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // txtTenGV
             // 
