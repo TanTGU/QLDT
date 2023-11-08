@@ -19,42 +19,17 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
             InitializeComponent();
         }
 
-        private void listDS_DrawColumnHeader(object sender, DrawListViewColumnHeaderEventArgs e)
-        {
-            // Tô màu nền
-            e.Graphics.FillRectangle(Brushes.RoyalBlue, e.Bounds);
-            // vẽ lại dòng tiêu đề với font in đậm và màu trắng
-            e.Graphics.DrawString(e.Header.Text, new Font(FontFamily.GenericSansSerif, 12, FontStyle.Bold), Brushes.White, e.Bounds);
-
-        }
-
-        private void listDS_DrawItem(object sender, DrawListViewItemEventArgs e)
-        {
-            e.DrawDefault = true;
-            if (e.Item != null)
-            {
-                if (e.ItemIndex == 0) // Nếu là dòng tiêu đề
-                {
-                }
-                else // Nếu là các dòng dữ liệu
-                {
-                    // Vẽ các dòng dữ liệu với màu chữ đen và font size nhỏ hơn
-                    e.Graphics.DrawString(listDS.Name, new Font(FontFamily.GenericSansSerif, 12), Brushes.Black, e.Bounds.Left, e.Bounds.Top);
-                }
-            }
-
-        }
-
         void LayDSDonVi()
         {
             string sql = "select *from DONVI";
             DataTable dt = CSDL.LayDuLieu(sql);
             cbDonVi.Items.Clear();
-            for(int i = 0; i < dt.Rows.Count; i++)
+            for (int i = 0; i < dt.Rows.Count; i++)
             {
                 cbDonVi.Items.Add(dt.Rows[i][1].ToString());
             }
         }
+        
 
         void LayDuLieuKhoiTao()
         {
@@ -65,7 +40,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
             string sql1 = "select Ten from BACDAOTAO";
             DataTable dt1 = CSDL.LayDuLieu(sql1);
             cbBacDaoTao.Items.Clear();
-            for(int i = 0; i < dt1.Rows.Count; i++)
+            for (int i = 0; i < dt1.Rows.Count; i++)
             {
                 cbBacDaoTao.Items.Add(dt1.Rows[i][0].ToString());
             }
@@ -79,18 +54,12 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
             }
         }
 
-        private void QuanLyThongTinSinhVien_QuanLySinhVien_Load(object sender, EventArgs e)
-        {
-            LayDSDonVi();
-            LayDuLieuKhoiTao();
-        }
-
         string LayMaDV(string Ten)
         {
-            string sql = "select MaDV from DONVI where TenDV = N'"+Ten+"'";
+            string sql = "select MaDV from DONVI where TenDV = N'" + Ten + "'";
             DataTable dt = CSDL.LayDuLieu(sql);
             string Ma = "";
-            if(dt.Rows.Count > 0)
+            if (dt.Rows.Count > 0)
             {
                 Ma = dt.Rows[0][0].ToString();
             }
@@ -126,6 +95,42 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
             cbBacDaoTao.Text = "";
         }
 
+        private void listDS_DrawColumnHeader(object sender, DrawListViewColumnHeaderEventArgs e)
+        {
+            // Tô màu nền
+            e.Graphics.FillRectangle(Brushes.RoyalBlue, e.Bounds);
+            // vẽ lại dòng tiêu đề với font in đậm và màu trắng
+            e.Graphics.DrawString(e.Header.Text, new Font(FontFamily.GenericSansSerif, 12, FontStyle.Bold), Brushes.White, e.Bounds);
+
+        }
+
+        private void listDS_DrawItem(object sender, DrawListViewItemEventArgs e)
+        {
+            e.DrawDefault = true;
+            if (e.Item != null)
+            {
+                if (e.ItemIndex == 0) // Nếu là dòng tiêu đề
+                {
+                }
+                else // Nếu là các dòng dữ liệu
+                {
+                    // Vẽ các dòng dữ liệu với màu chữ đen và font size nhỏ hơn
+                    e.Graphics.DrawString(listDS.Name, new Font(FontFamily.GenericSansSerif, 12), Brushes.Black, e.Bounds.Left, e.Bounds.Top);
+                }
+            }
+
+        }
+
+        
+
+        private void QuanLyThongTinSinhVien_QuanLySinhVien_Load(object sender, EventArgs e)
+        {
+            LayDSDonVi();
+            LayDuLieuKhoiTao();
+        }
+
+        
+
         private void cbDonVi_SelectedIndexChanged(object sender, EventArgs e)
         {
             LamMoi();
@@ -137,6 +142,9 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
             {
                 cbLop.Items.Add(dt.Rows[i][0].ToString());
             }
+            cbLop.Text = "";
+            listDS.Items.Clear();
+            tbTimMaLop.Text = "";
         }
 
         private void cbLop_SelectedIndexChanged(object sender, EventArgs e)
