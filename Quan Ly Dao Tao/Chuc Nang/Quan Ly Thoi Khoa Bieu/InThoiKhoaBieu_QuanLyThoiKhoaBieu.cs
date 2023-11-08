@@ -103,7 +103,9 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
             }
         }
 
-
-
+        private void btnTim_Click(object sender, EventArgs e)
+        {
+            //
+        }
     }
 }
