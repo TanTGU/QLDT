@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.Sql;
 
 namespace Quan_Ly_Dao_Tao.Database
 {
