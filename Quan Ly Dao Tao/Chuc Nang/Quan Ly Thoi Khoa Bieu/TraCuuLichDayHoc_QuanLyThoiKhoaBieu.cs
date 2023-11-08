@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Quan_Ly_Dao_Tao.Database;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -64,6 +65,22 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
                     // Vẽ các dòng dữ liệu với màu chữ đen và font size nhỏ hơn
                     e.Graphics.DrawString(listHP.Name, new Font(FontFamily.GenericSansSerif, 12), Brushes.Black, e.Bounds.Left, e.Bounds.Top);
                 }
+            }
+        }
+
+        private void TraCuuLichDayHoc_QuanLyThoiKhoaBieu_Load(object sender, EventArgs e)
+        {
+            CSDL.KetNoi();
+            string sql = "select * from DONVI";
+            LoadComboBox(sql);
+        }
+        void LoadComboBox(string sql)
+        {
+            DataTable dt = new DataTable();
+            dt = CSDL.LayDuLieu(sql);
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                cboDV.Items.Add(dt.Rows[i][0].ToString());
             }
         }
     }
