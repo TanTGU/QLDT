@@ -28,107 +28,158 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.listDS = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label2 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbBac = new System.Windows.Forms.ComboBox();
+            this.cbNganh = new System.Windows.Forms.ComboBox();
+            this.tbTenDonVi = new System.Windows.Forms.TextBox();
+            this.tbMaDV = new System.Windows.Forms.TextBox();
+            this.tbTenGVCN = new System.Windows.Forms.TextBox();
+            this.tbMaGVCN = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tbTenLop = new System.Windows.Forms.TextBox();
+            this.tbMaLop = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbDonVi = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox6
+            // listDS
             // 
-            this.textBox6.Enabled = false;
-            this.textBox6.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(528, 69);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(314, 27);
-            this.textBox6.TabIndex = 63;
+            this.listDS.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2});
+            this.listDS.FullRowSelect = true;
+            this.listDS.GridLines = true;
+            this.listDS.HideSelection = false;
+            this.listDS.Location = new System.Drawing.Point(16, 137);
+            this.listDS.Name = "listDS";
+            this.listDS.OwnerDraw = true;
+            this.listDS.Size = new System.Drawing.Size(453, 419);
+            this.listDS.TabIndex = 112;
+            this.listDS.UseCompatibleStateImageBehavior = false;
+            this.listDS.View = System.Windows.Forms.View.Details;
+            this.listDS.DrawColumnHeader += new System.Windows.Forms.DrawListViewColumnHeaderEventHandler(this.listDS_DrawColumnHeader);
+            this.listDS.DrawItem += new System.Windows.Forms.DrawListViewItemEventHandler(this.listDS_DrawItem);
+            this.listDS.SelectedIndexChanged += new System.EventHandler(this.listDS_SelectedIndexChanged);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Mã lớp";
+            this.columnHeader1.Width = 146;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Tên lớp";
+            this.columnHeader2.Width = 303;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.label2.Location = new System.Drawing.Point(12, 111);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(220, 23);
+            this.label2.TabIndex = 111;
+            this.label2.Text = "DANH SÁCH LỚP HỌC";
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox6);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.textBox8);
-            this.groupBox1.Controls.Add(this.textBox7);
-            this.groupBox1.Controls.Add(this.textBox5);
+            this.groupBox1.Controls.Add(this.cbBac);
+            this.groupBox1.Controls.Add(this.cbNganh);
+            this.groupBox1.Controls.Add(this.tbTenDonVi);
+            this.groupBox1.Controls.Add(this.tbMaDV);
+            this.groupBox1.Controls.Add(this.tbTenGVCN);
+            this.groupBox1.Controls.Add(this.tbMaGVCN);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.textBox4);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.tbTenLop);
+            this.groupBox1.Controls.Add(this.tbMaLop);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.groupBox1.Location = new System.Drawing.Point(489, 16);
+            this.groupBox1.Location = new System.Drawing.Point(489, 14);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(855, 201);
-            this.groupBox1.TabIndex = 113;
+            this.groupBox1.Size = new System.Drawing.Size(855, 212);
+            this.groupBox1.TabIndex = 114;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "THÔNG TIN LỚP";
             // 
-            // textBox1
+            // cbBac
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(170, 69);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(243, 27);
-            this.textBox1.TabIndex = 62;
+            this.cbBac.Enabled = false;
+            this.cbBac.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbBac.FormattingEnabled = true;
+            this.cbBac.Location = new System.Drawing.Point(528, 110);
+            this.cbBac.Name = "cbBac";
+            this.cbBac.Size = new System.Drawing.Size(314, 27);
+            this.cbBac.TabIndex = 64;
             // 
-            // textBox8
+            // cbNganh
             // 
-            this.textBox8.Enabled = false;
-            this.textBox8.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(528, 150);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(314, 27);
-            this.textBox8.TabIndex = 61;
+            this.cbNganh.Enabled = false;
+            this.cbNganh.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbNganh.FormattingEnabled = true;
+            this.cbNganh.Location = new System.Drawing.Point(112, 110);
+            this.cbNganh.Name = "cbNganh";
+            this.cbNganh.Size = new System.Drawing.Size(301, 27);
+            this.cbNganh.TabIndex = 12;
             // 
-            // textBox7
+            // tbTenDonVi
             // 
-            this.textBox7.Enabled = false;
-            this.textBox7.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(528, 105);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(314, 27);
-            this.textBox7.TabIndex = 60;
+            this.tbTenDonVi.Enabled = false;
+            this.tbTenDonVi.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTenDonVi.Location = new System.Drawing.Point(528, 69);
+            this.tbTenDonVi.Name = "tbTenDonVi";
+            this.tbTenDonVi.Size = new System.Drawing.Size(314, 27);
+            this.tbTenDonVi.TabIndex = 63;
             // 
-            // textBox5
+            // tbMaDV
             // 
-            this.textBox5.Enabled = false;
-            this.textBox5.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(170, 150);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(243, 27);
-            this.textBox5.TabIndex = 54;
+            this.tbMaDV.Enabled = false;
+            this.tbMaDV.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbMaDV.Location = new System.Drawing.Point(112, 69);
+            this.tbMaDV.Name = "tbMaDV";
+            this.tbMaDV.Size = new System.Drawing.Size(301, 27);
+            this.tbMaDV.TabIndex = 62;
+            // 
+            // tbTenGVCN
+            // 
+            this.tbTenGVCN.Enabled = false;
+            this.tbTenGVCN.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTenGVCN.Location = new System.Drawing.Point(528, 150);
+            this.tbTenGVCN.Name = "tbTenGVCN";
+            this.tbTenGVCN.Size = new System.Drawing.Size(314, 27);
+            this.tbTenGVCN.TabIndex = 61;
+            // 
+            // tbMaGVCN
+            // 
+            this.tbMaGVCN.Enabled = false;
+            this.tbMaGVCN.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbMaGVCN.Location = new System.Drawing.Point(112, 150);
+            this.tbMaGVCN.Name = "tbMaGVCN";
+            this.tbMaGVCN.Size = new System.Drawing.Size(301, 27);
+            this.tbMaGVCN.TabIndex = 54;
             // 
             // label13
             // 
@@ -151,15 +202,6 @@
             this.label12.Size = new System.Drawing.Size(90, 19);
             this.label12.TabIndex = 44;
             this.label12.Text = "Mã GVCN:";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Enabled = false;
-            this.textBox4.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(170, 110);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(243, 27);
-            this.textBox4.TabIndex = 43;
             // 
             // label11
             // 
@@ -204,23 +246,23 @@
             this.label8.TabIndex = 37;
             this.label8.Text = "Tên đơn vị:";
             // 
-            // textBox3
+            // tbTenLop
             // 
-            this.textBox3.Enabled = false;
-            this.textBox3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(528, 29);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(314, 27);
-            this.textBox3.TabIndex = 35;
+            this.tbTenLop.Enabled = false;
+            this.tbTenLop.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTenLop.Location = new System.Drawing.Point(528, 29);
+            this.tbTenLop.Name = "tbTenLop";
+            this.tbTenLop.Size = new System.Drawing.Size(314, 27);
+            this.tbTenLop.TabIndex = 35;
             // 
-            // textBox2
+            // tbMaLop
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(170, 30);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(243, 27);
-            this.textBox2.TabIndex = 34;
+            this.tbMaLop.Enabled = false;
+            this.tbMaLop.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbMaLop.Location = new System.Drawing.Point(112, 30);
+            this.tbMaLop.Name = "tbMaLop";
+            this.tbMaLop.Size = new System.Drawing.Size(301, 27);
+            this.tbMaLop.TabIndex = 34;
             // 
             // label4
             // 
@@ -257,25 +299,26 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.comboBox1);
+            this.groupBox2.Controls.Add(this.cbDonVi);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.groupBox2.Location = new System.Drawing.Point(16, 16);
+            this.groupBox2.Location = new System.Drawing.Point(16, 14);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(453, 79);
-            this.groupBox2.TabIndex = 110;
+            this.groupBox2.TabIndex = 113;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "THÔNG TIN TÌM KIẾM";
             // 
-            // comboBox1
+            // cbDonVi
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(102, 30);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(331, 27);
-            this.comboBox1.TabIndex = 11;
+            this.cbDonVi.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbDonVi.FormattingEnabled = true;
+            this.cbDonVi.Location = new System.Drawing.Point(78, 30);
+            this.cbDonVi.Name = "cbDonVi";
+            this.cbDonVi.Size = new System.Drawing.Size(355, 27);
+            this.cbDonVi.TabIndex = 11;
+            this.cbDonVi.SelectedIndexChanged += new System.EventHandler(this.cbDonVi_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -287,45 +330,6 @@
             this.label3.Size = new System.Drawing.Size(66, 19);
             this.label3.TabIndex = 10;
             this.label3.Text = "Đơn vị:";
-            // 
-            // listDS
-            // 
-            this.listDS.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2});
-            this.listDS.FullRowSelect = true;
-            this.listDS.GridLines = true;
-            this.listDS.HideSelection = false;
-            this.listDS.Location = new System.Drawing.Point(16, 137);
-            this.listDS.Name = "listDS";
-            this.listDS.OwnerDraw = true;
-            this.listDS.Size = new System.Drawing.Size(453, 419);
-            this.listDS.TabIndex = 112;
-            this.listDS.UseCompatibleStateImageBehavior = false;
-            this.listDS.View = System.Windows.Forms.View.Details;
-            this.listDS.DrawColumnHeader += new System.Windows.Forms.DrawListViewColumnHeaderEventHandler(this.listDS_DrawColumnHeader);
-            this.listDS.DrawItem += new System.Windows.Forms.DrawListViewItemEventHandler(this.listDS_DrawItem);
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Mã lớp";
-            this.columnHeader1.Width = 146;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Tên lớp";
-            this.columnHeader2.Width = 303;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label2.Location = new System.Drawing.Point(12, 111);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(220, 23);
-            this.label2.TabIndex = 111;
-            this.label2.Text = "DANH SÁCH LỚP HỌC";
             // 
             // TraCuuLopHoc_QuanLySinhVien
             // 
@@ -340,6 +344,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TraCuuLopHoc_QuanLySinhVien";
             this.Size = new System.Drawing.Size(1359, 577);
+            this.Load += new System.EventHandler(this.TraCuuLopHoc_QuanLySinhVien_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -350,31 +355,30 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ListView listDS;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ComboBox cbBac;
+        private System.Windows.Forms.ComboBox cbNganh;
+        private System.Windows.Forms.TextBox tbTenDonVi;
+        private System.Windows.Forms.TextBox tbMaDV;
+        private System.Windows.Forms.TextBox tbTenGVCN;
+        private System.Windows.Forms.TextBox tbMaGVCN;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox tbTenLop;
+        private System.Windows.Forms.TextBox tbMaLop;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.ComboBox cbDonVi;
+        private System.Windows.Forms.Label label3;
     }
 }

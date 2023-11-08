@@ -71,7 +71,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Dang_Ky_HP
 
         private void DangKyHocPhan_QuanLyDangKyHocPhan_Load(object sender, EventArgs e)
         {
-            
+            //comnffffff
         }
 
         private void button4_Click(object sender, EventArgs e)

@@ -57,7 +57,7 @@ namespace Quan_Ly_Dao_Tao
                     MessageBox.Show("Thông tin đăng nhập không chính xác, Vui lòng thử lại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 MessageBox.Show("Hệ thống đã xảy ra lỗi, vui lòng thử lại sau!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
