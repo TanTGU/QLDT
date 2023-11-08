@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Quan_Ly_Dao_Tao.Database;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -73,10 +74,26 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
         {
 
         }
+        
 
         private void btnTim_Click(object sender, EventArgs e)
         {
-            //
+            
+        }
+
+        private void LapLichDayHoc_QuanLyThoiKhoaBieu_Load(object sender, EventArgs e)
+        {
+            LoadComboBox();
+        }
+        public void LoadComboBox()
+        {
+            string sql = "select MaDV from DONVI";
+            DataTable dt = new DataTable();
+            dt = CSDL.LayDuLieu(sql);
+            for(int i=0; i<dt.Rows.Count; i++)
+            {
+                cboDonVi.Items.Add(dt.Rows[i][0].ToString());
+            }
         }
     }
 }
