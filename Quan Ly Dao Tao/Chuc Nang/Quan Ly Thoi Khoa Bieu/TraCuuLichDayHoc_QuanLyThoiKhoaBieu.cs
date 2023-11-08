@@ -80,7 +80,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
             dt = CSDL.LayDuLieu(sql);
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                cboDV.Items.Add(dt.Rows[i][0].ToString());
+                cboDonVi.Items.Add(dt.Rows[i][0].ToString());
             }
         }
     }
