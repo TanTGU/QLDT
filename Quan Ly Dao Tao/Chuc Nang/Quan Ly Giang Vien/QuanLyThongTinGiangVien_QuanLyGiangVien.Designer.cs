@@ -354,6 +354,7 @@
             this.cbdonvi.Name = "cbdonvi";
             this.cbdonvi.Size = new System.Drawing.Size(382, 27);
             this.cbdonvi.TabIndex = 11;
+            this.cbdonvi.SelectedIndexChanged += new System.EventHandler(this.cbdonvi_SelectedIndexChanged);
             // 
             // label3
             // 

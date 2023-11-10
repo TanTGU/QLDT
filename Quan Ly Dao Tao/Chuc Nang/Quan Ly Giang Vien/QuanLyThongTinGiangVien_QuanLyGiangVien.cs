@@ -58,9 +58,11 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Giang_Vien
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 cbdonvi.Items.Add(dt.Rows[i][1].ToString());
+    
                 cbdonvi1.Items.Add(dt.Rows[i][1].ToString());
 
             }
+            
             string sql1 = "select MaGV, HoTen, MaDV From GIANGVIEN ";
             DataTable dt1= new DataTable();
             dt1 = CSDL.LayDuLieu(sql1);
@@ -89,6 +91,24 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Giang_Vien
         private void listDS_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void cbdonvi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string dv = cbdonvi.SelectedItem.ToString();
+            string sql = "select MaDV from DONVI where TenDV= N'" +dv +"'";
+            DataTable dt = new DataTable();
+            dt = CSDL.LayDuLieu(sql);
+            string sql1 = "select MaGV, HoTen, MaDV From GIANGVIEN where MaDV= '"+ dt.Rows[0][0].ToString()+"'";
+            DataTable dt1 = new DataTable();
+            dt1 = CSDL.LayDuLieu(sql1);
+            listDS.Items.Clear();
+            for (int i = 0; i < dt1.Rows.Count; i++)
+            {
+                listDS.Items.Add(dt1.Rows[i][0].ToString());
+                listDS.Items[i].SubItems.Add(dt1.Rows[i][1].ToString());
+                listDS.Items[i].SubItems.Add(dt1.Rows[i][2].ToString());
+            }
         }
     }
 }
