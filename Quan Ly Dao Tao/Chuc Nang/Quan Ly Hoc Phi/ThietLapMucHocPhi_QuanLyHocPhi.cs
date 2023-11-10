@@ -25,6 +25,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Hoc_Phi
             cbDonVi.Items.Clear();
             for(int i = 0; i < dt.Rows.Count; i++)
             {
+                //
                 cbDonVi.Items.Add(dt.Rows[i][1].ToString());
             }
 
