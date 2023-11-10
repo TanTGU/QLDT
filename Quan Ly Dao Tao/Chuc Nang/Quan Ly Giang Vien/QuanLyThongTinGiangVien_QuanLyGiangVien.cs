@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Quan_Ly_Dao_Tao.Database;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -41,6 +42,25 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Giang_Vien
                 }
             }
 
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void QuanLyThongTinGiangVien_QuanLyGiangVien_Load(object sender, EventArgs e)
+        {
+            CSDL.KetNoi();
+            DataTable dt = new DataTable();
+            String sql = @"select * from donvi";
+            dt = CSDL.LayDuLieu(sql);
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                cbdonvi.Items.Add(dt.Rows[i][1].ToString());
+                cbdonvi1.Items.Add(dt.Rows[i][1].ToString());
+
+            }
         }
     }
 }
