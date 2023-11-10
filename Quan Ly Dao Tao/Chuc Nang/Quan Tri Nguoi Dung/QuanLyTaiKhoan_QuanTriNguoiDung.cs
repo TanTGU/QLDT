@@ -94,7 +94,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Tri_Nguoi_Dung
                 //{
                 //    if (dt.Rows[0][0].ToString() == null)
                 //    {
-                //        tbMaGV.Text = "";
+                //        tbMaGV.Text = "";m
                 //    }
                 //    tbHoTen.Text = dt.Rows[0][1].ToString();
                 //    tbTK.Text = listDS.SelectedItems[0].SubItems[0].Text;
