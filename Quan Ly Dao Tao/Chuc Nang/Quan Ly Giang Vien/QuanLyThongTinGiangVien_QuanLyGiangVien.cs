@@ -90,7 +90,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Giang_Vien
 
         private void listDS_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            //string ma = listDS.SelectedItems[0].SubItems[0];
         }
 
         private void cbdonvi_SelectedIndexChanged(object sender, EventArgs e)
