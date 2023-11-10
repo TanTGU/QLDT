@@ -119,8 +119,6 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Hoc_Phi
             listDS.Items.Add(dt.Rows[0][0].ToString());
             listDS.Items[0].SubItems.Add(dt.Rows[0][1].ToString());
             listDS.Items[0].SubItems.Add(dt.Rows[0][2].ToString());
-            //
-
         }
 
         private void button4_Click(object sender, EventArgs e)
