@@ -101,14 +101,14 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Giang_Vien
 
         private void listDS_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listDS.SelectedItems.Count != 0)
+             if (listDS.SelectedItems.Count != 0)
             {
                 string txt = listDS.SelectedItems[0].SubItems[0].Text;
-
-                string sql = "select * from GIANGVIEN where MaGV='" + txt + "'";
+                
+                string sql = "select * from GIANGVIEN where MaGV='" + txt+"'";
                 DataTable dt = new DataTable();
                 dt = CSDL.LayDuLieu(sql);
-
+                
                 txtGV.Text = dt.Rows[0][0].ToString();
                 txtHoten.Text = dt.Rows[0][1].ToString();
                 d1.Text = dt.Rows[0][2].ToString();
@@ -118,8 +118,8 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Giang_Vien
                 txtDiachi.Text = dt.Rows[0][6].ToString();
                 cbdonvi1.Text = dt.Rows[0][7].ToString();
                 txtHH.Text = dt.Rows[0][8].ToString();
-                txtHV.Text = dt.Rows[0][9].ToString();
-            }
+                txtHV.Text = dt.Rows[0][9].ToString(); 
+            }  
         }
     }
 }

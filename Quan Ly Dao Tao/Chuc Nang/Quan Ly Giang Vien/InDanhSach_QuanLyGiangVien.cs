@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Quan_Ly_Dao_Tao.Database;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -41,6 +42,66 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Giang_Vien
                 }
             }
 
+        }
+
+        private void InDanhSach_QuanLyGiangVien_Load(object sender, EventArgs e)
+        {
+            CSDL.KetNoi();
+            DataTable dt = new DataTable();
+            String sql = @"select * from donvi";
+            dt = CSDL.LayDuLieu(sql);
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                cbdonvi.Items.Add(dt.Rows[i][1].ToString());
+            }
+           
+            string sql1 = "select * From GIANGVIEN ";
+            DataTable dt1 = new DataTable();
+            dt1 = CSDL.LayDuLieu(sql1);
+            listDS.Items.Clear();
+            int stt = 0;
+            for (int i = 0; i < dt1.Rows.Count; i++)
+            {
+                stt++;
+                listDS.Items.Add(stt.ToString());
+                listDS.Items[i].SubItems.Add(dt1.Rows[i][0].ToString());
+                listDS.Items[i].SubItems.Add(dt1.Rows[i][1].ToString());
+                listDS.Items[i].SubItems.Add(dt1.Rows[i][3].ToString());
+                listDS.Items[i].SubItems.Add(dt1.Rows[i][2].ToString());
+                listDS.Items[i].SubItems.Add(dt1.Rows[i][4].ToString());
+                listDS.Items[i].SubItems.Add(dt1.Rows[i][5].ToString());
+                listDS.Items[i].SubItems.Add(dt1.Rows[i][8].ToString());
+                listDS.Items[i].SubItems.Add(dt1.Rows[i][9].ToString());
+            }
+        }
+
+        private void cbdonvi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            string dv = cbdonvi.SelectedItem.ToString();
+            string sql = "select MaDV,TenDV from DONVI where TenDV= N'" + dv + "'";
+            DataTable dt = new DataTable();
+            dt = CSDL.LayDuLieu(sql);
+            txtMaDV.Text = dt.Rows[0][0].ToString();
+            txtTenDV.Text = dt.Rows[0][1].ToString();
+            string sql1 = "select * From GIANGVIEN where MaDV= '" + dt.Rows[0][0].ToString() + "'";
+            DataTable dt1 = new DataTable();
+            dt1 = CSDL.LayDuLieu(sql1);
+            listDS.Items.Clear();
+            int stt = 0;
+            for (int i = 0; i < dt1.Rows.Count; i++)
+            {
+                stt++;
+                listDS.Items.Add(stt.ToString());
+                listDS.Items[i].SubItems.Add(dt1.Rows[i][0].ToString());
+                listDS.Items[i].SubItems.Add(dt1.Rows[i][1].ToString());
+                listDS.Items[i].SubItems.Add(dt1.Rows[i][3].ToString());
+                listDS.Items[i].SubItems.Add(dt1.Rows[i][2].ToString());
+                listDS.Items[i].SubItems.Add(dt1.Rows[i][4].ToString());
+                listDS.Items[i].SubItems.Add(dt1.Rows[i][5].ToString());
+                listDS.Items[i].SubItems.Add(dt1.Rows[i][8].ToString());
+                listDS.Items[i].SubItems.Add(dt1.Rows[i][9].ToString());
+            }
         }
     }
 }
