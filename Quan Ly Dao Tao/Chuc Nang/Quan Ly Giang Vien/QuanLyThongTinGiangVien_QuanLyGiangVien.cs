@@ -75,6 +75,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Giang_Vien
 
         private void btnTim_Click(object sender, EventArgs e)
         {
+            //gg
             string ma = txtMaGv.Text;
             string sql = "select MaGV, HoTen, MaDV From GIANGVIEN where MaGV='" + ma+"'";
             DataTable dt = new DataTable();
