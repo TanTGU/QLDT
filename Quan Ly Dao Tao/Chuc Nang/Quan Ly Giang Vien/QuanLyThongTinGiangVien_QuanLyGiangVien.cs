@@ -99,7 +99,8 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Giang_Vien
                 dt = CSDL.LayDuLieu(sql);
                 
                 txtGV.Text = dt.Rows[0][0].ToString();
-                txtHoten.Text = dt.Rows[0][1].ToString(); 
+                txtHoten.Text = dt.Rows[0][1].ToString();
+                d1.Text = dt.Rows[0][2].ToString();
                 cbGioi.Text = dt.Rows[0][3].ToString();
                 txtSDT.Text = dt.Rows[0][4].ToString();
                 txtEmail.Text = dt.Rows[0][5].ToString();
