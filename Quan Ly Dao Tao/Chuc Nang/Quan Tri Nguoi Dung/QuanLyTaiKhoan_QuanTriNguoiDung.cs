@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Quan_Ly_Dao_Tao.Database;
 
 namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Tri_Nguoi_Dung
 {
@@ -15,6 +16,29 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Tri_Nguoi_Dung
         public QuanLyTaiKhoan_QuanTriNguoiDung()
         {
             InitializeComponent();
+        }
+
+        void LayDSTaiKhoan()
+        {
+            string sql = "select TAIKHOAN.TK, LOAITAIKHOAN.TenLoai from TAIKHOAN, LOAITAIKHOAN where TAIKHOAN.LoaiTK = LOAITAIKHOAN.MaLoai";
+            DataTable dt = CSDL.LayDuLieu(sql);
+            listDS.Items.Clear();
+            for(int i = 0; i < dt.Rows.Count; i++)
+            {
+                listDS.Items.Add(dt.Rows[i][0].ToString());
+                listDS.Items[i].SubItems.Add(dt.Rows[i][1].ToString());
+            }    
+        }
+
+        void LayDSLoaiTK()
+        {
+            string sql = "select *from LOAITAIKHOAN";
+            cbPhanLoai.Items.Clear();
+            DataTable dt = CSDL.LayDuLieu(sql);
+            for(int i = 0;i < dt.Rows.Count;i++)
+            {
+                cbPhanLoai.Items.Add(dt.Rows[i][1].ToString());
+            }    
         }
 
         private void listDS_DrawColumnHeader(object sender, DrawListViewColumnHeaderEventArgs e)
@@ -41,6 +65,42 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Tri_Nguoi_Dung
                 }
             }
 
+        }
+
+        private void QuanLyTaiKhoan_QuanTriNguoiDung_Load(object sender, EventArgs e)
+        {
+            LayDSTaiKhoan();
+        }
+
+        private void cbPhanLoai_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string sql = "select TAIKHOAN.TK, LOAITAIKHOAN.TenLoai from TAIKHOAN, LOAITAIKHOAN where TAIKHOAN.LoaiTK = LOAITAIKHOAN.MaLoai and LOAITAIKHOAN.TenLoai = N'"+cbPhanLoai.Text+"'";
+            DataTable dt = CSDL.LayDuLieu(sql);
+            listDS.Items.Clear();
+            for(int i = 0; i < dt.Rows.Count; i++)
+            {
+                listDS.Items.Add(dt.Rows[i][0].ToString());
+                listDS.Items[i].SubItems.Add(dt.Rows[i][1].ToString());
+            }    
+        }
+
+        private void listDS_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(listDS.SelectedItems.Count == 0)
+            {
+                //string sql = "select TAIKHOAN.MaGV, TAIKHOAN.TenHienThi from TAIKHOAN, LOAITAIKHOAN where TAIKHOAN.LoaiTK = LOAITAIKHOAN.MaLoai and TK = '" + listDS.SelectedItems[0].SubItems[0].Text +"'";
+                //DataTable dt = CSDL.LayDuLieu(sql);
+                //if(dt.Rows.Count > 0)
+                //{
+                //    if (dt.Rows[0][0].ToString() == null)
+                //    {
+                //        tbMaGV.Text = "";
+                //    }
+                //    tbHoTen.Text = dt.Rows[0][1].ToString();
+                //    tbTK.Text = listDS.SelectedItems[0].SubItems[0].Text;
+                //    tbLoaiTK.Text = cbPhanLoai.Text;
+                //}
+            }
         }
     }
 }
