@@ -85,5 +85,10 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Giang_Vien
             listDS.Items[0].SubItems.Add(dt.Rows[0][1].ToString());
             listDS.Items[0].SubItems.Add(dt.Rows[0][2].ToString());
         }
+
+        private void listDS_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
