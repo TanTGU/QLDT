@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label14 = new System.Windows.Forms.Label();
+            this.lbSL = new System.Windows.Forms.Label();
             this.cbdonvi = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -54,16 +54,16 @@
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label14
+            // lbSL
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(132, 538);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(102, 19);
-            this.label14.TabIndex = 100;
-            this.label14.Text = "... giảng viên";
+            this.lbSL.AutoSize = true;
+            this.lbSL.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSL.ForeColor = System.Drawing.Color.Black;
+            this.lbSL.Location = new System.Drawing.Point(132, 538);
+            this.lbSL.Name = "lbSL";
+            this.lbSL.Size = new System.Drawing.Size(102, 19);
+            this.lbSL.TabIndex = 100;
+            this.lbSL.Text = "... giảng viên";
             // 
             // cbdonvi
             // 
@@ -267,7 +267,7 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.listDS);
-            this.Controls.Add(this.label14);
+            this.Controls.Add(this.lbSL);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label1);
@@ -287,7 +287,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lbSL;
         private System.Windows.Forms.ComboBox cbdonvi;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.GroupBox groupBox2;

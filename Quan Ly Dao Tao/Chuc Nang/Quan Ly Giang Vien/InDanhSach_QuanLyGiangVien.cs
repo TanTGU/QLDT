@@ -67,12 +67,15 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Giang_Vien
                 listDS.Items[i].SubItems.Add(dt1.Rows[i][0].ToString());
                 listDS.Items[i].SubItems.Add(dt1.Rows[i][1].ToString());
                 listDS.Items[i].SubItems.Add(dt1.Rows[i][3].ToString());
-                listDS.Items[i].SubItems.Add(dt1.Rows[i][2].ToString());
+                DateTime date = Convert.ToDateTime(dt1.Rows[i][2].ToString());
+                listDS.Items[i].SubItems.Add(date.ToString("dd/MM/yyyy"));
+
                 listDS.Items[i].SubItems.Add(dt1.Rows[i][4].ToString());
                 listDS.Items[i].SubItems.Add(dt1.Rows[i][5].ToString());
                 listDS.Items[i].SubItems.Add(dt1.Rows[i][8].ToString());
                 listDS.Items[i].SubItems.Add(dt1.Rows[i][9].ToString());
             }
+            lbSL.Text = stt.ToString() + " giảng viên";
         }
 
         private void cbdonvi_SelectedIndexChanged(object sender, EventArgs e)
@@ -96,12 +99,15 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Giang_Vien
                 listDS.Items[i].SubItems.Add(dt1.Rows[i][0].ToString());
                 listDS.Items[i].SubItems.Add(dt1.Rows[i][1].ToString());
                 listDS.Items[i].SubItems.Add(dt1.Rows[i][3].ToString());
-                listDS.Items[i].SubItems.Add(dt1.Rows[i][2].ToString());
+                DateTime date = Convert.ToDateTime(dt1.Rows[i][2].ToString());
+                listDS.Items[i].SubItems.Add(date.ToString("dd/MM/yyyy"));
+                
                 listDS.Items[i].SubItems.Add(dt1.Rows[i][4].ToString());
                 listDS.Items[i].SubItems.Add(dt1.Rows[i][5].ToString());
                 listDS.Items[i].SubItems.Add(dt1.Rows[i][8].ToString());
                 listDS.Items[i].SubItems.Add(dt1.Rows[i][9].ToString());
             }
+            lbSL.Text = stt.ToString() + " giảng viên";
         }
     }
 }
