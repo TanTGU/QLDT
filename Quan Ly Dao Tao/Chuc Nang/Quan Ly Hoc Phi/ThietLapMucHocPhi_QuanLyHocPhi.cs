@@ -106,7 +106,15 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Hoc_Phi
             {
                 tbMaNganh.Text = listDS.SelectedItems[0].SubItems[0].Text;
                 tbDonVi.Text = cbDonVi.Text;
+                tbTenNganh.Text = listDS.SelectedItems[0].SubItems[1].Text;
+                tbMucHocPhi.Text = listDS.SelectedItems[0].SubItems[2].Text;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //string sql = "select NGANH.MaNganh, NGANH.TenNganh, HOCPHI.SoTien, DONVI.TenDV from DONVI, NGANH, HOCPHI where DONVI.MaDV = NGANH.MaDV and HOCPHI.MaNganh = NGANH.MaNganh and NGANH.MaNganh = N'"+tbMaNganh.Text+"'";
+            //DataTable dt
         }
     }
 }
