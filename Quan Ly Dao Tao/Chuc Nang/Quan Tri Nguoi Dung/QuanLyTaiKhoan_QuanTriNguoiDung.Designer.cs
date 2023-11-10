@@ -39,6 +39,7 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tbLoaiTK = new System.Windows.Forms.TextBox();
             this.tbTK = new System.Windows.Forms.TextBox();
             this.tbMK = new System.Windows.Forms.TextBox();
             this.tbHoTen = new System.Windows.Forms.TextBox();
@@ -52,7 +53,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.tbLoaiTK = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -97,6 +97,7 @@
             this.button4.TabIndex = 27;
             this.button4.Text = "Tìm";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // tbTimKiem
             // 
@@ -191,6 +192,15 @@
             this.groupBox1.TabIndex = 111;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "THÔNG TIN TÀI KHOẢN";
+            // 
+            // tbLoaiTK
+            // 
+            this.tbLoaiTK.Enabled = false;
+            this.tbLoaiTK.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbLoaiTK.Location = new System.Drawing.Point(136, 110);
+            this.tbLoaiTK.Name = "tbLoaiTK";
+            this.tbLoaiTK.Size = new System.Drawing.Size(276, 27);
+            this.tbLoaiTK.TabIndex = 58;
             // 
             // tbTK
             // 
@@ -330,15 +340,6 @@
             this.label6.Size = new System.Drawing.Size(67, 19);
             this.label6.TabIndex = 10;
             this.label6.Text = "Mã GV:";
-            // 
-            // tbLoaiTK
-            // 
-            this.tbLoaiTK.Enabled = false;
-            this.tbLoaiTK.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbLoaiTK.Location = new System.Drawing.Point(136, 110);
-            this.tbLoaiTK.Name = "tbLoaiTK";
-            this.tbLoaiTK.Size = new System.Drawing.Size(276, 27);
-            this.tbLoaiTK.TabIndex = 58;
             // 
             // QuanLyTaiKhoan_QuanTriNguoiDung
             // 

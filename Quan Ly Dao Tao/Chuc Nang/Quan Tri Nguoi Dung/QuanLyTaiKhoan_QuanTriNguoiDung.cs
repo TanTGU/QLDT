@@ -70,6 +70,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Tri_Nguoi_Dung
         private void QuanLyTaiKhoan_QuanTriNguoiDung_Load(object sender, EventArgs e)
         {
             LayDSTaiKhoan();
+            LayDSLoaiTK();
         }
 
         private void cbPhanLoai_SelectedIndexChanged(object sender, EventArgs e)
@@ -86,20 +87,46 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Tri_Nguoi_Dung
 
         private void listDS_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(listDS.SelectedItems.Count == 0)
+            if(listDS.SelectedItems.Count > 0)
             {
-                //string sql = "select TAIKHOAN.MaGV, TAIKHOAN.TenHienThi from TAIKHOAN, LOAITAIKHOAN where TAIKHOAN.LoaiTK = LOAITAIKHOAN.MaLoai and TK = '" + listDS.SelectedItems[0].SubItems[0].Text +"'";
-                //DataTable dt = CSDL.LayDuLieu(sql);
-                //if(dt.Rows.Count > 0)
-                //{
-                //    if (dt.Rows[0][0].ToString() == null)
-                //    {
-                //        tbMaGV.Text = "";m
-                //    }
-                //    tbHoTen.Text = dt.Rows[0][1].ToString();
-                //    tbTK.Text = listDS.SelectedItems[0].SubItems[0].Text;
-                //    tbLoaiTK.Text = cbPhanLoai.Text;
-                //}
+                string sql = "select TAIKHOAN.MaGV, TAIKHOAN.TenHienThi, TenLoai, MK from TAIKHOAN, LOAITAIKHOAN where TAIKHOAN.LoaiTK = LOAITAIKHOAN.MaLoai and TK = '" + listDS.SelectedItems[0].SubItems[0].Text + "'";
+                DataTable dt = CSDL.LayDuLieu(sql);
+                if (dt.Rows.Count > 0)
+                {
+                    if (dt.Rows[0][0].ToString() == null)
+                        tbMaGV.Text = "";
+                    else
+                        tbMaGV.Text = dt.Rows[0][0].ToString();
+                    tbHoTen.Text = dt.Rows[0][1].ToString();
+                    tbTK.Text = listDS.SelectedItems[0].SubItems[0].Text;
+                    tbLoaiTK.Text = cbPhanLoai.Text;
+                    tbLoaiTK.Text = dt.Rows[0][2].ToString();
+                    tbMK.Text = dt.Rows[0][3].ToString();
+                }
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if(tbTimKiem.Text.Length == 0)
+            {
+                MessageBox.Show("Vui lòng nhập thông tin tài khoản cần tìm kiếm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                return;
+            }
+            listDS.Items.Clear();
+            string sql = "select TK, TenLoai from TAIKHOAN, LOAITAIKHOAN where TAIKHOAN.LoaiTK = LOAITAIKHOAN.MaLoai and TK like '%"+tbTimKiem.Text+"%'";
+            DataTable dt = CSDL.LayDuLieu(sql);
+            if(dt.Rows.Count > 0)
+            {
+                for(int i = 0; i < dt.Rows.Count; i++)
+                {
+                    listDS.Items.Add(dt.Rows[i][0].ToString());
+                    listDS.Items[i].SubItems.Add(dt.Rows[i][1].ToString());
+                }
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy tài khoản phù hợp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
