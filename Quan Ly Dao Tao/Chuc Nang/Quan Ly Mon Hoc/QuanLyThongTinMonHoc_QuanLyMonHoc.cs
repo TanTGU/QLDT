@@ -70,6 +70,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Mon_Hoc
             {
                 cbnganhhoc.Items.Clear();
                 cbnganhhoc.Items.Add(dt1.Rows[i][1].ToString());
+                cbnganhhoc1.Items.Add(dt1.Rows[i][1].ToString());
             }
         }
 
@@ -89,7 +90,36 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Mon_Hoc
 
         private void listDS_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (listDS.SelectedItems.Count != 0)
+            {
+                string txt = listDS.SelectedItems[0].SubItems[0].Text;
 
+                string sql = "select * from MONHOC where MaMH='" + txt + "'";
+                DataTable dt = new DataTable();
+                dt = CSDL.LayDuLieu(sql);
+                txtMaHP.Text= dt.Rows[0][0].ToString();
+                txttenMH.Text = dt.Rows[0][1].ToString();
+                nTinhChi.Text = dt.Rows[0][2].ToString();
+                nLythuyet.Text = dt.Rows[0][3].ToString();
+                nthucHanh.Text = dt.Rows[0][4].ToString();
+                cbnganhhoc1.Text = dt.Rows[0][6].ToString();
+                string TQ = dt.Rows[0][5].ToString();
+                if(TQ==null)
+                {
+                    txtMaTQ.Text = "null";
+                    txttenTQ.Text = "null";
+                }
+                else{
+                    string sql1 = "select MaMH,TenMH from MONHOC where MaMH = N'" + TQ + "'";
+                    DataTable dt1 = new DataTable();
+                    dt1 = CSDL.LayDuLieu(sql1);
+                    for (int j = 0; j < dt1.Rows.Count; j++)
+                    {
+                        txtMaTQ.Text = dt1.Rows[0][0].ToString();
+                        txttenTQ.Text = dt1.Rows[0][1].ToString();
+                    }
+                }
+            }
         }
     }
 }
