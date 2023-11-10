@@ -42,5 +42,15 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Mon_Hoc
             }
 
         }
+
+        private void cbdonvi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TraCuuThongTinMonHoc_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
