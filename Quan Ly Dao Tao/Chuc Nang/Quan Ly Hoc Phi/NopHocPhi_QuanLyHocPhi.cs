@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Quan_Ly_Dao_Tao.Database;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Quan_Ly_Dao_Tao.Database;
 
 namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Hoc_Phi
 {
@@ -16,7 +18,57 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Hoc_Phi
         {
             InitializeComponent();
         }
+        void LayDSDonVi()
+        {
+            string sql = "select * from DONVI";
+            DataTable dt = CSDL.LayDuLieu(sql);
+            cbdonvi.Items.Clear();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                cbdonvi.Items.Add(dt.Rows[i][1].ToString());
+            }
 
+
+        }
+
+        void LayDSLop()
+        {
+            string sql = "select * from LOP";
+            DataTable dt = CSDL.LayDuLieu(sql);
+            cblop.Items.Clear();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                cblop.Items.Add(dt.Rows[i][1].ToString());
+            }
+
+
+        }
+
+        void LayDSHocKy()
+        {
+            string sql = "select THOIKHOABIEU.HocKy from THOIKHOABIEU";
+            DataTable dt = CSDL.LayDuLieu(sql);
+            cbHK.Items.Clear();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                cbHK.Items.Add(dt.Rows[i][0].ToString());
+            }
+
+
+        }
+
+        void LayDSNamhoc()
+        {
+            string sql = "select * from NAMHOC";
+            DataTable dt = CSDL.LayDuLieu(sql);
+            cbnamhoc.Items.Clear();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                cbnamhoc.Items.Add(dt.Rows[i][0].ToString());
+            }
+
+
+        }
         private void listDS_DrawColumnHeader(object sender, DrawListViewColumnHeaderEventArgs e)
         {
             // Tô màu nền
@@ -72,5 +124,20 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Hoc_Phi
             }
         }
 
+        private void NopHocPhi_QuanLyHocPhi_Load(object sender, EventArgs e)
+        {
+            LayDSDonVi();
+            LayDSLop();
+            LayDSHocKy();
+            LayDSNamhoc();
+        }
+
+        private void btntim_Click(object sender, EventArgs e)
+        {
+            string sql = "";
+            DataTable dt = CSDL.LayDuLieu(sql);
+            listDS.Items.Clear();
+
+        }
     }
 }
