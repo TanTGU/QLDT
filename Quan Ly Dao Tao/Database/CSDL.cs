@@ -10,8 +10,8 @@ namespace Quan_Ly_Dao_Tao.Database
 {
     internal class CSDL
     {
-        //SQLEXPRESShuy lieu
-        public static string svName = @".\sqlexpress";
+        //SQLEXPRESS
+        public static string svName = @"DESKTOP-BE0LI2O\SQLEXPRESS01";
         public static string dbName = "QLDT";
         
         public static string MaGV = "";
