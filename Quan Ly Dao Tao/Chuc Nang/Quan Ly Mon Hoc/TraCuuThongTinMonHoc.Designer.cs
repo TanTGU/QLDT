@@ -30,18 +30,18 @@
         {
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txttenTQ = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtMaTQ = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.nLythuyet = new System.Windows.Forms.NumericUpDown();
+            this.nthucHanh = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.nTinChi = new System.Windows.Forms.NumericUpDown();
+            this.txttenMH = new System.Windows.Forms.TextBox();
+            this.txtMaHP = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -51,16 +51,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbnganhhoc = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbdonvi = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nLythuyet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nthucHanh)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nTinChi)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -86,15 +86,15 @@
             this.label13.TabIndex = 48;
             this.label13.Text = "Ngành học:";
             // 
-            // textBox5
+            // txttenTQ
             // 
-            this.textBox5.Enabled = false;
-            this.textBox5.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(170, 148);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(243, 61);
-            this.textBox5.TabIndex = 45;
+            this.txttenTQ.Enabled = false;
+            this.txttenTQ.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txttenTQ.Location = new System.Drawing.Point(170, 148);
+            this.txttenTQ.Multiline = true;
+            this.txttenTQ.Name = "txttenTQ";
+            this.txttenTQ.Size = new System.Drawing.Size(243, 61);
+            this.txttenTQ.TabIndex = 45;
             // 
             // label12
             // 
@@ -107,14 +107,14 @@
             this.label12.TabIndex = 44;
             this.label12.Text = "Tên MH tiên quyết:";
             // 
-            // textBox4
+            // txtMaTQ
             // 
-            this.textBox4.Enabled = false;
-            this.textBox4.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(170, 105);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(243, 27);
-            this.textBox4.TabIndex = 43;
+            this.txtMaTQ.Enabled = false;
+            this.txtMaTQ.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaTQ.Location = new System.Drawing.Point(170, 105);
+            this.txtMaTQ.Name = "txtMaTQ";
+            this.txtMaTQ.Size = new System.Drawing.Size(243, 27);
+            this.txtMaTQ.TabIndex = 43;
             // 
             // label11
             // 
@@ -137,23 +137,23 @@
             this.label10.Size = new System.Drawing.Size(0, 19);
             this.label10.TabIndex = 41;
             // 
-            // numericUpDown3
+            // nLythuyet
             // 
-            this.numericUpDown3.Enabled = false;
-            this.numericUpDown3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown3.Location = new System.Drawing.Point(529, 106);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(120, 27);
-            this.numericUpDown3.TabIndex = 40;
+            this.nLythuyet.Enabled = false;
+            this.nLythuyet.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nLythuyet.Location = new System.Drawing.Point(529, 106);
+            this.nLythuyet.Name = "nLythuyet";
+            this.nLythuyet.Size = new System.Drawing.Size(120, 27);
+            this.nLythuyet.TabIndex = 40;
             // 
-            // numericUpDown2
+            // nthucHanh
             // 
-            this.numericUpDown2.Enabled = false;
-            this.numericUpDown2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown2.Location = new System.Drawing.Point(526, 146);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(120, 27);
-            this.numericUpDown2.TabIndex = 39;
+            this.nthucHanh.Enabled = false;
+            this.nthucHanh.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nthucHanh.Location = new System.Drawing.Point(526, 146);
+            this.nthucHanh.Name = "nthucHanh";
+            this.nthucHanh.Size = new System.Drawing.Size(120, 27);
+            this.nthucHanh.TabIndex = 39;
             // 
             // label9
             // 
@@ -177,33 +177,33 @@
             this.label8.TabIndex = 37;
             this.label8.Text = "Tín chỉ LT:";
             // 
-            // numericUpDown1
+            // nTinChi
             // 
-            this.numericUpDown1.Enabled = false;
-            this.numericUpDown1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown1.Location = new System.Drawing.Point(170, 64);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 27);
-            this.numericUpDown1.TabIndex = 36;
+            this.nTinChi.Enabled = false;
+            this.nTinChi.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nTinChi.Location = new System.Drawing.Point(170, 64);
+            this.nTinChi.Name = "nTinChi";
+            this.nTinChi.Size = new System.Drawing.Size(120, 27);
+            this.nTinChi.TabIndex = 36;
             // 
-            // textBox3
+            // txttenMH
             // 
-            this.textBox3.Enabled = false;
-            this.textBox3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(529, 29);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(314, 55);
-            this.textBox3.TabIndex = 35;
+            this.txttenMH.Enabled = false;
+            this.txttenMH.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txttenMH.Location = new System.Drawing.Point(529, 29);
+            this.txttenMH.Multiline = true;
+            this.txttenMH.Name = "txttenMH";
+            this.txttenMH.Size = new System.Drawing.Size(314, 55);
+            this.txttenMH.TabIndex = 35;
             // 
-            // textBox2
+            // txtMaHP
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(170, 30);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(243, 27);
-            this.textBox2.TabIndex = 34;
+            this.txtMaHP.Enabled = false;
+            this.txtMaHP.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaHP.Location = new System.Drawing.Point(170, 30);
+            this.txtMaHP.Name = "txtMaHP";
+            this.txtMaHP.Size = new System.Drawing.Size(243, 27);
+            this.txtMaHP.TabIndex = 34;
             // 
             // label4
             // 
@@ -296,14 +296,14 @@
             this.label1.TabIndex = 33;
             this.label1.Text = "Mã MH:";
             // 
-            // comboBox2
+            // cbnganhhoc
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(102, 63);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(331, 27);
-            this.comboBox2.TabIndex = 32;
+            this.cbnganhhoc.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbnganhhoc.FormattingEnabled = true;
+            this.cbnganhhoc.Location = new System.Drawing.Point(102, 63);
+            this.cbnganhhoc.Name = "cbnganhhoc";
+            this.cbnganhhoc.Size = new System.Drawing.Size(331, 27);
+            this.cbnganhhoc.TabIndex = 32;
             // 
             // button1
             // 
@@ -330,14 +330,15 @@
             this.label7.TabIndex = 28;
             this.label7.Text = "Ngành học:";
             // 
-            // comboBox1
+            // cbdonvi
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(102, 30);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(331, 27);
-            this.comboBox1.TabIndex = 11;
+            this.cbdonvi.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbdonvi.FormattingEnabled = true;
+            this.cbdonvi.Location = new System.Drawing.Point(102, 30);
+            this.cbdonvi.Name = "cbdonvi";
+            this.cbdonvi.Size = new System.Drawing.Size(331, 27);
+            this.cbdonvi.TabIndex = 11;
+            this.cbdonvi.SelectedIndexChanged += new System.EventHandler(this.cbdonvi_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -354,18 +355,18 @@
             // 
             this.groupBox1.Controls.Add(this.comboBox3);
             this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.textBox5);
+            this.groupBox1.Controls.Add(this.txttenTQ);
             this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Controls.Add(this.txtMaTQ);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.numericUpDown3);
-            this.groupBox1.Controls.Add(this.numericUpDown2);
+            this.groupBox1.Controls.Add(this.nLythuyet);
+            this.groupBox1.Controls.Add(this.nthucHanh);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.numericUpDown1);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.nTinChi);
+            this.groupBox1.Controls.Add(this.txttenMH);
+            this.groupBox1.Controls.Add(this.txtMaHP);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label6);
@@ -382,10 +383,10 @@
             // 
             this.groupBox2.Controls.Add(this.textBox1);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.comboBox2);
+            this.groupBox2.Controls.Add(this.cbnganhhoc);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.comboBox1);
+            this.groupBox2.Controls.Add(this.cbdonvi);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.RoyalBlue;
@@ -409,9 +410,10 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TraCuuThongTinMonHoc";
             this.Size = new System.Drawing.Size(1359, 577);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            this.Load += new System.EventHandler(this.TraCuuThongTinMonHoc_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.nLythuyet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nthucHanh)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nTinChi)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -425,18 +427,18 @@
 
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txttenTQ;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtMaTQ;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.NumericUpDown nLythuyet;
+        private System.Windows.Forms.NumericUpDown nthucHanh;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.NumericUpDown nTinChi;
+        private System.Windows.Forms.TextBox txttenMH;
+        private System.Windows.Forms.TextBox txtMaHP;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
@@ -446,10 +448,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbnganhhoc;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbdonvi;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
