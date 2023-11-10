@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Quan_Ly_Dao_Tao.Database;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,58 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Hoc_Phi
         public NopHocPhi_QuanLyHocPhi()
         {
             InitializeComponent();
+        }
+
+        void LayDSDonVi()
+        {
+            string sql = "select * from DONVI";
+            DataTable dt = CSDL.LayDuLieu(sql);
+            cbdonvi.Items.Clear();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                cbdonvi.Items.Add(dt.Rows[i][1].ToString());
+            }
+
+
+        }
+
+        void LayDSLop()
+        {
+            string sql = "select LOP.TenLop from LOP, NGANH, DONVI where NGANH.MaNganh = LOP.MaNganh and NGANH.MaDV = DONVI.MaDV and DONVI.TenDV = N'"+cbdonvi.Text+"'";
+            DataTable dt = CSDL.LayDuLieu(sql);
+            cblop.Items.Clear();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                cblop.Items.Add(dt.Rows[i][0].ToString());
+            }
+
+
+        }
+
+        void LayDSHocKy()
+        {
+            string sql = "select THOIKHOABIEU.HocKy from THOIKHOABIEU";
+            DataTable dt = CSDL.LayDuLieu(sql);
+            cbhocky.Items.Clear();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                cbhocky.Items.Add(dt.Rows[i][0].ToString());
+            }
+
+
+        }
+
+        void LayDSNamhoc()
+        {
+            string sql = "select * from NAMHOC";
+            DataTable dt = CSDL.LayDuLieu(sql);
+            cbnamhoc.Items.Clear();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                cbnamhoc.Items.Add(dt.Rows[i][0].ToString());
+            }
+
+
         }
 
         private void listDS_DrawColumnHeader(object sender, DrawListViewColumnHeaderEventArgs e)
@@ -72,5 +125,38 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Hoc_Phi
             }
         }
 
+        private void NopHocPhi_QuanLyHocPhi_Load(object sender, EventArgs e)
+        {
+            LayDSDonVi();
+            //LayDSLop();
+            //LayDSHocKy();
+            LayDSNamhoc();
+        }
+
+        private void btntim_Click(object sender, EventArgs e)
+        {
+            string sql = "select MaSV, HoTen from SINHVIEN where MaSV= '" + tbMSSV.Text + "'";
+            DataTable dt = CSDL.LayDuLieu(sql);
+            listDS.Items.Clear();
+            if (dt.Rows.Count > 0)
+            {
+                listDS.Items.Add(dt.Rows[0][0].ToString());
+                listDS.Items[0].SubItems.Add(dt.Rows[0][1].ToString());
+            }
+            else
+            {
+                MessageBox.Show("Không timf thấy sinh viên!", "Thông báo");
+            }
+        }
+
+        private void cblop_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void cbdonvi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LayDSLop();
+        }
     }
 }
