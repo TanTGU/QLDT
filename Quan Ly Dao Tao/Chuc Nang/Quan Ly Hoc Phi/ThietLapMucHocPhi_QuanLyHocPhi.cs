@@ -105,8 +105,27 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Hoc_Phi
             if(listDS.SelectedItems.Count > 0)
             {
                 tbMaNganh.Text = listDS.SelectedItems[0].SubItems[0].Text;
+                tbTenNganh.Text = listDS.SelectedItems[0].SubItems[1].Text;
+                tbMucHocPhi.Text = listDS.SelectedItems[0].SubItems[2].Text;
                 tbDonVi.Text = cbDonVi.Text;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string sql = "select NGANH.MaNganh, NGANH.TenNganh, HOCPHI.SoTien, DONVI.TenDV from DONVI, NGANH, HOCPHI where DONVI.MaDV = NGANH.MaDV and HOCPHI.MaNganh = NGANH.MaNganh and NGANH.MaNganh = N'"+tbTK.Text+"'";
+            DataTable dt = CSDL.LayDuLieu(sql);
+            listDS.Items.Clear();
+            listDS.Items.Add(dt.Rows[0][0].ToString());
+            listDS.Items[0].SubItems.Add(dt.Rows[0][1].ToString());
+            listDS.Items[0].SubItems.Add(dt.Rows[0][2].ToString());
+            //
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
