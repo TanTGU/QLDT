@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label14 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.lbSL = new System.Windows.Forms.Label();
+            this.cbdonvi = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,34 +45,35 @@
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtTenDV = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.txtMaDV = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label14
+            // lbSL
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(132, 538);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(102, 19);
-            this.label14.TabIndex = 100;
-            this.label14.Text = "... giảng viên";
+            this.lbSL.AutoSize = true;
+            this.lbSL.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSL.ForeColor = System.Drawing.Color.Black;
+            this.lbSL.Location = new System.Drawing.Point(132, 538);
+            this.lbSL.Name = "lbSL";
+            this.lbSL.Size = new System.Drawing.Size(102, 19);
+            this.lbSL.TabIndex = 100;
+            this.lbSL.Text = "... giảng viên";
             // 
-            // comboBox1
+            // cbdonvi
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(78, 30);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(382, 27);
-            this.comboBox1.TabIndex = 11;
+            this.cbdonvi.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbdonvi.FormattingEnabled = true;
+            this.cbdonvi.Location = new System.Drawing.Point(78, 30);
+            this.cbdonvi.Name = "cbdonvi";
+            this.cbdonvi.Size = new System.Drawing.Size(382, 27);
+            this.cbdonvi.TabIndex = 11;
+            this.cbdonvi.SelectedIndexChanged += new System.EventHandler(this.cbdonvi_SelectedIndexChanged);
             // 
             // label13
             // 
@@ -87,7 +88,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.comboBox1);
+            this.groupBox2.Controls.Add(this.cbdonvi);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.RoyalBlue;
@@ -191,9 +192,9 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.txtTenDV);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtMaDV);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.RoyalBlue;
@@ -204,34 +205,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "THÔNG TIN ĐƠN VỊ";
             // 
-            // label2
+            // txtTenDV
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(6, 33);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 19);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Mã đơn vị:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(105, 30);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(236, 27);
-            this.textBox1.TabIndex = 11;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(446, 30);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(364, 27);
-            this.textBox2.TabIndex = 13;
+            this.txtTenDV.Enabled = false;
+            this.txtTenDV.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTenDV.Location = new System.Drawing.Point(446, 30);
+            this.txtTenDV.Name = "txtTenDV";
+            this.txtTenDV.Size = new System.Drawing.Size(364, 27);
+            this.txtTenDV.TabIndex = 13;
             // 
             // label4
             // 
@@ -243,6 +224,26 @@
             this.label4.Size = new System.Drawing.Size(100, 19);
             this.label4.TabIndex = 12;
             this.label4.Text = "Tên đơn vị:";
+            // 
+            // txtMaDV
+            // 
+            this.txtMaDV.Enabled = false;
+            this.txtMaDV.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaDV.Location = new System.Drawing.Point(105, 30);
+            this.txtMaDV.Name = "txtMaDV";
+            this.txtMaDV.Size = new System.Drawing.Size(236, 27);
+            this.txtMaDV.TabIndex = 11;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(6, 33);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(93, 19);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Mã đơn vị:";
             // 
             // button3
             // 
@@ -266,7 +267,7 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.listDS);
-            this.Controls.Add(this.label14);
+            this.Controls.Add(this.lbSL);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label1);
@@ -274,6 +275,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "InDanhSach_QuanLyGiangVien";
             this.Size = new System.Drawing.Size(1359, 577);
+            this.Load += new System.EventHandler(this.InDanhSach_QuanLyGiangVien_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -285,8 +287,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label lbSL;
+        private System.Windows.Forms.ComboBox cbdonvi;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label3;
@@ -302,9 +304,9 @@
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ColumnHeader columnHeader9;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtMaDV;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtTenDV;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button3;
     }
