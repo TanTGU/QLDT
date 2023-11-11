@@ -43,6 +43,11 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Giang_Vien
             }
         }
 
+        void LaySLGV()
+        {
+            lbSL.Text = listDS.Items.Count.ToString() + " giảng viên";
+        }
+
         private void TraCuuThongTinGiangVien_QuanLyGiangVien_Load(object sender, EventArgs e)
         {
             CSDL.KetNoi();
@@ -67,6 +72,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Giang_Vien
                 listDS.Items[i].SubItems.Add(dt1.Rows[i][1].ToString());
                 listDS.Items[i].SubItems.Add(dt1.Rows[i][2].ToString());
             }
+            LaySLGV();
         }
 
         private void cbdonvi_SelectedIndexChanged(object sender, EventArgs e)
@@ -85,6 +91,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Giang_Vien
                 listDS.Items[i].SubItems.Add(dt1.Rows[i][1].ToString());
                 listDS.Items[i].SubItems.Add(dt1.Rows[i][2].ToString());
             }
+            LaySLGV();
         }
 
         private void btnTim_Click(object sender, EventArgs e)
@@ -97,6 +104,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Giang_Vien
             listDS.Items.Add(dt.Rows[0][0].ToString());
             listDS.Items[0].SubItems.Add(dt.Rows[0][1].ToString());
             listDS.Items[0].SubItems.Add(dt.Rows[0][2].ToString());
+            LaySLGV();
         }
 
         private void listDS_SelectedIndexChanged(object sender, EventArgs e)
@@ -119,7 +127,8 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Giang_Vien
                 cbdonvi1.Text = dt.Rows[0][7].ToString();
                 txtHH.Text = dt.Rows[0][8].ToString();
                 txtHV.Text = dt.Rows[0][9].ToString(); 
-            }  
+            }
+            LaySLGV();
         }
     }
 }

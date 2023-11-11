@@ -144,7 +144,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
             }
             cbLop.Text = "";
             listDS.Items.Clear();
-            tbTimMaLop.Text = "";
+            tbTimKiem.Text = "";
         }
 
         private void cbLop_SelectedIndexChanged(object sender, EventArgs e)
@@ -189,33 +189,27 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
         private void button1_Click(object sender, EventArgs e)
         {
             LamMoi();
-            if(tbTimMaLop.Text =="")
+            if(tbTimKiem.Text =="")
             {
-                MessageBox.Show("Vui lòng nhập mã lớp cần tìm kiếm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                MessageBox.Show("Vui lòng nhập MSSV cần tìm kiếm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
                 return;
             }
             listDS.Items.Clear();
-            string sql = "select DONVI.TenDV, LOP.TenLop from LOP, DONVI, NGANH where LOP.MaNganh = NGANH.MaNganh and DONVI.MaDV = NGANH.MaDV and LOP.MaLop = '"+tbTimMaLop.Text+"'";
+            string sql = "select MaSV, HoTen, DONVI.TenDV, LOP.TenLop from SINHVIEN, LOP, DONVI, NGANH where LOP.MaNganh = NGANH.MaNganh and DONVI.MaDV = NGANH.MaDV and LOP.MaLop = SINHVIEN.MaLop and MaSV = '"+tbTimKiem.Text+"'";
             DataTable dt = CSDL.LayDuLieu(sql);
             if(dt.Rows.Count > 0)
             {
-                cbDonVi.Text = dt.Rows[0][0].ToString();
-                cbLop.Text = dt.Rows[0][1].ToString();
-
-                string MaLop = LayMaLop(cbLop.Text);
-                string sql1 = "select MaSV, HoTen from SINHVIEN where MaLop = '" + MaLop + "'";
+                cbDonVi.Text = dt.Rows[0][2].ToString();
+                cbLop.Text = dt.Rows[0][3].ToString();
                 listDS.Items.Clear();
-                DataTable dt1 = CSDL.LayDuLieu(sql1);
-                for (int i = 0; i < dt1.Rows.Count; i++)
-                {
-                    listDS.Items.Add(dt1.Rows[i][0].ToString());
-                    listDS.Items[i].SubItems.Add(dt1.Rows[i][1].ToString());
-                }
+                listDS.Items.Add(dt.Rows[0][0].ToString());
+                listDS.Items[0].SubItems.Add(dt.Rows[0][1].ToString());
+                
 
             }
             else
             {
-                MessageBox.Show("Không tìm thấy thông tin lớp phù hợp. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Không tìm thấy thông tin sinh viên phù hợp. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
         }

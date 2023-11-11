@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.tbTimMaLop = new System.Windows.Forms.TextBox();
+            this.tbTimKiem = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cbLop = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -77,7 +77,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.tbTimMaLop);
+            this.groupBox2.Controls.Add(this.tbTimKiem);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.cbLop);
             this.groupBox2.Controls.Add(this.button1);
@@ -93,13 +93,13 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "THÔNG TIN TÌM KIẾM";
             // 
-            // tbTimMaLop
+            // tbTimKiem
             // 
-            this.tbTimMaLop.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTimMaLop.Location = new System.Drawing.Point(102, 100);
-            this.tbTimMaLop.Name = "tbTimMaLop";
-            this.tbTimMaLop.Size = new System.Drawing.Size(331, 27);
-            this.tbTimMaLop.TabIndex = 34;
+            this.tbTimKiem.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTimKiem.Location = new System.Drawing.Point(102, 100);
+            this.tbTimKiem.Name = "tbTimKiem";
+            this.tbTimKiem.Size = new System.Drawing.Size(331, 27);
+            this.tbTimKiem.TabIndex = 34;
             // 
             // label1
             // 
@@ -108,9 +108,9 @@
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(6, 103);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 19);
+            this.label1.Size = new System.Drawing.Size(60, 19);
             this.label1.TabIndex = 33;
-            this.label1.Text = "Mã lớp:";
+            this.label1.Text = "MSSV:";
             // 
             // cbLop
             // 
@@ -584,7 +584,7 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox tbTimMaLop;
+        private System.Windows.Forms.TextBox tbTimKiem;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbLop;
         private System.Windows.Forms.Button button1;

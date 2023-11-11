@@ -56,21 +56,24 @@
             this.cbdonvi = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.listDS = new System.Windows.Forms.ListView();
             this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.lbSL = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.txtDiachi);
             this.groupBox1.Controls.Add(this.cbdonvi1);
             this.groupBox1.Controls.Add(this.d1);
@@ -95,7 +98,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.RoyalBlue;
             this.groupBox1.Location = new System.Drawing.Point(555, 18);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(786, 314);
+            this.groupBox1.Size = new System.Drawing.Size(786, 361);
             this.groupBox1.TabIndex = 79;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "THÔNG TIN GIẢNG VIÊN";
@@ -378,48 +381,6 @@
             this.label1.TabIndex = 81;
             this.label1.Text = "DANH SÁCH GIẢNG VIÊN";
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.SteelBlue;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(554, 351);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(129, 37);
-            this.button1.TabIndex = 28;
-            this.button1.Text = "THÊM MỚI";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.SteelBlue;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(717, 351);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(171, 37);
-            this.button2.TabIndex = 83;
-            this.button2.Text = "CẬP NHẬT";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.SteelBlue;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(922, 351);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(112, 37);
-            this.button3.TabIndex = 84;
-            this.button3.Text = "XÓA";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "Mã giảng viên";
@@ -466,27 +427,66 @@
             this.label13.TabIndex = 33;
             this.label13.Text = "Danh sách có:";
             // 
-            // label14
+            // lbSL
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(129, 548);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(102, 19);
-            this.label14.TabIndex = 85;
-            this.label14.Text = "... giảng viên";
+            this.lbSL.AutoSize = true;
+            this.lbSL.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSL.ForeColor = System.Drawing.Color.Black;
+            this.lbSL.Location = new System.Drawing.Point(129, 548);
+            this.lbSL.Name = "lbSL";
+            this.lbSL.Size = new System.Drawing.Size(102, 19);
+            this.lbSL.TabIndex = 85;
+            this.lbSL.Text = "... giảng viên";
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.SteelBlue;
+            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(378, 299);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(112, 37);
+            this.button3.TabIndex = 87;
+            this.button3.Text = "XÓA";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.SteelBlue;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(173, 299);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(171, 37);
+            this.button2.TabIndex = 86;
+            this.button2.Text = "CẬP NHẬT";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.SteelBlue;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(10, 299);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(129, 37);
+            this.button1.TabIndex = 85;
+            this.button1.Text = "THÊM MỚI";
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // QuanLyThongTinGiangVien_QuanLyGiangVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.Controls.Add(this.label14);
+            this.Controls.Add(this.lbSL);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.listDS);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox2);
@@ -535,14 +535,14 @@
         private System.Windows.Forms.ComboBox cbGioi;
         private System.Windows.Forms.TextBox txtGV;
         private System.Windows.Forms.TextBox txtSDT;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ListView listDS;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lbSL;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }
