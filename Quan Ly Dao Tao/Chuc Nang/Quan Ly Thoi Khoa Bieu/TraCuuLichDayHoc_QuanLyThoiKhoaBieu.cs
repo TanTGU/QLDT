@@ -70,29 +70,48 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
 
         private void TraCuuLichDayHoc_QuanLyThoiKhoaBieu_Load(object sender, EventArgs e)
         {
-            CSDL.KetNoi();
-            string sql = "select * from DONVI";
-            LoadComboBox(sql);
+            LoadDonVi();
+            LoadKhoiTao();
         }
-        void LoadComboBox(string sql)
+        private void LoadKhoiTao()
         {
+            // học kì
+            cboHocKy.Items.Add("1");
+            cboHocKy.Items.Add("2");
+
+            // thứ
+            cboThu.Items.Add("2");
+            cboThu.Items.Add("3");
+            cboThu.Items.Add("4");
+            cboThu.Items.Add("5");
+            cboThu.Items.Add("6");
+            cboThu.Items.Add("7");
+        }
+        public void LoadDonVi()
+        {
+            string sql = "select * from DONVI";
             DataTable dt = new DataTable();
             dt = CSDL.LayDuLieu(sql);
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                cboDonVi.Items.Add(dt.Rows[i][0].ToString());
+                cboDonVi.Items.Add(dt.Rows[i][1].ToString());
             }
         }
 
         private void btnTim_Click(object sender, EventArgs e)
         {
-            if (cboDonVi.SelectedIndex != -1 && !string.IsNullOrEmpty(txtTimMaMH.Text))
+            if (txtTimMaMH.Text == "")
             {
-                string sql = "select MaMH, TenMH from MONHOC, NGANH where MaDV='" + cboDonVi.SelectedItem.ToString() + "' and MaMH='" + txtTimMaMH.Text + "' and MONHOC.TenNganh = NGANH.TenNganh";
-                DataTable dt = new DataTable();
-                dt = CSDL.LayDuLieu(sql);
-                int dem = dt.Rows.Count;
-                if (dem > 0)
+                MessageBox.Show("Vui lòng nhập vào mã môn học!", "thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            string sql = "select MH.MaMH, MH.TenMH from MONHOC MH join NGANH N on MH.TenNganh = N.TenNganh join DONVI DV on N.MaDV = DV.MaDV where MH.MaMH = '" + txtTimMaMH.Text + "'";
+            DataTable dt = new DataTable();
+            dt = CSDL.LayDuLieu(sql);
+            if (dt.Rows.Count > 0)
+            {
+                listMH.Items.Clear();
+                for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     foreach (DataRow row in dt.Rows)
                     {
@@ -106,24 +125,11 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
                             listMH.Items.Add(listItem);
                         }
                     }
-
                 }
-                else
-                {
-                    MessageBox.Show("Không có môn học cần tìm",
-                                    "Thông báo",
-                                     MessageBoxButtons.OKCancel,
-                                     MessageBoxIcon.Information);
-                }
-
-
             }
             else
             {
-                MessageBox.Show("Dữ liệu không được để trống. Vui lòng nhập lại!",
-                                "Thông báo",
-                                MessageBoxButtons.OKCancel,
-                                MessageBoxIcon.Error);
+                MessageBox.Show("Không tìm thấy môn học cần tìm. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -140,5 +146,53 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
             return false; // Môn học chưa tồn tại trong ListView
         }
 
+        private void listMH_Click(object sender, EventArgs e)
+        {
+            txtMaMH.Text = listMH.SelectedItems[0].SubItems[0].Text;
+            DataTable dt = new DataTable();
+            string sql = "select TenMH, NamHoc, SoTC, HocKy, NhomHP, Thu, THOIKHOABIEU.MaGV,TietGiangDay,HoTen from THOIKHOABIEU inner join MONHOC on THOIKHOABIEU.MaMH = MONHOC.MaMH inner join GIANGVIEN on THOIKHOABIEU.MaGV = GIANGVIEN.MaGV where MONHOC.MaMH='" + txtMaMH.Text + "' ";
+            dt = CSDL.LayDuLieu(sql);
+            // theo như sql là có tới 2 dòng nhưng khác nhóm HP
+            if (dt.Rows.Count > 0)
+            {
+                txtTenMH.Text = dt.Rows[0][0].ToString();
+                txtNamHoc.Text = dt.Rows[0][1].ToString();
+                txtSoTC.Text = dt.Rows[0][2].ToString();
+                cboHocKy.Text = dt.Rows[0][3].ToString();
+                cboHocKy.Text = dt.Rows[0][4].ToString();
+                cboThu.Text = dt.Rows[0][5].ToString();
+                txtMaGV.Text = dt.Rows[0][6].ToString();
+                txtTiet.Text = dt.Rows[0][7].ToString();
+                txtTenGV.Text = dt.Rows[0][8].ToString();
+            }
+            else
+            {
+                txtMaMH.Text = listMH.SelectedItems[0].Text;
+                txtTenMH.Text = listMH.SelectedItems[0].SubItems[1].Text;
+                txtSoTC.Text = "";
+                cboHocKy.Text = "";
+                cboHocKy.Text = "";
+                cboThu.Text = "";
+                txtMaGV.Text = "";
+                txtTiet.Text = "";
+                txtTenGV.Text = "";
+            }
+        }
+
+        private void cboDonVi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            listMH.Items.Clear();
+            if (cboDonVi.SelectedIndex != -1)
+            {
+                string sql = "select MH.MaMH, MH.TenMH from MONHOC MH join NGANH N on MH.TenNganh = N.TenNganh join DONVI DV on N.MaDV = DV.MaDV where DV.TenDV = N'" + cboDonVi.SelectedItem.ToString() + "'";
+                DataTable dt = new DataTable();
+                dt = CSDL.LayDuLieu(sql);
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    listMH.Items.Add(dt.Rows[i][0].ToString());
+                    listMH.Items[i].SubItems.Add(dt.Rows[i][1].ToString());
+                }
+            }
+        }
     }
 }

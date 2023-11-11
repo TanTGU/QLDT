@@ -315,6 +315,7 @@
             this.listMH.View = System.Windows.Forms.View.Details;
             this.listMH.DrawColumnHeader += new System.Windows.Forms.DrawListViewColumnHeaderEventHandler(this.listMH_DrawColumnHeader);
             this.listMH.DrawItem += new System.Windows.Forms.DrawListViewItemEventHandler(this.listMH_DrawItem);
+            this.listMH.Click += new System.EventHandler(this.listMH_Click);
             // 
             // columnHeader1
             // 
@@ -361,6 +362,7 @@
             this.cboDonVi.Name = "cboDonVi";
             this.cboDonVi.Size = new System.Drawing.Size(340, 37);
             this.cboDonVi.TabIndex = 33;
+            this.cboDonVi.SelectedIndexChanged += new System.EventHandler(this.cboDonVi_SelectedIndexChanged);
             // 
             // label1
             // 
