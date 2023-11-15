@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Quan_Ly_Dao_Tao.Database;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,58 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Hoc_Phi
         public BaoCao_QuanLyHocPhi()
         {
             InitializeComponent();
+        }
+
+        void LayDSDonVi()
+        {
+            string sql = "select * from DONVI";
+            DataTable dt = CSDL.LayDuLieu(sql);
+            cbDonVi.Items.Clear();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                cbDonVi.Items.Add(dt.Rows[i][1].ToString());
+            }
+
+
+        }
+
+        void LayDSLop()
+        {
+            string sql = "select LOP.TenLop from LOP, NGANH, DONVI where NGANH.MaNganh = LOP.MaNganh and NGANH.MaDV = DONVI.MaDV and DONVI.TenDV = N'" + cbDonVi.Text + "'";
+            DataTable dt = CSDL.LayDuLieu(sql);
+            cbLop.Items.Clear();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                cbLop.Items.Add(dt.Rows[i][0].ToString());
+            }
+
+
+        }
+
+        void LayDSHocKy()
+        {
+            string sql = "select THOIKHOABIEU.HocKy from THOIKHOABIEU";
+            DataTable dt = CSDL.LayDuLieu(sql);
+            cbHocKy.Items.Clear();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                cbHocKy.Items.Add(dt.Rows[i][0].ToString());
+            }
+
+
+        }
+
+        void LayDSNamhoc()
+        {
+            string sql = "select * from NAMHOC";
+            DataTable dt = CSDL.LayDuLieu(sql);
+            cbNamHoc.Items.Clear();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                cbNamHoc.Items.Add(dt.Rows[i][0].ToString());
+            }
+
+
         }
 
         private void listDS1_DrawColumnHeader(object sender, DrawListViewColumnHeaderEventArgs e)
@@ -46,7 +99,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Hoc_Phi
                 else // Nếu là các dòng dữ liệu
                 {
                     // Vẽ các dòng dữ liệu với màu chữ đen và font size nhỏ hơn
-                    e.Graphics.DrawString(listDS1.Name, new Font(FontFamily.GenericSansSerif, 12), Brushes.Black, e.Bounds.Left, e.Bounds.Top);
+                    e.Graphics.DrawString(listDSDongHP.Name, new Font(FontFamily.GenericSansSerif, 12), Brushes.Black, e.Bounds.Left, e.Bounds.Top);
                 }
             }
 
@@ -63,10 +116,43 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Hoc_Phi
                 else // Nếu là các dòng dữ liệu
                 {
                     // Vẽ các dòng dữ liệu với màu chữ đen và font size nhỏ hơn
-                    e.Graphics.DrawString(listDS2.Name, new Font(FontFamily.GenericSansSerif, 12), Brushes.Black, e.Bounds.Left, e.Bounds.Top);
+                    e.Graphics.DrawString(listDSChuaDongHP.Name, new Font(FontFamily.GenericSansSerif, 12), Brushes.Black, e.Bounds.Left, e.Bounds.Top);
                 }
             }
 
+        }
+
+        private void BaoCao_QuanLyHocPhi_Load(object sender, EventArgs e)
+        {
+            LayDSDonVi();
+            LayDSNamhoc();
+            //LayDSHocKy();
+            LayDSNamhoc();
+        }
+
+        private void cbDonVi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LayDSLop();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string sql = "";
+            string select = "select Lop.MaLop, Lop.TenLop, DONVI.TenDV, GIANGVIEN.HoTen from LOP, NGANH, DONVI, GIANGVIEN ";
+            string where = "where LOP.MaNganh = NGANH.MaNganh and NGANH.MaDV =DONVI. MaDV and GVCN = GIANGVIEN.MaGV and TenLop = N'"+cbLop.Text+"'";
+            sql = select + where;
+            DataTable dt = CSDL.LayDuLieu(sql);
+            if(dt.Rows.Count > 0 )
+            {
+                tbMaLop.Text = dt.Rows[0][0].ToString();
+                tbTenLop.Text = dt.Rows[0][1].ToString();
+                tbDonVi.Text = dt.Rows[0][2].ToString();
+                tbGVCN.Text = dt.Rows[0][3].ToString();
+                sql = "select count (*) from SINHVIEN where MaLop = '"+tbMaLop.Text+"'";
+                DataTable dt1 = CSDL.LayDuLieu(sql);
+                if( dt1.Rows.Count > 0 )
+                    tbSiSo.Text = dt1.Rows[0][0].ToString();
+            }
         }
     }
 }
