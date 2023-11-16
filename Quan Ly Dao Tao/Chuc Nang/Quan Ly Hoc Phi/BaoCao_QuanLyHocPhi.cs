@@ -18,6 +18,12 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Hoc_Phi
             InitializeComponent();
         }
 
+        bool KiemTraDuLieuTrong()
+        {
+            if (cbDonVi.Text == "" || cbLop.Text == "" || cbNamHoc.Text == "" || cbHocKy.Text == "")
+                return true;
+            return false;
+        }
         void LayDSDonVi()
         {
             string sql = "select * from DONVI";
@@ -67,6 +73,24 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Hoc_Phi
                 cbNamHoc.Items.Add(dt.Rows[i][0].ToString());
             }
 
+
+        }
+
+        void LaySoLuongSinhVienDangKy()
+        {
+            string sql = "";
+            string select = "select count (distinct DANGKYHOCPHAN.MaSV) from DANGKYHOCPHAN, SINHVIEN, NGANH, LOP ";
+            string where = "where SINHVIEN.MaLop = LOP.MaLop and DANGKYHOCPHAN.MaSV = SINHVIEN.MaSV and SINHVIEN.MaNganh = NGANH.MaNganh and LOP.MaNganh = NGANH.MaNganh and DANGKYHOCPHAN.NamHoc = '"+cbNamHoc.Text+"' and HocKy = "+cbHocKy.Text+" and LOP.MaLop = '"+tbMaLop.Text+"'";
+            sql = select + where;
+            DataTable dt = CSDL.LayDuLieu(sql);
+            tbSLDK.Text = dt.Rows[0][0].ToString();
+        }
+        void LayDanhSachSinhVienDaDangKy()
+        {
+
+        }
+        void LayDanhSachSinhVienChuaDangKy()
+        {
 
         }
 
@@ -137,6 +161,11 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Hoc_Phi
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if(KiemTraDuLieuTrong())
+            {
+                MessageBox.Show("Vui lòng điền đầy đủ thông tin cần tìm kiếm", "Thông báo",  MessageBoxButtons.OK, MessageBoxIcon.Question);
+                return;
+            }
             string sql = "";
             string select = "select Lop.MaLop, Lop.TenLop, DONVI.TenDV, GIANGVIEN.HoTen from LOP, NGANH, DONVI, GIANGVIEN ";
             string where = "where LOP.MaNganh = NGANH.MaNganh and NGANH.MaDV =DONVI. MaDV and GVCN = GIANGVIEN.MaGV and TenLop = N'"+cbLop.Text+"'";
@@ -153,6 +182,12 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Hoc_Phi
                 if( dt1.Rows.Count > 0 )
                     tbSiSo.Text = dt1.Rows[0][0].ToString();
             }
+            else
+            {
+                MessageBox.Show("Dữ liệu nhập không hợp lệ. Vui lòng thử lại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            LaySoLuongSinhVienDangKy();
         }
     }
 }
