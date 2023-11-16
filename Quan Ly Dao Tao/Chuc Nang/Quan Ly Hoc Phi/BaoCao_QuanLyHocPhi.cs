@@ -85,9 +85,68 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Hoc_Phi
             DataTable dt = CSDL.LayDuLieu(sql);
             tbSLDK.Text = dt.Rows[0][0].ToString();
         }
-        void LayDanhSachSinhVienDaDangKy()
+        void LayDanhSachSinhVien()
         {
+            listDSDongHP.Items.Clear();
+            listDSChuaDongHP.Items.Clear();
+            int DongHP = 0;
+            int ChuaDongHP = 0;
+            string select = "select distinct SINHVIEN.MaSV, SINHVIEN.HoTen, SINHVIEN.MaLop, DANGKYHOCPHAN.HocKy, DANGKYHOCPHAN.NamHoc";
+            string from = "from DANGKYHOCPHAN, SINHVIEN, NGANH, LOP";
+            string where = "where SINHVIEN.MaLop = LOP.MaLop and DANGKYHOCPHAN.MaSV = SINHVIEN.MaSV and SINHVIEN.MaNganh = NGANH.MaNganh and LOP.MaNganh = NGANH.MaNganh and DANGKYHOCPHAN.NamHoc = '"+cbNamHoc.Text+"' and HocKy = "+cbHocKy.Text+" and LOP.MaLop = '"+tbMaLop.Text+"'";
+            string sql = select + " " + from + " " + where;
+            DataTable dt = CSDL.LayDuLieu(sql);
+            for(int i =0;  i < dt.Rows.Count; i++)
+            {
+                select = "select MaSV";
+                from = "from DONGHOCPHI";
+                where = "where MaSV = '" + dt.Rows[i][0].ToString() +"' and NamHoc = '"+cbNamHoc.Text+"' and HocKy = "+cbHocKy.Text+"";
+                sql = select + " " + from + " " + where;
+                DataTable dt1 = CSDL.LayDuLieu(sql);
+                if (dt1.Rows.Count > 0)
+                {
+                    DongHP++;
+                    int n = listDSDongHP.Items.Count;
+                    listDSDongHP.Items.Add((n + 1).ToString());
+                    listDSDongHP.Items[n].SubItems.Add(dt.Rows[i][0].ToString());
+                    listDSDongHP.Items[n].SubItems.Add(dt.Rows[i][1].ToString());
+                    listDSDongHP.Items[n].SubItems.Add(dt.Rows[i][2].ToString());
+                    listDSDongHP.Items[n].SubItems.Add(dt.Rows[i][3].ToString());
+                    listDSDongHP.Items[n].SubItems.Add(dt.Rows[i][4].ToString());
 
+                    select = "select distinct (MONHOC.SoTC * HOCPHI.SoTien) as ThanhTien";
+                    from = "from DANGKYHOCPHAN, MONHOC, HOCPHI, NGANH";
+                    where = "where DANGKYHOCPHAN.MaMH = MONHOC.MaMH and MONHOC.TenNganh = NGANH.TenNganh and HOCPHI.MaNganh = NGANH.MaNganh and DANGKYHOCPHAN.MaSV = '"+ dt.Rows[i][0].ToString() + "' and HocKy = "+cbHocKy.Text+" and NamHoc = '"+cbNamHoc.Text+"'";
+                    sql = select + " " + from + " " + where;
+                    DataTable dt2 = CSDL.LayDuLieu(sql);
+                    if(dt2.Rows.Count > 0)
+                        listDSDongHP.Items[n].SubItems.Add(string.Format("{0:#,##0}", dt2.Rows[0][0]));
+                }
+                else
+                {
+                    ChuaDongHP++;
+                    int n = listDSChuaDongHP.Items.Count;
+                    listDSChuaDongHP.Items.Add((n + 1).ToString());
+                    listDSChuaDongHP.Items[n].SubItems.Add(dt.Rows[i][0].ToString());
+                    listDSChuaDongHP.Items[n].SubItems.Add(dt.Rows[i][1].ToString());
+                    listDSChuaDongHP.Items[n].SubItems.Add(dt.Rows[i][2].ToString());
+                    listDSChuaDongHP.Items[n].SubItems.Add(dt.Rows[i][3].ToString());
+                    listDSChuaDongHP.Items[n].SubItems.Add(dt.Rows[i][4].ToString());
+
+                    select = "select distinct (MONHOC.SoTC * HOCPHI.SoTien) as ThanhTien";
+                    from = "from DANGKYHOCPHAN, MONHOC, HOCPHI, NGANH";
+                    where = "where DANGKYHOCPHAN.MaMH = MONHOC.MaMH and MONHOC.TenNganh = NGANH.TenNganh and HOCPHI.MaNganh = NGANH.MaNganh and DANGKYHOCPHAN.MaSV = '" + dt.Rows[i][0].ToString() + "' and HocKy = " + cbHocKy.Text + " and NamHoc = '" + cbNamHoc.Text + "'";
+                    sql = select + " " + from + " " + where;
+                    DataTable dt2 = CSDL.LayDuLieu(sql);
+                    if (dt2.Rows.Count > 0)
+                        listDSChuaDongHP.Items[n].SubItems.Add(string.Format("{0:#,##0}", dt2.Rows[0][0]));
+                }
+                tbSLDaDongHP.Text = DongHP.ToString();
+                lbDaDongHP.Text = DongHP.ToString() + " sinh viên";
+
+                tbSLChuaDongHP.Text = ChuaDongHP.ToString();
+                lbChuaDongHP.Text = ChuaDongHP.ToString() + " sinh viên";
+            }
         }
         void LayDanhSachSinhVienChuaDangKy()
         {
@@ -188,6 +247,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Hoc_Phi
                 return;
             }
             LaySoLuongSinhVienDangKy();
+            LayDanhSachSinhVien();
         }
     }
 }
