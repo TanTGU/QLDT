@@ -37,17 +37,17 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbTimKiem = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lbMaSV = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.lbHoTen = new System.Windows.Forms.Label();
+            this.lbLop = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label16 = new System.Windows.Forms.Label();
+            this.lbNganh = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.listDK = new System.Windows.Forms.ListView();
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -58,10 +58,10 @@
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button4 = new System.Windows.Forms.Button();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbNamHoc = new System.Windows.Forms.ComboBox();
+            this.cbHocKy = new System.Windows.Forms.ComboBox();
+            this.cbMonHoc = new System.Windows.Forms.ComboBox();
+            this.cbNganh = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -151,12 +151,12 @@
             this.button1.Text = "Đăng ký";
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // textBox1
+            // tbTimKiem
             // 
-            this.textBox1.Location = new System.Drawing.Point(885, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(274, 27);
-            this.textBox1.TabIndex = 12;
+            this.tbTimKiem.Location = new System.Drawing.Point(885, 25);
+            this.tbTimKiem.Name = "tbTimKiem";
+            this.tbTimKiem.Size = new System.Drawing.Size(274, 27);
+            this.tbTimKiem.TabIndex = 12;
             // 
             // button2
             // 
@@ -171,6 +171,7 @@
             this.button2.TabIndex = 14;
             this.button2.Text = "Tìm";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label8
             // 
@@ -183,16 +184,16 @@
             this.label8.TabIndex = 15;
             this.label8.Text = "MSSV:";
             // 
-            // label9
+            // lbMaSV
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(83, 35);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(24, 19);
-            this.label9.TabIndex = 16;
-            this.label9.Text = "...";
+            this.lbMaSV.AutoSize = true;
+            this.lbMaSV.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMaSV.ForeColor = System.Drawing.Color.Black;
+            this.lbMaSV.Location = new System.Drawing.Point(83, 35);
+            this.lbMaSV.Name = "lbMaSV";
+            this.lbMaSV.Size = new System.Drawing.Size(24, 19);
+            this.lbMaSV.TabIndex = 16;
+            this.lbMaSV.Text = "...";
             // 
             // label10
             // 
@@ -216,27 +217,27 @@
             this.label11.TabIndex = 18;
             this.label11.Text = "Lớp:";
             // 
-            // label12
+            // lbHoTen
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(319, 35);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(24, 19);
-            this.label12.TabIndex = 19;
-            this.label12.Text = "...";
+            this.lbHoTen.AutoSize = true;
+            this.lbHoTen.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbHoTen.ForeColor = System.Drawing.Color.Black;
+            this.lbHoTen.Location = new System.Drawing.Point(319, 35);
+            this.lbHoTen.Name = "lbHoTen";
+            this.lbHoTen.Size = new System.Drawing.Size(24, 19);
+            this.lbHoTen.TabIndex = 19;
+            this.lbHoTen.Text = "...";
             // 
-            // label13
+            // lbLop
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(83, 63);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(24, 19);
-            this.label13.TabIndex = 20;
-            this.label13.Text = "...";
+            this.lbLop.AutoSize = true;
+            this.lbLop.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbLop.ForeColor = System.Drawing.Color.Black;
+            this.lbLop.Location = new System.Drawing.Point(83, 63);
+            this.lbLop.Name = "lbLop";
+            this.lbLop.Size = new System.Drawing.Size(24, 19);
+            this.lbLop.TabIndex = 20;
+            this.lbLop.Text = "...";
             // 
             // label14
             // 
@@ -251,14 +252,14 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label16);
+            this.groupBox1.Controls.Add(this.lbNganh);
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Controls.Add(this.lbLop);
             this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.lbHoTen);
+            this.groupBox1.Controls.Add(this.lbMaSV);
             this.groupBox1.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.RoyalBlue;
             this.groupBox1.Location = new System.Drawing.Point(702, 59);
@@ -268,16 +269,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "THÔNG TIN SINH VIÊN";
             // 
-            // label16
+            // lbNganh
             // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.Black;
-            this.label16.Location = new System.Drawing.Point(83, 91);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(24, 19);
-            this.label16.TabIndex = 22;
-            this.label16.Text = "...";
+            this.lbNganh.AutoSize = true;
+            this.lbNganh.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNganh.ForeColor = System.Drawing.Color.Black;
+            this.lbNganh.Location = new System.Drawing.Point(83, 91);
+            this.lbNganh.Name = "lbNganh";
+            this.lbNganh.Size = new System.Drawing.Size(24, 19);
+            this.lbNganh.TabIndex = 22;
+            this.lbNganh.Text = "...";
             // 
             // label15
             // 
@@ -353,10 +354,10 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.button4);
-            this.groupBox2.Controls.Add(this.comboBox4);
-            this.groupBox2.Controls.Add(this.comboBox3);
-            this.groupBox2.Controls.Add(this.comboBox2);
-            this.groupBox2.Controls.Add(this.comboBox1);
+            this.groupBox2.Controls.Add(this.cbNamHoc);
+            this.groupBox2.Controls.Add(this.cbHocKy);
+            this.groupBox2.Controls.Add(this.cbMonHoc);
+            this.groupBox2.Controls.Add(this.cbNganh);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label2);
@@ -385,41 +386,46 @@
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // comboBox4
+            // cbNamHoc
             // 
-            this.comboBox4.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(107, 36);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(333, 27);
-            this.comboBox4.TabIndex = 17;
+            this.cbNamHoc.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbNamHoc.FormattingEnabled = true;
+            this.cbNamHoc.Location = new System.Drawing.Point(107, 36);
+            this.cbNamHoc.Name = "cbNamHoc";
+            this.cbNamHoc.Size = new System.Drawing.Size(333, 27);
+            this.cbNamHoc.TabIndex = 17;
             // 
-            // comboBox3
+            // cbHocKy
             // 
-            this.comboBox3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(107, 67);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(333, 27);
-            this.comboBox3.TabIndex = 16;
+            this.cbHocKy.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbHocKy.FormattingEnabled = true;
+            this.cbHocKy.Items.AddRange(new object[] {
+            "1",
+            "2"});
+            this.cbHocKy.Location = new System.Drawing.Point(107, 67);
+            this.cbHocKy.Name = "cbHocKy";
+            this.cbHocKy.Size = new System.Drawing.Size(333, 27);
+            this.cbHocKy.TabIndex = 16;
             // 
-            // comboBox2
+            // cbMonHoc
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(107, 129);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(333, 27);
-            this.comboBox2.TabIndex = 15;
+            this.cbMonHoc.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbMonHoc.FormattingEnabled = true;
+            this.cbMonHoc.Location = new System.Drawing.Point(107, 129);
+            this.cbMonHoc.Name = "cbMonHoc";
+            this.cbMonHoc.Size = new System.Drawing.Size(333, 27);
+            this.cbMonHoc.TabIndex = 15;
+            this.cbMonHoc.SelectedIndexChanged += new System.EventHandler(this.cbMonHoc_SelectedIndexChanged);
             // 
-            // comboBox1
+            // cbNganh
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(107, 98);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(333, 27);
-            this.comboBox1.TabIndex = 14;
+            this.cbNganh.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbNganh.FormattingEnabled = true;
+            this.cbNganh.Location = new System.Drawing.Point(107, 98);
+            this.cbNganh.Name = "cbNganh";
+            this.cbNganh.Size = new System.Drawing.Size(333, 27);
+            this.cbNganh.TabIndex = 14;
+            this.cbNganh.SelectedIndexChanged += new System.EventHandler(this.cbNganh_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -476,7 +482,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbTimKiem);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.listMH);
@@ -505,17 +511,17 @@
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbTimKiem;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lbMaSV;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lbHoTen;
+        private System.Windows.Forms.Label lbLop;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label lbNganh;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ListView listDK;
         private System.Windows.Forms.ColumnHeader columnHeader6;
@@ -526,10 +532,10 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbNamHoc;
+        private System.Windows.Forms.ComboBox cbHocKy;
+        private System.Windows.Forms.ComboBox cbMonHoc;
+        private System.Windows.Forms.ComboBox cbNganh;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
