@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Quan_Ly_Dao_Tao.Database;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,18 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Dang_Ky_HP
         public InDanhSach_QuanLyDangKyHocPhan()
         {
             InitializeComponent();
+        }
+
+        void LayTenNganh()
+        {
+            string sql = @"select * from NGANH";
+            DataTable dt = new DataTable();
+            dt = CSDL.LayDuLieu(sql);
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                cbNganh.Items.Add(dt.Rows[i][1].ToString());
+            }
+
         }
 
         private void listMH_DrawColumnHeader(object sender, DrawListViewColumnHeaderEventArgs e)
@@ -67,6 +80,84 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Dang_Ky_HP
                 }
             }
 
+        }
+
+        private void InDanhSach_QuanLyDangKyHocPhan_Load(object sender, EventArgs e)
+        {
+            CSDL.KetNoi();
+            string sql = @" select * from NAMHOC";
+            DataTable dt = new DataTable();
+            dt = CSDL.LayDuLieu(sql);
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                cbNamHoc.Items.Add(dt.Rows[i][0].ToString());
+            }
+            LayTenNganh();
+        }
+
+        private void cbNganh_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string sql = "select distinct MONHOC.TenMH from THOIKHOABIEU, MONHOC where THOIKHOABIEU.MaMH = MONHOC.MaMH and MONHOC.TenNganh = N'" + cbNganh.Text + "' and NamHoc = '" + cbNamHoc.Text + "' and HocKy = " + cbHocKy.Text;
+            cbMonHoc.Items.Clear();
+            DataTable dt = CSDL.LayDuLieu(sql);
+            if (dt.Rows.Count > 0)
+            {
+                for (int i = 0; i < dt.Rows.Count; i++)
+                    cbMonHoc.Items.Add(dt.Rows[i][0].ToString());
+            }
+            cbMonHoc.Text = "";
+            listMH.Items.Clear();
+            lbMaHP.Text = "...";
+            lbTenHP.Text = "...";
+            lbNhomHP.Text = "...";
+            lbHocKy.Text = "...";
+            lbNamHoc.Text = "...";
+            lbGiangVien.Text = "...";
+        }
+
+        private void cbMonHoc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string select = "select THOIKHOABIEU.MaMH, MONHOC.TenMH, THOIKHOABIEU.NhomHP, THOIKHOABIEU.Thu, THOIKHOABIEU.TietGiangDay";
+            string from = "from THOIKHOABIEU, MONHOC";
+            string where = "where THOIKHOABIEU.MaMH = MONHOC.MaMH and MONHOC.TenNganh = N'" + cbNganh.Text + "' and NamHoc = '" + cbNamHoc.Text + "' and HocKy = " + cbHocKy.Text + " and MONHOC.TenMH = N'" + cbMonHoc.Text + "'";
+            string sql = select + " " + from + " " + where;
+            listMH.Items.Clear();
+            DataTable dt = CSDL.LayDuLieu(sql);
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                int n = listMH.Items.Count;
+                listMH.Items.Add(dt.Rows[i][0].ToString());
+                listMH.Items[n].SubItems.Add(dt.Rows[i][1].ToString());
+                listMH.Items[n].SubItems.Add(dt.Rows[i][2].ToString());
+                listMH.Items[n].SubItems.Add(dt.Rows[i][3].ToString());
+                listMH.Items[n].SubItems.Add(dt.Rows[i][4].ToString());
+            }
+        }
+
+        private void listMH_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(listMH.SelectedItems.Count > 0)
+            {
+                lbMaHP.Text = listMH.SelectedItems[0].SubItems[0].Text;
+                lbTenHP.Text = listMH.SelectedItems[0].SubItems[1].Text;
+                lbNhomHP.Text = listMH.SelectedItems[0].SubItems[2].Text;
+                lbHocKy.Text = cbHocKy.Text;
+                lbNamHoc.Text = cbNamHoc.Text;
+
+                string select = "select GIANGVIEN.HoTen";
+                string from = "from THOIKHOABIEU, GIANGVIEN";
+                string where = "where THOIKHOABIEU.MaGV = GIANGVIEN. MaGV and MaMH = '"+lbMaHP.Text+"' and NhomHP = '"+lbNhomHP.Text+"' and HocKy = "+lbHocKy.Text+" and NamHoc = '"+lbNamHoc.Text+"'";
+                string sql = select + " " + from + " " + where;
+                DataTable dt = CSDL.LayDuLieu(sql);
+                if(dt.Rows.Count > 0)
+                {
+                    lbGiangVien.Text = dt.Rows[0][0].ToString();
+                }
+                else
+                {
+                    lbGiangVien.Text = "Chưa xác định";
+                }
+            }
         }
     }
 }

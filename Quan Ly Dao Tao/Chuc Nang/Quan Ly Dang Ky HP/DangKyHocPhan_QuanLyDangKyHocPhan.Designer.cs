@@ -57,7 +57,6 @@
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button4 = new System.Windows.Forms.Button();
             this.cbNamHoc = new System.Windows.Forms.ComboBox();
             this.cbHocKy = new System.Windows.Forms.ComboBox();
             this.cbMonHoc = new System.Windows.Forms.ComboBox();
@@ -353,7 +352,6 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button4);
             this.groupBox2.Controls.Add(this.cbNamHoc);
             this.groupBox2.Controls.Add(this.cbHocKy);
             this.groupBox2.Controls.Add(this.cbMonHoc);
@@ -366,25 +364,10 @@
             this.groupBox2.ForeColor = System.Drawing.Color.RoyalBlue;
             this.groupBox2.Location = new System.Drawing.Point(28, 9);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(473, 201);
+            this.groupBox2.Size = new System.Drawing.Size(473, 174);
             this.groupBox2.TabIndex = 25;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "THÔNG TIN TÌM KIẾM";
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.SteelBlue;
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(311, 161);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(129, 31);
-            this.button4.TabIndex = 26;
-            this.button4.Text = "Tìm";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // cbNamHoc
             // 
@@ -531,7 +514,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader10;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.ComboBox cbNamHoc;
         private System.Windows.Forms.ComboBox cbHocKy;
         private System.Windows.Forms.ComboBox cbMonHoc;
