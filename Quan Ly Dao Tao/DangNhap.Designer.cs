@@ -111,6 +111,7 @@
             this.tbTK.Name = "tbTK";
             this.tbTK.Size = new System.Drawing.Size(220, 20);
             this.tbTK.TabIndex = 64;
+            this.tbTK.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbTK_KeyDown);
             // 
             // label1
             // 
@@ -137,6 +138,7 @@
             this.tbMK.Size = new System.Drawing.Size(220, 20);
             this.tbMK.TabIndex = 65;
             this.tbMK.UseSystemPasswordChar = true;
+            this.tbMK.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbMK_KeyDown);
             // 
             // picAnh
             // 

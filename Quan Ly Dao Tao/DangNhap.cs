@@ -79,5 +79,21 @@ namespace Quan_Ly_Dao_Tao
                 tbMK.UseSystemPasswordChar = false;
             else tbMK.UseSystemPasswordChar = true;
         }
+
+        private void tbTK_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                tbMK.Focus();
+            }
+        }
+
+        private void tbMK_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btDN_Click(sender, e);
+            }
+        }
     }
 }
