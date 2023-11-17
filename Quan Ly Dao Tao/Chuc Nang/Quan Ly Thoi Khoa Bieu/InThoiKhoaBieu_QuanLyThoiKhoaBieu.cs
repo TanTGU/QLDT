@@ -72,40 +72,120 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
 
         private void InThoiKhoaBieu_QuanLyThoiKhoaBieu_Load(object sender, EventArgs e)
         {
-            LoadDonVi();
-            LoadHocKy();
             LoadNamHoc();
+            LoadHocKy();
+            LoadDonVi();
+            txtTimMaGV.Focus();
+            demGV(listGV);
         }
-
-        public void LoadNamHoc()
+        // combobox NAMHOC
+        private void LoadNamHoc()
         {
             string sql = "select * from NAMHOC";
             DataTable dt = new DataTable();
             dt = CSDL.LayDuLieu(sql);
-            for(int i=0; i<dt.Rows.Count; i++)
+            if (dt.Rows.Count > 0)
             {
-                cboNamHoc.Items.Add(dt.Rows[i][0].ToString());
-            }
-        }
-        public void LoadHocKy()
-        {
-            cboHocKy.Items.Add("1");
-            cboHocKy.Items.Add("2");
-        }
-        public void LoadDonVi()
-        {
-            string sql = "select MaDV from DONVI";
-            DataTable dt = new DataTable();
-            dt = CSDL.LayDuLieu(sql);
-            for (int i = 0; i < dt.Rows.Count; i++)
-            {
-                cboDonVi.Items.Add(dt.Rows[i][0].ToString());
+                for(int i=0; i<dt.Rows.Count; i++)
+                {
+                    cboNamHoc.Items.Add(dt.Rows[i][0].ToString());
+                }
             }
         }
 
+        // combobox HOCKY
+        private void LoadHocKy()
+        {
+            for(int i=1; i<=2; i++)
+            {
+                cboHocKy.Items.Add(i);
+            }
+        }
+
+        // combobox DONVI
+        private void LoadDonVi()
+        {
+            string sql = "select * from DONVI";
+            DataTable dt = new DataTable();
+            dt = CSDL.LayDuLieu(sql);
+            if (dt.Rows.Count > 0)
+            {
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    cboDonVi.Items.Add(dt.Rows[i][1].ToString());
+                }
+            }
+        }
+
+        // LoadGiangVien
+        private void LoadGiangVien()
+        {
+            string sql = "select MaGV, HoTen, MaDV from GIANGVIEN";
+            DataTable dt = new DataTable();
+            dt = CSDL.LayDuLieu(sql);
+            if (dt.Rows.Count > 0)
+            {
+                listGV.Items.Clear();
+                for(int i=0; i<dt.Rows.Count; i++)
+                {
+                    listGV.Items.Add(dt.Rows[i][0].ToString());
+                    listGV.Items[i].SubItems.Add(dt.Rows[i][1].ToString());
+                    listGV.Items[i].SubItems.Add(dt.Rows[i][2].ToString());
+                }
+            }
+        }
+        
+        // đếm số giảng viên trong listGV
+        private void demGV(ListView lv)
+        {
+            int count = lv.Items.Count;
+            lblDemGV.Text = count.ToString() + " giảng viên";
+        }
+
+
         private void btnTim_Click(object sender, EventArgs e)
         {
-            //
+            // tìm theo MaMH
+            string sql = "select MaGV, HoTen, MaDV from GIANGVIEN where MaGV='"+txtTimMaGV.Text+"'";
+            DataTable dt = new DataTable();
+            dt = CSDL.LayDuLieu(sql);
+            if (dt.Rows.Count > 0)
+            {
+                listGV.Items.Clear();
+                for(int i=0;i < dt.Rows.Count; i++)
+                {
+                    listGV.Items.Add(dt.Rows[i][0].ToString());
+                    listGV.Items[i].SubItems.Add(dt.Rows[i][1].ToString());
+                    listGV.Items[i].SubItems.Add(dt.Rows[i][2].ToString());
+                }
+            }
+            else
+            {
+                listGV.Items.Clear();
+            }
+            demGV(listGV);
+        }
+
+        private void cboDonVi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string sql = "select MaGV, HoTen, D.MaDV from GIANGVIEN G, DONVI D where TenDV=N'"+cboDonVi.SelectedItem.ToString()+"' and G.MaDV = D.MaDV";
+            DataTable dt = new DataTable();
+            dt = CSDL.LayDuLieu(sql);
+            if (dt.Rows.Count > 0)
+            {
+                listGV.Items.Clear();
+                for(int i=0; i<dt.Rows.Count; i++)
+                {
+                    listGV.Items.Add(dt.Rows[i][0].ToString());
+                    listGV.Items[i].SubItems.Add(dt.Rows[i][1].ToString());
+                    listGV.Items[i].SubItems.Add(dt.Rows[i][2].ToString());
+                }
+            }
+            else
+            {
+                listGV.Items.Clear();
+            }
+            demGV(listGV);
         }
     }
 }

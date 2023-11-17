@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label14 = new System.Windows.Forms.Label();
+            this.lblDemGV = new System.Windows.Forms.Label();
             this.txtHoTen = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnTim = new System.Windows.Forms.Button();
@@ -71,16 +71,16 @@
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label14
+            // lblDemGV
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(132, 544);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(102, 19);
-            this.label14.TabIndex = 100;
-            this.label14.Text = "... giảng viên";
+            this.lblDemGV.AutoSize = true;
+            this.lblDemGV.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDemGV.ForeColor = System.Drawing.Color.Black;
+            this.lblDemGV.Location = new System.Drawing.Point(132, 544);
+            this.lblDemGV.Name = "lblDemGV";
+            this.lblDemGV.Size = new System.Drawing.Size(102, 19);
+            this.lblDemGV.TabIndex = 100;
+            this.lblDemGV.Text = "... giảng viên";
             // 
             // txtHoTen
             // 
@@ -178,6 +178,7 @@
             this.cboDonVi.Name = "cboDonVi";
             this.cboDonVi.Size = new System.Drawing.Size(363, 27);
             this.cboDonVi.TabIndex = 11;
+            this.cboDonVi.SelectedIndexChanged += new System.EventHandler(this.cboDonVi_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -479,7 +480,7 @@
             this.Controls.Add(this.btnXuatDS);
             this.Controls.Add(this.listTKBGD);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.label14);
+            this.Controls.Add(this.lblDemGV);
             this.Controls.Add(this.listGV);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.groupBox1);
@@ -501,7 +502,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lblDemGV;
         private System.Windows.Forms.TextBox txtHoTen;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnTim;
