@@ -47,7 +47,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
                 else // Nếu là các dòng dữ liệu
                 {
                     // Vẽ các dòng dữ liệu với màu chữ đen và font size nhỏ hơn
-                    e.Graphics.DrawString(listDS.Name, new Font(FontFamily.GenericSansSerif, 12), Brushes.Black, e.Bounds.Left, e.Bounds.Top);
+                    e.Graphics.DrawString(listGV.Name, new Font(FontFamily.GenericSansSerif, 12), Brushes.Black, e.Bounds.Left, e.Bounds.Top);
                 }
             }
 
@@ -64,7 +64,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
                 else // Nếu là các dòng dữ liệu
                 {
                     // Vẽ các dòng dữ liệu với màu chữ đen và font size nhỏ hơn
-                    e.Graphics.DrawString(listGD.Name, new Font(FontFamily.GenericSansSerif, 12), Brushes.Black, e.Bounds.Left, e.Bounds.Top);
+                    e.Graphics.DrawString(listTKBGD.Name, new Font(FontFamily.GenericSansSerif, 12), Brushes.Black, e.Bounds.Left, e.Bounds.Top);
                 }
             }
 

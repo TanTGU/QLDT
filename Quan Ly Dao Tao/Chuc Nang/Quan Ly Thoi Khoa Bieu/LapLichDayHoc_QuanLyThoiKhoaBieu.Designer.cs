@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cboHocKyTim = new System.Windows.Forms.ComboBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.cboNamHoc = new System.Windows.Forms.ComboBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.cboNganh = new System.Windows.Forms.ComboBox();
             this.cboDonVi = new System.Windows.Forms.ComboBox();
@@ -44,6 +48,7 @@
             this.nuSoTiet = new System.Windows.Forms.NumericUpDown();
             this.cboHocKy = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
+            this.txtNamHoc = new System.Windows.Forms.TextBox();
             this.txtSoTC = new System.Windows.Forms.TextBox();
             this.cboThu = new System.Windows.Forms.ComboBox();
             this.txtGhiChu = new System.Windows.Forms.TextBox();
@@ -76,11 +81,6 @@
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.txtNamHoc = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nuSoTiet)).BeginInit();
@@ -88,9 +88,9 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.comboBox2);
+            this.groupBox2.Controls.Add(this.cboHocKyTim);
             this.groupBox2.Controls.Add(this.label20);
-            this.groupBox2.Controls.Add(this.comboBox1);
+            this.groupBox2.Controls.Add(this.cboNamHoc);
             this.groupBox2.Controls.Add(this.label19);
             this.groupBox2.Controls.Add(this.label18);
             this.groupBox2.Controls.Add(this.cboNganh);
@@ -107,6 +107,46 @@
             this.groupBox2.TabIndex = 111;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "THÔNG TIN TÌM KIẾM";
+            // 
+            // cboHocKyTim
+            // 
+            this.cboHocKyTim.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboHocKyTim.FormattingEnabled = true;
+            this.cboHocKyTim.Location = new System.Drawing.Point(359, 110);
+            this.cboHocKyTim.Name = "cboHocKyTim";
+            this.cboHocKyTim.Size = new System.Drawing.Size(77, 27);
+            this.cboHocKyTim.TabIndex = 72;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.Black;
+            this.label20.Location = new System.Drawing.Point(284, 113);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(69, 19);
+            this.label20.TabIndex = 70;
+            this.label20.Text = "Học kỳ:";
+            // 
+            // cboNamHoc
+            // 
+            this.cboNamHoc.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboNamHoc.FormattingEnabled = true;
+            this.cboNamHoc.Location = new System.Drawing.Point(107, 110);
+            this.cboNamHoc.Name = "cboNamHoc";
+            this.cboNamHoc.Size = new System.Drawing.Size(159, 27);
+            this.cboNamHoc.TabIndex = 71;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.Black;
+            this.label19.Location = new System.Drawing.Point(20, 113);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(85, 19);
+            this.label19.TabIndex = 70;
+            this.label19.Text = "Năm học:";
             // 
             // label18
             // 
@@ -127,6 +167,7 @@
             this.cboNganh.Name = "cboNganh";
             this.cboNganh.Size = new System.Drawing.Size(329, 27);
             this.cboNganh.TabIndex = 34;
+            this.cboNganh.SelectedIndexChanged += new System.EventHandler(this.cboNganh_SelectedIndexChanged);
             // 
             // cboDonVi
             // 
@@ -289,6 +330,14 @@
             this.label15.Size = new System.Drawing.Size(69, 19);
             this.label15.TabIndex = 67;
             this.label15.Text = "Học kỳ:";
+            // 
+            // txtNamHoc
+            // 
+            this.txtNamHoc.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNamHoc.Location = new System.Drawing.Point(170, 69);
+            this.txtNamHoc.Name = "txtNamHoc";
+            this.txtNamHoc.Size = new System.Drawing.Size(243, 27);
+            this.txtNamHoc.TabIndex = 66;
             // 
             // txtSoTC
             // 
@@ -576,6 +625,7 @@
             this.listHP.View = System.Windows.Forms.View.Details;
             this.listHP.DrawColumnHeader += new System.Windows.Forms.DrawListViewColumnHeaderEventHandler(this.listHP_DrawColumnHeader);
             this.listHP.DrawItem += new System.Windows.Forms.DrawListViewItemEventHandler(this.listHP_DrawItem);
+            this.listHP.Click += new System.EventHandler(this.listHP_Click);
             // 
             // columnHeader3
             // 
@@ -605,54 +655,6 @@
             // 
             this.columnHeader8.Text = "Tiết";
             this.columnHeader8.Width = 120;
-            // 
-            // txtNamHoc
-            // 
-            this.txtNamHoc.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNamHoc.Location = new System.Drawing.Point(170, 69);
-            this.txtNamHoc.Name = "txtNamHoc";
-            this.txtNamHoc.Size = new System.Drawing.Size(243, 27);
-            this.txtNamHoc.TabIndex = 66;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.Black;
-            this.label19.Location = new System.Drawing.Point(20, 113);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(85, 19);
-            this.label19.TabIndex = 70;
-            this.label19.Text = "Năm học:";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(107, 110);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(159, 27);
-            this.comboBox1.TabIndex = 71;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.Color.Black;
-            this.label20.Location = new System.Drawing.Point(284, 113);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(69, 19);
-            this.label20.TabIndex = 70;
-            this.label20.Text = "Học kỳ:";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(359, 110);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(77, 27);
-            this.comboBox2.TabIndex = 72;
             // 
             // LapLichDayHoc_QuanLyThoiKhoaBieu
             // 
@@ -730,9 +732,9 @@
         private System.Windows.Forms.NumericUpDown nuSoTiet;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.ComboBox cboNganh;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cboHocKyTim;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cboNamHoc;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox txtNamHoc;
     }
