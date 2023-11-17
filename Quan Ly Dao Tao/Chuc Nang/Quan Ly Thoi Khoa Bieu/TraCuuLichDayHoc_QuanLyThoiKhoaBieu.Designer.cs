@@ -173,6 +173,7 @@
             this.listHP.View = System.Windows.Forms.View.Details;
             this.listHP.DrawColumnHeader += new System.Windows.Forms.DrawListViewColumnHeaderEventHandler(this.listHP_DrawColumnHeader);
             this.listHP.DrawItem += new System.Windows.Forms.DrawListViewItemEventHandler(this.listHP_DrawItem);
+            this.listHP.Click += new System.EventHandler(this.listHP_Click);
             // 
             // columnHeader3
             // 
@@ -365,7 +366,6 @@
             this.groupBox2.TabIndex = 120;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "THÔNG TIN TÌM KIẾM";
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // cboHocKyTim
             // 
@@ -426,6 +426,7 @@
             this.cboNganh.Name = "cboNganh";
             this.cboNganh.Size = new System.Drawing.Size(329, 27);
             this.cboNganh.TabIndex = 73;
+            this.cboNganh.SelectedIndexChanged += new System.EventHandler(this.cboNganh_SelectedIndexChanged);
             // 
             // cboDonVi
             // 

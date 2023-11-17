@@ -299,5 +299,15 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
                 }
             }
         }
+
+        private void listMH_KeyDown(object sender, KeyEventArgs e)
+        {
+            // xử lí sau
+        }
+
+        private void listMH_KeyUp(object sender, KeyEventArgs e)
+        {
+            // xử lí sau
+        }
     }
 }
