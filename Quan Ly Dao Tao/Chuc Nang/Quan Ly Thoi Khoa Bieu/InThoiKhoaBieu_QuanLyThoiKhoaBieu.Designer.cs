@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.lblDemGV = new System.Windows.Forms.Label();
-            this.txtHoTen = new System.Windows.Forms.TextBox();
+            this.txtTenGV = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnTim = new System.Windows.Forms.Button();
             this.listGV = new System.Windows.Forms.ListView();
@@ -82,14 +82,14 @@
             this.lblDemGV.TabIndex = 100;
             this.lblDemGV.Text = "... giảng viên";
             // 
-            // txtHoTen
+            // txtTenGV
             // 
-            this.txtHoTen.Enabled = false;
-            this.txtHoTen.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHoTen.Location = new System.Drawing.Point(478, 30);
-            this.txtHoTen.Name = "txtHoTen";
-            this.txtHoTen.Size = new System.Drawing.Size(289, 27);
-            this.txtHoTen.TabIndex = 14;
+            this.txtTenGV.Enabled = false;
+            this.txtTenGV.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTenGV.Location = new System.Drawing.Point(478, 30);
+            this.txtTenGV.Name = "txtTenGV";
+            this.txtTenGV.Size = new System.Drawing.Size(289, 27);
+            this.txtTenGV.TabIndex = 14;
             // 
             // label6
             // 
@@ -135,6 +135,7 @@
             this.listGV.View = System.Windows.Forms.View.Details;
             this.listGV.DrawColumnHeader += new System.Windows.Forms.DrawListViewColumnHeaderEventHandler(this.listDS_DrawColumnHeader);
             this.listGV.DrawItem += new System.Windows.Forms.DrawListViewItemEventHandler(this.listDS_DrawItem);
+            this.listGV.Click += new System.EventHandler(this.listGV_Click);
             // 
             // columnHeader1
             // 
@@ -212,7 +213,7 @@
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.txtNamHoc);
             this.groupBox1.Controls.Add(this.txtMaGV);
-            this.groupBox1.Controls.Add(this.txtHoTen);
+            this.groupBox1.Controls.Add(this.txtTenGV);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label6);
@@ -503,7 +504,7 @@
         #endregion
 
         private System.Windows.Forms.Label lblDemGV;
-        private System.Windows.Forms.TextBox txtHoTen;
+        private System.Windows.Forms.TextBox txtTenGV;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnTim;
         private System.Windows.Forms.ListView listGV;

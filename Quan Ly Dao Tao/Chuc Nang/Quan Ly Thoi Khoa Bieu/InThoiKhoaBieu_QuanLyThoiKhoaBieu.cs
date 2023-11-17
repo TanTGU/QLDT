@@ -75,6 +75,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
             LoadNamHoc();
             LoadHocKy();
             LoadDonVi();
+            LoadGiangVien();
             txtTimMaGV.Focus();
             demGV(listGV);
         }
@@ -145,6 +146,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
 
         private void btnTim_Click(object sender, EventArgs e)
         {
+            
             // tìm theo MaMH
             string sql = "select MaGV, HoTen, MaDV from GIANGVIEN where MaGV='"+txtTimMaGV.Text+"'";
             DataTable dt = new DataTable();
@@ -161,7 +163,11 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
             }
             else
             {
-                listGV.Items.Clear();
+                MessageBox.Show("Không có giảng viên cần tìm. Vui lòng nhập lại!",
+                                "Thông báo",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                txtTimMaGV.Focus();
             }
             demGV(listGV);
         }
@@ -186,6 +192,36 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
                 listGV.Items.Clear();
             }
             demGV(listGV);
+        }
+
+        private void listGV_Click(object sender, EventArgs e)
+        {
+            // 1. Thông tin giảng viên
+            string maGV = listGV.SelectedItems[0].SubItems[0].Text;
+            string maDV = listGV.SelectedItems[0].SubItems[2].Text;
+            string sqlGV = "select distinct G.MaGV, HoTen, D.MaDV, TenDV from GIANGVIEN G, DONVI D where G.MaGV='"+maGV+"' and D.MaDV='"+maDV+"' and G.MaDV = D.MaDV";
+            //string sqlGV = "select distinct G.MaGV, HoTen, D.MaDV, TenDV, NamHoc, HocKy from GIANGVIEN G, DONVI D, THOIKHOABIEU T where G.MaGV='" + maGV + "' and D.MaDV='" + maDV + "' and G.MaDV = D.MaDV and T.MaGV = G.MaGV";
+            DataTable dtGV = new DataTable();
+            dtGV = CSDL.LayDuLieu(sqlGV);
+            if (dtGV.Rows.Count > 0)
+            {
+                txtMaGV.Text = dtGV.Rows[0][0].ToString();
+                txtTenGV.Text = dtGV.Rows[0][1].ToString();
+                txtMaDV.Text = dtGV.Rows[0][2].ToString();
+                txtTenDV.Text = dtGV.Rows[0][3].ToString();
+                //txtNamHoc.Text = dtGV.Rows[0][4].ToString();
+                //txtHocKy.Text = dtGV.Rows[0][5].ToString();
+            }
+            else
+            {
+                txtMaGV.Text = "";
+                txtTenGV.Text = "";
+                txtMaDV.Text = "";
+                txtTenGV.Text = "";
+                txtNamHoc.Text = "";
+                txtHocKy.Text = "";
+            }
+            // 2. Thời khóa biểu giảng dạy
         }
     }
 }
