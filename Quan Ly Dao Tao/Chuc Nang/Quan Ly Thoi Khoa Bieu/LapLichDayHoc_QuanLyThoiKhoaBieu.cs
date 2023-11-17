@@ -76,21 +76,9 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
             LoadDonVi();
             LoadNamHoc();
             LoadHocKy();
+            loadKhoiTao();
             LoadMonHoc();
             txtTimMaMH.Focus();
-        }
-        // khởi tạo môn học 
-        private void LoadMonHoc()
-        {
-            // lấy MaMH, TenMH gán vào listMH khoi form được load lên
-            string sql = "select * from MONHOC";
-            DataTable dt = new DataTable();
-            dt = CSDL.LayDuLieu(sql);
-            for (int i = 0; i < dt.Rows.Count; i++)
-            {
-                listMH.Items.Add(dt.Rows[i][0].ToString());
-                listMH.Items[i].SubItems.Add(dt.Rows[i][1].ToString());
-            }
         }
         // combobox DONVI
         private void LoadDonVi()
@@ -107,8 +95,8 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
         // combobox NGANH
         private void LoadNganh()
         {
-            string sql = "select distinct TenNganh from NGANH, DONVI where TenDV =N'" + cboDonVi.SelectedItem.ToString() + "' and NGANH.MaDV = DONVI.MaDV"
-; DataTable dt = new DataTable();
+            string sql = "select distinct TenNganh from NGANH, DONVI where TenDV =N'" + cboDonVi.SelectedItem.ToString() + "' and NGANH.MaDV = DONVI.MaDV"; 
+            DataTable dt = new DataTable();
             dt = CSDL.LayDuLieu(sql);
             for (int i = 0; i < dt.Rows.Count; i++)
             {
@@ -127,7 +115,6 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
                 cboNamHoc.Items.Add(dt.Rows[i][0].ToString());
             }
         }
-
         // combobox HOCKI
         private void LoadHocKy()
         {
@@ -140,9 +127,43 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
             }
         }
 
+        // khởi tạo thông tin nhóm học phần
+        private void loadKhoiTao()
+        {
+            // thêm dữ liệu cho cboHocKy
+            for (int i = 1; i <= 3; i++)
+            {
+                if (i == 3)
+                {
+                    cboHocKy.Items.Add("Hè");
+                    return;
+                }
+                cboHocKy.Items.Add(i);
+            }
+            // thêm dữ liệu cho cboThu
+            for (int j = 2; j <= 7; j++)
+            {
+                cboThu.Items.Add(j);
+            }
+        }
+
+        // khởi tạo môn học 
+        private void LoadMonHoc()
+        {
+            // lấy MaMH, TenMH gán vào listMH khoi form được load lên
+            string sql = "select * from MONHOC";
+            DataTable dt = new DataTable();
+            dt = CSDL.LayDuLieu(sql);
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                listMH.Items.Add(dt.Rows[i][0].ToString());
+                listMH.Items[i].SubItems.Add(dt.Rows[i][1].ToString());
+            }
+        }
+
         private void btnTim_Click(object sender, EventArgs e)
         {
-            // tìm theo Mã môn học
+            // tìm theo Mã môn học            
             listMH.Items.Clear();
             if (string.IsNullOrEmpty(txtTimMaMH.Text))
             {
