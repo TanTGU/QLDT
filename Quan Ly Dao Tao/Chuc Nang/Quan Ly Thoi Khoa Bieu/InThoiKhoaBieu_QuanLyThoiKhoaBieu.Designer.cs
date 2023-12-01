@@ -136,6 +136,8 @@
             this.listGV.DrawColumnHeader += new System.Windows.Forms.DrawListViewColumnHeaderEventHandler(this.listDS_DrawColumnHeader);
             this.listGV.DrawItem += new System.Windows.Forms.DrawListViewItemEventHandler(this.listDS_DrawItem);
             this.listGV.Click += new System.EventHandler(this.listGV_Click);
+            this.listGV.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listGV_KeyDown);
+            this.listGV.KeyUp += new System.Windows.Forms.KeyEventHandler(this.listGV_KeyUp);
             // 
             // columnHeader1
             // 

@@ -90,17 +90,19 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
         }
         private void btnTim_Click(object sender, EventArgs e)
         {
-            // tìm theo Mã môn học            
+            // tìm theo Mã môn học
+            string maMH = txtTimMaMH.Text;
             listMH.Items.Clear();
-            if (string.IsNullOrEmpty(txtTimMaMH.Text))
+            if (string.IsNullOrEmpty(maMH))
             {
                 MessageBox.Show("Vui lòng nhập vào mã môn học!",
                                 "Thông báo",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
                 txtTimMaMH.Focus();
+                return;
             }
-            else
+            if (maMH.Length == 7 && maMH.Substring(0, 2).Equals("MH"))
             {
                 string sql = "select MaMH, TenMH from MONHOC where MaMH='" + txtTimMaMH.Text + "'";
                 DataTable dt = new DataTable();
@@ -118,6 +120,10 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
                 {
                     MessageBox.Show("Không tìm thấy môn học cần tìm. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+            }
+            else
+            {
+                MessageBox.Show("Mã môn học không hợp lệ. Vui lòng nhập lại!", "Thông báo");
             }
         }
         // combobox DONVI
