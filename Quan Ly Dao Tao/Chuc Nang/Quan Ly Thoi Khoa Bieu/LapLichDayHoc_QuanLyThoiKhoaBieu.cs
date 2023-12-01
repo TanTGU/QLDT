@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -78,7 +79,16 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
             LoadHocKy();
             loadKhoiTao();
             LoadMonHoc();
-            txtTimMaMH.Focus();
+            //testvuivui();
+        }
+        // test vui vui
+        private void testvuivui()
+        {
+            txtTimMaMH.AutoCompleteMode = AutoCompleteMode.SuggestAppend; // Hiển thị và tự động hoàn chỉnh từ gợi ý
+            txtTimMaMH.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            AutoCompleteStringCollection autoCompleteData = new AutoCompleteStringCollection();
+            //autoCompleteData.AddRange(new string[] { "Gợi ý 1", "Gợi ý 2", "Gợi ý 3" });
+            txtTimMaMH.AutoCompleteCustomSource = autoCompleteData;
         }
         // combobox DONVI
         private void LoadDonVi()
@@ -106,7 +116,6 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
         // combobox NAMHOC
         private void LoadNamHoc()
         {
-            // cboHocKy1: nằm ở bên thông tin tìm kiếm
             string sql = "select * from NAMHOC";
             DataTable dt = new DataTable();
             dt = CSDL.LayDuLieu(sql);
@@ -146,6 +155,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
                 cboThu.Items.Add(j);
             }
         }
+
 
         // khởi tạo môn học 
         private void LoadMonHoc()
@@ -193,10 +203,24 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
                 }
             }
         }
+        private void empty()
+        {
+            txtMaMH.Text = "";
+            txtTenMH.Text = "";
+            txtNamHoc.Text = "";
+            cboHocKy.Text = "";
+            txtNhom.Text = "";
+            cboThu.Text = "";
+            txtMaGV.Text = "";
+            txtTiet.Text = "";
+            txtTenGV.Text = "";
+            nuSoTiet.Value = 0;
+        }
 
         private void listMH_Click(object sender, EventArgs e)
         {
             // nhấn MONHOC ra nhóm HP môn học đó
+            empty();
             string maMH = listMH.SelectedItems[0].SubItems[0].Text;
             string sql = "select ROW_NUMBER()over(order by NhomHP) as STT, T.MaMH, TenMH, NhomHP, Thu, TietGiangDay  from THOIKHOABIEU T, MONHOC M where T.MaMH='" + maMH + "' and T.MaMH = M.MaMH";
             DataTable dt = new DataTable();
@@ -256,8 +280,8 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
         }
 
         private void cboNganh_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // chọn DONVI và NGANH => ra môn học của ngành thuộc đơn vị đó
+        {            
+            // chọn DONVI và NGANH => ra môn học của ngành thuộc đơn vị đó            
             listMH.Items.Clear();
             if (cboDonVi.SelectedIndex != -1 && cboNganh.SelectedIndex != -1)
             {
@@ -268,7 +292,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
                 {
                     listMH.Items.Add(dt.Rows[i][0].ToString());
                     listMH.Items[i].SubItems.Add(dt.Rows[i][1].ToString());
-                }
+                }                
             }
         }
 
@@ -308,6 +332,20 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
         private void listMH_KeyUp(object sender, KeyEventArgs e)
         {
             // xử lí sau
+        }
+
+        private void cboDonVi_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            cboNganh.Text = "";
+            cboNamHoc.Text = "";
+            cboHocKyTim.Text = "";
+        }
+
+
+        private void txtTimMaMH_MouseDown(object sender, MouseEventArgs e)
+        {
+            txtTimMaMH.Text = "";
+            txtTimMaMH.ForeColor = Color.Black;
         }
     }
 }

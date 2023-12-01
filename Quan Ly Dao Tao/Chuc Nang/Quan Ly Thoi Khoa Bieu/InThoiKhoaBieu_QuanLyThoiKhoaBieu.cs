@@ -76,7 +76,6 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
             LoadHocKy();
             LoadDonVi();
             LoadGiangVien();
-            txtTimMaGV.Focus();
             demGV(listGV);
         }
         // combobox NAMHOC
@@ -243,6 +242,12 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
             {
                 listTKBGD.Items.Clear();
             }
+        }
+
+        private void txtTimMaGV_MouseDown(object sender, MouseEventArgs e)
+        {
+            txtTimMaGV.Text = "";
+            txtTimMaGV.ForeColor = Color.Black;
         }
     }
 }

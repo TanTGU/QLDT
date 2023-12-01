@@ -74,7 +74,6 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
             LoadNamHoc();
             LoadHocKy();
             LoadMonHoc();
-            txtTimMaMH.Focus();
         }
         // khởi tạo môn học 
         private void LoadMonHoc()
@@ -167,9 +166,24 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
                 cboHocKyTim.Items.Add(dt.Rows[i][0].ToString());
             }
         }
+
+        private void empty()
+        {
+            txtMaMH.Text = "";
+            txtTenMH.Text = "";
+            txtNamHoc.Text = "";
+            cboHocKy.Text = "";
+            txtNhom.Text = "";
+            cboThu.Text = "";
+            txtMaGV.Text = "";
+            txtTiet.Text = "";
+            txtTenGV.Text = "";
+            nuSoTiet.Value = 0;
+        }
         private void listMH_Click(object sender, EventArgs e)
         {
             // nhấn MONHOC ra nhóm HP môn học đó
+            empty();
             string maMH = listMH.SelectedItems[0].SubItems[0].Text;
             string sql = "select ROW_NUMBER()over(order by NhomHP) as STT, T.MaMH, TenMH, NhomHP, Thu, TietGiangDay  from THOIKHOABIEU T, MONHOC M where T.MaMH='" + maMH + "' and T.MaMH = M.MaMH";
             DataTable dt = new DataTable();
@@ -255,6 +269,19 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
                     nuSoTiet.Value = soTiet;
                 }
             }
+        }
+
+        private void txtTimMaMH_MouseDown(object sender, MouseEventArgs e)
+        {
+            txtTimMaMH.Text = "";
+            txtTimMaMH.ForeColor = Color.Black;
+        }
+
+        private void cboDonVi_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            cboNganh.Text = "";
+            cboNamHoc.Text = "";
+            cboHocKyTim.Text = "";
         }
     }
 }
