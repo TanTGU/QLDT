@@ -331,14 +331,31 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
             }
         }
 
-        private void listMH_KeyDown(object sender, KeyEventArgs e)
-        {
-            // xử lí sau
-        }
 
         private void listMH_KeyUp(object sender, KeyEventArgs e)
         {
-            // xử lí sau
+            empty();
+            string maMH = listMH.SelectedItems[0].SubItems[0].Text;
+            string sql = "select ROW_NUMBER()over(order by NhomHP) as STT, T.MaMH, TenMH, NhomHP, Thu, TietGiangDay  from THOIKHOABIEU T, MONHOC M where T.MaMH='" + maMH + "' and T.MaMH = M.MaMH";
+            DataTable dt = new DataTable();
+            dt = CSDL.LayDuLieu(sql);
+            if (dt.Rows.Count > 0)
+            {
+                listHP.Items.Clear();
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    listHP.Items.Add(dt.Rows[i][0].ToString());
+                    listHP.Items[i].SubItems.Add(dt.Rows[i][1].ToString());
+                    listHP.Items[i].SubItems.Add(dt.Rows[i][2].ToString());
+                    listHP.Items[i].SubItems.Add(dt.Rows[i][3].ToString());
+                    listHP.Items[i].SubItems.Add(dt.Rows[i][4].ToString());
+                    listHP.Items[i].SubItems.Add(dt.Rows[i][5].ToString());
+                }
+            }
+            else
+            {
+                listHP.Items.Clear();
+            }
         }
 
         private void cboDonVi_SelectionChangeCommitted(object sender, EventArgs e)
@@ -353,6 +370,34 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
         {
             //txtTimMaMH.Text = "";
             //txtTimMaMH.ForeColor = Color.Black;
+        }
+
+        private void listHP_KeyUp(object sender, KeyEventArgs e)
+        {
+            string maMH = listHP.SelectedItems[0].SubItems[1].Text;
+            string nhom = listHP.SelectedItems[0].SubItems[3].Text;
+            string sql = "select T.MaMH, TenMH, NamHoc, HocKy, SoTC, NhomHP, Thu, G.MaGV, TietGiangDay, HoTen, GhiChu, SoTietThucDay \r\nfrom THOIKHOABIEU T, MONHOC M, GIANGVIEN G\r\nwhere T.MaMH='" + maMH + "' and NhomHP=" + nhom + " and T.MaMH = M.MaMH and T.MaGV = G.MaGV \r\norder by NhomHP";
+            DataTable dt = new DataTable();
+            dt = CSDL.LayDuLieu(sql);
+            if (dt.Rows.Count > 0)
+            {
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    txtMaMH.Text = dt.Rows[i][0].ToString();
+                    txtTenMH.Text = dt.Rows[i][1].ToString();
+                    txtNamHoc.Text = dt.Rows[i][2].ToString();
+                    cboHocKy.Text = dt.Rows[i][3].ToString();
+                    txtSoTC.Text = dt.Rows[i][4].ToString();
+                    txtNhom.Text = dt.Rows[i][5].ToString();
+                    cboThu.Text = dt.Rows[i][6].ToString();
+                    txtMaGV.Text = dt.Rows[i][7].ToString();
+                    txtTiet.Text = dt.Rows[i][8].ToString();
+                    txtTenGV.Text = dt.Rows[i][9].ToString();
+                    txtGhiChu.Text = dt.Rows[i][10].ToString();
+                    int soTiet = Convert.ToInt32(dt.Rows[i][11]);
+                    nuSoTiet.Value = soTiet;
+                }
+            }
         }
     }
 }

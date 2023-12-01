@@ -145,13 +145,16 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
 
         private void btnTim_Click(object sender, EventArgs e)
         {
-            
-            // tìm theo MaMH
-            string sql = "select MaGV, HoTen, MaDV from GIANGVIEN where MaGV='"+txtTimMaGV.Text+"'";
+            // tìm theo MaGV
+            string maGV = txtMaGV.Text;
+            string sql = "select T.MaGV, HoTen, D.MaDV, TenDV, NamHoc, HocKy from GIANGVIEN G,DONVI D, THOIKHOABIEU T " +
+                "where T.MaGV='" + maGV + "' and T.MaGV=G.MaGV and D.MaDV=G.MaDV";
             DataTable dt = new DataTable();
             dt = CSDL.LayDuLieu(sql);
             if (dt.Rows.Count > 0)
             {
+                // add Thông tin giảng viên
+                // add listGV
                 listGV.Items.Clear();
                 for(int i=0;i < dt.Rows.Count; i++)
                 {
@@ -255,12 +258,12 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
             // thực hiên ngay sau khi nhấn, người dùng tương tác với phím
             //string magv = listGV.SelectedItems[0].SubItems[0].Text;
             //string sql = "select T.MaGV, HoTen, D.MaDV, TenDV, NamHoc, HocKy from GIANGVIEN G,DONVI D, THOIKHOABIEU T " +
-            //    "where T.MaGV='"+magv+"' and T.MaGV=G.MaGV and D.MaDV=G.MaDV";
+            //    "where T.MaGV='" + magv + "' and T.MaGV=G.MaGV and D.MaDV=G.MaDV";
             //DataTable dt = new DataTable();
             //dt = CSDL.LayDuLieu(sql);
-            //if(dt.Rows.Count > 0)
+            //if (dt.Rows.Count > 0)
             //{
-            //    for(int i=0; i<dt.Rows.Count; i++)
+            //    for (int i = 0; i < dt.Rows.Count; i++)
             //    {
             //        txtMaGV.Text = dt.Rows[i][0].ToString();
             //        txtTenGV.Text = dt.Rows[i][1].ToString();
@@ -284,9 +287,10 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
         private void listGV_KeyUp(object sender, KeyEventArgs e)
         {
             // thực hiện ngay lâp tức, người dùng tương tác với phím
-            string magv = listGV.SelectedItems[0].SubItems[0].Text;
+            // NOTE: lỗi tên đơn vị
+            string maGV = listGV.SelectedItems[0].SubItems[0].Text;
             string sql = "select T.MaGV, HoTen, D.MaDV, TenDV, NamHoc, HocKy from GIANGVIEN G,DONVI D, THOIKHOABIEU T " +
-                "where T.MaGV='" + magv + "' and T.MaGV=G.MaGV and D.MaDV=G.MaDV";
+                "where T.MaGV='" + maGV + "' and T.MaGV=G.MaGV and D.MaDV=G.MaDV";
             DataTable dt = new DataTable();
             dt = CSDL.LayDuLieu(sql);
             if (dt.Rows.Count > 0)
@@ -309,6 +313,26 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
                 txtTenGV.Text = "";
                 txtNamHoc.Text = "";
                 txtHocKy.Text = "";
+            }
+            string sqlGD = "select ROW_NUMBER()over(order by MaGV) as STT, T.MaMH, TenMH, NhomHP, Thu, TietGiangDay from THOIKHOABIEU T, MONHOC M where T.MaGV='" + maGV + "' and T.MaMH = M.MaMH";
+            DataTable dtGD = new DataTable();
+            dtGD = CSDL.LayDuLieu(sqlGD);
+            if (dtGD.Rows.Count > 0)
+            {
+                listTKBGD.Items.Clear();
+                for (int i = 0; i < dtGD.Rows.Count; i++)
+                {
+                    listTKBGD.Items.Add(dtGD.Rows[i][0].ToString());
+                    listTKBGD.Items[i].SubItems.Add(dtGD.Rows[i][1].ToString());
+                    listTKBGD.Items[i].SubItems.Add(dtGD.Rows[i][2].ToString());
+                    listTKBGD.Items[i].SubItems.Add(dtGD.Rows[i][3].ToString());
+                    listTKBGD.Items[i].SubItems.Add(dtGD.Rows[i][4].ToString());
+                    listTKBGD.Items[i].SubItems.Add(dtGD.Rows[i][5].ToString());
+                }
+            }
+            else
+            {
+                listTKBGD.Items.Clear();
             }
         }
     }
