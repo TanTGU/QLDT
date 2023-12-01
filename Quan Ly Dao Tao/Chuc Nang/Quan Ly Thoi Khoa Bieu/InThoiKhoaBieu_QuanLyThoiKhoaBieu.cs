@@ -159,59 +159,72 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
             }
             if (cboDonVi.SelectedIndex == -1)
             {
-                MessageBox.Show("Vui lòng chọn dơn vị!");
+                MessageBox.Show("Vui lòng chọn đơn vị!");
                 return;
             }
-            // HIỂN THỊ Ở THÔNG TIN GIẢNG VIÊN
-            string sqlTTGV = "select MaGV, HoTen, MaDV from GIANGVIEN where MaGV='" + txtTimMaGV.Text + "'";
-            DataTable dtTTGV = new DataTable();
-            dtTTGV = CSDL.LayDuLieu(sqlTTGV);
-            if(dtTTGV.Rows.Count > 0)
+            if (string.IsNullOrEmpty(txtTimMaGV.Text))
             {
-                txtMaGV.Text = dtTTGV.Rows[0][0].ToString();
-                txtTenGV.Text = dtTTGV.Rows[0][1].ToString();
-                txtMaDV.Text = dtTTGV.Rows[0][2].ToString();
-                txtTenDV.Text = cboDonVi.SelectedItem.ToString();
-                txtNamHoc.Text = cboNamHoc.SelectedItem.ToString();
-                txtHocKy.Text = cboHocKy.SelectedItem.ToString();
-
+                MessageBox.Show("Vui lòng nhập vào mã giảng viên!");
+                return;
             }
-            // HIỂN THỊ Ở DANH SÁCH GIẢNG VIÊN 
             string maGV = txtTimMaGV.Text;
-            string sqlListGV = "select MaGV, HoTen, MaDV from GIANGVIEN where MaGV='" + txtTimMaGV.Text + "'";
-            DataTable dtListGV = new DataTable();
-            dtListGV = CSDL.LayDuLieu(sqlListGV);
-            if (dtListGV.Rows.Count > 0)
+            if (maGV.Length <= 7 && maGV.Substring(0, 2).Equals("GV"))
             {
-                listGV.Items.Clear();
-                for (int i = 0; i < dtListGV.Rows.Count; i++)
+                // HIỂN THỊ Ở THÔNG TIN GIẢNG VIÊN
+                string sqlTTGV = "select MaGV, HoTen, MaDV from GIANGVIEN where MaGV='" + maGV + "'";
+                DataTable dtTTGV = new DataTable();
+                dtTTGV = CSDL.LayDuLieu(sqlTTGV);
+                if (dtTTGV.Rows.Count > 0)
                 {
-                    listGV.Items.Add(dtListGV.Rows[i][0].ToString());
-                    listGV.Items[i].SubItems.Add(dtListGV.Rows[i][1].ToString());
-                    listGV.Items[i].SubItems.Add(dtListGV.Rows[i][2].ToString());
+                    txtMaGV.Text = dtTTGV.Rows[0][0].ToString();
+                    txtTenGV.Text = dtTTGV.Rows[0][1].ToString();
+                    txtMaDV.Text = dtTTGV.Rows[0][2].ToString();
+                    txtTenDV.Text = cboDonVi.SelectedItem.ToString();
+                    txtNamHoc.Text = cboNamHoc.SelectedItem.ToString();
+                    txtHocKy.Text = cboHocKy.SelectedItem.ToString();
+
                 }
-            }   
-            // HIỂN THỊ THỜI KHÓA BIỂU GIẢNG DẠY
-            string sqlGD = "select ROW_NUMBER()over(order by MaGV) as STT, T.MaMH, TenMH, NhomHP, Thu, TietGiangDay from THOIKHOABIEU T, MONHOC M where T.MaGV='" + maGV + "' and T.MaMH = M.MaMH";
-            DataTable dtGD = new DataTable();
-            dtGD = CSDL.LayDuLieu(sqlGD);
-            if (dtGD.Rows.Count > 0)
-            {
-                listTKBGD.Items.Clear();
-                for (int i = 0; i < dtGD.Rows.Count; i++)
+                // HIỂN THỊ Ở DANH SÁCH GIẢNG VIÊN 
+                string sqlListGV = "select MaGV, HoTen, MaDV from GIANGVIEN where MaGV='" + maGV + "'";
+                DataTable dtListGV = new DataTable();
+                dtListGV = CSDL.LayDuLieu(sqlListGV);
+                if (dtListGV.Rows.Count > 0)
                 {
-                    listTKBGD.Items.Add(dtGD.Rows[i][0].ToString());
-                    listTKBGD.Items[i].SubItems.Add(dtGD.Rows[i][1].ToString());
-                    listTKBGD.Items[i].SubItems.Add(dtGD.Rows[i][2].ToString());
-                    listTKBGD.Items[i].SubItems.Add(dtGD.Rows[i][3].ToString());
-                    listTKBGD.Items[i].SubItems.Add(dtGD.Rows[i][4].ToString());
-                    listTKBGD.Items[i].SubItems.Add(dtGD.Rows[i][5].ToString());
+                    listGV.Items.Clear();
+                    for (int i = 0; i < dtListGV.Rows.Count; i++)
+                    {
+                        listGV.Items.Add(dtListGV.Rows[i][0].ToString());
+                        listGV.Items[i].SubItems.Add(dtListGV.Rows[i][1].ToString());
+                        listGV.Items[i].SubItems.Add(dtListGV.Rows[i][2].ToString());
+                    }
+                }
+                // HIỂN THỊ THỜI KHÓA BIỂU GIẢNG DẠY
+                string sqlGD = "select ROW_NUMBER()over(order by MaGV) as STT, T.MaMH, TenMH, NhomHP, Thu, TietGiangDay from THOIKHOABIEU T, MONHOC M where T.MaGV='" + maGV + "' and T.MaMH = M.MaMH";
+                DataTable dtGD = new DataTable();
+                dtGD = CSDL.LayDuLieu(sqlGD);
+                if (dtGD.Rows.Count > 0)
+                {
+                    listTKBGD.Items.Clear();
+                    for (int i = 0; i < dtGD.Rows.Count; i++)
+                    {
+                        listTKBGD.Items.Add(dtGD.Rows[i][0].ToString());
+                        listTKBGD.Items[i].SubItems.Add(dtGD.Rows[i][1].ToString());
+                        listTKBGD.Items[i].SubItems.Add(dtGD.Rows[i][2].ToString());
+                        listTKBGD.Items[i].SubItems.Add(dtGD.Rows[i][3].ToString());
+                        listTKBGD.Items[i].SubItems.Add(dtGD.Rows[i][4].ToString());
+                        listTKBGD.Items[i].SubItems.Add(dtGD.Rows[i][5].ToString());
+                    }
+                }
+                else
+                {
+                    listTKBGD.Items.Clear();
                 }
             }
             else
             {
-                listTKBGD.Items.Clear();
+                MessageBox.Show("Mã giảng viên không hợp lệ. Vui lòng nhập lại!");
             }
+            
             
             demGV(listGV);
         }
