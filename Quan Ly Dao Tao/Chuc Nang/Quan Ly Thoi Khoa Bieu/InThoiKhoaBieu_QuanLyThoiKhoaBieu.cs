@@ -145,32 +145,74 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
 
         private void btnTim_Click(object sender, EventArgs e)
         {
-            // tìm theo MaGV
-            string maGV = txtMaGV.Text;
-            string sql = "select T.MaGV, HoTen, D.MaDV, TenDV, NamHoc, HocKy from GIANGVIEN G,DONVI D, THOIKHOABIEU T " +
-                "where T.MaGV='" + maGV + "' and T.MaGV=G.MaGV and D.MaDV=G.MaDV";
-            DataTable dt = new DataTable();
-            dt = CSDL.LayDuLieu(sql);
-            if (dt.Rows.Count > 0)
+            // trước khi tìm thì các trường dữ liệu không được để trống
+
+            if(cboNamHoc.SelectedIndex ==-1)
             {
-                // add Thông tin giảng viên
-                // add listGV
+                MessageBox.Show("Vui lòng chọn năm học!");
+                return;
+            }
+            if (cboHocKy.SelectedIndex == -1)
+            {
+                MessageBox.Show("Vui lòng chọn học kỳ!");
+                return;
+            }
+            if (cboDonVi.SelectedIndex == -1)
+            {
+                MessageBox.Show("Vui lòng chọn dơn vị!");
+                return;
+            }
+            // HIỂN THỊ Ở THÔNG TIN GIẢNG VIÊN
+            string sqlTTGV = "select MaGV, HoTen, MaDV from GIANGVIEN where MaGV='" + txtTimMaGV.Text + "'";
+            DataTable dtTTGV = new DataTable();
+            dtTTGV = CSDL.LayDuLieu(sqlTTGV);
+            if(dtTTGV.Rows.Count > 0)
+            {
+                txtMaGV.Text = dtTTGV.Rows[0][0].ToString();
+                txtTenGV.Text = dtTTGV.Rows[0][1].ToString();
+                txtMaDV.Text = dtTTGV.Rows[0][2].ToString();
+                txtTenDV.Text = cboDonVi.SelectedItem.ToString();
+                txtNamHoc.Text = cboNamHoc.SelectedItem.ToString();
+                txtHocKy.Text = cboHocKy.SelectedItem.ToString();
+
+            }
+            // HIỂN THỊ Ở DANH SÁCH GIẢNG VIÊN 
+            string maGV = txtTimMaGV.Text;
+            string sqlListGV = "select MaGV, HoTen, MaDV from GIANGVIEN where MaGV='" + txtTimMaGV.Text + "'";
+            DataTable dtListGV = new DataTable();
+            dtListGV = CSDL.LayDuLieu(sqlListGV);
+            if (dtListGV.Rows.Count > 0)
+            {
                 listGV.Items.Clear();
-                for(int i=0;i < dt.Rows.Count; i++)
+                for (int i = 0; i < dtListGV.Rows.Count; i++)
                 {
-                    listGV.Items.Add(dt.Rows[i][0].ToString());
-                    listGV.Items[i].SubItems.Add(dt.Rows[i][1].ToString());
-                    listGV.Items[i].SubItems.Add(dt.Rows[i][2].ToString());
+                    listGV.Items.Add(dtListGV.Rows[i][0].ToString());
+                    listGV.Items[i].SubItems.Add(dtListGV.Rows[i][1].ToString());
+                    listGV.Items[i].SubItems.Add(dtListGV.Rows[i][2].ToString());
+                }
+            }   
+            // HIỂN THỊ THỜI KHÓA BIỂU GIẢNG DẠY
+            string sqlGD = "select ROW_NUMBER()over(order by MaGV) as STT, T.MaMH, TenMH, NhomHP, Thu, TietGiangDay from THOIKHOABIEU T, MONHOC M where T.MaGV='" + maGV + "' and T.MaMH = M.MaMH";
+            DataTable dtGD = new DataTable();
+            dtGD = CSDL.LayDuLieu(sqlGD);
+            if (dtGD.Rows.Count > 0)
+            {
+                listTKBGD.Items.Clear();
+                for (int i = 0; i < dtGD.Rows.Count; i++)
+                {
+                    listTKBGD.Items.Add(dtGD.Rows[i][0].ToString());
+                    listTKBGD.Items[i].SubItems.Add(dtGD.Rows[i][1].ToString());
+                    listTKBGD.Items[i].SubItems.Add(dtGD.Rows[i][2].ToString());
+                    listTKBGD.Items[i].SubItems.Add(dtGD.Rows[i][3].ToString());
+                    listTKBGD.Items[i].SubItems.Add(dtGD.Rows[i][4].ToString());
+                    listTKBGD.Items[i].SubItems.Add(dtGD.Rows[i][5].ToString());
                 }
             }
             else
             {
-                MessageBox.Show("Không có giảng viên cần tìm. Vui lòng nhập lại!",
-                                "Thông báo",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
-                txtTimMaGV.Focus();
+                listTKBGD.Items.Clear();
             }
+            
             demGV(listGV);
         }
 
