@@ -209,11 +209,14 @@
             // txtTimMaMH
             // 
             this.txtTimMaMH.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTimMaMH.ForeColor = System.Drawing.Color.Silver;
+            this.txtTimMaMH.ForeColor = System.Drawing.Color.Black;
             this.txtTimMaMH.Location = new System.Drawing.Point(107, 144);
             this.txtTimMaMH.Name = "txtTimMaMH";
             this.txtTimMaMH.Size = new System.Drawing.Size(329, 36);
             this.txtTimMaMH.TabIndex = 11;
+//            this.txtTimMaMH.Enter += new System.EventHandler(this.txtTimMaMH_Enter);
+//            this.txtTimMaMH.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTimMaMH_KeyDown);
+//            this.txtTimMaMH.Leave += new System.EventHandler(this.txtTimMaMH_Leave);
             this.txtTimMaMH.MouseDown += new System.Windows.Forms.MouseEventHandler(this.txtTimMaMH_MouseDown);
             // 
             // label3

@@ -168,7 +168,8 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
                 return;
             }
             string maGV = txtTimMaGV.Text;
-            if (maGV.Length <= 7 && maGV.Substring(0, 2).Equals("GV"))
+            bool timThayGV = false;
+            if (maGV.Length == 6 && maGV.Substring(0, 2).Equals("GV"))
             {
                 // HIỂN THỊ Ở THÔNG TIN GIẢNG VIÊN
                 string sqlTTGV = "select MaGV, HoTen, MaDV from GIANGVIEN where MaGV='" + maGV + "'";
@@ -176,6 +177,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
                 dtTTGV = CSDL.LayDuLieu(sqlTTGV);
                 if (dtTTGV.Rows.Count > 0)
                 {
+                    timThayGV = true;
                     txtMaGV.Text = dtTTGV.Rows[0][0].ToString();
                     txtTenGV.Text = dtTTGV.Rows[0][1].ToString();
                     txtMaDV.Text = dtTTGV.Rows[0][2].ToString();
@@ -190,6 +192,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
                 dtListGV = CSDL.LayDuLieu(sqlListGV);
                 if (dtListGV.Rows.Count > 0)
                 {
+                    timThayGV = true;
                     listGV.Items.Clear();
                     for (int i = 0; i < dtListGV.Rows.Count; i++)
                     {
@@ -204,6 +207,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
                 dtGD = CSDL.LayDuLieu(sqlGD);
                 if (dtGD.Rows.Count > 0)
                 {
+                    timThayGV = true;
                     listTKBGD.Items.Clear();
                     for (int i = 0; i < dtGD.Rows.Count; i++)
                     {
@@ -219,12 +223,15 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
                 {
                     listTKBGD.Items.Clear();
                 }
+                if (!timThayGV)
+                {
+                    MessageBox.Show("Không tìm thấy giảng viên có mã " + maGV);
+                }
             }
             else
             {
                 MessageBox.Show("Mã giảng viên không hợp lệ. Vui lòng nhập lại!");
             }
-            
             
             demGV(listGV);
         }

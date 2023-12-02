@@ -79,16 +79,13 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
             LoadHocKy();
             loadKhoiTao();
             LoadMonHoc();
-            //testvuivui();
+            TimMaMHLoad();            
         }
-        // test vui vui
-        private void testvuivui()
+        
+        private void TimMaMHLoad()
         {
-            txtTimMaMH.AutoCompleteMode = AutoCompleteMode.SuggestAppend; // Hiển thị và tự động hoàn chỉnh từ gợi ý
-            txtTimMaMH.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            AutoCompleteStringCollection autoCompleteData = new AutoCompleteStringCollection();
-            //autoCompleteData.AddRange(new string[] { "Gợi ý 1", "Gợi ý 2", "Gợi ý 3" });
-            txtTimMaMH.AutoCompleteCustomSource = autoCompleteData;
+            txtTimMaMH.Text = "Vui lòng nhập vào mã môn học...";
+            txtTimMaMH.ForeColor = Color.LightGray;
         }
         // combobox DONVI
         private void LoadDonVi()
@@ -209,6 +206,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
             {
                 MessageBox.Show("Mã môn học không hợp lệ. Vui lòng nhập lại!", "Thông báo");
             }
+            txtTimMaMH.Focus();
         }
         private void empty()
         {
@@ -272,9 +270,30 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
         }
         private void btnThem_Click(object sender, EventArgs e)
         {
+            string maGV = txtMaGV.Text;
+            string maMH = txtMaMH.Text;
+            string nhomHP = txtNhom.Text;
+            int hocKy = Convert.ToInt32(cboHocKy.SelectedItem.ToString());
+            string namHoc = txtNamHoc.Text;
+            int thu = Convert.ToInt32(cboThu.Text);
+            string tiet = txtTiet.Text;
+            int sotiet = Convert.ToInt32(nuSoTiet.Value);
+            string ghiChu = txtGhiChu.Text;
+
+
+            string sql = "insert THOIKHOABIEU(MaGV, MaMH, NhomHP, HocKy, NamHoc, Thu, TietGiangDay, SoTietThucDay, GhiChu) " +
+                "values('" + maGV + "', '" + maMH + "', '" + nhomHP + "', " + hocKy + ", '" + namHoc + "', " + thu + ", '" + tiet + "', " + sotiet + ", '" + ghiChu + "')";
+            CSDL.XuLy(sql);   
+            // thêm thành công hehehehehehehe          
 
 
         }
+        //public static void ThemDuLieuVaoCSDL(string maGV, string maMH, string nhomHP, int hocKy, string namHoc, int thu, string tiet, int soTiet, string ghiChu)
+        //{
+        //    string sql = "INSERT INTO THOIKHOABIEU(MaGV, MaMH, NhomHP, HocKy, NamHoc, Thu, TietGiangDay, SoTietThucDay, GhiChu) " +
+        //                 "VALUES('" + maGV + "', '" + maMH + "', '" + nhomHP + "', " + hocKy + ", '" + namHoc + "', " + thu + ", '" + tiet + "', " + soTiet + ", '" + ghiChu + "')";
+        //    CSDL.XuLy(sql);
+        //}
 
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
@@ -368,8 +387,8 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
 
         private void txtTimMaMH_MouseDown(object sender, MouseEventArgs e)
         {
-            //txtTimMaMH.Text = "";
-            //txtTimMaMH.ForeColor = Color.Black;
+            txtTimMaMH.Text = "";
+            txtTimMaMH.ForeColor = Color.Black;
         }
 
         private void listHP_KeyUp(object sender, KeyEventArgs e)
@@ -399,5 +418,6 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
                 }
             }
         }
+        
     }
 }

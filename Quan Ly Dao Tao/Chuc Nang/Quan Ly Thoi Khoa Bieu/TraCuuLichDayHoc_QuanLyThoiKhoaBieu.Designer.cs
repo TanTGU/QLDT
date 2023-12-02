@@ -473,7 +473,6 @@
             this.txtTimMaMH.Name = "txtTimMaMH";
             this.txtTimMaMH.Size = new System.Drawing.Size(329, 36);
             this.txtTimMaMH.TabIndex = 11;
-            this.txtTimMaMH.Text = "MH10101";
             this.txtTimMaMH.MouseDown += new System.Windows.Forms.MouseEventHandler(this.txtTimMaMH_MouseDown);
             // 
             // label3
