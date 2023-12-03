@@ -356,8 +356,6 @@
             // 
             this.cboThu.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboThu.FormattingEnabled = true;
-            this.cboThu.Items.AddRange(new object[] {
-            "2,3,4,5,6,7"});
             this.cboThu.Location = new System.Drawing.Point(510, 117);
             this.cboThu.Name = "cboThu";
             this.cboThu.Size = new System.Drawing.Size(159, 37);

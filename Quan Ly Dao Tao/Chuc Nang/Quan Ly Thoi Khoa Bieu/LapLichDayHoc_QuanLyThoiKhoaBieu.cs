@@ -289,16 +289,43 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
                 }               
                 
             }
-        }        
-
+        }
+        public static void CapNhatDuLieu(string maGV, string maMH, string nhomHP, int hocKy, string namHoc, int thu, string tiet, int soTiet, string ghiChu)
+        {
+            string sql = "update THOIKHOABIEU set NhomHP = '" + nhomHP + "', HocKy = " + hocKy + ", NamHoc = '" + namHoc + "', Thu = " + thu + ", TietGiangDay = '" + tiet + "', SoTietThucDay = " + soTiet + ", GhiChu = '" + ghiChu + "' where MaGV = '" + maGV + "' and MaMH = '" + maMH + "'";
+            CSDL.XuLy(sql);
+        }
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
-            
+            string maGV = txtMaGV.Text;
+            string maMH = txtMaMH.Text;
+            string nhomHP = txtNhom.Text;
+            int hocKy = Convert.ToInt32(cboHocKy.SelectedItem.ToString());
+            string namHoc = txtNamHoc.Text;
+            int thu = Convert.ToInt32(cboThu.Text);
+            string tiet = txtTiet.Text;
+            int sotiet = Convert.ToInt32(nuSoTiet.Value);
+            string ghiChu = txtGhiChu.Text;
+
+            // ĐỒNG BỘ DỮ LIỆU KHI CẬP NHẬT THÔNG TIN THÀNH CÔNG
+            string sql = "select ROW_NUMBER()over(order by NhomHP) as STT, T.MaMH, TenMH, NhomHP, Thu, TietGiangDay  from THOIKHOABIEU T, MONHOC M where T.MaMH='" + maMH + "' and T.MaMH = M.MaMH";
+            LoadThongTinHocPhan(sql, maMH);
         }
 
+        public static void XoaDuLieu(string maMH, string nhomHP)
+        {
+            string sql = "delete from THOIKHOABIEU where MaMH = '" + maMH + "' and NhomHP ='"+nhomHP+"'";
+            CSDL.XuLy(sql);
+        }
         private void btnXoa_Click(object sender, EventArgs e)
         {
-
+            string maMH = listHP.SelectedItems[0].SubItems[1].Text;
+            string nhomHP = listHP.SelectedItems[0].SubItems[3].Text;
+            // XÓA DỮ LIỆU
+            XoaDuLieu(maMH, nhomHP);
+            // ĐỒNG BỘ DỮ LIỆU KHI XÓA THÔNG TIN THÀNH CÔNG
+            string sql = "select ROW_NUMBER()over(order by NhomHP) as STT, T.MaMH, TenMH, NhomHP, Thu, TietGiangDay  from THOIKHOABIEU T, MONHOC M where T.MaMH='" + maMH + "' and T.MaMH = M.MaMH";
+            LoadThongTinHocPhan(sql, maMH);
         }
 
         private void cboNganh_SelectedIndexChanged(object sender, EventArgs e)
