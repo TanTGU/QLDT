@@ -77,7 +77,8 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
             LoadDonVi();
             LoadNamHoc();
             LoadHocKy();
-            loadKhoiTao();
+            LoadHocKy1();
+            LoadThu();
             LoadMonHoc();
             TimMaMHLoad();            
         }
@@ -134,7 +135,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
         }
 
         // khởi tạo thông tin nhóm học phần
-        private void loadKhoiTao()
+        private void LoadHocKy1()
         {
             // thêm dữ liệu cho cboHocKy
             for (int i = 1; i <= 3; i++)
@@ -145,11 +146,13 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
                     return;
                 }
                 cboHocKy.Items.Add(i);
-            }
-            // thêm dữ liệu cho cboThu
-            for (int j = 2; j <= 7; j++)
+            }            
+        }
+        private void LoadThu()
+        {
+            for(int i=2; i<=7; i++)
             {
-                cboThu.Items.Add(j);
+                cboThu.Items.Add(i);
             }
         }
 
@@ -223,30 +226,12 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
         }
 
         private void listMH_Click(object sender, EventArgs e)
-        {
-            // nhấn MONHOC ra nhóm HP môn học đó
+        {            
             empty();
             string maMH = listMH.SelectedItems[0].SubItems[0].Text;
-            string sql = "select ROW_NUMBER()over(order by NhomHP) as STT, T.MaMH, TenMH, NhomHP, Thu, TietGiangDay  from THOIKHOABIEU T, MONHOC M where T.MaMH='" + maMH + "' and T.MaMH = M.MaMH";
-            DataTable dt = new DataTable();
-            dt = CSDL.LayDuLieu(sql);
-            if (dt.Rows.Count > 0)
-            {
-                listHP.Items.Clear();
-                for (int i = 0; i < dt.Rows.Count; i++)
-                {
-                    listHP.Items.Add(dt.Rows[i][0].ToString());
-                    listHP.Items[i].SubItems.Add(dt.Rows[i][1].ToString());
-                    listHP.Items[i].SubItems.Add(dt.Rows[i][2].ToString());
-                    listHP.Items[i].SubItems.Add(dt.Rows[i][3].ToString());
-                    listHP.Items[i].SubItems.Add(dt.Rows[i][4].ToString());
-                    listHP.Items[i].SubItems.Add(dt.Rows[i][5].ToString());
-                }
-            }
-            else
-            {
-                listHP.Items.Clear();
-            }
+            //string sql = "select ROW_NUMBER()over(order by NhomHP) as STT, T.MaMH, TenMH, NhomHP, Thu, TietGiangDay  from THOIKHOABIEU T, MONHOC M where T.MaMH='" + maMH + "' and T.MaMH = M.MaMH";
+            string sql = "select ROW_NUMBER()over(order by NhomHP) as STT, T.MaMH, TenMH, NhomHP, Thu, TietGiangDay  \r\nfrom THOIKHOABIEU T, MONHOC M, GIANGVIEN G \r\nwhere T.MaMH='"+maMH+"' and T.MaMH = M.MaMH and T.MaGV = G.MaGV";
+            LoadThongTinHocPhan(sql, maMH);
         }
 
         
@@ -268,6 +253,12 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
                 }
             }
         }
+        public static void ThemDuLieu(string maGV, string maMH, string nhomHP, int hocKy, string namHoc, int thu, string tiet, int soTiet, string ghiChu)
+        {
+            string sql = "insert THOIKHOABIEU(MaGV, MaMH, NhomHP, HocKy, NamHoc, Thu, TietGiangDay, SoTietThucDay, GhiChu) " +
+                "values('" + maGV + "', '" + maMH + "', '" + nhomHP + "', " + hocKy + ", '" + namHoc + "', " + thu + ", '" + tiet + "', " + soTiet + ", '" + ghiChu + "')";
+            CSDL.XuLy(sql);
+        }
         private void btnThem_Click(object sender, EventArgs e)
         {
             string maGV = txtMaGV.Text;
@@ -280,24 +271,29 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
             int sotiet = Convert.ToInt32(nuSoTiet.Value);
             string ghiChu = txtGhiChu.Text;
 
+            ThemDuLieu(maGV, maMH, nhomHP, hocKy, namHoc, thu, tiet, sotiet, ghiChu);                        
 
-            string sql = "insert THOIKHOABIEU(MaGV, MaMH, NhomHP, HocKy, NamHoc, Thu, TietGiangDay, SoTietThucDay, GhiChu) " +
-                "values('" + maGV + "', '" + maMH + "', '" + nhomHP + "', " + hocKy + ", '" + namHoc + "', " + thu + ", '" + tiet + "', " + sotiet + ", '" + ghiChu + "')";
-            CSDL.XuLy(sql);   
-            // thêm thành công hehehehehehehe          
-
-
+            // ĐỒNG BỘ DỮ LIỆU LIST HỌC PHẦN SAU KHI THÊM THÀNH CÔNG
+            string sql = "select ROW_NUMBER()over(order by NhomHP) as STT, T.MaMH, TenMH, NhomHP, Thu, TietGiangDay  from THOIKHOABIEU T, MONHOC M where T.MaMH='" + maMH + "' and T.MaMH = M.MaMH";
+            LoadThongTinHocPhan(sql, maMH);
         }
-        //public static void ThemDuLieuVaoCSDL(string maGV, string maMH, string nhomHP, int hocKy, string namHoc, int thu, string tiet, int soTiet, string ghiChu)
-        //{
-        //    string sql = "INSERT INTO THOIKHOABIEU(MaGV, MaMH, NhomHP, HocKy, NamHoc, Thu, TietGiangDay, SoTietThucDay, GhiChu) " +
-        //                 "VALUES('" + maGV + "', '" + maMH + "', '" + nhomHP + "', " + hocKy + ", '" + namHoc + "', " + thu + ", '" + tiet + "', " + soTiet + ", '" + ghiChu + "')";
-        //    CSDL.XuLy(sql);
-        //}
+        private void KiemTraNhomHP(string maHP)
+        {
+            int dem = listHP.Items.Count;
+            for(int i=0; i<dem; i++)
+            {
+                if(string.Equals(maHP, listHP.Items[i].SubItems[3].Text))
+                {
+                    MessageBox.Show("Nhóm đã tồn tại vui lòng chọn nhóm khác!");
+                    return;
+                }               
+                
+            }
+        }        
 
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -324,6 +320,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
 
         private void listHP_Click(object sender, EventArgs e)
         {
+            // có sai sót ở chỗ này => không xử lý được dữ liệu bị trùng
             string maMH = listHP.SelectedItems[0].SubItems[1].Text;
             string nhom = listHP.SelectedItems[0].SubItems[3].Text;
             string sql = "select T.MaMH, TenMH, NamHoc, HocKy, SoTC, NhomHP, Thu, G.MaGV, TietGiangDay, HoTen, GhiChu, SoTietThucDay \r\nfrom THOIKHOABIEU T, MONHOC M, GIANGVIEN G\r\nwhere T.MaMH='" + maMH + "' and NhomHP=" + nhom + " and T.MaMH = M.MaMH and T.MaGV = G.MaGV \r\norder by NhomHP";
@@ -355,26 +352,9 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
         {
             empty();
             string maMH = listMH.SelectedItems[0].SubItems[0].Text;
-            string sql = "select ROW_NUMBER()over(order by NhomHP) as STT, T.MaMH, TenMH, NhomHP, Thu, TietGiangDay  from THOIKHOABIEU T, MONHOC M where T.MaMH='" + maMH + "' and T.MaMH = M.MaMH";
-            DataTable dt = new DataTable();
-            dt = CSDL.LayDuLieu(sql);
-            if (dt.Rows.Count > 0)
-            {
-                listHP.Items.Clear();
-                for (int i = 0; i < dt.Rows.Count; i++)
-                {
-                    listHP.Items.Add(dt.Rows[i][0].ToString());
-                    listHP.Items[i].SubItems.Add(dt.Rows[i][1].ToString());
-                    listHP.Items[i].SubItems.Add(dt.Rows[i][2].ToString());
-                    listHP.Items[i].SubItems.Add(dt.Rows[i][3].ToString());
-                    listHP.Items[i].SubItems.Add(dt.Rows[i][4].ToString());
-                    listHP.Items[i].SubItems.Add(dt.Rows[i][5].ToString());
-                }
-            }
-            else
-            {
-                listHP.Items.Clear();
-            }
+            //string sql = "select ROW_NUMBER()over(order by NhomHP) as STT, T.MaMH, TenMH, NhomHP, Thu, TietGiangDay  from THOIKHOABIEU T, MONHOC M where T.MaMH='" + maMH + "' and T.MaMH = M.MaMH";
+            string sql = "select ROW_NUMBER()over(order by NhomHP) as STT,G.MaGV, T.MaMH, TenMH, NhomHP, Thu, TietGiangDay  \r\nfrom THOIKHOABIEU T, MONHOC M, GIANGVIEN G \r\nwhere T.MaMH='"+maMH+"' and T.MaMH = M.MaMH and T.MaGV = G.MaGV";
+            LoadThongTinHocPhan(sql, maMH);
         }
 
         private void cboDonVi_SelectionChangeCommitted(object sender, EventArgs e)
@@ -416,6 +396,30 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
                     int soTiet = Convert.ToInt32(dt.Rows[i][11]);
                     nuSoTiet.Value = soTiet;
                 }
+            }
+        }
+        // LOAD LẠI THÔNG TIN MÔN HỌC
+        private void LoadThongTinHocPhan(string sql, string maMH)
+        {
+            sql = "select ROW_NUMBER()over(order by NhomHP) as STT, T.MaMH, TenMH, NhomHP, Thu, TietGiangDay  from THOIKHOABIEU T, MONHOC M where T.MaMH='" + maMH + "' and T.MaMH = M.MaMH";
+            DataTable dt = new DataTable();
+            dt = CSDL.LayDuLieu(sql);
+            if (dt.Rows.Count > 0)
+            {
+                listHP.Items.Clear();
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    listHP.Items.Add(dt.Rows[i][0].ToString());
+                    listHP.Items[i].SubItems.Add(dt.Rows[i][1].ToString());
+                    listHP.Items[i].SubItems.Add(dt.Rows[i][2].ToString());
+                    listHP.Items[i].SubItems.Add(dt.Rows[i][3].ToString());
+                    listHP.Items[i].SubItems.Add(dt.Rows[i][4].ToString());
+                    listHP.Items[i].SubItems.Add(dt.Rows[i][5].ToString());
+                }
+            }
+            else
+            {
+                listHP.Items.Clear();
             }
         }
         
