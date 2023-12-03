@@ -292,7 +292,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
         }
         public static void CapNhatDuLieu(string maGV, string maMH, string nhomHP, int hocKy, string namHoc, int thu, string tiet, int soTiet, string ghiChu)
         {
-            string sql = "update THOIKHOABIEU set NhomHP = '" + nhomHP + "', HocKy = " + hocKy + ", NamHoc = '" + namHoc + "', Thu = " + thu + ", TietGiangDay = '" + tiet + "', SoTietThucDay = " + soTiet + ", GhiChu = '" + ghiChu + "' where MaGV = '" + maGV + "' and MaMH = '" + maMH + "'";
+            string sql = "update THOIKHOABIEU set MaGV = '"+maGV+"', MaMH='"+maMH+"', NhomHP = '" + nhomHP + "', HocKy = " + hocKy + ", NamHoc = '" + namHoc + "', Thu = " + thu + ", TietGiangDay = '" + tiet + "', SoTietThucDay = " + soTiet + ", GhiChu = '" + ghiChu + "' where MaGV = '" + maGV + "' and MaMH = '" + maMH + "' and NhomHP ="+nhomHP+"";
             CSDL.XuLy(sql);
         }
         private void btnCapNhat_Click(object sender, EventArgs e)
@@ -307,6 +307,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
             int sotiet = Convert.ToInt32(nuSoTiet.Value);
             string ghiChu = txtGhiChu.Text;
 
+            CapNhatDuLieu(maGV, maMH, nhomHP, hocKy, namHoc, thu, tiet, sotiet, ghiChu);
             // ĐỒNG BỘ DỮ LIỆU KHI CẬP NHẬT THÔNG TIN THÀNH CÔNG
             string sql = "select ROW_NUMBER()over(order by NhomHP) as STT, T.MaMH, TenMH, NhomHP, Thu, TietGiangDay  from THOIKHOABIEU T, MONHOC M where T.MaMH='" + maMH + "' and T.MaMH = M.MaMH";
             LoadThongTinHocPhan(sql, maMH);
