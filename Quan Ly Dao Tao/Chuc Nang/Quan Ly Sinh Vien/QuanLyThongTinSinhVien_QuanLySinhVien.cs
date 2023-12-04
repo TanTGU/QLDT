@@ -256,18 +256,23 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
             }
         }
 
-        private void cbLop_SelectedIndexChanged(object sender, EventArgs e)
+        void LayDSSinhVien()
         {
-            LamMoi();
             string MaLop = LayMaLop(cbLop.Text);
-            string sql = "select MaSV, HoTen from SINHVIEN where MaLop = '"+MaLop+"'";
+            string sql = "select MaSV, HoTen from SINHVIEN where MaLop = '" + MaLop + "'";
             listDS.Items.Clear();
             DataTable dt = CSDL.LayDuLieu(sql);
-            for(int i = 0;i < dt.Rows.Count;i++)
+            for (int i = 0; i < dt.Rows.Count; i++)
             {
                 listDS.Items.Add(dt.Rows[i][0].ToString());
                 listDS.Items[i].SubItems.Add(dt.Rows[i][1].ToString());
             }
+        }
+
+        private void cbLop_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LamMoi();
+            LayDSSinhVien();
             LayThongTinLop(cbLop.Text);
         }
 
@@ -275,7 +280,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
         {
             if(listDS.SelectedItems.Count > 0)
             {
-                string sql = @"select MaSV, HoTen, NgaySinh, GioiTinh, CCCD, SoDT, Email, DiaChi, SINHVIEN.MaLop, LOP.TenLop, NGANH.TenNganh, HINHTHUCDAOTAO.Ten, BACDAOTAO.Ten  from SINHVIEN, LOP, NGANH, HINHTHUCDAOTAO, BACDAOTAO where NGANH.MaNganh = LOP.MaNganh and LOP.HinhThucDaoTao = HINHTHUCDAOTAO.Ma and LOP.BacDaoTao = BACDAOTAO.Ma and SINHVIEN.MaLop = LOP.MaLop and SINHVIEN.MaSV = '" + listDS.SelectedItems[0].SubItems[0].Text +"'";
+                string sql = @"select MaSV, HoTen, NgaySinh, GioiTinh, CCCD, SoDT, Email, DiaChi, SINHVIEN.MaLop, LOP.TenLop, NGANH.TenNganh, HINHTHUCDAOTAO.Ten, BACDAOTAO.Ten  from SINHVIEN, LOP, NGANH, HINHTHUCDAOTAO, BACDAOTAO where NGANH.MaNganh = LOP.MaNganh and LOP.BacDaoTao = BACDAOTAO.Ma and SINHVIEN.MaLop = LOP.MaLop and SINHVIEN.HinhThucDaoTao = HINHTHUCDAOTAO.Ma and SINHVIEN.MaSV = '" + listDS.SelectedItems[0].SubItems[0].Text +"'";
                 DataTable dt = CSDL.LayDuLieu(sql);
                 if(dt.Rows.Count > 0)
                 {
@@ -337,7 +342,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
             tbCCCD.Text = "";
             tbSoDT.Text = "";
             tbEmail.Text = "";
-            cbHinhThucDaoTao.Text = "";
+            
             tbDiaChi.Text = "";
 
             if(cbLop.Text != "")
@@ -345,15 +350,106 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
             Chon = true;
         }
 
-        bool KiemTraCuPhap()
+        private bool IsNumericLengthValid(string input, int expectedLength)
         {
+            // Kiểm tra xem chuỗi có phải là số không
+            if (!long.TryParse(input, out _))
+            {
+                return false;
+            }
+
+            // Kiểm tra chiều dài của chuỗi
+            return input.Length == expectedLength;
+        }
+
+        bool KiemTraSoCCCD()
+        {
+            if (!IsNumericLengthValid(tbCCCD.Text, 12))
+            {
+                return true;
+                
+            }
             return false;
+        }
+        bool KiemTraSoDT()
+        {
+            if (!IsNumericLengthValid(tbSoDT.Text, 10))
+            {
+                return true;
+
+            }
+            return false;
+        }
+
+        bool KiemTraDuLieuTrong()
+        {
+            if (tbMaSV.Text == "" || tbHoTen.Text == "" || cbGioiTinh.Text == "")
+                return true;
+            return false;
+        }
+
+        string LayMaNganh(string Ten)
+        {
+            string result = "";
+            string sql = "select MaNganh from NGANH where TenNganh = N'"+Ten+"'";
+            DataTable dt = CSDL.LayDuLieu(sql);
+            if (dt.Rows.Count > 0)
+                result = dt.Rows[0][0].ToString();
+            return result;
+        }
+
+        string LayMaHinhThucDaoTao(string Ten)
+        {
+            string result = "";
+            string sql = "select Ma from HINHTHUCDAOTAO where Ten = N'" + Ten + "'";
+            DataTable dt = CSDL.LayDuLieu(sql);
+            if (dt.Rows.Count > 0)
+                result = dt.Rows[0][0].ToString();
+            return result;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            if(tbMaLop.Text == "")
+            {
+                MessageBox.Show("Vui lòng chọn lớp cần thêm sinh viên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                return;
+            }
+            if(KiemTraDuLieuTrong())
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin bắc buộc!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                return;
+            }
+            if(tbCCCD.Text !="")
+            {
+                if(KiemTraSoCCCD())
+                {
+                    MessageBox.Show("CCCD phải có định dạng 12 số!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    tbCCCD.Focus();
+                    return;
+                }
+                
+            }
+            if (tbSoDT.Text != "")
+            {
+                if (KiemTraSoDT())
+                {
+                    MessageBox.Show("Số điện thoại phải có định dạng 10 số!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    tbSoDT.Focus();
+                    return;
+                }
+
+            }
+            string CCCD = (tbCCCD.Text == "" ? "null" : "'" + tbCCCD.Text + "'");
+            string SoDT = (tbSoDT.Text == "" ? "null" : "'" + tbSoDT.Text + "'");
+            string DiaChi = (tbDiaChi.Text == "" ? "null" : "N'" + tbDiaChi.Text + "'");
+            
             string insert = "insert into SINHVIEN(MaSV, HoTen, NgaySinh, GioiTinh, CCCD, SoDT, Email, DiaChi, MaLop, MaNganh, HinhThucDaoTao) ";
-            string values = "values('021101011', N'Huỳnh Trọng Nghĩa', '2003/01/23', N'Nam', '008533547', '0332324854', 'nghia021101011@tgu.edu.vn', N'Tiền Giang', 'DHCNTT21B', 'CNTT', 'CQ')";
+            string values = "values('"+tbMaSV.Text+"', N'"+tbHoTen.Text+"', '"+dateNgaySinh.Value.ToString("yyyy/MM/dd")+"', N'"+cbGioiTinh.Text+ "', "+CCCD+", "+SoDT+", '"+tbEmail.Text+"', "+DiaChi+", '"+LayMaLop(cbLop.Text)+"', '"+LayMaNganh(tbNganhHoc.Text)+"', '"+LayMaHinhThucDaoTao(cbHinhThucDaoTao.Text)+"')";
+            string sql = insert + values;
+            CSDL.XuLy(sql);
+            LayDSSinhVien();
+            MessageBox.Show("Đã thêm thông tin sinh viên mới!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void tbHoTen_TextChanged(object sender, EventArgs e)
@@ -411,6 +507,11 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
         private void tbMaSV_Enter(object sender, EventArgs e)
         {
             
+        }
+
+        private void label19_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
