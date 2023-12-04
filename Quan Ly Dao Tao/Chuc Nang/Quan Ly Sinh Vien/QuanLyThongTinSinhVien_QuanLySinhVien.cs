@@ -366,7 +366,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
 
         bool KiemTraSoCCCD()
         {
-            if (!IsNumericLengthValid(tbCCCD.Text, 12))
+            if (!IsNumericLengthValid(tbCCCD.Text, 12) && !IsNumericLengthValid(tbCCCD.Text, 9))
             {
                 return true;
                 
@@ -426,7 +426,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
             {
                 if(KiemTraSoCCCD())
                 {
-                    MessageBox.Show("CCCD phải có định dạng 12 số!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("CCCD phải có định dạng 9 hoặc 12 số!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     tbCCCD.Focus();
                     return;
                 }
@@ -539,7 +539,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
             {
                 if (KiemTraSoCCCD())
                 {
-                    MessageBox.Show("CCCD phải có định dạng 12 số!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("CCCD phải có định dạng 9 hoặc 12 số!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     tbCCCD.Focus();
                     return;
                 }
@@ -571,6 +571,31 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
             {
                 MessageBox.Show("Cập nhật thông tin sinh viên không thành công. Vui lòng thử lại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if(tbTenLop.Text == "" || tbMaSV.Text == "" || tbHoTen.Text == "")
+            {
+                MessageBox.Show("Vui lòng chọn sinh viên cần xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                return;
+            }
+            string sql = $"Delete SINHVIEN where MaSV = '{tbMaSV.Text}'";
+            DialogResult result = MessageBox.Show($"Bạn thật sự muốn sinh viên {tbHoTen.Text}?", "Lưu ý", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    CSDL.XuLy(sql);
+                    LayDSSinhVien();
+                    MessageBox.Show("Đã xóa sinh viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch
+                {
+                    MessageBox.Show("Không thể xóa thông tin sinh viên!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            
         }
     }
 }
