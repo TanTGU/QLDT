@@ -82,7 +82,8 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Tri_Nguoi_Dung
             {
                 listDS.Items.Add(dt.Rows[i][0].ToString());
                 listDS.Items[i].SubItems.Add(dt.Rows[i][1].ToString());
-            }    
+            }
+            tbLoaiTK.Text = cbPhanLoai.Text;
         }
 
         private void listDS_SelectedIndexChanged(object sender, EventArgs e)

@@ -13,7 +13,7 @@ namespace Quan_Ly_Dao_Tao.Database
         // .\SQLEXPRESS
         // ANHTHU743\MSSQLSERVER01
 
-        public static string svName = @"ANHTHU743\MSSQLSERVER01";
+        public static string svName = @".\SQLEXPRESS";
         public static string dbName = "QLDT";
         
         public static string MaGV = "";

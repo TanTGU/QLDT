@@ -121,7 +121,17 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
                 }
             }
         }
-
+        void LamMoiThongTinLop()
+        {
+            tbMaLop.Text = "";
+            tbTenLop.Text = "";
+            tbMaDV.Text = LayMaDV(cbDonVi.Text);
+            tbTenDonVi.Text = cbDonVi.Text;
+            cbNganh.Text = "";
+            cbBac.Text = "";
+            tbMaGVCN.Text = "";
+            tbTenGVCN.Text = "";
+        }
         private void cbDonVi_SelectedIndexChanged(object sender, EventArgs e)
         {
             LayDSNganh();
@@ -134,6 +144,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
                 listDS.Items.Add(dt.Rows[i][0].ToString());
                 listDS.Items[i].SubItems.Add(dt.Rows[i][1].ToString());
             }
+            LamMoiThongTinLop();
         }
     }
 }

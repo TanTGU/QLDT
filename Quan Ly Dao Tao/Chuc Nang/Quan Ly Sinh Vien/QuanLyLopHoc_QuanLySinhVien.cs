@@ -28,6 +28,19 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
                 cbDonVi.Items.Add(dt.Rows[i][1].ToString());
             }
         }
+        void LamMoiThongTinLop()
+        {
+            tbMaLop.Text = "";
+            tbTenLop.Text = "";
+            tbMaDV.Text = tbMaDV_1.Text;
+            tbTenDonVi.Text = tbTenDV_1.Text;
+            cbNganh.Text = "";
+            cbBac.Text = "";
+            tbMaGVCN.Text = "";
+            tbTenGVCN.Text = "";
+            tbMaNganh_1.Text = "";
+            tbTenNganh_1.Text = "";
+        }
 
         void LayDSNganh()
         {
@@ -62,6 +75,27 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
                 Ma = dt.Rows[0][0].ToString();
             }
             return Ma;
+        }
+        void LayThongTinDV()
+        {
+            string sql = "select * from DONVI where TenDV = N'"+cbDonVi.Text+"'";
+            DataTable dt = CSDL.LayDuLieu(sql);
+            if(dt.Rows.Count > 0)
+            {
+                tbMaDV_1.Text = dt.Rows[0][0].ToString();
+                tbTenDV_1.Text = dt.Rows[0][1].ToString();
+                tbSDT.Text = dt.Rows[0][2].ToString();
+            }
+        }
+
+        string LayMaNganh(string Ten)
+        {
+            string MaNganh = "";
+            string sql = "select * from NGANH where TenNganh = N'"+Ten+"'";
+            DataTable dt = CSDL.LayDuLieu(sql);
+            if(dt.Rows.Count > 0)
+                MaNganh = dt.Rows[0][0].ToString();
+            return MaNganh;
         }
 
         private void listDS_DrawColumnHeader(object sender, DrawListViewColumnHeaderEventArgs e)
@@ -114,6 +148,8 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
                 listDS.Items.Add(dt.Rows[i][0].ToString());
                 listDS.Items[i].SubItems.Add(dt.Rows[i][1].ToString());
             }
+            LayThongTinDV();
+            LamMoiThongTinLop();
         }
 
         private void listDS_SelectedIndexChanged(object sender, EventArgs e)
@@ -132,6 +168,8 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
                     cbBac.Text = dt.Rows[0][1].ToString();
                     tbMaGVCN.Text = dt.Rows[0][2].ToString();
                     tbTenGVCN.Text = dt.Rows[0][3].ToString();
+                    tbTenNganh_1.Text = cbNganh.Text;
+                    tbMaNganh_1.Text = LayMaNganh(cbNganh.Text);
                 }
             }
         }

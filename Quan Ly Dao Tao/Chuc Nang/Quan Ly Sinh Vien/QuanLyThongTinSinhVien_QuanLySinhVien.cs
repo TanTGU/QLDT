@@ -29,7 +29,21 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
                 cbDonVi.Items.Add(dt.Rows[i][1].ToString());
             }
         }
-        
+
+        string LayMaSVMoi()
+        {
+            string[] MaSV;
+            string result = "";
+            if (listDS.Items.Count > 0)
+            {
+                MaSV = new string[listDS.Items.Count];
+                for (int i = 0; i < listDS.Items.Count; i++)
+                {
+                    MaSV[i] = listDS.Items[i].SubItems[0].Text;
+                }
+            }
+            return result;
+        }
 
         void LayDuLieuKhoiTao()
         {
@@ -212,6 +226,21 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
                 MessageBox.Show("Không tìm thấy thông tin sinh viên phù hợp. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
+        }
+
+        
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            tbMaSV.Text = "";
+            tbHoTen.Text = "";
+            dateNgaySinh.Value = DateTime.Now;
+            cbGioiTinh.Text = "";
+            tbCCCD.Text = "";
+            tbSoDT.Text = "";
+            tbEmail.Text = "";
+            cbHinhThucDaoTao.Text = "";
+            tbDiaChi.Text = "";
         }
     }
 }
