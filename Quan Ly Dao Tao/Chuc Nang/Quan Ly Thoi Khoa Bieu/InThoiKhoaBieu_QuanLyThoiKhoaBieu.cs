@@ -145,9 +145,12 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
 
         private void btnTim_Click(object sender, EventArgs e)
         {
-            // trước khi tìm thì các trường dữ liệu không được để trống
+            string maGV = txtTimMaGV.Text;
+            if (string.Equals(maGV, "Vui lòng nhập vào mã giảng viên")) {
+                MessageBox.Show("Vui lòng nhập vào mã giảng viên!", "Thông báo");
+                return; }
 
-            if(cboNamHoc.SelectedIndex ==-1)
+            if (cboNamHoc.SelectedIndex ==-1)
             {
                 MessageBox.Show("Vui lòng chọn năm học!");
                 return;
@@ -167,7 +170,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
                 MessageBox.Show("Vui lòng nhập vào mã giảng viên!");
                 return;
             }
-            string maGV = txtTimMaGV.Text;
+            
             bool timThayGV = false;
             if (maGV.Length == 6 && maGV.Substring(0, 2).Equals("GV"))
             {
@@ -230,7 +233,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
             }
             else
             {
-                MessageBox.Show("Mã giảng viên không hợp lệ. Vui lòng nhập lại!");
+                MessageBox.Show("Mã giảng viên không hợp lệ. Vui lòng nhập lại!");                
             }
             
             demGV(listGV);
@@ -317,38 +320,12 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
 
         private void listGV_KeyDown(object sender, KeyEventArgs e)
         {
-            // thực hiên ngay sau khi nhấn, người dùng tương tác với phím
-            //string magv = listGV.SelectedItems[0].SubItems[0].Text;
-            //string sql = "select T.MaGV, HoTen, D.MaDV, TenDV, NamHoc, HocKy from GIANGVIEN G,DONVI D, THOIKHOABIEU T " +
-            //    "where T.MaGV='" + magv + "' and T.MaGV=G.MaGV and D.MaDV=G.MaDV";
-            //DataTable dt = new DataTable();
-            //dt = CSDL.LayDuLieu(sql);
-            //if (dt.Rows.Count > 0)
-            //{
-            //    for (int i = 0; i < dt.Rows.Count; i++)
-            //    {
-            //        txtMaGV.Text = dt.Rows[i][0].ToString();
-            //        txtTenGV.Text = dt.Rows[i][1].ToString();
-            //        txtMaDV.Text = dt.Rows[i][2].ToString();
-            //        txtTenDV.Text = dt.Rows[i][3].ToString();
-            //        txtNamHoc.Text = dt.Rows[i][4].ToString();
-            //        txtHocKy.Text = dt.Rows[i][5].ToString();
-            //    }
-            //}
-            //else
-            //{
-            //    txtMaGV.Text = "";
-            //    txtTenGV.Text = "";
-            //    txtMaDV.Text = "";
-            //    txtTenGV.Text = "";
-            //    txtNamHoc.Text = "";
-            //    txtHocKy.Text = "";
-            //}
+           
         }
 
         private void listGV_KeyUp(object sender, KeyEventArgs e)
         {
-            // thực hiện ngay lâp tức, người dùng tương tác với phím
+           
             // NOTE: lỗi tên đơn vị
             string maGV = listGV.SelectedItems[0].SubItems[0].Text;
             string sql = "select T.MaGV, HoTen, D.MaDV, TenDV, NamHoc, HocKy from GIANGVIEN G,DONVI D, THOIKHOABIEU T " +
