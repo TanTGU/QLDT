@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using Quan_Ly_Dao_Tao.Database;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 
 namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
 {
@@ -30,6 +31,26 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
             }
         }
 
+        static string TaoChuoiMoi(string[] mangChuoi)
+        {
+            // Lấy phần tử cuối cùng trong mảng
+            string phanTuCuoi = mangChuoi[mangChuoi.Length - 1];
+
+            // Tách phần số cuối cùng
+            string soCuoi = phanTuCuoi.Substring(6);
+
+            // Chuyển đổi số cuối cùng thành số nguyên
+            int soNguyen = int.Parse(soCuoi);
+
+            // Tăng số nguyên lên 1
+            soNguyen++;
+
+            // Tạo chuỗi mới với số nguyên đã tăng
+            string chuoiMoi = $"{phanTuCuoi.Substring(0, 6)}{soNguyen:D3}";
+
+            return chuoiMoi;
+        }
+
         string LayMaSVMoi()
         {
             string[] MaSV;
@@ -41,6 +62,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
                 {
                     MaSV[i] = listDS.Items[i].SubItems[0].Text;
                 }
+                result = TaoChuoiMoi(MaSV);
             }
             return result;
         }
@@ -107,6 +129,60 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
             tbNganhHoc.Text = "";
             cbHinhThucDaoTao.Text = "";
             cbBacDaoTao.Text = "";
+        }
+
+        string LayMaSVDau(string TenLop)
+        {
+            string MaSV = "";
+            string sql = "select MaSV from SINHVIEN, LOP where SINHVIEN.MaLop = LOP.MaLop and Lop.TenLop = N'" + TenLop + "'";
+            DataTable dt = CSDL.LayDuLieu(sql);
+            if (dt.Rows.Count > 0)
+                MaSV = dt.Rows[0][0].ToString();
+            return MaSV;
+        }
+        List<string> LayDSSinhVien(string MSSV)
+        {
+            List<string> list = new List<string>();
+            string kyTuDau = MSSV.Substring(0, 6);
+            string sql = "select MaSV from SINHVIEN where MaSV like '" + kyTuDau + "%'";
+            DataTable dt = CSDL.LayDuLieu(sql);
+            for (int i = 0; i < dt.Rows.Count; i++)
+                list.Add(dt.Rows[i][0].ToString());
+            return list;
+        }
+
+        bool KiemTraTrungLap(string MSSV)
+        {
+            string sql = "select MaSV from SINHVIEN where MaSV like '" + MSSV + "'";
+            DataTable dt = CSDL.LayDuLieu(sql);
+            if (dt.Rows.Count > 0)
+                return true;
+            return false;
+        }
+
+        string LayMSSV_TiepTheo(string TenLop)
+        {
+            string result = "";
+            List<string> list = LayDSSinhVien(LayMaSVDau(TenLop));
+            if (list.Count == 0)
+                return result;
+
+            string MSSV_Dau = list[0];
+
+            string soCuoi = MSSV_Dau.Substring(6);
+
+            int soNguyen = 1;
+
+            while (true)
+            {
+                result = $"{MSSV_Dau.Substring(0, 6)}{soNguyen:D3}";
+                if (KiemTraTrungLap(result))
+                    soNguyen++;
+                else
+                    break;
+            }
+
+            return result;
         }
 
         private void listDS_DrawColumnHeader(object sender, DrawListViewColumnHeaderEventArgs e)
@@ -227,7 +303,8 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
                 return;
             }
         }
-
+        
+        
         
 
         private void button5_Click(object sender, EventArgs e)
@@ -241,6 +318,9 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
             tbEmail.Text = "";
             cbHinhThucDaoTao.Text = "";
             tbDiaChi.Text = "";
+
+            if(cbLop.Text != "")
+                tbMaSV.Text = LayMSSV_TiepTheo(cbLop.Text);
         }
     }
 }
