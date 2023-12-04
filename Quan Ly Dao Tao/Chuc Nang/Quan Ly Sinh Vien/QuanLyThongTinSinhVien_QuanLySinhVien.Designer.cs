@@ -74,8 +74,8 @@
             this.button5 = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -216,8 +216,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label23);
             this.groupBox1.Controls.Add(this.label22);
-            this.groupBox1.Controls.Add(this.label21);
             this.groupBox1.Controls.Add(this.label20);
             this.groupBox1.Controls.Add(this.label19);
             this.groupBox1.Controls.Add(this.button5);
@@ -291,6 +291,7 @@
             this.button4.TabIndex = 47;
             this.button4.Text = "XÓA";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // tbNganhHoc
             // 
@@ -322,6 +323,7 @@
             this.button3.TabIndex = 46;
             this.button3.Text = "CẬP NHẬT";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // cbGioiTinh
             // 
@@ -354,6 +356,7 @@
             this.button2.TabIndex = 30;
             this.button2.Text = "THÊM MỚI";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label18
             // 
@@ -527,6 +530,9 @@
             this.tbHoTen.Name = "tbHoTen";
             this.tbHoTen.Size = new System.Drawing.Size(300, 27);
             this.tbHoTen.TabIndex = 35;
+            this.tbHoTen.TextChanged += new System.EventHandler(this.tbHoTen_TextChanged);
+            this.tbHoTen.Enter += new System.EventHandler(this.tbHoTen_Enter);
+            this.tbHoTen.Leave += new System.EventHandler(this.tbHoTen_Leave);
             // 
             // tbMaSV
             // 
@@ -535,6 +541,9 @@
             this.tbMaSV.Name = "tbMaSV";
             this.tbMaSV.Size = new System.Drawing.Size(243, 27);
             this.tbMaSV.TabIndex = 34;
+            this.tbMaSV.TextChanged += new System.EventHandler(this.tbMaSV_TextChanged);
+            this.tbMaSV.Enter += new System.EventHandler(this.tbMaSV_Enter);
+            this.tbMaSV.Leave += new System.EventHandler(this.tbMaSV_Leave);
             // 
             // label4
             // 
@@ -589,10 +598,10 @@
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.Red;
-            this.label19.Location = new System.Drawing.Point(59, 33);
+            this.label19.Location = new System.Drawing.Point(62, 33);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(30, 19);
-            this.label19.TabIndex = 67;
+            this.label19.TabIndex = 66;
             this.label19.Text = "(*)";
             // 
             // label20
@@ -600,33 +609,33 @@
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.Color.Red;
-            this.label20.Location = new System.Drawing.Point(491, 33);
+            this.label20.Location = new System.Drawing.Point(96, 72);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(30, 19);
-            this.label20.TabIndex = 68;
+            this.label20.TabIndex = 67;
             this.label20.Text = "(*)";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.Color.Red;
-            this.label21.Location = new System.Drawing.Point(94, 73);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(30, 19);
-            this.label21.TabIndex = 69;
-            this.label21.Text = "(*)";
             // 
             // label22
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.Color.Red;
-            this.label22.Location = new System.Drawing.Point(506, 73);
+            this.label22.Location = new System.Drawing.Point(499, 33);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(30, 19);
-            this.label22.TabIndex = 106;
+            this.label22.TabIndex = 69;
             this.label22.Text = "(*)";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.Red;
+            this.label23.Location = new System.Drawing.Point(506, 72);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(30, 19);
+            this.label23.TabIndex = 106;
+            this.label23.Text = "(*)";
             // 
             // QuanLyThongTinSinhVien_QuanLySinhVien
             // 
@@ -697,8 +706,8 @@
         private System.Windows.Forms.ComboBox cbHinhThucDaoTao;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
     }

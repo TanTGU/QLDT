@@ -1,4 +1,5 @@
-﻿using Quan_Ly_Dao_Tao.Database;
+﻿using Quan_Ly_Dao_Tao.BaoCao.From;
+using Quan_Ly_Dao_Tao.Database;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -135,6 +136,22 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
                 tbGVCN.Text = dt.Rows[0][3].ToString();
             }
             LayDSSinhVien();
+        }
+
+        
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if(tbTenLop.Text == "")
+            {
+                MessageBox.Show("Vui lòng lớp cần in danh sách!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                return;
+            }
+            else
+            {
+                InDanhSachSinhVien f = new InDanhSachSinhVien(LayMaLop(tbTenLop.Text));
+                f.ShowDialog();
+            }
         }
     }
 }
