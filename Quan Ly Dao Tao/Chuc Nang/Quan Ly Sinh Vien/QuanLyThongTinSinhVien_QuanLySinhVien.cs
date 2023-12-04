@@ -220,6 +220,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
         {
             LayDSDonVi();
             LayDuLieuKhoiTao();
+            
         }
 
         
@@ -274,6 +275,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
             LamMoi();
             LayDSSinhVien();
             LayThongTinLop(cbLop.Text);
+            cbHinhThucDaoTao.Text = "Chính quy";
         }
 
         private void listDS_SelectedIndexChanged(object sender, EventArgs e)
@@ -447,9 +449,16 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
             string insert = "insert into SINHVIEN(MaSV, HoTen, NgaySinh, GioiTinh, CCCD, SoDT, Email, DiaChi, MaLop, MaNganh, HinhThucDaoTao) ";
             string values = "values('"+tbMaSV.Text+"', N'"+tbHoTen.Text+"', '"+dateNgaySinh.Value.ToString("yyyy/MM/dd")+"', N'"+cbGioiTinh.Text+ "', "+CCCD+", "+SoDT+", '"+tbEmail.Text+"', "+DiaChi+", '"+LayMaLop(cbLop.Text)+"', '"+LayMaNganh(tbNganhHoc.Text)+"', '"+LayMaHinhThucDaoTao(cbHinhThucDaoTao.Text)+"')";
             string sql = insert + values;
-            CSDL.XuLy(sql);
-            LayDSSinhVien();
-            MessageBox.Show("Đã thêm thông tin sinh viên mới!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            try
+            {
+                CSDL.XuLy(sql);
+                LayDSSinhVien();
+                MessageBox.Show("Đã thêm thông tin sinh viên mới!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch
+            {
+                MessageBox.Show("Thêm thông tin sinh viên mới không thành công. Vui lòng thử lại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void tbHoTen_TextChanged(object sender, EventArgs e)
@@ -512,6 +521,56 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
         private void label19_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (tbMaLop.Text == "")
+            {
+                MessageBox.Show("Vui lòng chọn lớp cần thêm sinh viên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                return;
+            }
+            if (KiemTraDuLieuTrong())
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin bắc buộc!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                return;
+            }
+            if (tbCCCD.Text != "")
+            {
+                if (KiemTraSoCCCD())
+                {
+                    MessageBox.Show("CCCD phải có định dạng 12 số!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    tbCCCD.Focus();
+                    return;
+                }
+
+            }
+            if (tbSoDT.Text != "")
+            {
+                if (KiemTraSoDT())
+                {
+                    MessageBox.Show("Số điện thoại phải có định dạng 10 số!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    tbSoDT.Focus();
+                    return;
+                }
+
+            }
+            string CCCD = (tbCCCD.Text == "" ? "null" : "'" + tbCCCD.Text + "'");
+            string SoDT = (tbSoDT.Text == "" ? "null" : "'" + tbSoDT.Text + "'");
+            string DiaChi = (tbDiaChi.Text == "" ? "null" : "N'" + tbDiaChi.Text + "'");
+
+            string sql = "update SINHVIEN set HoTen = N'"+tbHoTen.Text+"', NgaySinh = '"+ dateNgaySinh.Value.ToString("yyyy/MM/dd") + "', GioiTinh = N'"+cbGioiTinh.Text+"', CCCD = "+CCCD+ $", SoDT = {SoDT}, Email = '{tbEmail.Text}', DiaChi = {DiaChi}, MaLop = '{LayMaLop(tbTenLop.Text)}', MaNganh = '{LayMaNganh(tbNganhHoc.Text)}', HinhThucDaoTao = '{LayMaHinhThucDaoTao(cbHinhThucDaoTao.Text)}' where MaSV = '{tbMaSV.Text}'";
+
+            try
+            {
+                CSDL.XuLy(sql);
+                LayDSSinhVien();
+                MessageBox.Show("Đã cập nhật thông tin sinh viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch
+            {
+                MessageBox.Show("Cập nhật thông tin sinh viên không thành công. Vui lòng thử lại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
