@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using Quan_Ly_Dao_Tao.Database;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
+using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
 {
@@ -19,6 +21,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
         {
             InitializeComponent();
         }
+        bool Chon = true;
 
         void LayDSDonVi()
         {
@@ -237,6 +240,22 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
             tbTimKiem.Text = "";
         }
 
+        void LayThongTinLop(string TenLop)
+        {
+            string select = "select distinct MaLop, TenLop, NGANH.TenNganh, BACDAOTAO.Ten, HINHTHUCDAOTAO.Ten from LOP, HINHTHUCDAOTAO, BACDAOTAO, NGANH ";
+            string where = "where LOP.HinhThucDaoTao = HINHTHUCDAOTAO.Ma and LOP.BacDaoTao = BACDAOTAO.Ma and LOP.MaNganh = NGANH.MaNganh and TenLop = N'"+TenLop+"'";
+            string sql = select + where;
+            DataTable dt = CSDL.LayDuLieu(sql);
+            if(dt.Rows.Count > 0)
+            {
+                tbMaLop.Text = dt.Rows[0][0].ToString();
+                tbTenLop.Text = dt.Rows[0][1].ToString();
+                tbNganhHoc.Text = dt.Rows[0][2].ToString();
+                cbBacDaoTao.Text = dt.Rows[0][3].ToString();
+                cbHinhThucDaoTao.Text = dt.Rows[0][4].ToString();
+            }
+        }
+
         private void cbLop_SelectedIndexChanged(object sender, EventArgs e)
         {
             LamMoi();
@@ -249,6 +268,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
                 listDS.Items.Add(dt.Rows[i][0].ToString());
                 listDS.Items[i].SubItems.Add(dt.Rows[i][1].ToString());
             }
+            LayThongTinLop(cbLop.Text);
         }
 
         private void listDS_SelectedIndexChanged(object sender, EventArgs e)
@@ -273,6 +293,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
                     cbHinhThucDaoTao.Text = dt.Rows[0][11].ToString();
                     cbBacDaoTao.Text = dt.Rows[0][12].ToString();
                 }
+                Chon = false;
             }
         }
 
@@ -321,6 +342,75 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
 
             if(cbLop.Text != "")
                 tbMaSV.Text = LayMSSV_TiepTheo(cbLop.Text);
+            Chon = true;
+        }
+
+        bool KiemTraCuPhap()
+        {
+            return false;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string insert = "insert into SINHVIEN(MaSV, HoTen, NgaySinh, GioiTinh, CCCD, SoDT, Email, DiaChi, MaLop, MaNganh, HinhThucDaoTao) ";
+            string values = "values('021101011', N'Huỳnh Trọng Nghĩa', '2003/01/23', N'Nam', '008533547', '0332324854', 'nghia021101011@tgu.edu.vn', N'Tiền Giang', 'DHCNTT21B', 'CNTT', 'CQ')";
+        }
+
+        private void tbHoTen_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        // Hàm chuyển đổi chuỗi có dấu sang không dấu
+        private string ConvertToUnSign(string input)
+        {
+            string regex = "\\p{IsCombiningDiacriticalMarks}+";
+
+            string temp = input.Normalize(NormalizationForm.FormD);
+            return Regex.Replace(temp, regex, string.Empty).Replace('\u0111', 'd').Replace('\u0110', 'D');
+        }
+
+        private void tbHoTen_Leave(object sender, EventArgs e)
+        {
+            if (tbMaSV.Text != "" && tbMaSV.Text != "" && Chon == true)
+            {
+                // Bước 1: Lấy từ cuối cùng trong tbHoTen
+                string hoTen = tbHoTen.Text;
+                string[] arrTen = hoTen.Split(' ');
+                string lastTen = arrTen[arrTen.Length - 1];
+
+                // Chuyển về tiếng Việt viết thường không dấu
+                string lastTenWithoutDau = ConvertToUnSign(lastTen.ToLower());
+
+                // Bước 2: thêm MaSV + "@tgu.edu.vn"
+                string maSV = tbMaSV.Text;
+                string email = lastTenWithoutDau + maSV + "@tgu.edu.vn";
+
+                // Bước 3: Gán kết quả vào tbEmail
+                tbEmail.Text = email;
+            }
+
+
+        }
+
+        private void tbMaSV_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbMaSV_Leave(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void tbHoTen_Enter(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void tbMaSV_Enter(object sender, EventArgs e)
+        {
+            
         }
     }
 }
