@@ -150,6 +150,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
             }
             LayThongTinDV();
             LamMoiThongTinLop();
+            tbMaDV_1.Enabled = false;
         }
 
         private void listDS_SelectedIndexChanged(object sender, EventArgs e)
@@ -171,7 +172,37 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
                     tbTenNganh_1.Text = cbNganh.Text;
                     tbMaNganh_1.Text = LayMaNganh(cbNganh.Text);
                 }
+                tbMaNganh_1.Enabled = false;
+                tbMaLop.Enabled = false;
             }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            tbMaDV_1.Text = "";
+            tbMaDV_1.Enabled = true;
+
+            tbTenDV_1.Text = "";
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            tbMaNganh_1.Text = "";
+            tbMaNganh_1.Enabled = true;
+
+            tbTenNganh_1.Text = "";
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            tbMaLop.Enabled = true;
+            tbMaLop.Text = "";
+            tbTenLop.Text = "";
+            cbNganh.Text = "";
+            cbBac.Text = "";
+            tbMaGVCN.Text = "";
+            tbTenGVCN.Text = "";
+
         }
     }
 }

@@ -75,8 +75,8 @@
             this.tbTenNganh_1 = new System.Windows.Forms.TextBox();
             this.button9 = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -191,6 +191,7 @@
             this.button8.TabIndex = 66;
             this.button8.Text = "Làm mới";
             this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // tbSDT
             // 
@@ -221,6 +222,7 @@
             // 
             // tbMaDV_1
             // 
+            this.tbMaDV_1.Enabled = false;
             this.tbMaDV_1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbMaDV_1.Location = new System.Drawing.Point(136, 29);
             this.tbMaDV_1.Name = "tbMaDV_1";
@@ -336,6 +338,7 @@
             this.button7.TabIndex = 65;
             this.button7.Text = "Làm mới";
             this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // cbBac
             // 
@@ -507,6 +510,7 @@
             // 
             // tbMaLop
             // 
+            this.tbMaLop.Enabled = false;
             this.tbMaLop.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbMaLop.Location = new System.Drawing.Point(112, 30);
             this.tbMaLop.Name = "tbMaLop";
@@ -590,6 +594,7 @@
             // 
             // tbMaNganh_1
             // 
+            this.tbMaNganh_1.Enabled = false;
             this.tbMaNganh_1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbMaNganh_1.Location = new System.Drawing.Point(136, 29);
             this.tbMaNganh_1.Name = "tbMaNganh_1";
@@ -617,6 +622,7 @@
             this.button9.TabIndex = 66;
             this.button9.Text = "Làm mới";
             this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // groupBox4
             // 
@@ -637,17 +643,6 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "THÔNG TIN NGÀNH HỌC";
             // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.Black;
-            this.label15.Location = new System.Drawing.Point(8, 33);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(94, 19);
-            this.label15.TabIndex = 67;
-            this.label15.Text = "Mã ngành:";
-            // 
             // label14
             // 
             this.label14.AutoSize = true;
@@ -658,6 +653,17 @@
             this.label14.Size = new System.Drawing.Size(101, 19);
             this.label14.TabIndex = 68;
             this.label14.Text = "Tên ngành:";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.Black;
+            this.label15.Location = new System.Drawing.Point(8, 33);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(94, 19);
+            this.label15.TabIndex = 67;
+            this.label15.Text = "Mã ngành:";
             // 
             // QuanLyLopHoc_QuanLySinhVien
             // 
