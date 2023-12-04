@@ -265,8 +265,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
         {
             // 1. Thông tin giảng viên
             string maGV = listGV.SelectedItems[0].SubItems[0].Text;
-            string maDV = listGV.SelectedItems[0].SubItems[2].Text;
-            //string sqlGV = "select distinct G.MaGV, HoTen, D.MaDV, TenDV from GIANGVIEN G, DONVI D where G.MaGV='"+maGV+"' and D.MaDV='"+maDV+"' and G.MaDV = D.MaDV";
+            string maDV = listGV.SelectedItems[0].SubItems[2].Text;            
             string sqlGV = "select distinct G.MaGV, HoTen, D.MaDV, TenDV, NamHoc, HocKy from GIANGVIEN G, DONVI D, THOIKHOABIEU T where G.MaGV='" + maGV + "' and D.MaDV='" + maDV + "' and G.MaDV = D.MaDV and T.MaGV = G.MaGV";
             DataTable dtGV = new DataTable();
             dtGV = CSDL.LayDuLieu(sqlGV);
@@ -290,26 +289,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
                 txtHocKy.Text = "";
             }
             // 2. Thời khóa biểu giảng dạy
-            string sqlGD = "select ROW_NUMBER()over(order by MaGV) as STT, T.MaMH, TenMH, NhomHP, Thu, TietGiangDay from THOIKHOABIEU T, MONHOC M where T.MaGV='"+maGV+"' and T.MaMH = M.MaMH";
-            DataTable dtGD = new DataTable();
-            dtGD = CSDL.LayDuLieu(sqlGD);
-            if(dtGD.Rows.Count > 0)
-            {
-                listTKBGD.Items.Clear();
-                for(int i=0; i<dtGD.Rows.Count; i++)
-                {
-                    listTKBGD.Items.Add(dtGD.Rows[i][0].ToString());
-                    listTKBGD.Items[i].SubItems.Add(dtGD.Rows[i][1].ToString());
-                    listTKBGD.Items[i].SubItems.Add(dtGD.Rows[i][2].ToString());
-                    listTKBGD.Items[i].SubItems.Add(dtGD.Rows[i][3].ToString());
-                    listTKBGD.Items[i].SubItems.Add(dtGD.Rows[i][4].ToString());
-                    listTKBGD.Items[i].SubItems.Add(dtGD.Rows[i][5].ToString());
-                }
-            }
-            else
-            {
-                listTKBGD.Items.Clear();
-            }
+            LoadThoiKhoaBieuGiangDay(maGV);
         }
 
         private void txtTimMaGV_MouseDown(object sender, MouseEventArgs e)
@@ -325,11 +305,14 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
 
         private void listGV_KeyUp(object sender, KeyEventArgs e)
         {
-           
-            // NOTE: lỗi tên đơn vị
             string maGV = listGV.SelectedItems[0].SubItems[0].Text;
+            LoadThongTinGiangVien(maGV);
+            LoadThoiKhoaBieuGiangDay(maGV);            
+        }
+        private void LoadThongTinGiangVien(string maGV)
+        {
             string sql = "select T.MaGV, HoTen, D.MaDV, TenDV, NamHoc, HocKy from GIANGVIEN G,DONVI D, THOIKHOABIEU T " +
-                "where T.MaGV='" + maGV + "' and T.MaGV=G.MaGV and D.MaDV=G.MaDV";
+                 "where T.MaGV='" + maGV + "' and T.MaGV=G.MaGV and D.MaDV=G.MaDV";
             DataTable dt = new DataTable();
             dt = CSDL.LayDuLieu(sql);
             if (dt.Rows.Count > 0)
@@ -353,6 +336,9 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
                 txtNamHoc.Text = "";
                 txtHocKy.Text = "";
             }
+        }
+        private void LoadThoiKhoaBieuGiangDay(string maGV)
+        {
             string sqlGD = "select ROW_NUMBER()over(order by MaGV) as STT, T.MaMH, TenMH, NhomHP, Thu, TietGiangDay from THOIKHOABIEU T, MONHOC M where T.MaGV='" + maGV + "' and T.MaMH = M.MaMH";
             DataTable dtGD = new DataTable();
             dtGD = CSDL.LayDuLieu(sqlGD);

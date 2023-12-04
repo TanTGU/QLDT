@@ -227,7 +227,9 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
             string maMH = listMH.SelectedItems[0].SubItems[0].Text;
             //string sql = "select ROW_NUMBER()over(order by NhomHP) as STT, T.MaMH, TenMH, NhomHP, Thu, TietGiangDay  from THOIKHOABIEU T, MONHOC M where T.MaMH='" + maMH + "' and T.MaMH = M.MaMH";
             string sql = "select ROW_NUMBER()over(order by NhomHP) as STT, T.MaMH, TenMH, NhomHP, Thu, TietGiangDay  \r\nfrom THOIKHOABIEU T, MONHOC M, GIANGVIEN G \r\nwhere T.MaMH='"+maMH+"' and T.MaMH = M.MaMH and T.MaGV = G.MaGV";
-            LoadThongTinHocPhan(sql, maMH);
+            LoadDanhSachNhomHocPhan(sql, maMH);
+            string sql1 = "select MaMH, TenMH, SoTC from MONHOC where MaMH='"+maMH+"'";
+            LoadThongTinNhomHocPhan(sql1, maMH);
         }
 
         
@@ -271,7 +273,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
 
             // ĐỒNG BỘ DỮ LIỆU LIST HỌC PHẦN SAU KHI THÊM THÀNH CÔNG
             string sql = "select ROW_NUMBER()over(order by NhomHP) as STT, T.MaMH, TenMH, NhomHP, Thu, TietGiangDay  from THOIKHOABIEU T, MONHOC M where T.MaMH='" + maMH + "' and T.MaMH = M.MaMH";
-            LoadThongTinHocPhan(sql, maMH);
+            LoadDanhSachNhomHocPhan(sql, maMH);
         }
         private void KiemTraNhomHP(string maHP)
         {
@@ -306,7 +308,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
             CapNhatDuLieu(maGV, maMH, nhomHP, hocKy, namHoc, thu, tiet, sotiet, ghiChu);
             // ĐỒNG BỘ DỮ LIỆU KHI CẬP NHẬT THÔNG TIN THÀNH CÔNG
             string sql = "select ROW_NUMBER()over(order by NhomHP) as STT, T.MaMH, TenMH, NhomHP, Thu, TietGiangDay  from THOIKHOABIEU T, MONHOC M where T.MaMH='" + maMH + "' and T.MaMH = M.MaMH";
-            LoadThongTinHocPhan(sql, maMH);
+            LoadDanhSachNhomHocPhan(sql, maMH);
         }
 
         public static void XoaDuLieu(string maMH, string nhomHP)
@@ -322,7 +324,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
             XoaDuLieu(maMH, nhomHP);
             // ĐỒNG BỘ DỮ LIỆU KHI XÓA THÔNG TIN THÀNH CÔNG
             string sql = "select ROW_NUMBER()over(order by NhomHP) as STT, T.MaMH, TenMH, NhomHP, Thu, TietGiangDay  from THOIKHOABIEU T, MONHOC M where T.MaMH='" + maMH + "' and T.MaMH = M.MaMH";
-            LoadThongTinHocPhan(sql, maMH);
+            LoadDanhSachNhomHocPhan(sql, maMH);
         }
 
         private void cboNganh_SelectedIndexChanged(object sender, EventArgs e)
@@ -378,7 +380,9 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
             string maMH = listMH.SelectedItems[0].SubItems[0].Text;
             //string sql = "select ROW_NUMBER()over(order by NhomHP) as STT, T.MaMH, TenMH, NhomHP, Thu, TietGiangDay  from THOIKHOABIEU T, MONHOC M where T.MaMH='" + maMH + "' and T.MaMH = M.MaMH";
             string sql = "select ROW_NUMBER()over(order by NhomHP) as STT,G.MaGV, T.MaMH, TenMH, NhomHP, Thu, TietGiangDay  \r\nfrom THOIKHOABIEU T, MONHOC M, GIANGVIEN G \r\nwhere T.MaMH='"+maMH+"' and T.MaMH = M.MaMH and T.MaGV = G.MaGV";
-            LoadThongTinHocPhan(sql, maMH);
+            LoadDanhSachNhomHocPhan(sql, maMH);
+            string sql1 = "select MaMH, TenMH, SoTC from MONHOC where MaMH='"+maMH+"'";
+            LoadThongTinNhomHocPhan(sql1, maMH);
         }
 
         private void cboDonVi_SelectionChangeCommitted(object sender, EventArgs e)
@@ -423,7 +427,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
             }
         }
         // LOAD LẠI THÔNG TIN MÔN HỌC
-        private void LoadThongTinHocPhan(string sql, string maMH)
+        private void LoadDanhSachNhomHocPhan(string sql, string maMH)
         {
             sql = "select ROW_NUMBER()over(order by NhomHP) as STT, T.MaMH, TenMH, NhomHP, Thu, TietGiangDay  from THOIKHOABIEU T, MONHOC M where T.MaMH='" + maMH + "' and T.MaMH = M.MaMH";
             DataTable dt = new DataTable();
@@ -444,6 +448,21 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
             else
             {
                 listHP.Items.Clear();
+            }
+        }
+        private void LoadThongTinNhomHocPhan(string sql, string maMH)
+        {
+            //sql = "select MaMH, TenMH, SoTC from MONHOC where MaMH='MH10110'";
+            DataTable dt = new DataTable();
+            dt = CSDL.LayDuLieu(sql);
+            if (dt.Rows.Count > 0)
+            {                
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    txtMaMH.Text = dt.Rows[i][0].ToString();
+                    txtTenMH.Text = dt.Rows[i][1].ToString();
+                    txtSoTC.Text = dt.Rows[i][2].ToString();                    
+                }
             }
         }
         
