@@ -75,57 +75,6 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
             LoadHocKy();
             LoadMonHoc();
         }
-        // khởi tạo môn học 
-        private void LoadMonHoc()
-        {
-            // lấy MaMH, TenMH gán vào listMH khoi form được load lên
-            string sql = "select * from MONHOC";
-            DataTable dt = new DataTable();
-            dt = CSDL.LayDuLieu(sql);
-            for (int i = 0; i < dt.Rows.Count; i++)
-            {
-                listMH.Items.Add(dt.Rows[i][0].ToString());
-                listMH.Items[i].SubItems.Add(dt.Rows[i][1].ToString());
-            }
-        }
-        private void btnTim_Click(object sender, EventArgs e)
-        {
-            // tìm theo Mã môn học
-            string maMH = txtTimMaMH.Text;
-            listMH.Items.Clear();
-            if (string.IsNullOrEmpty(maMH))
-            {
-                MessageBox.Show("Vui lòng nhập vào mã môn học!",
-                                "Thông báo",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
-                txtTimMaMH.Focus();
-                return;
-            }
-            if (maMH.Length == 7 && maMH.Substring(0, 2).Equals("MH"))
-            {
-                string sql = "select MaMH, TenMH from MONHOC where MaMH='" + txtTimMaMH.Text + "'";
-                DataTable dt = new DataTable();
-                dt = CSDL.LayDuLieu(sql);
-                if (dt.Rows.Count > 0)
-                {
-                    listMH.Items.Clear();
-                    for (int i = 0; i < dt.Rows.Count; i++)
-                    {
-                        listMH.Items.Add(dt.Rows[i][0].ToString());
-                        listMH.Items[i].SubItems.Add(dt.Rows[i][1].ToString());
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Không tìm thấy môn học cần tìm. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Mã môn học không hợp lệ. Vui lòng nhập lại!", "Thông báo");
-            }
-        }
         // combobox DONVI
         private void LoadDonVi()
         {
@@ -173,6 +122,61 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
             }
         }
 
+        // khởi tạo môn học 
+        private void LoadMonHoc()
+        {
+            // lấy MaMH, TenMH gán vào listMH khoi form được load lên
+            string sql = "select * from MONHOC";
+            DataTable dt = new DataTable();
+            dt = CSDL.LayDuLieu(sql);
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                listMH.Items.Add(dt.Rows[i][0].ToString());
+                listMH.Items[i].SubItems.Add(dt.Rows[i][1].ToString());
+            }
+        }
+        private void btnTim_Click(object sender, EventArgs e)
+        {            
+            string maMH = txtTimMaMH.Text;            
+            if (string.Equals(maMH, "Vui lòng nhập vào mã môn học"))
+            {
+                MessageBox.Show("Vui lòng nhập vào mã môn học!", "Thông báo");
+                return;
+            }
+            if (string.IsNullOrEmpty(maMH))
+            {
+                MessageBox.Show("Vui lòng nhập vào mã môn học!",
+                                "Thông báo",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                txtTimMaMH.Focus();
+                return;
+            }
+            if (maMH.Length == 7 && maMH.Substring(0, 2).Equals("MH"))
+            {
+                string sql = "select MaMH, TenMH from MONHOC where MaMH='" + txtTimMaMH.Text + "'";
+                DataTable dt = new DataTable();
+                dt = CSDL.LayDuLieu(sql);
+                if (dt.Rows.Count > 0)
+                {
+                    listMH.Items.Clear();
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        listMH.Items.Add(dt.Rows[i][0].ToString());
+                        listMH.Items[i].SubItems.Add(dt.Rows[i][1].ToString());
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy môn học cần tìm. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Mã môn học không hợp lệ. Vui lòng nhập lại!", "Thông báo");
+            }
+        }
+        
         private void empty()
         {
             txtMaMH.Text = "";

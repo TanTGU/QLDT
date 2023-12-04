@@ -79,15 +79,10 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
             LoadHocKy();
             LoadHocKy1();
             LoadThu();
-            LoadMonHoc();
-            TimMaMHLoad();            
+            LoadMonHoc();           
         }
         
-        private void TimMaMHLoad()
-        {
-            txtTimMaMH.Text = "Vui lòng nhập vào mã môn học...";
-            txtTimMaMH.ForeColor = Color.LightGray;
-        }
+
         // combobox DONVI
         private void LoadDonVi()
         {
@@ -173,9 +168,10 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
 
         private void btnTim_Click(object sender, EventArgs e)
         {
-            // tìm theo Mã môn học
             string maMH = txtTimMaMH.Text;
-            //listMH.Items.Clear();
+            if(string.Equals(maMH, "Vui lòng nhập vào mã môn học")) {
+                MessageBox.Show("Vui lòng nhập vào mã môn học!", "Thông báo");
+                return; }
             if (string.IsNullOrEmpty(maMH))
             {
                 MessageBox.Show("Vui lòng nhập vào mã môn học!",
