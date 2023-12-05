@@ -114,14 +114,30 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Hoc_Phi
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string sql = "select NGANH.MaNganh, NGANH.TenNganh, HOCPHI.SoTien, DONVI.TenDV from DONVI, NGANH, HOCPHI where DONVI.MaDV = NGANH.MaDV and HOCPHI.MaNganh = NGANH.MaNganh and NGANH.MaNganh = N'"+tbTK.Text+"'";
+            string sql = $"UPDATE HOCPHI SET SoTien = {tbMucHocPhi.Text} where MaNganh= '{tbMaNganh.Text}'";
+            try
+            {
+                CSDL.XuLy(sql);
+                LayDSHocPhi();
+                MessageBox.Show("Đã cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch
+            {
+                MessageBox.Show("Cập nhật không thành công. Vui lòng thử lại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        void LayDSHocPhi()
+        {
+            string sql = "select NGANH.MaNganh, NGANH.TenNganh, HOCPHI.SoTien from DONVI, NGANH, HOCPHI where DONVI.MaDV = NGANH.MaDV and HOCPHI.MaNganh = NGANH.MaNganh and DONVI.TenDV = N'" + cbDonVi.Text + "'";
             DataTable dt = CSDL.LayDuLieu(sql);
             listDS.Items.Clear();
-            listDS.Items.Add(dt.Rows[0][0].ToString());
-            listDS.Items[0].SubItems.Add(dt.Rows[0][1].ToString());
-            listDS.Items[0].SubItems.Add(dt.Rows[0][2].ToString());
-            cbDonVi.Text = dt.Rows[0][3].ToString();
-            //Thanh Tan
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                listDS.Items.Add(dt.Rows[i][0].ToString());
+                listDS.Items[i].SubItems.Add(dt.Rows[i][1].ToString());
+                listDS.Items[i].SubItems.Add(dt.Rows[i][2].ToString());
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
