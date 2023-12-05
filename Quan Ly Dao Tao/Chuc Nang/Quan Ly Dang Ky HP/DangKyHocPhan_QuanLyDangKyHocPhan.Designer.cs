@@ -36,7 +36,7 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label6 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnDangKy = new System.Windows.Forms.Button();
             this.tbTimKiem = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
@@ -55,7 +55,7 @@
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnXoaDangKy = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbNamHoc = new System.Windows.Forms.ComboBox();
             this.cbHocKy = new System.Windows.Forms.ComboBox();
@@ -136,19 +136,20 @@
             this.label6.TabIndex = 10;
             this.label6.Text = "Nhập mã số sinh viên:";
             // 
-            // button1
+            // btnDangKy
             // 
-            this.button1.BackColor = System.Drawing.Color.SteelBlue;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(530, 532);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(129, 35);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Đăng ký";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnDangKy.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnDangKy.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.btnDangKy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDangKy.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDangKy.ForeColor = System.Drawing.Color.White;
+            this.btnDangKy.Location = new System.Drawing.Point(530, 532);
+            this.btnDangKy.Name = "btnDangKy";
+            this.btnDangKy.Size = new System.Drawing.Size(129, 35);
+            this.btnDangKy.TabIndex = 11;
+            this.btnDangKy.Text = "Đăng ký";
+            this.btnDangKy.UseVisualStyleBackColor = false;
+            this.btnDangKy.Click += new System.EventHandler(this.btnDangKy_Click);
             // 
             // tbTimKiem
             // 
@@ -336,19 +337,20 @@
             this.columnHeader10.Text = "Tiết";
             this.columnHeader10.Width = 129;
             // 
-            // button3
+            // btnXoaDangKy
             // 
-            this.button3.BackColor = System.Drawing.Color.SteelBlue;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(1177, 532);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(153, 35);
-            this.button3.TabIndex = 24;
-            this.button3.Text = "XÓA ĐĂNG KÝ";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnXoaDangKy.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnXoaDangKy.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.btnXoaDangKy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnXoaDangKy.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXoaDangKy.ForeColor = System.Drawing.Color.White;
+            this.btnXoaDangKy.Location = new System.Drawing.Point(1177, 532);
+            this.btnXoaDangKy.Name = "btnXoaDangKy";
+            this.btnXoaDangKy.Size = new System.Drawing.Size(153, 35);
+            this.btnXoaDangKy.TabIndex = 24;
+            this.btnXoaDangKy.Text = "XÓA ĐĂNG KÝ";
+            this.btnXoaDangKy.UseVisualStyleBackColor = false;
+            this.btnXoaDangKy.Click += new System.EventHandler(this.btnXoaDangKy_Click);
             // 
             // groupBox2
             // 
@@ -460,13 +462,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnXoaDangKy);
             this.Controls.Add(this.listDK);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.tbTimKiem);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnDangKy);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.listMH);
             this.Controls.Add(this.label3);
@@ -493,7 +495,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnDangKy;
         private System.Windows.Forms.TextBox tbTimKiem;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label8;
@@ -512,7 +514,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ColumnHeader columnHeader9;
         private System.Windows.Forms.ColumnHeader columnHeader10;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnXoaDangKy;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ComboBox cbNamHoc;
         private System.Windows.Forms.ComboBox cbHocKy;

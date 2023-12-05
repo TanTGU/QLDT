@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 
 namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Dang_Ky_HP
@@ -180,6 +181,44 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Dang_Ky_HP
                 listDK.Items[i].SubItems.Add(dt.Rows[i][3].ToString());
                 listDK.Items[i].SubItems.Add(dt.Rows[i][4].ToString());                
             }
+        }
+        public static void ThemDuLieu(string maSV, string maMH, string nhomHP, int hocKy, string namHoc, string ngayDK, string ngayHuyDK, string ngayDongTien, string ghiChu)
+        {
+            string sql = "insert into DANGKYHOCPHAN(MaSV, MaMH, NhomHP, HocKy, NamHoc, NgayDK, NgayHuyDK, NgayDongTien, GhiChu) values ('"+maSV+"', '"+maMH+"', '"+nhomHP+"', "+hocKy+", '"+namHoc+"', null, null, null, null)";
+            CSDL.XuLy(sql);
+        }
+        private void btnDangKy_Click(object sender, EventArgs e)
+        {
+            string maSV = lbMaSV.Text;
+            string maMH = listMH.SelectedItems[0].SubItems[0].Text;
+            string nhomHP = listMH.SelectedItems[0].SubItems[2].Text;
+            int hocKy =Convert.ToInt32(cbHocKy.SelectedItem.ToString());
+            string namHoc = cbNamHoc.SelectedItem.ToString();
+            string ngayDK = "";
+            string ngayDongTien = "";
+            string ngayHuyDK = "";
+            string ghiChu = "";
+            // ĐĂNG KÝ HỌC PHẦN
+            ThemDuLieu(maSV, maMH, nhomHP, hocKy, namHoc, ngayDK, ngayHuyDK, ngayDongTien, ghiChu);
+
+            int thu = Convert.ToInt32(listMH.SelectedItems[0].SubItems[3].Text);
+            string tiet = listMH.SelectedItems[0].SubItems[4].Text;
+            string tenHP = listMH.SelectedItems[0].SubItems[1].Text;
+            LoadDSMHDK();
+
+
+        }
+
+        private void XoaDangKy(string maMH)
+        {
+            string sql = "delete dangkyhocphan where mamh ='"+maMH+"'";
+            CSDL.XuLy(sql);
+        }
+        private void btnXoaDangKy_Click(object sender, EventArgs e)
+        {
+            string maMH = listDK.SelectedItems[0].SubItems[0].Text;
+            XoaDangKy(maMH);
+            LoadDSMHDK();
         }
     }
 }
