@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label8 = new System.Windows.Forms.Label();
+            this.lblDemSV = new System.Windows.Forms.Label();
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -45,6 +45,12 @@
             this.listMH = new System.Windows.Forms.ListView();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lbGiangVien = new System.Windows.Forms.Label();
+            this.lbNamHoc = new System.Windows.Forms.Label();
+            this.lbHocKy = new System.Windows.Forms.Label();
+            this.lbMaHP = new System.Windows.Forms.Label();
+            this.lbTenHP = new System.Windows.Forms.Label();
+            this.lbNhomHP = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -60,26 +66,20 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.lbGiangVien = new System.Windows.Forms.Label();
-            this.lbNamHoc = new System.Windows.Forms.Label();
-            this.lbHocKy = new System.Windows.Forms.Label();
-            this.lbNhomHP = new System.Windows.Forms.Label();
-            this.lbTenHP = new System.Windows.Forms.Label();
-            this.lbMaHP = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label8
+            // lblDemSV
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(925, 546);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(24, 19);
-            this.label8.TabIndex = 26;
-            this.label8.Text = "...";
+            this.lblDemSV.AutoSize = true;
+            this.lblDemSV.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDemSV.ForeColor = System.Drawing.Color.Black;
+            this.lblDemSV.Location = new System.Drawing.Point(925, 546);
+            this.lblDemSV.Name = "lblDemSV";
+            this.lblDemSV.Size = new System.Drawing.Size(24, 19);
+            this.lblDemSV.TabIndex = 26;
+            this.lblDemSV.Text = "...";
             // 
             // columnHeader10
             // 
@@ -237,6 +237,72 @@
             this.groupBox2.TabIndex = 27;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "THÔNG TIN HỌC PHẦN";
+            // 
+            // lbGiangVien
+            // 
+            this.lbGiangVien.AutoSize = true;
+            this.lbGiangVien.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbGiangVien.ForeColor = System.Drawing.Color.Black;
+            this.lbGiangVien.Location = new System.Drawing.Point(157, 169);
+            this.lbGiangVien.Name = "lbGiangVien";
+            this.lbGiangVien.Size = new System.Drawing.Size(24, 19);
+            this.lbGiangVien.TabIndex = 11;
+            this.lbGiangVien.Text = "...";
+            // 
+            // lbNamHoc
+            // 
+            this.lbNamHoc.AutoSize = true;
+            this.lbNamHoc.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNamHoc.ForeColor = System.Drawing.Color.Black;
+            this.lbNamHoc.Location = new System.Drawing.Point(157, 144);
+            this.lbNamHoc.Name = "lbNamHoc";
+            this.lbNamHoc.Size = new System.Drawing.Size(24, 19);
+            this.lbNamHoc.TabIndex = 10;
+            this.lbNamHoc.Text = "...";
+            // 
+            // lbHocKy
+            // 
+            this.lbHocKy.AutoSize = true;
+            this.lbHocKy.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbHocKy.ForeColor = System.Drawing.Color.Black;
+            this.lbHocKy.Location = new System.Drawing.Point(157, 119);
+            this.lbHocKy.Name = "lbHocKy";
+            this.lbHocKy.Size = new System.Drawing.Size(24, 19);
+            this.lbHocKy.TabIndex = 9;
+            this.lbHocKy.Text = "...";
+            // 
+            // lbMaHP
+            // 
+            this.lbMaHP.AutoSize = true;
+            this.lbMaHP.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMaHP.ForeColor = System.Drawing.Color.Black;
+            this.lbMaHP.Location = new System.Drawing.Point(157, 44);
+            this.lbMaHP.Name = "lbMaHP";
+            this.lbMaHP.Size = new System.Drawing.Size(24, 19);
+            this.lbMaHP.TabIndex = 8;
+            this.lbMaHP.Text = "...";
+            // 
+            // lbTenHP
+            // 
+            this.lbTenHP.AutoSize = true;
+            this.lbTenHP.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTenHP.ForeColor = System.Drawing.Color.Black;
+            this.lbTenHP.Location = new System.Drawing.Point(157, 69);
+            this.lbTenHP.Name = "lbTenHP";
+            this.lbTenHP.Size = new System.Drawing.Size(24, 19);
+            this.lbTenHP.TabIndex = 7;
+            this.lbTenHP.Text = "...";
+            // 
+            // lbNhomHP
+            // 
+            this.lbNhomHP.AutoSize = true;
+            this.lbNhomHP.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNhomHP.ForeColor = System.Drawing.Color.Black;
+            this.lbNhomHP.Location = new System.Drawing.Point(157, 94);
+            this.lbNhomHP.Name = "lbNhomHP";
+            this.lbNhomHP.Size = new System.Drawing.Size(24, 19);
+            this.lbNhomHP.TabIndex = 6;
+            this.lbNhomHP.Text = "...";
             // 
             // label14
             // 
@@ -408,72 +474,6 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "Năm học:";
             // 
-            // lbGiangVien
-            // 
-            this.lbGiangVien.AutoSize = true;
-            this.lbGiangVien.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbGiangVien.ForeColor = System.Drawing.Color.Black;
-            this.lbGiangVien.Location = new System.Drawing.Point(157, 169);
-            this.lbGiangVien.Name = "lbGiangVien";
-            this.lbGiangVien.Size = new System.Drawing.Size(24, 19);
-            this.lbGiangVien.TabIndex = 11;
-            this.lbGiangVien.Text = "...";
-            // 
-            // lbNamHoc
-            // 
-            this.lbNamHoc.AutoSize = true;
-            this.lbNamHoc.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNamHoc.ForeColor = System.Drawing.Color.Black;
-            this.lbNamHoc.Location = new System.Drawing.Point(157, 144);
-            this.lbNamHoc.Name = "lbNamHoc";
-            this.lbNamHoc.Size = new System.Drawing.Size(24, 19);
-            this.lbNamHoc.TabIndex = 10;
-            this.lbNamHoc.Text = "...";
-            // 
-            // lbHocKy
-            // 
-            this.lbHocKy.AutoSize = true;
-            this.lbHocKy.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbHocKy.ForeColor = System.Drawing.Color.Black;
-            this.lbHocKy.Location = new System.Drawing.Point(157, 119);
-            this.lbHocKy.Name = "lbHocKy";
-            this.lbHocKy.Size = new System.Drawing.Size(24, 19);
-            this.lbHocKy.TabIndex = 9;
-            this.lbHocKy.Text = "...";
-            // 
-            // lbNhomHP
-            // 
-            this.lbNhomHP.AutoSize = true;
-            this.lbNhomHP.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNhomHP.ForeColor = System.Drawing.Color.Black;
-            this.lbNhomHP.Location = new System.Drawing.Point(157, 94);
-            this.lbNhomHP.Name = "lbNhomHP";
-            this.lbNhomHP.Size = new System.Drawing.Size(24, 19);
-            this.lbNhomHP.TabIndex = 6;
-            this.lbNhomHP.Text = "...";
-            // 
-            // lbTenHP
-            // 
-            this.lbTenHP.AutoSize = true;
-            this.lbTenHP.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTenHP.ForeColor = System.Drawing.Color.Black;
-            this.lbTenHP.Location = new System.Drawing.Point(157, 69);
-            this.lbTenHP.Name = "lbTenHP";
-            this.lbTenHP.Size = new System.Drawing.Size(24, 19);
-            this.lbTenHP.TabIndex = 7;
-            this.lbTenHP.Text = "...";
-            // 
-            // lbMaHP
-            // 
-            this.lbMaHP.AutoSize = true;
-            this.lbMaHP.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMaHP.ForeColor = System.Drawing.Color.Black;
-            this.lbMaHP.Location = new System.Drawing.Point(157, 44);
-            this.lbMaHP.Name = "lbMaHP";
-            this.lbMaHP.Size = new System.Drawing.Size(24, 19);
-            this.lbMaHP.TabIndex = 8;
-            this.lbMaHP.Text = "...";
-            // 
             // InDanhSach_QuanLyDangKyHocPhan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -482,7 +482,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.label8);
+            this.Controls.Add(this.lblDemSV);
             this.Controls.Add(this.listDS);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
@@ -504,7 +504,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblDemSV;
         private System.Windows.Forms.ColumnHeader columnHeader10;
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ColumnHeader columnHeader7;

@@ -157,7 +157,36 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Dang_Ky_HP
                 {
                     lbGiangVien.Text = "Chưa xác định";
                 }
+                LoadSinhVienDangKy();
             }
+        }
+        private void LoadSinhVienDangKy()
+        {
+            listDS.Items.Clear();
+            if (listMH.SelectedItems.Count > 0)
+            {
+                string sql = "select ROW_NUMBER()over(order by S.MaSV) as STT, D.MaSV, HoTen, MaLop from SINHVIEN S, DANGKYHOCPHAN D " +
+                    "where MaMH='" + listMH.SelectedItems[0].SubItems[0].Text + "' and NhomHP='" + listMH.SelectedItems[0].SubItems[2].Text + "' and S.MaSV = D.MaSV";
+                DataTable dt = new DataTable();
+                dt = CSDL.LayDuLieu(sql);
+                if (dt.Rows.Count > 0)
+                {
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        listDS.Items.Add(dt.Rows[i][0].ToString());
+                        listDS.Items[i].SubItems.Add(dt.Rows[i][1].ToString());
+                        listDS.Items[i].SubItems.Add(dt.Rows[i][2].ToString());
+                        listDS.Items[i].SubItems.Add(dt.Rows[i][3].ToString());
+                    }
+                    DemSinhVienDangKy(listDS);
+                }
+            }
+        }
+        private void DemSinhVienDangKy(ListView lv)
+        {
+            int dem = lv.Items.Count;
+            lblDemSV.Text = dem.ToString() + " sinh viên";
+
         }
     }
 }
