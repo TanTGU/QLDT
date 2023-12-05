@@ -1,4 +1,5 @@
-﻿using Quan_Ly_Dao_Tao.Database;
+﻿using Quan_Ly_Dao_Tao.BaoCao.From;
+using Quan_Ly_Dao_Tao.Database;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -358,6 +359,20 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
             else
             {
                 listTKBGD.Items.Clear();
+            }
+        }
+
+        private void btnXuatDS_Click(object sender, EventArgs e)
+        {
+            if (txtMaGV.Text == "")
+            {
+                MessageBox.Show("Vui lòng chọn giảng viên cần in danh sách!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                return;
+            }
+            else
+            {
+                InThoiKhoaBieu f = new InThoiKhoaBieu(txtMaGV.Text);
+                f.ShowDialog();
             }
         }
     }
