@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cbnganhhoc1 = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txttenTQ = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -65,15 +65,15 @@
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // comboBox3
+            // cbnganhhoc1
             // 
-            this.comboBox3.Enabled = false;
-            this.comboBox3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(529, 185);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(314, 27);
-            this.comboBox3.TabIndex = 35;
+            this.cbnganhhoc1.Enabled = false;
+            this.cbnganhhoc1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbnganhhoc1.FormattingEnabled = true;
+            this.cbnganhhoc1.Location = new System.Drawing.Point(529, 185);
+            this.cbnganhhoc1.Name = "cbnganhhoc1";
+            this.cbnganhhoc1.Size = new System.Drawing.Size(314, 27);
+            this.cbnganhhoc1.TabIndex = 35;
             // 
             // label13
             // 
@@ -265,6 +265,7 @@
             this.listDS.View = System.Windows.Forms.View.Details;
             this.listDS.DrawColumnHeader += new System.Windows.Forms.DrawListViewColumnHeaderEventHandler(this.listDS_DrawColumnHeader);
             this.listDS.DrawItem += new System.Windows.Forms.DrawListViewItemEventHandler(this.listDS_DrawItem);
+            this.listDS.SelectedIndexChanged += new System.EventHandler(this.listDS_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -304,6 +305,7 @@
             this.cbnganhhoc.Name = "cbnganhhoc";
             this.cbnganhhoc.Size = new System.Drawing.Size(331, 27);
             this.cbnganhhoc.TabIndex = 32;
+            this.cbnganhhoc.SelectedIndexChanged += new System.EventHandler(this.cbnganhhoc_SelectedIndexChanged);
             // 
             // button1
             // 
@@ -318,6 +320,7 @@
             this.button1.TabIndex = 30;
             this.button1.Text = "Tìm";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label7
             // 
@@ -353,7 +356,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox3);
+            this.groupBox1.Controls.Add(this.cbnganhhoc1);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.txttenTQ);
             this.groupBox1.Controls.Add(this.label12);
@@ -425,7 +428,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cbnganhhoc1;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txttenTQ;
         private System.Windows.Forms.Label label12;

@@ -121,5 +121,10 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Mon_Hoc
                 }
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

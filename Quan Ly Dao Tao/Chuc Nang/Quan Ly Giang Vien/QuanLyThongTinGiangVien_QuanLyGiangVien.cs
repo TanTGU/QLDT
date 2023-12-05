@@ -62,8 +62,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Giang_Vien
             dt = CSDL.LayDuLieu(sql);
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                cbdonvi.Items.Add(dt.Rows[i][1].ToString());
-                cbdonvi1.Items.Add(dt.Rows[i][1].ToString());
+                cbdonvi.Items.Add(dt.Rows[i][1].ToString());;
 
             }
             cbGioi.Items.Add("Nam");
@@ -137,6 +136,69 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Giang_Vien
                     listDS.Items[i].SubItems.Add(dt1.Rows[i][2].ToString());
                 }
             LaySLGV();
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)//them
+        {
+            if (txtGV.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập mã giáo viên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                return;
+            }
+            if (txtHoten.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập mã giáo viên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                return;
+            }
+            if (txtSDT.Text == "")
+            {
+                MessageBox.Show("Vui lòng số điện thoại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                return;
+            }
+            if (txtEmail.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập email!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                return;
+            }
+            if (txtDiachi.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập địa chỉ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                return;
+            }
+            
+            string gv = txtGV.Text ;
+            string hoten = txtHoten.Text;
+            string ngaysinh =d1.Value.ToString("yyyy/MM/dd") ;
+            string gt = cbGioi.Text ;
+            string sdt = txtSDT.Text ;
+            string email = txtEmail.Text ;
+            string diachi = txtDiachi.Text ;
+            string dv = cbdonvi1.Text ;
+            string hocham = txtHH.Text ;
+            string hocvi = txtHV.Text ;
+            string insert = "insert into GIANGVIEN(MaGV, HoTen, NgaySinh, GioiTinh, SoDT, Email, DiaChi, MaDV, HocHam, HocVi) ";
+            string values = $" values ('{gv}', N'{hoten}', '{ngaysinh}', N'{gt}', '{sdt}', '{email}', N'{diachi}', '{dv}', N'{hocham}', N'{hocvi}')";
+            string sql = insert + values;
+            //try
+            //{
+                CSDL.XuLy(sql);
+                
+                MessageBox.Show("Đã thêm thông tin giảng viên mới!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+           // }
+            //catch
+            //{
+            //    MessageBox.Show("Thêm thông tin giảng viên mới không thành công. Vui lòng thử lại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
+        }
+
+        private void button2_Click(object sender, EventArgs e)// sua hay cap nhat
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)//xoa
+        {
 
         }
     }
