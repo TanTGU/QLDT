@@ -266,6 +266,7 @@
             this.button4.TabIndex = 47;
             this.button4.Text = "XÓA";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -280,6 +281,7 @@
             this.button3.TabIndex = 46;
             this.button3.Text = "CẬP NHẬT";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // txttenTQ
             // 
@@ -417,6 +419,7 @@
             this.button2.TabIndex = 30;
             this.button2.Text = "THÊM MỚI";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label5
             // 
