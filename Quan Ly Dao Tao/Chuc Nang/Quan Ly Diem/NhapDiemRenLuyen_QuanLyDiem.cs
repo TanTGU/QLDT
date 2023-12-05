@@ -89,7 +89,12 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Diem
 
         private void listLop_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string sql = "select LOP.MaLop, LOP.TenLop from LOP";
+
+        }
+
+        private void cbNamHoc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

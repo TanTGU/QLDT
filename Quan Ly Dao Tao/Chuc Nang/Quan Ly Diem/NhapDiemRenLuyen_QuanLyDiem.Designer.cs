@@ -84,6 +84,7 @@
             this.cbNamHoc.Name = "cbNamHoc";
             this.cbNamHoc.Size = new System.Drawing.Size(321, 27);
             this.cbNamHoc.TabIndex = 17;
+            this.cbNamHoc.SelectedIndexChanged += new System.EventHandler(this.cbNamHoc_SelectedIndexChanged);
             // 
             // cbHK
             // 
