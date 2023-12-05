@@ -477,6 +477,7 @@
             this.btnXuatDS.TabIndex = 116;
             this.btnXuatDS.Text = "Xuất danh sách";
             this.btnXuatDS.UseVisualStyleBackColor = false;
+            this.btnXuatDS.Click += new System.EventHandler(this.btnXuatDS_Click);
             // 
             // InThoiKhoaBieu_QuanLyThoiKhoaBieu
             // 
