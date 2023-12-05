@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Quan_Ly_Dao_Tao.Database;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,18 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Diem
         public TraCuuDiemThi_QuanLyDiem()
         {
             InitializeComponent();
+        }
+
+        void layDSNamhoc()
+        {
+            string sql = "select * from NAMHOC";//
+            DataTable dt = CSDL.LayDuLieu(sql);
+            comboBox4.Items.Clear();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                //
+                comboBox4.Items.Add(dt.Rows[i][0].ToString());
+            }
         }
 
         private void listMH_DrawColumnHeader(object sender, DrawListViewColumnHeaderEventArgs e)
@@ -92,6 +105,16 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Diem
                     e.Graphics.DrawString(listMH.Name, new Font(FontFamily.GenericSansSerif, 12), Brushes.Black, e.Bounds.Left, e.Bounds.Top);
                 }
             }
+        }
+
+        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void TraCuuDiemThi_QuanLyDiem_Load(object sender, EventArgs e)
+        {
+            layDSNamhoc();
         }
     }
 }
