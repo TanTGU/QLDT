@@ -40,7 +40,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.txtLop = new System.Windows.Forms.TextBox();
-            this.TXTHoTen = new System.Windows.Forms.TextBox();
+            this.txtHoTen = new System.Windows.Forms.TextBox();
             this.txtMSSV = new System.Windows.Forms.TextBox();
             this.nmDiem = new System.Windows.Forms.NumericUpDown();
             this.label13 = new System.Windows.Forms.Label();
@@ -164,7 +164,7 @@
             // 
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.txtLop);
-            this.groupBox1.Controls.Add(this.TXTHoTen);
+            this.groupBox1.Controls.Add(this.txtHoTen);
             this.groupBox1.Controls.Add(this.txtMSSV);
             this.groupBox1.Controls.Add(this.nmDiem);
             this.groupBox1.Controls.Add(this.label13);
@@ -203,14 +203,14 @@
             this.txtLop.Size = new System.Drawing.Size(331, 27);
             this.txtLop.TabIndex = 30;
             // 
-            // TXTHoTen
+            // txtHoTen
             // 
-            this.TXTHoTen.Enabled = false;
-            this.TXTHoTen.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TXTHoTen.Location = new System.Drawing.Point(107, 66);
-            this.TXTHoTen.Name = "TXTHoTen";
-            this.TXTHoTen.Size = new System.Drawing.Size(331, 27);
-            this.TXTHoTen.TabIndex = 29;
+            this.txtHoTen.Enabled = false;
+            this.txtHoTen.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHoTen.Location = new System.Drawing.Point(107, 66);
+            this.txtHoTen.Name = "txtHoTen";
+            this.txtHoTen.Size = new System.Drawing.Size(331, 27);
+            this.txtHoTen.TabIndex = 29;
             // 
             // txtMSSV
             // 
@@ -399,7 +399,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtLop;
-        private System.Windows.Forms.TextBox TXTHoTen;
+        private System.Windows.Forms.TextBox txtHoTen;
         private System.Windows.Forms.TextBox txtMSSV;
         private System.Windows.Forms.NumericUpDown nmDiem;
         private System.Windows.Forms.Label label13;

@@ -102,7 +102,10 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Diem
 
         private void listLop_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            txtMSSV.Text = listLop.SelectedItems[0].SubItems[0].ToString();
+            txtHoTen.Text = listLop.SelectedItems[0].SubItems[1].ToString();
+            txtLop.Text = listLop.SelectedItems[0].SubItems[3].ToString();
+            listDS.Items.Clear();
         }
 
         private void cbNamHoc_SelectedIndexChanged(object sender, EventArgs e)
