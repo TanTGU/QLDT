@@ -69,7 +69,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Giang_Vien
             cbGioi.Items.Add("Nữ");
             string sql1 = "select MaGV, HoTen, MaDV From GIANGVIEN ";
             DataTable dt1= new DataTable();
-            dt1 = CSDL.LayDuLieu(sql1);
+            dt1 = CSDL.LayDuLieu(sql1);//
             listDS.Items.Clear();
             for (int i = 0; i < dt1.Rows.Count; i++)
             {
