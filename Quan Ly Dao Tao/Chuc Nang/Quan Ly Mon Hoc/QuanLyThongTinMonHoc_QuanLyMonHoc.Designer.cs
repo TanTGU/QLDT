@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtMH = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cbnganhhoc = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -70,7 +70,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.txtMH);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.cbnganhhoc);
             this.groupBox2.Controls.Add(this.button1);
@@ -86,13 +86,13 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "THÔNG TIN TÌM KIẾM";
             // 
-            // textBox1
+            // txtMH
             // 
-            this.textBox1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(102, 100);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(331, 27);
-            this.textBox1.TabIndex = 34;
+            this.txtMH.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMH.Location = new System.Drawing.Point(102, 100);
+            this.txtMH.Name = "txtMH";
+            this.txtMH.Size = new System.Drawing.Size(331, 27);
+            this.txtMH.TabIndex = 34;
             // 
             // label1
             // 
@@ -469,7 +469,7 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtMH;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbnganhhoc;
         private System.Windows.Forms.Button button1;

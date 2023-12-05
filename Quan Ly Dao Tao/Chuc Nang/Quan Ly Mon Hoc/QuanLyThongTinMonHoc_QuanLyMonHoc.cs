@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Mon_Hoc
 {
@@ -122,9 +123,18 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Mon_Hoc
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)//tim
         {
-
+            string ma = txtMH.Text;
+            string sql = "select * from MONHOC where MaMH='" + ma + "'";
+            DataTable dt = new DataTable();
+            dt = CSDL.LayDuLieu(sql);
+            listDS.Items.Clear();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                listDS.Items.Add(dt.Rows[i][0].ToString());
+                listDS.Items[i].SubItems.Add(dt.Rows[i][1].ToString());
+            }
         }
     }
 }
