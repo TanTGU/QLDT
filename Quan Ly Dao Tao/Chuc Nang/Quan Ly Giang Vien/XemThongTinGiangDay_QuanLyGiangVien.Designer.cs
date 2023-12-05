@@ -144,6 +144,7 @@
             this.listGD.View = System.Windows.Forms.View.Details;
             this.listGD.DrawColumnHeader += new System.Windows.Forms.DrawListViewColumnHeaderEventHandler(this.listGD_DrawColumnHeader);
             this.listGD.DrawItem += new System.Windows.Forms.DrawListViewItemEventHandler(this.listGD_DrawItem);
+            this.listGD.SelectedIndexChanged += new System.EventHandler(this.listGD_SelectedIndexChanged);
             // 
             // columnHeader7
             // 
@@ -184,6 +185,7 @@
             this.listGV.View = System.Windows.Forms.View.Details;
             this.listGV.DrawColumnHeader += new System.Windows.Forms.DrawListViewColumnHeaderEventHandler(this.listDS_DrawColumnHeader);
             this.listGV.DrawItem += new System.Windows.Forms.DrawListViewItemEventHandler(this.listDS_DrawItem);
+            this.listGV.SelectedIndexChanged += new System.EventHandler(this.listGV_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -268,6 +270,7 @@
             this.cboDonVi.Name = "cboDonVi";
             this.cboDonVi.Size = new System.Drawing.Size(382, 27);
             this.cboDonVi.TabIndex = 11;
+            this.cboDonVi.SelectedIndexChanged += new System.EventHandler(this.cboDonVi_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -421,6 +424,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "XemThongTinGiangDay_QuanLyGiangVien";
             this.Size = new System.Drawing.Size(1359, 577);
+            this.Load += new System.EventHandler(this.XemThongTinGiangDay_QuanLyGiangVien_Load);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
