@@ -185,7 +185,11 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Dang_Ky_HP
         private void DemSinhVienDangKy(ListView lv)
         {
             int dem = lv.Items.Count;
-            lblDemSV.Text = dem.ToString() + " sinh viên";
+            lblDemSV.Text = dem.ToString() + " sinh viên";           
+        }
+
+        private void btnXuatDS_Click(object sender, EventArgs e)
+        {
 
         }
     }

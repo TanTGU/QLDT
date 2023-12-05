@@ -43,7 +43,7 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label3 = new System.Windows.Forms.Label();
             this.listMH = new System.Windows.Forms.ListView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnXuatDS = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lbGiangVien = new System.Windows.Forms.Label();
             this.lbNamHoc = new System.Windows.Forms.Label();
@@ -201,19 +201,20 @@
             this.listMH.DrawItem += new System.Windows.Forms.DrawListViewItemEventHandler(this.listMH_DrawItem);
             this.listMH.SelectedIndexChanged += new System.EventHandler(this.listMH_SelectedIndexChanged);
             // 
-            // button1
+            // btnXuatDS
             // 
-            this.button1.BackColor = System.Drawing.Color.SteelBlue;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(1180, 540);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(155, 31);
-            this.button1.TabIndex = 27;
-            this.button1.Text = "Xuất danh sách";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnXuatDS.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnXuatDS.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.btnXuatDS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnXuatDS.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXuatDS.ForeColor = System.Drawing.Color.White;
+            this.btnXuatDS.Location = new System.Drawing.Point(1180, 540);
+            this.btnXuatDS.Name = "btnXuatDS";
+            this.btnXuatDS.Size = new System.Drawing.Size(155, 31);
+            this.btnXuatDS.TabIndex = 27;
+            this.btnXuatDS.Text = "Xuất danh sách";
+            this.btnXuatDS.UseVisualStyleBackColor = false;
+            this.btnXuatDS.Click += new System.EventHandler(this.btnXuatDS_Click);
             // 
             // groupBox2
             // 
@@ -481,7 +482,7 @@
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnXuatDS);
             this.Controls.Add(this.lblDemSV);
             this.Controls.Add(this.listDS);
             this.Controls.Add(this.label6);
@@ -519,7 +520,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ListView listMH;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnXuatDS;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
