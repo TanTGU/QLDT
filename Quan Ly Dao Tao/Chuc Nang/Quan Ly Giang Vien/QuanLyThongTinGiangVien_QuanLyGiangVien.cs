@@ -63,7 +63,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Giang_Vien
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 cbdonvi.Items.Add(dt.Rows[i][1].ToString());;
-
+                cbdonvi1.Items.Add(dt.Rows[i][0].ToString());
             }
             cbGioi.Items.Add("Nam");
             cbGioi.Items.Add("Nữ");
@@ -180,16 +180,16 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Giang_Vien
             string insert = "insert into GIANGVIEN(MaGV, HoTen, NgaySinh, GioiTinh, SoDT, Email, DiaChi, MaDV, HocHam, HocVi) ";
             string values = $" values ('{gv}', N'{hoten}', '{ngaysinh}', N'{gt}', '{sdt}', '{email}', N'{diachi}', '{dv}', N'{hocham}', N'{hocvi}')";
             string sql = insert + values;
-            //try
-            //{
+            try
+            {
                 CSDL.XuLy(sql);
                 
                 MessageBox.Show("Đã thêm thông tin giảng viên mới!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-           // }
-            //catch
-            //{
-            //    MessageBox.Show("Thêm thông tin giảng viên mới không thành công. Vui lòng thử lại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
+            }
+            catch
+            {
+                MessageBox.Show("Thêm thông tin giảng viên mới không thành công. Vui lòng thử lại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)// sua hay cap nhat
