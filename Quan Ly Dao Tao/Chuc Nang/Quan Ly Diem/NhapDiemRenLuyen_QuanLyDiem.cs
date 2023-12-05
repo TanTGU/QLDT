@@ -82,14 +82,27 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Diem
 
         }
 
+        void LayDSLop()
+        {
+            string sql = "select MaLop, TenLop from LOP";
+            DataTable dt = CSDL.LayDuLieu(sql);
+            listLop.Items.Clear();
+            for(int i = 0; i < dt.Rows.Count; i++)
+            {
+                listLop.Items.Add(dt.Rows[i][0].ToString());
+                listLop.Items[i].SubItems.Add(dt.Rows[i][1].ToString());
+            }
+        }
+
         private void NhapDiemRenLuyen_QuanLyDiem_Load(object sender, EventArgs e)
         {
             layDSNamhoc();
+            LayDSLop();
         }
 
         private void listLop_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void cbNamHoc_SelectedIndexChanged(object sender, EventArgs e)
