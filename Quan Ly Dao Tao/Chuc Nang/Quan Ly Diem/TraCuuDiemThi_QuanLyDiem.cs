@@ -20,7 +20,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Diem
 
         void layDSNamhoc()
         {
-            string sql = "select * from NAMHOC";
+            string sql = "select * from NAMHOC";//
             DataTable dt = CSDL.LayDuLieu(sql);
             comboBox4.Items.Clear();
             for (int i = 0; i < dt.Rows.Count; i++)
