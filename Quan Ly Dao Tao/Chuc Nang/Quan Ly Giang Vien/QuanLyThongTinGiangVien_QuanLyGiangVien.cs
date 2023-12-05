@@ -148,7 +148,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Giang_Vien
             }
             if (txtHoten.Text == "")
             {
-                MessageBox.Show("Vui lòng nhập mã giáo viên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                MessageBox.Show("Vui lòng nhập tên giáo viên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
                 return;
             }
             if (txtSDT.Text == "")
