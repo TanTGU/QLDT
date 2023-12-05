@@ -41,6 +41,11 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
             this.tbDiaChi = new System.Windows.Forms.TextBox();
             this.tbTenLop = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
@@ -71,11 +76,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -259,6 +259,65 @@
             this.groupBox1.TabIndex = 105;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "THÔNG TIN SINH VIÊN";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.Red;
+            this.label23.Location = new System.Drawing.Point(506, 72);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(30, 19);
+            this.label23.TabIndex = 106;
+            this.label23.Text = "(*)";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.Color.Red;
+            this.label22.Location = new System.Drawing.Point(499, 33);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(30, 19);
+            this.label22.TabIndex = 69;
+            this.label22.Text = "(*)";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.Red;
+            this.label20.Location = new System.Drawing.Point(96, 72);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(30, 19);
+            this.label20.TabIndex = 67;
+            this.label20.Text = "(*)";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.Red;
+            this.label19.Location = new System.Drawing.Point(62, 33);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(30, 19);
+            this.label19.TabIndex = 66;
+            this.label19.Text = "(*)";
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.White;
+            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.Color.SteelBlue;
+            this.button5.Location = new System.Drawing.Point(713, 329);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(129, 37);
+            this.button5.TabIndex = 64;
+            this.button5.Text = "LÀM MỚI";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // tbDiaChi
             // 
@@ -577,65 +636,6 @@
             this.label6.Size = new System.Drawing.Size(60, 19);
             this.label6.TabIndex = 10;
             this.label6.Text = "MSSV:";
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.White;
-            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.SteelBlue;
-            this.button5.Location = new System.Drawing.Point(713, 329);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(129, 37);
-            this.button5.TabIndex = 64;
-            this.button5.Text = "LÀM MỚI";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.Red;
-            this.label19.Location = new System.Drawing.Point(62, 33);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(30, 19);
-            this.label19.TabIndex = 66;
-            this.label19.Text = "(*)";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.Color.Red;
-            this.label20.Location = new System.Drawing.Point(96, 72);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(30, 19);
-            this.label20.TabIndex = 67;
-            this.label20.Text = "(*)";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.Color.Red;
-            this.label22.Location = new System.Drawing.Point(499, 33);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(30, 19);
-            this.label22.TabIndex = 69;
-            this.label22.Text = "(*)";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.ForeColor = System.Drawing.Color.Red;
-            this.label23.Location = new System.Drawing.Point(506, 72);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(30, 19);
-            this.label23.TabIndex = 106;
-            this.label23.Text = "(*)";
             // 
             // QuanLyThongTinSinhVien_QuanLySinhVien
             // 
