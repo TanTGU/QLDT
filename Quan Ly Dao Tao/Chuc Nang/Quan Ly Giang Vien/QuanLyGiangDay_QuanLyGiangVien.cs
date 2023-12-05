@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Quan_Ly_Dao_Tao.Database;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -55,7 +56,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Giang_Vien
                 else // Nếu là các dòng dữ liệu
                 {
                     // Vẽ các dòng dữ liệu với màu chữ đen và font size nhỏ hơn
-                    e.Graphics.DrawString(listDS.Name, new Font(FontFamily.GenericSansSerif, 12), Brushes.Black, e.Bounds.Left, e.Bounds.Top);
+                    e.Graphics.DrawString(listGV.Name, new Font(FontFamily.GenericSansSerif, 12), Brushes.Black, e.Bounds.Left, e.Bounds.Top);
                 }
             }
 
@@ -94,5 +95,53 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Giang_Vien
             }
 
         }
+
+        private void QuanLyGiangDay_QuanLyGiangVien_Load(object sender, EventArgs e)
+        {
+
+            LoadDonVi();
+            LoadGiangVien();
+        }
+        private void LoadDonVi()
+        {
+            string sql = "select * from DONVI";
+            DataTable dt = new DataTable();
+            dt = CSDL.LayDuLieu(sql);
+            if (dt.Rows.Count > 0)
+            {
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    cboDonVi.Items.Add(dt.Rows[i][1].ToString());
+                }
+            }
+
+        }
+        private void LoadGiangVien()
+        {
+            string sql = "select MaGV, HoTen, MaDV from GIANGVIEN";
+            DataTable dt = new DataTable();
+            dt = CSDL.LayDuLieu(sql);
+            if (dt.Rows.Count > 0)
+            {
+                listGV.Items.Clear();
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    listGV.Items.Add(dt.Rows[i][0].ToString());
+                    listGV.Items[i].SubItems.Add(dt.Rows[i][1].ToString());
+                    listGV.Items[i].SubItems.Add(dt.Rows[i][2].ToString());
+                }
+            }
+        }
+       /* private void demGV(ListView lv)
+        {
+            int count = lv.Items.Count;
+            lblDemGV.Text = count.ToString() + " giảng viên";
+        }
+        private void demMH(ListView lv)
+        {
+            int count = lv.Items.Count;
+            lblDemMH.Text = count.ToString() + " môn học";
+        }
+       */
     }
 }
