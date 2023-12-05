@@ -189,5 +189,21 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Giang_Vien
             lblDemMH.Text = count.ToString() + " môn học";
         }
 
+        private void button4_Click(object sender, EventArgs e)//tim theo ma giang vien
+        {
+            string sql = "select MaGV, HoTen, MaDV from GIANGVIEN where MaGV ='"+txtTimMaGV.Text+"'";
+            DataTable dt = new DataTable();
+            dt = CSDL.LayDuLieu(sql);
+            if (dt.Rows.Count > 0)
+            {
+                listGV.Items.Clear();
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    listGV.Items.Add(dt.Rows[i][0].ToString());
+                    listGV.Items[i].SubItems.Add(dt.Rows[i][1].ToString());
+                    listGV.Items[i].SubItems.Add(dt.Rows[i][2].ToString());
+                }
+            }
+        }
     }
 }

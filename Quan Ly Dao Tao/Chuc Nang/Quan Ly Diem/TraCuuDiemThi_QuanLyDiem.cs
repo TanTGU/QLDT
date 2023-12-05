@@ -32,7 +32,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Diem
         }
         void layDSLop()
         {
-            string sql = "select LOP.TenLop from LOP"
+            string sql = "select LOP.TenLop from LOP";
                 DataTable dt = CSDL.LayDuLieu(sql);
             cbLop.Items.Clear();
             for (int i = 0; i < dt.Rows.Count; i++)
