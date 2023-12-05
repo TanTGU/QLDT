@@ -51,7 +51,7 @@
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lblDemSV = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -190,6 +190,7 @@
             this.listMH.View = System.Windows.Forms.View.Details;
             this.listMH.DrawColumnHeader += new System.Windows.Forms.DrawListViewColumnHeaderEventHandler(this.listMH_DrawColumnHeader);
             this.listMH.DrawItem += new System.Windows.Forms.DrawListViewItemEventHandler(this.listMH_DrawItem);
+            this.listMH.SelectedIndexChanged += new System.EventHandler(this.listMH_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -278,23 +279,23 @@
             this.label7.TabIndex = 18;
             this.label7.Text = "Tổng số sinh viên đăng ký:";
             // 
-            // label8
+            // lblDemSV
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(917, 547);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(24, 19);
-            this.label8.TabIndex = 19;
-            this.label8.Text = "...";
+            this.lblDemSV.AutoSize = true;
+            this.lblDemSV.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDemSV.ForeColor = System.Drawing.Color.Black;
+            this.lblDemSV.Location = new System.Drawing.Point(917, 547);
+            this.lblDemSV.Name = "lblDemSV";
+            this.lblDemSV.Size = new System.Drawing.Size(24, 19);
+            this.lblDemSV.TabIndex = 19;
+            this.lblDemSV.Text = "...";
             // 
             // TraCuu_QuanLyDangKyHocPhan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.Controls.Add(this.label8);
+            this.Controls.Add(this.lblDemSV);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.listDS);
             this.Controls.Add(this.label6);
@@ -338,6 +339,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ColumnHeader columnHeader10;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblDemSV;
     }
 }
