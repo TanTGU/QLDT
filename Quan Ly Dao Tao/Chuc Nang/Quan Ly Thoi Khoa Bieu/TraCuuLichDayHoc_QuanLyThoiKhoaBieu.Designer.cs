@@ -174,6 +174,7 @@
             this.listHP.DrawColumnHeader += new System.Windows.Forms.DrawListViewColumnHeaderEventHandler(this.listHP_DrawColumnHeader);
             this.listHP.DrawItem += new System.Windows.Forms.DrawListViewItemEventHandler(this.listHP_DrawItem);
             this.listHP.Click += new System.EventHandler(this.listHP_Click);
+            this.listHP.KeyUp += new System.Windows.Forms.KeyEventHandler(this.listHP_KeyUp);
             // 
             // columnHeader3
             // 
@@ -323,6 +324,7 @@
             this.listMH.DrawColumnHeader += new System.Windows.Forms.DrawListViewColumnHeaderEventHandler(this.listMH_DrawColumnHeader);
             this.listMH.DrawItem += new System.Windows.Forms.DrawListViewItemEventHandler(this.listMH_DrawItem);
             this.listMH.Click += new System.EventHandler(this.listMH_Click);
+            this.listMH.KeyUp += new System.Windows.Forms.KeyEventHandler(this.listMH_KeyUp);
             // 
             // columnHeader1
             // 
