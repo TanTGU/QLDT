@@ -100,7 +100,17 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Dang_Ky_HP
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if(tbTimKiem.Text == "")
+            if (cbMonHoc.Text == "")
+            {
+                MessageBox.Show("Vui lòng chọn năm học cần tìm kiếm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                return;
+            }
+            if (cbHocKy.Text == "")
+            {
+                MessageBox.Show("Vui lòng chọn học kỳ cần tìm kiếm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                return;
+            }
+            if (tbTimKiem.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập thông tin tìm kiếm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
                 return;
