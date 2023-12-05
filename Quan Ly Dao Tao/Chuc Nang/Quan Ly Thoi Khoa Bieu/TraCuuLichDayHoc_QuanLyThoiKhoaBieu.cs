@@ -238,27 +238,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
             string maMH = listHP.SelectedItems[0].SubItems[1].Text;
             string nhom = listHP.SelectedItems[0].SubItems[3].Text;
             string sql = "select T.MaMH, TenMH, NamHoc, HocKy, SoTC, NhomHP, Thu, G.MaGV, TietGiangDay, HoTen, GhiChu, SoTietThucDay \r\nfrom THOIKHOABIEU T, MONHOC M, GIANGVIEN G\r\nwhere T.MaMH='" + maMH + "' and NhomHP=" + nhom + " and T.MaMH = M.MaMH and T.MaGV = G.MaGV \r\norder by NhomHP";
-            DataTable dt = new DataTable();
-            dt = CSDL.LayDuLieu(sql);
-            if (dt.Rows.Count > 0)
-            {
-                for (int i = 0; i < dt.Rows.Count; i++)
-                {
-                    txtMaMH.Text = dt.Rows[i][0].ToString();
-                    txtTenMH.Text = dt.Rows[i][1].ToString();
-                    txtNamHoc.Text = dt.Rows[i][2].ToString();
-                    cboHocKy.Text = dt.Rows[i][3].ToString();
-                    txtSoTC.Text = dt.Rows[i][4].ToString();
-                    txtNhom.Text = dt.Rows[i][5].ToString();
-                    cboThu.Text = dt.Rows[i][6].ToString();
-                    txtMaGV.Text = dt.Rows[i][7].ToString();
-                    txtTiet.Text = dt.Rows[i][8].ToString();
-                    txtTenGV.Text = dt.Rows[i][9].ToString();
-                    txtGhiChu.Text = dt.Rows[i][10].ToString();
-                    int soTiet = Convert.ToInt32(dt.Rows[i][11]);
-                    nuSoTiet.Value = soTiet;
-                }
-            }
+            LoadThongTinNhomHocPhan(sql);
         }
 
         private void txtTimMaMH_MouseDown(object sender, MouseEventArgs e)
@@ -302,5 +282,38 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
                 listHP.Items.Clear();
             }
         }
+
+        private void LoadThongTinNhomHocPhan(string sql)
+        {
+            DataTable dt = new DataTable();
+            dt = CSDL.LayDuLieu(sql);
+            if (dt.Rows.Count > 0)
+            {
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    txtMaMH.Text = dt.Rows[i][0].ToString();
+                    txtTenMH.Text = dt.Rows[i][1].ToString();
+                    txtNamHoc.Text = dt.Rows[i][2].ToString();
+                    cboHocKy.Text = dt.Rows[i][3].ToString();
+                    txtSoTC.Text = dt.Rows[i][4].ToString();
+                    txtNhom.Text = dt.Rows[i][5].ToString();
+                    cboThu.Text = dt.Rows[i][6].ToString();
+                    txtMaGV.Text = dt.Rows[i][7].ToString();
+                    txtTiet.Text = dt.Rows[i][8].ToString();
+                    txtTenGV.Text = dt.Rows[i][9].ToString();
+                    txtGhiChu.Text = dt.Rows[i][10].ToString();
+                    int soTiet = Convert.ToInt32(dt.Rows[i][11]);
+                    nuSoTiet.Value = soTiet;
+                }
+            }
+        }
+        private void listHP_KeyUp(object sender, KeyEventArgs e)
+        {
+            string maMH = listHP.SelectedItems[0].SubItems[1].Text;
+            string nhom = listHP.SelectedItems[0].SubItems[3].Text;
+            string sql = "select T.MaMH, TenMH, NamHoc, HocKy, SoTC, NhomHP, Thu, G.MaGV, TietGiangDay, HoTen, GhiChu, SoTietThucDay \r\nfrom THOIKHOABIEU T, MONHOC M, GIANGVIEN G\r\nwhere T.MaMH='" + maMH + "' and NhomHP=" + nhom + " and T.MaMH = M.MaMH and T.MaGV = G.MaGV \r\norder by NhomHP";
+            LoadThongTinNhomHocPhan(sql);
+        }
+        
     }
 }
