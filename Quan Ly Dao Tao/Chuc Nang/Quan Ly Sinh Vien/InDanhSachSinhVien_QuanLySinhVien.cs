@@ -153,5 +153,10 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
                 f.ShowDialog();
             }
         }
+
+        private void listDS_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

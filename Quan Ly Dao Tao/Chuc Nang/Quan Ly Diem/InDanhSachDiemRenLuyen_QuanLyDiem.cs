@@ -17,6 +17,8 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Diem
             InitializeComponent();
         }
 
+        
+
         private void listLop_DrawColumnHeader(object sender, DrawListViewColumnHeaderEventArgs e)
         {
             // Tô màu nền
@@ -66,6 +68,11 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Diem
                     e.Graphics.DrawString(listDS.Name, new Font(FontFamily.GenericSansSerif, 12), Brushes.Black, e.Bounds.Left, e.Bounds.Top);
                 }
             }
+
+        }
+
+        private void InDanhSachDiemRenLuyen_QuanLyDiem_Load(object sender, EventArgs e)
+        {
 
         }
     }
