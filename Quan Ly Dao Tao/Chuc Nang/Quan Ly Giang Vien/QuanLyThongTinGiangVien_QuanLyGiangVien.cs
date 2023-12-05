@@ -62,15 +62,14 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Giang_Vien
             dt = CSDL.LayDuLieu(sql);
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                cbdonvi.Items.Add(dt.Rows[i][1].ToString());
-                cbdonvi1.Items.Add(dt.Rows[i][1].ToString());
-
+                cbdonvi.Items.Add(dt.Rows[i][1].ToString());;
+                cbdonvi1.Items.Add(dt.Rows[i][0].ToString());
             }
             cbGioi.Items.Add("Nam");
             cbGioi.Items.Add("Nữ");
             string sql1 = "select MaGV, HoTen, MaDV From GIANGVIEN ";
             DataTable dt1= new DataTable();
-            dt1 = CSDL.LayDuLieu(sql1);
+            dt1 = CSDL.LayDuLieu(sql1);//
             listDS.Items.Clear();
             for (int i = 0; i < dt1.Rows.Count; i++)
             {
@@ -138,6 +137,139 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Giang_Vien
                 }
             LaySLGV();
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)//them
+        {
+            if (txtGV.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập mã giáo viên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                return;
+            }
+            if (txtHoten.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập tên giáo viên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                return;
+            }
+            if (txtSDT.Text == "")
+            {
+                MessageBox.Show("Vui lòng số điện thoại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                return;
+            }
+            if (txtEmail.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập email!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                return;
+            }
+            if (txtDiachi.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập địa chỉ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                return;
+            }
+            
+            string gv = txtGV.Text ;
+            string hoten = txtHoten.Text;
+            string ngaysinh =d1.Value.ToString("yyyy/MM/dd") ;
+            string gt = cbGioi.Text ;
+            string sdt = txtSDT.Text ;
+            string email = txtEmail.Text ;
+            string diachi = txtDiachi.Text ;
+            string dv = cbdonvi1.Text ;
+            string hocham = txtHH.Text ;
+            string hocvi = txtHV.Text ;
+            string insert = "insert into GIANGVIEN(MaGV, HoTen, NgaySinh, GioiTinh, SoDT, Email, DiaChi, MaDV, HocHam, HocVi) ";
+            string values = $" values ('{gv}', N'{hoten}', '{ngaysinh}', N'{gt}', '{sdt}', '{email}', N'{diachi}', '{dv}', N'{hocham}', N'{hocvi}')";
+            string sql = insert + values;
+            try
+            {
+                CSDL.XuLy(sql);
+                
+                MessageBox.Show("Đã thêm thông tin giảng viên mới!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch
+            {
+                MessageBox.Show("Thêm thông tin giảng viên mới không thành công. Vui lòng thử lại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)// sua hay cap nhat
+        {
+
+            if (txtGV.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập mã giáo viên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                return;
+            }
+            if (txtHoten.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập mã giáo viên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                return;
+            }
+            if (txtSDT.Text == "")
+            {
+                MessageBox.Show("Vui lòng số điện thoại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                return;
+            }
+            if (txtEmail.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập email!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                return;
+            }
+            if (txtDiachi.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập địa chỉ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                return;
+            }
+
+            string gv = txtGV.Text;
+            string hoten = txtHoten.Text;
+            string ngaysinh = d1.Value.ToString("yyyy/MM/dd");
+            string gt = cbGioi.Text;
+            string sdt = txtSDT.Text;
+            string email = txtEmail.Text;
+            string diachi = txtDiachi.Text;
+            string dv = cbdonvi1.Text;
+            string hocham = txtHH.Text;
+            string hocvi = txtHV.Text;
+
+            string sql = $"update GIANGVIEN set MaGV = '{gv}',HoTen = N'{hoten}',NgaySinh = '{ngaysinh}',GioiTinh = N'{gt}',SoDT= '{sdt}',Email = '{email}',DiaChi = N'{diachi}',MaDV = '{dv}',HocHam = N'{hocham}',HocVi = N'{hocvi}' where MaGV ='{gv}'  ";
+
+            try
+            {
+                CSDL.XuLy(sql);
+
+                MessageBox.Show("Đã sửa thông tin giảng viên mới!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch
+            {
+                MessageBox.Show("Sửa thông tin giảng viên mới không thành công. Vui lòng thử lại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)//xoa
+        {
+            string gv = txtGV.Text;
+            string hoten = txtHoten.Text;
+            if (gv == "" || hoten == "" )
+            {
+                MessageBox.Show("Vui lòng chọn giảng viên cần xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                return;
+            }
+            string sql = $"Delete GIANGVIEN where MaGV = '{gv}'";
+            DialogResult result = MessageBox.Show($"Bạn thật sự muốn sinh viên {gv}?", "Lưu ý", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    CSDL.XuLy(sql);
+                    
+                    MessageBox.Show("Đã xóa sinh viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch
+                {
+                    MessageBox.Show("Không thể xóa thông tin sinh viên!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }
