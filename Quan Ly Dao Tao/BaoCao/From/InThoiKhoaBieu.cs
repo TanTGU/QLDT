@@ -22,10 +22,10 @@ namespace Quan_Ly_Dao_Tao.BaoCao.From
         }
 
         private void InThoiKhoaBieu_Load(object sender, EventArgs e)
-        {
-            
-            string sql = "";
-            DataTable dt = new DataTable(sql);
+        {            
+            string sql = "select D.MaDV, TenDV, T.MaGV, HoTen, T.MaMH, TenMH, NhomHP, Thu, TietGiangDay, NamHoc, HocKy, GhiChu from GIANGVIEN G, THOIKHOABIEU T, DONVI D, MONHOC M " +
+                "where T.MaGV='"+maGV+"' and T.MaGV=G.MaGV and T.MaMH = M.MaMH and G.MaDV = D.MaDV";
+            DataTable dt = CSDL.LayDuLieu(sql);
             InThoiKhoaBieu_CrystalReport cry = new InThoiKhoaBieu_CrystalReport();
             cry.SetDataSource(dt);
             crystalReportViewer1.ReportSource = cry;
