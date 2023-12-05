@@ -232,6 +232,10 @@
             // 
             this.comboBox4.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Items.AddRange(new object[] {
+            "2023-2024",
+            "2024-2025",
+            "2025-2026"});
             this.comboBox4.Location = new System.Drawing.Point(119, 36);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(321, 32);
@@ -242,6 +246,9 @@
             // 
             this.cbHK.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbHK.FormattingEnabled = true;
+            this.cbHK.Items.AddRange(new object[] {
+            "1",
+            "2"});
             this.cbHK.Location = new System.Drawing.Point(119, 68);
             this.cbHK.Name = "cbHK";
             this.cbHK.Size = new System.Drawing.Size(321, 32);

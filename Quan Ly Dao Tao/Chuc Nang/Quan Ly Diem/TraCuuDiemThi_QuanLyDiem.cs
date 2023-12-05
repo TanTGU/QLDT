@@ -20,13 +20,26 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Diem
 
         void layDSNamhoc()
         {
-            string sql = "select * from NAMHOC";//
+            string sql = "select distinct NAMHOC.NamHoc, DIEMRENLUYEN.HocKy from DIEMRENLUYEN, NAMHOC";//
             DataTable dt = CSDL.LayDuLieu(sql);
             comboBox4.Items.Clear();
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 //
                 comboBox4.Items.Add(dt.Rows[i][0].ToString());
+                //cbHK.Items.Add(dt.Rows[i][1].ToString());
+            }
+        }
+        void layDSLop()
+        {
+            string sql = "select LOP.TenLop from LOP"
+                DataTable dt = CSDL.LayDuLieu(sql);
+            cbLop.Items.Clear();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                //
+                cbLop.Items.Add(dt.Rows[i][1].ToString());
+                //cbHK.Items.Add(dt.Rows[i][1].ToString());
             }
         }
 
