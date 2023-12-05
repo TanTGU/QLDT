@@ -25,7 +25,6 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Diem
             comboBox4.Items.Clear();
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                //
                 comboBox4.Items.Add(dt.Rows[i][0].ToString());
                 //cbHK.Items.Add(dt.Rows[i][1].ToString());
             }

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cbNamHoc = new System.Windows.Forms.ComboBox();
+            this.cbHK = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -39,10 +39,10 @@
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.txtLop = new System.Windows.Forms.TextBox();
+            this.TXTHoTen = new System.Windows.Forms.TextBox();
+            this.txtMSSV = new System.Windows.Forms.TextBox();
+            this.nmDiem = new System.Windows.Forms.NumericUpDown();
             this.label13 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -58,13 +58,13 @@
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nmDiem)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.comboBox4);
-            this.groupBox2.Controls.Add(this.comboBox3);
+            this.groupBox2.Controls.Add(this.cbNamHoc);
+            this.groupBox2.Controls.Add(this.cbHK);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -76,23 +76,27 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "THÔNG TIN";
             // 
-            // comboBox4
+            // cbNamHoc
             // 
-            this.comboBox4.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(119, 36);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(321, 27);
-            this.comboBox4.TabIndex = 17;
+            this.cbNamHoc.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbNamHoc.FormattingEnabled = true;
+            this.cbNamHoc.Location = new System.Drawing.Point(119, 36);
+            this.cbNamHoc.Name = "cbNamHoc";
+            this.cbNamHoc.Size = new System.Drawing.Size(321, 27);
+            this.cbNamHoc.TabIndex = 17;
+            this.cbNamHoc.SelectedIndexChanged += new System.EventHandler(this.cbNamHoc_SelectedIndexChanged);
             // 
-            // comboBox3
+            // cbHK
             // 
-            this.comboBox3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(119, 68);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(321, 27);
-            this.comboBox3.TabIndex = 16;
+            this.cbHK.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbHK.FormattingEnabled = true;
+            this.cbHK.Items.AddRange(new object[] {
+            "1",
+            "2"});
+            this.cbHK.Location = new System.Drawing.Point(119, 68);
+            this.cbHK.Name = "cbHK";
+            this.cbHK.Size = new System.Drawing.Size(321, 27);
+            this.cbHK.TabIndex = 16;
             // 
             // label5
             // 
@@ -144,6 +148,7 @@
             this.listLop.View = System.Windows.Forms.View.Details;
             this.listLop.DrawColumnHeader += new System.Windows.Forms.DrawListViewColumnHeaderEventHandler(this.listLop_DrawColumnHeader);
             this.listLop.DrawItem += new System.Windows.Forms.DrawListViewItemEventHandler(this.listLop_DrawItem);
+            this.listLop.SelectedIndexChanged += new System.EventHandler(this.listLop_SelectedIndexChanged);
             // 
             // columnHeader3
             // 
@@ -158,10 +163,10 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.numericUpDown1);
+            this.groupBox1.Controls.Add(this.txtLop);
+            this.groupBox1.Controls.Add(this.TXTHoTen);
+            this.groupBox1.Controls.Add(this.txtMSSV);
+            this.groupBox1.Controls.Add(this.nmDiem);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label10);
@@ -189,45 +194,45 @@
             this.button1.Text = "Nhập điểm";
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // textBox3
+            // txtLop
             // 
-            this.textBox3.Enabled = false;
-            this.textBox3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(107, 95);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(331, 27);
-            this.textBox3.TabIndex = 30;
+            this.txtLop.Enabled = false;
+            this.txtLop.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLop.Location = new System.Drawing.Point(107, 95);
+            this.txtLop.Name = "txtLop";
+            this.txtLop.Size = new System.Drawing.Size(331, 27);
+            this.txtLop.TabIndex = 30;
             // 
-            // textBox2
+            // TXTHoTen
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(107, 66);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(331, 27);
-            this.textBox2.TabIndex = 29;
+            this.TXTHoTen.Enabled = false;
+            this.TXTHoTen.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TXTHoTen.Location = new System.Drawing.Point(107, 66);
+            this.TXTHoTen.Name = "TXTHoTen";
+            this.TXTHoTen.Size = new System.Drawing.Size(331, 27);
+            this.TXTHoTen.TabIndex = 29;
             // 
-            // textBox1
+            // txtMSSV
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(107, 36);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(331, 27);
-            this.textBox1.TabIndex = 28;
+            this.txtMSSV.Enabled = false;
+            this.txtMSSV.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMSSV.Location = new System.Drawing.Point(107, 36);
+            this.txtMSSV.Name = "txtMSSV";
+            this.txtMSSV.Size = new System.Drawing.Size(331, 27);
+            this.txtMSSV.TabIndex = 28;
             // 
-            // numericUpDown1
+            // nmDiem
             // 
-            this.numericUpDown1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown1.Location = new System.Drawing.Point(107, 127);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.nmDiem.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nmDiem.Location = new System.Drawing.Point(107, 127);
+            this.nmDiem.Maximum = new decimal(new int[] {
             120,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(90, 27);
-            this.numericUpDown1.TabIndex = 9;
+            this.nmDiem.Name = "nmDiem";
+            this.nmDiem.Size = new System.Drawing.Size(90, 27);
+            this.nmDiem.TabIndex = 9;
             // 
             // label13
             // 
@@ -369,11 +374,12 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "NhapDiemRenLuyen_QuanLyDiem";
             this.Size = new System.Drawing.Size(1359, 577);
+            this.Load += new System.EventHandler(this.NhapDiemRenLuyen_QuanLyDiem_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nmDiem)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -382,8 +388,8 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cbNamHoc;
+        private System.Windows.Forms.ComboBox cbHK;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
@@ -392,10 +398,10 @@
         private System.Windows.Forms.ColumnHeader columnHeader9;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.TextBox txtLop;
+        private System.Windows.Forms.TextBox TXTHoTen;
+        private System.Windows.Forms.TextBox txtMSSV;
+        private System.Windows.Forms.NumericUpDown nmDiem;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
