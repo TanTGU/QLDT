@@ -29,37 +29,37 @@
         private void InitializeComponent()
         {
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtTenMH = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtMaMH = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.listGD = new System.Windows.Forms.ListView();
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label7 = new System.Windows.Forms.Label();
-            this.listDS = new System.Windows.Forms.ListView();
+            this.listGV = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button4 = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtTimMaGV = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cboDonVi = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtTenGV = new System.Windows.Forms.TextBox();
+            this.txtMaGV = new System.Windows.Forms.TextBox();
+            this.lblDemGV = new System.Windows.Forms.Label();
+            this.txtDonVi = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblDemMH = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -70,20 +70,20 @@
             this.columnHeader6.Text = "STT";
             this.columnHeader6.Width = 54;
             // 
-            // textBox2
+            // txtTenMH
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(89, 64);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(256, 60);
-            this.textBox2.TabIndex = 26;
+            this.txtTenMH.Enabled = false;
+            this.txtTenMH.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTenMH.Location = new System.Drawing.Point(89, 64);
+            this.txtTenMH.Multiline = true;
+            this.txtTenMH.Name = "txtTenMH";
+            this.txtTenMH.Size = new System.Drawing.Size(256, 60);
+            this.txtTenMH.TabIndex = 26;
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.textBox2);
-            this.groupBox3.Controls.Add(this.textBox6);
+            this.groupBox3.Controls.Add(this.txtTenMH);
+            this.groupBox3.Controls.Add(this.txtMaMH);
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -95,14 +95,14 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "THÔNG TIN MÔN HỌC";
             // 
-            // textBox6
+            // txtMaMH
             // 
-            this.textBox6.Enabled = false;
-            this.textBox6.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(89, 29);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(256, 27);
-            this.textBox6.TabIndex = 25;
+            this.txtMaMH.Enabled = false;
+            this.txtMaMH.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaMH.Location = new System.Drawing.Point(89, 29);
+            this.txtMaMH.Name = "txtMaMH";
+            this.txtMaMH.Size = new System.Drawing.Size(256, 27);
+            this.txtMaMH.TabIndex = 25;
             // 
             // label8
             // 
@@ -150,6 +150,11 @@
             this.columnHeader7.Text = "Mã MH";
             this.columnHeader7.Width = 103;
             // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Tên MH";
+            this.columnHeader4.Width = 231;
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -161,24 +166,24 @@
             this.label7.TabIndex = 115;
             this.label7.Text = "DANH SÁCH MÔN HỌC GIẢNG DẠY";
             // 
-            // listDS
+            // listGV
             // 
-            this.listDS.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.listGV.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3});
-            this.listDS.FullRowSelect = true;
-            this.listDS.GridLines = true;
-            this.listDS.HideSelection = false;
-            this.listDS.Location = new System.Drawing.Point(17, 202);
-            this.listDS.Name = "listDS";
-            this.listDS.OwnerDraw = true;
-            this.listDS.Size = new System.Drawing.Size(498, 326);
-            this.listDS.TabIndex = 110;
-            this.listDS.UseCompatibleStateImageBehavior = false;
-            this.listDS.View = System.Windows.Forms.View.Details;
-            this.listDS.DrawColumnHeader += new System.Windows.Forms.DrawListViewColumnHeaderEventHandler(this.listDS_DrawColumnHeader);
-            this.listDS.DrawItem += new System.Windows.Forms.DrawListViewItemEventHandler(this.listDS_DrawItem);
+            this.listGV.FullRowSelect = true;
+            this.listGV.GridLines = true;
+            this.listGV.HideSelection = false;
+            this.listGV.Location = new System.Drawing.Point(17, 202);
+            this.listGV.Name = "listGV";
+            this.listGV.OwnerDraw = true;
+            this.listGV.Size = new System.Drawing.Size(498, 326);
+            this.listGV.TabIndex = 110;
+            this.listGV.UseCompatibleStateImageBehavior = false;
+            this.listGV.View = System.Windows.Forms.View.Details;
+            this.listGV.DrawColumnHeader += new System.Windows.Forms.DrawListViewColumnHeaderEventHandler(this.listDS_DrawColumnHeader);
+            this.listGV.DrawItem += new System.Windows.Forms.DrawListViewItemEventHandler(this.listDS_DrawItem);
             // 
             // columnHeader1
             // 
@@ -209,9 +214,9 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.button4);
-            this.groupBox2.Controls.Add(this.textBox4);
+            this.groupBox2.Controls.Add(this.txtTimMaGV);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.comboBox1);
+            this.groupBox2.Controls.Add(this.cboDonVi);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.RoyalBlue;
@@ -236,13 +241,13 @@
             this.button4.Text = "Tìm";
             this.button4.UseVisualStyleBackColor = false;
             // 
-            // textBox4
+            // txtTimMaGV
             // 
-            this.textBox4.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(79, 67);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(381, 27);
-            this.textBox4.TabIndex = 18;
+            this.txtTimMaGV.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTimMaGV.Location = new System.Drawing.Point(79, 67);
+            this.txtTimMaGV.Name = "txtTimMaGV";
+            this.txtTimMaGV.Size = new System.Drawing.Size(381, 27);
+            this.txtTimMaGV.TabIndex = 18;
             // 
             // label2
             // 
@@ -255,14 +260,14 @@
             this.label2.TabIndex = 12;
             this.label2.Text = "Mã GV:";
             // 
-            // comboBox1
+            // cboDonVi
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(78, 30);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(382, 27);
-            this.comboBox1.TabIndex = 11;
+            this.cboDonVi.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboDonVi.FormattingEnabled = true;
+            this.cboDonVi.Location = new System.Drawing.Point(78, 30);
+            this.cboDonVi.Name = "cboDonVi";
+            this.cboDonVi.Size = new System.Drawing.Size(382, 27);
+            this.cboDonVi.TabIndex = 11;
             // 
             // label3
             // 
@@ -275,43 +280,43 @@
             this.label3.TabIndex = 10;
             this.label3.Text = "Đơn vị:";
             // 
-            // textBox7
+            // txtTenGV
             // 
-            this.textBox7.Enabled = false;
-            this.textBox7.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(81, 64);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(298, 27);
-            this.textBox7.TabIndex = 30;
+            this.txtTenGV.Enabled = false;
+            this.txtTenGV.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTenGV.Location = new System.Drawing.Point(81, 64);
+            this.txtTenGV.Name = "txtTenGV";
+            this.txtTenGV.Size = new System.Drawing.Size(298, 27);
+            this.txtTenGV.TabIndex = 30;
             // 
-            // textBox5
+            // txtMaGV
             // 
-            this.textBox5.Enabled = false;
-            this.textBox5.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(79, 30);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(300, 27);
-            this.textBox5.TabIndex = 25;
+            this.txtMaGV.Enabled = false;
+            this.txtMaGV.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaGV.Location = new System.Drawing.Point(79, 30);
+            this.txtMaGV.Name = "txtMaGV";
+            this.txtMaGV.Size = new System.Drawing.Size(300, 27);
+            this.txtMaGV.TabIndex = 25;
             // 
-            // label14
+            // lblDemGV
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(131, 541);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(102, 19);
-            this.label14.TabIndex = 111;
-            this.label14.Text = "... giảng viên";
+            this.lblDemGV.AutoSize = true;
+            this.lblDemGV.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDemGV.ForeColor = System.Drawing.Color.Black;
+            this.lblDemGV.Location = new System.Drawing.Point(131, 541);
+            this.lblDemGV.Name = "lblDemGV";
+            this.lblDemGV.Size = new System.Drawing.Size(102, 19);
+            this.lblDemGV.TabIndex = 111;
+            this.lblDemGV.Text = "... giảng viên";
             // 
-            // textBox3
+            // txtDonVi
             // 
-            this.textBox3.Enabled = false;
-            this.textBox3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(81, 97);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(298, 27);
-            this.textBox3.TabIndex = 24;
+            this.txtDonVi.Enabled = false;
+            this.txtDonVi.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDonVi.Location = new System.Drawing.Point(81, 97);
+            this.txtDonVi.Name = "txtDonVi";
+            this.txtDonVi.Size = new System.Drawing.Size(298, 27);
+            this.txtDonVi.TabIndex = 24;
             // 
             // label10
             // 
@@ -359,9 +364,9 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox7);
-            this.groupBox1.Controls.Add(this.textBox5);
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.txtTenGV);
+            this.groupBox1.Controls.Add(this.txtMaGV);
+            this.groupBox1.Controls.Add(this.txtDonVi);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label19);
             this.groupBox1.Controls.Add(this.label6);
@@ -374,16 +379,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "THÔNG TIN GIẢNG VIÊN";
             // 
-            // label4
+            // lblDemMH
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(672, 541);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(91, 19);
-            this.label4.TabIndex = 119;
-            this.label4.Text = "... môn học";
+            this.lblDemMH.AutoSize = true;
+            this.lblDemMH.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDemMH.ForeColor = System.Drawing.Color.Black;
+            this.lblDemMH.Location = new System.Drawing.Point(672, 541);
+            this.lblDemMH.Name = "lblDemMH";
+            this.lblDemMH.Size = new System.Drawing.Size(91, 19);
+            this.lblDemMH.TabIndex = 119;
+            this.lblDemMH.Text = "... môn học";
             // 
             // label5
             // 
@@ -396,25 +401,20 @@
             this.label5.TabIndex = 118;
             this.label5.Text = "Danh sách có:";
             // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Tên MH";
-            this.columnHeader4.Width = 231;
-            // 
             // XemThongTinGiangDay_QuanLyGiangVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lblDemMH);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.listGD);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.listDS);
+            this.Controls.Add(this.listGV);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.label14);
+            this.Controls.Add(this.lblDemGV);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -435,35 +435,35 @@
         #endregion
 
         private System.Windows.Forms.ColumnHeader columnHeader6;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtTenMH;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtMaMH;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ListView listGD;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ListView listDS;
+        private System.Windows.Forms.ListView listGV;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtTimMaGV;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cboDonVi;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtTenGV;
+        private System.Windows.Forms.TextBox txtMaGV;
+        private System.Windows.Forms.Label lblDemGV;
+        private System.Windows.Forms.TextBox txtDonVi;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblDemMH;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ColumnHeader columnHeader4;
     }
