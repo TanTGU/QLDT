@@ -134,6 +134,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Dang_Ky_HP
                 lbHoTen.Text = dt.Rows[0][1].ToString();
                 lbNganh.Text = dt.Rows[0][3].ToString();
             }
+            LoadDSMHDK();
         }
 
         private void cbNganh_SelectedIndexChanged(object sender, EventArgs e)
@@ -164,6 +165,20 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Dang_Ky_HP
                 listMH.Items[n].SubItems.Add(dt.Rows[i][2].ToString());
                 listMH.Items[n].SubItems.Add(dt.Rows[i][3].ToString());
                 listMH.Items[n].SubItems.Add(dt.Rows[i][4].ToString());
+            }
+        }
+        private void LoadDSMHDK()
+        {
+            listDK.Items.Clear();
+            string sql = "select D.MaMH, TenMH, D.NhomHP, Thu, TietGiangDay from DANGKYHOCPHAN D, SINHVIEN S, THOIKHOABIEU T, MONHOC M \r\nwhere S.MaSV = '"+tbTimKiem.Text+"' and D.MaSV = S.MaSV and D.NhomHP = T.NhomHP and T.MaMH = D.MaMH and D.MaMH = M.MaMH";
+            DataTable dt  = CSDL.LayDuLieu(sql);
+            for(int i=0; i<dt.Rows.Count; i++)
+            {
+                listDK.Items.Add(dt.Rows[i][0].ToString());
+                listDK.Items[i].SubItems.Add(dt.Rows[i][1].ToString());
+                listDK.Items[i].SubItems.Add(dt.Rows[i][2].ToString());
+                listDK.Items[i].SubItems.Add(dt.Rows[i][3].ToString());
+                listDK.Items[i].SubItems.Add(dt.Rows[i][4].ToString());                
             }
         }
     }
