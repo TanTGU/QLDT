@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
+using System.Diagnostics;
 
 namespace Quan_Ly_Dao_Tao.Database
 {
@@ -41,6 +43,10 @@ namespace Quan_Ly_Dao_Tao.Database
             SqlCommand cmd = new SqlCommand(sql, cn);
             cmd.ExecuteNonQuery();
             cn.Close();
+        }
+        public static void GhiDuLieu(string sql)
+        {
+            File.AppendAllText("XuLySQL.txt", $"{sql}\ngo\n\n");
         }
     }
 }
