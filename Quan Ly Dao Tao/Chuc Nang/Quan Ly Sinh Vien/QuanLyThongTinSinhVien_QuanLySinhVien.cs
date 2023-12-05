@@ -454,7 +454,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
                 CSDL.XuLy(sql);
                 LayDSSinhVien();
                 MessageBox.Show("Đã thêm thông tin sinh viên mới!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                CSDL.GhiDuLieu(sql);
+                CSDL.GhiLenhXuLySQL(sql);
             }
             catch
             {
@@ -566,7 +566,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
             {
                 CSDL.XuLy(sql);
                 LayDSSinhVien();
-                CSDL.GhiDuLieu(sql);
+                CSDL.GhiLenhXuLySQL(sql);
                 MessageBox.Show("Đã cập nhật thông tin sinh viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch
@@ -590,7 +590,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
                 {
                     CSDL.XuLy(sql);
                     LayDSSinhVien();
-                    CSDL.GhiDuLieu(sql);
+                    CSDL.GhiLenhXuLySQL(sql);
                     MessageBox.Show("Đã xóa sinh viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch

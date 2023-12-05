@@ -44,9 +44,11 @@ namespace Quan_Ly_Dao_Tao.Database
             cmd.ExecuteNonQuery();
             cn.Close();
         }
-        public static void GhiDuLieu(string sql)
+
+        // Ghi các lệnh xử lý sql ở file XuLySQL.txt trong ổ D
+        public static void GhiLenhXuLySQL(string sql)
         {
-            File.AppendAllText("XuLySQL.txt", $"{sql}\ngo\n\n");
+            File.AppendAllText(@"D:\XuLySQL.txt", $"{sql}\ngo\n");
         }
     }
 }
