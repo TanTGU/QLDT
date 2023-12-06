@@ -174,6 +174,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
                 }
                 tbMaNganh_1.Enabled = false;
                 tbMaLop.Enabled = false;
+                LayThongTinDV();
             }
         }
 
@@ -183,6 +184,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
             tbMaDV_1.Enabled = true;
 
             tbTenDV_1.Text = "";
+            tbSDT.Text = "";
         }
 
         private void button9_Click(object sender, EventArgs e)
@@ -203,6 +205,109 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
             tbMaGVCN.Text = "";
             tbTenGVCN.Text = "";
 
+        }
+
+        private bool IsNumericLengthValid(string input, int expectedLength)
+        {
+            // Kiểm tra xem chuỗi có phải là số không
+            if (!long.TryParse(input, out _))
+            {
+                return false;
+            }
+
+            // Kiểm tra chiều dài của chuỗi
+            return input.Length == expectedLength;
+        }
+
+        bool KiemTraSoDT(string SoDT)
+        {
+            if (!IsNumericLengthValid(SoDT, 10))
+            {
+                return true;
+
+            }
+            return false;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (tbMaDV_1.Text == "" || tbTenDV_1.Text == "" || tbSDT.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                return;
+            }
+            if(KiemTraSoDT(tbSDT.Text))
+            {
+                MessageBox.Show("Số điện thoại phải có định dạng 10 số!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                tbSDT.Focus();
+                return;
+            }
+            try
+            {
+                string sql = $"insert into DONVI(MaDV, TenDV, SoDT) values('{tbMaDV_1.Text}', N'{tbTenDV_1.Text}', '{tbSDT.Text}')";
+                CSDL.XuLy(sql);
+                CSDL.GhiLenhXuLySQL(sql);
+                LayDSDonVi();
+                MessageBox.Show("Đã thêm thông tin đơn vị mới!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+        }
+            catch
+            {
+                MessageBox.Show("Không thể thêm đơn vị mới. Vui lòng kiểm tra và thử lại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+}
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (tbMaDV_1.Text == "" || tbTenDV_1.Text == "" || tbSDT.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                return;
+            }
+            if (KiemTraSoDT(tbSDT.Text))
+            {
+                MessageBox.Show("Số điện thoại phải có định dạng 10 số!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                tbSDT.Focus();
+                return;
+            }
+            try
+            {
+                string sql = $"UPDATE DONVI SET TenDV = N'{tbTenDV_1.Text}', SoDT = '{tbSDT.Text}' WHERE MaDV = '{tbMaDV_1.Text}'";
+                CSDL.XuLy(sql);
+                CSDL.GhiLenhXuLySQL(sql);
+                LayDSDonVi();
+                MessageBox.Show("Đã cập nhật thông tin đơn vị!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            catch
+            {
+                MessageBox.Show("Không thể cập nhật thông tin đơn vị. Vui lòng kiểm tra và thử lại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (tbMaDV_1.Text == "" || tbTenDV_1.Text == "")
+            {
+                MessageBox.Show("Vui lòng chọn đơn vị cần xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                return;
+            }
+            string sql = $"Delete DONVI where MaDV = '{tbMaDV_1.Text}'";
+            DialogResult result = MessageBox.Show($"Bạn thật sự muốn đơn vị {tbTenDV_1.Text}?", "Lưu ý", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    CSDL.XuLy(sql);
+                    LayDSDonVi();
+                    CSDL.GhiLenhXuLySQL(sql);
+                    MessageBox.Show("Đã xóa đơn vị thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch
+                {
+                    MessageBox.Show("Không thể xóa thông tin đơn vị!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }
