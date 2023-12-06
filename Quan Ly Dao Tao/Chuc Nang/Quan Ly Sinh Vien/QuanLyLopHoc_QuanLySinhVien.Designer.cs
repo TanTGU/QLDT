@@ -53,12 +53,8 @@
             this.tbTenDonVi = new System.Windows.Forms.TextBox();
             this.tbMaDV = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
-            this.tbTenGVCN = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.tbMaGVCN = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -77,6 +73,15 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+            this.tbTenGVCN = new System.Windows.Forms.TextBox();
+            this.tbMaGVCN = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -298,18 +303,23 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label21);
+            this.groupBox1.Controls.Add(this.label20);
+            this.groupBox1.Controls.Add(this.label16);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.label19);
+            this.groupBox1.Controls.Add(this.tbTenGVCN);
+            this.groupBox1.Controls.Add(this.tbMaGVCN);
+            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.button7);
             this.groupBox1.Controls.Add(this.cbBac);
             this.groupBox1.Controls.Add(this.cbNganh);
             this.groupBox1.Controls.Add(this.tbTenDonVi);
             this.groupBox1.Controls.Add(this.tbMaDV);
             this.groupBox1.Controls.Add(this.button4);
-            this.groupBox1.Controls.Add(this.tbTenGVCN);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.tbMaGVCN);
-            this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label9);
@@ -347,36 +357,37 @@
             // 
             this.cbBac.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbBac.FormattingEnabled = true;
-            this.cbBac.Location = new System.Drawing.Point(528, 100);
+            this.cbBac.Location = new System.Drawing.Point(535, 139);
             this.cbBac.Name = "cbBac";
-            this.cbBac.Size = new System.Drawing.Size(314, 27);
+            this.cbBac.Size = new System.Drawing.Size(307, 27);
             this.cbBac.TabIndex = 64;
             // 
             // cbNganh
             // 
             this.cbNganh.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbNganh.FormattingEnabled = true;
-            this.cbNganh.Location = new System.Drawing.Point(112, 99);
+            this.cbNganh.Location = new System.Drawing.Point(136, 138);
             this.cbNganh.Name = "cbNganh";
-            this.cbNganh.Size = new System.Drawing.Size(301, 27);
+            this.cbNganh.Size = new System.Drawing.Size(277, 27);
             this.cbNganh.TabIndex = 12;
+            this.cbNganh.SelectedIndexChanged += new System.EventHandler(this.cbNganh_SelectedIndexChanged);
             // 
             // tbTenDonVi
             // 
             this.tbTenDonVi.Enabled = false;
             this.tbTenDonVi.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTenDonVi.Location = new System.Drawing.Point(528, 64);
+            this.tbTenDonVi.Location = new System.Drawing.Point(535, 64);
             this.tbTenDonVi.Name = "tbTenDonVi";
-            this.tbTenDonVi.Size = new System.Drawing.Size(314, 27);
+            this.tbTenDonVi.Size = new System.Drawing.Size(307, 27);
             this.tbTenDonVi.TabIndex = 63;
             // 
             // tbMaDV
             // 
             this.tbMaDV.Enabled = false;
             this.tbMaDV.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbMaDV.Location = new System.Drawing.Point(112, 64);
+            this.tbMaDV.Location = new System.Drawing.Point(136, 64);
             this.tbMaDV.Name = "tbMaDV";
-            this.tbMaDV.Size = new System.Drawing.Size(301, 27);
+            this.tbMaDV.Size = new System.Drawing.Size(277, 27);
             this.tbMaDV.TabIndex = 62;
             // 
             // button4
@@ -392,15 +403,7 @@
             this.button4.TabIndex = 47;
             this.button4.Text = "XÓA";
             this.button4.UseVisualStyleBackColor = false;
-            // 
-            // tbTenGVCN
-            // 
-            this.tbTenGVCN.Enabled = false;
-            this.tbTenGVCN.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTenGVCN.Location = new System.Drawing.Point(528, 136);
-            this.tbTenGVCN.Name = "tbTenGVCN";
-            this.tbTenGVCN.Size = new System.Drawing.Size(314, 27);
-            this.tbTenGVCN.TabIndex = 61;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -415,6 +418,7 @@
             this.button3.TabIndex = 46;
             this.button3.Text = "CẬP NHẬT";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -429,43 +433,14 @@
             this.button2.TabIndex = 30;
             this.button2.Text = "THÊM MỚI";
             this.button2.UseVisualStyleBackColor = false;
-            // 
-            // tbMaGVCN
-            // 
-            this.tbMaGVCN.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbMaGVCN.Location = new System.Drawing.Point(112, 136);
-            this.tbMaGVCN.Name = "tbMaGVCN";
-            this.tbMaGVCN.Size = new System.Drawing.Size(301, 27);
-            this.tbMaGVCN.TabIndex = 54;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(429, 139);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(97, 19);
-            this.label13.TabIndex = 48;
-            this.label13.Text = "Tên GVCN:";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(6, 139);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(90, 19);
-            this.label12.TabIndex = 44;
-            this.label12.Text = "Mã GVCN:";
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(6, 103);
+            this.label11.Location = new System.Drawing.Point(6, 142);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(67, 19);
             this.label11.TabIndex = 42;
@@ -476,7 +451,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(429, 108);
+            this.label10.Location = new System.Drawing.Point(429, 147);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(0, 19);
             this.label10.TabIndex = 41;
@@ -486,7 +461,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(429, 103);
+            this.label9.Location = new System.Drawing.Point(429, 142);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(44, 19);
             this.label9.TabIndex = 38;
@@ -506,18 +481,18 @@
             // tbTenLop
             // 
             this.tbTenLop.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTenLop.Location = new System.Drawing.Point(528, 29);
+            this.tbTenLop.Location = new System.Drawing.Point(535, 29);
             this.tbTenLop.Name = "tbTenLop";
-            this.tbTenLop.Size = new System.Drawing.Size(314, 27);
+            this.tbTenLop.Size = new System.Drawing.Size(307, 27);
             this.tbTenLop.TabIndex = 35;
             // 
             // tbMaLop
             // 
             this.tbMaLop.Enabled = false;
             this.tbMaLop.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbMaLop.Location = new System.Drawing.Point(112, 30);
+            this.tbMaLop.Location = new System.Drawing.Point(136, 30);
             this.tbMaLop.Name = "tbMaLop";
-            this.tbMaLop.Size = new System.Drawing.Size(301, 27);
+            this.tbMaLop.Size = new System.Drawing.Size(277, 27);
             this.tbMaLop.TabIndex = 34;
             // 
             // label4
@@ -566,6 +541,7 @@
             this.button12.TabIndex = 30;
             this.button12.Text = "THÊM MỚI";
             this.button12.UseVisualStyleBackColor = false;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // button11
             // 
@@ -580,6 +556,7 @@
             this.button11.TabIndex = 46;
             this.button11.Text = "CẬP NHẬT";
             this.button11.UseVisualStyleBackColor = false;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // button10
             // 
@@ -594,6 +571,7 @@
             this.button10.TabIndex = 47;
             this.button10.Text = "XÓA";
             this.button10.UseVisualStyleBackColor = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // tbMaNganh_1
             // 
@@ -668,6 +646,101 @@
             this.label15.TabIndex = 67;
             this.label15.Text = "Mã ngành:";
             // 
+            // tbTenGVCN
+            // 
+            this.tbTenGVCN.Enabled = false;
+            this.tbTenGVCN.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTenGVCN.Location = new System.Drawing.Point(535, 102);
+            this.tbTenGVCN.Name = "tbTenGVCN";
+            this.tbTenGVCN.Size = new System.Drawing.Size(307, 27);
+            this.tbTenGVCN.TabIndex = 69;
+            // 
+            // tbMaGVCN
+            // 
+            this.tbMaGVCN.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbMaGVCN.Location = new System.Drawing.Point(136, 102);
+            this.tbMaGVCN.Name = "tbMaGVCN";
+            this.tbMaGVCN.Size = new System.Drawing.Size(277, 27);
+            this.tbMaGVCN.TabIndex = 68;
+            this.tbMaGVCN.Leave += new System.EventHandler(this.tbMaGVCN_Leave);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.Black;
+            this.label13.Location = new System.Drawing.Point(429, 105);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(97, 19);
+            this.label13.TabIndex = 67;
+            this.label13.Text = "Tên GVCN:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.Black;
+            this.label12.Location = new System.Drawing.Point(6, 105);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(90, 19);
+            this.label12.TabIndex = 66;
+            this.label12.Text = "Mã GVCN:";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.Red;
+            this.label19.Location = new System.Drawing.Point(72, 33);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(30, 19);
+            this.label19.TabIndex = 70;
+            this.label19.Text = "(*)";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Red;
+            this.label7.Location = new System.Drawing.Point(499, 33);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(30, 19);
+            this.label7.TabIndex = 71;
+            this.label7.Text = "(*)";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.Red;
+            this.label16.Location = new System.Drawing.Point(96, 67);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(30, 19);
+            this.label16.TabIndex = 72;
+            this.label16.Text = "(*)";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.Red;
+            this.label20.Location = new System.Drawing.Point(66, 142);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(30, 19);
+            this.label20.TabIndex = 73;
+            this.label20.Text = "(*)";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.Color.Red;
+            this.label21.Location = new System.Drawing.Point(466, 142);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(30, 19);
+            this.label21.TabIndex = 74;
+            this.label21.Text = "(*)";
+            // 
             // QuanLyLopHoc_QuanLySinhVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -722,12 +795,8 @@
         private System.Windows.Forms.TextBox tbTenDonVi;
         private System.Windows.Forms.TextBox tbMaDV;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox tbTenGVCN;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox tbMaGVCN;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
@@ -746,5 +815,14 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox tbTenGVCN;
+        private System.Windows.Forms.TextBox tbMaGVCN;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label20;
     }
 }
