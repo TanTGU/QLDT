@@ -1,4 +1,5 @@
-﻿using Quan_Ly_Dao_Tao.Database;
+﻿using Quan_Ly_Dao_Tao.BaoCao.From;
+using Quan_Ly_Dao_Tao.Database;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -108,6 +109,19 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Giang_Vien
                 listDS.Items[i].SubItems.Add(dt1.Rows[i][9].ToString());
             }
             lbSL.Text = stt.ToString() + " giảng viên";
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if(txtMaDV.Text == "")
+            {
+                MessageBox.Show("Vui lòng chọn đơn vị cần xuất danh sách!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+            }
+            else
+            {
+                InDanhSachGiangVien f = new InDanhSachGiangVien(txtMaDV.Text);
+                f.ShowDialog();
+            }
         }
     }
 }
