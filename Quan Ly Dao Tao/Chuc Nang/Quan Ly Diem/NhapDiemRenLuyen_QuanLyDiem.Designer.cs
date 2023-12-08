@@ -42,7 +42,7 @@
             this.txtLop = new System.Windows.Forms.TextBox();
             this.txtHoTen = new System.Windows.Forms.TextBox();
             this.txtMSSV = new System.Windows.Forms.TextBox();
-            this.nmDiem = new System.Windows.Forms.NumericUpDown();
+            this.numDiem = new System.Windows.Forms.NumericUpDown();
             this.label13 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -55,10 +55,10 @@
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lbTong = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nmDiem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numDiem)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -166,7 +166,7 @@
             this.groupBox1.Controls.Add(this.txtLop);
             this.groupBox1.Controls.Add(this.txtHoTen);
             this.groupBox1.Controls.Add(this.txtMSSV);
-            this.groupBox1.Controls.Add(this.nmDiem);
+            this.groupBox1.Controls.Add(this.numDiem);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label10);
@@ -193,6 +193,7 @@
             this.button1.TabIndex = 27;
             this.button1.Text = "Nhập điểm";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // txtLop
             // 
@@ -221,18 +222,18 @@
             this.txtMSSV.Size = new System.Drawing.Size(331, 27);
             this.txtMSSV.TabIndex = 28;
             // 
-            // nmDiem
+            // numDiem
             // 
-            this.nmDiem.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nmDiem.Location = new System.Drawing.Point(107, 127);
-            this.nmDiem.Maximum = new decimal(new int[] {
+            this.numDiem.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numDiem.Location = new System.Drawing.Point(107, 127);
+            this.numDiem.Maximum = new decimal(new int[] {
             120,
             0,
             0,
             0});
-            this.nmDiem.Name = "nmDiem";
-            this.nmDiem.Size = new System.Drawing.Size(90, 27);
-            this.nmDiem.TabIndex = 9;
+            this.numDiem.Name = "numDiem";
+            this.numDiem.Size = new System.Drawing.Size(90, 27);
+            this.numDiem.TabIndex = 9;
             // 
             // label13
             // 
@@ -298,6 +299,7 @@
             this.listDS.View = System.Windows.Forms.View.Details;
             this.listDS.DrawColumnHeader += new System.Windows.Forms.DrawListViewColumnHeaderEventHandler(this.listDS_DrawColumnHeader);
             this.listDS.DrawItem += new System.Windows.Forms.DrawListViewItemEventHandler(this.listDS_DrawItem);
+            this.listDS.SelectedIndexChanged += new System.EventHandler(this.listDS_SelectedIndexChanged);
             // 
             // columnHeader4
             // 
@@ -316,7 +318,7 @@
             // 
             // columnHeader7
             // 
-            this.columnHeader7.Text = "Lớp";
+            this.columnHeader7.Text = "Mã lớp";
             this.columnHeader7.Width = 164;
             // 
             // columnHeader8
@@ -346,23 +348,23 @@
             this.label4.TabIndex = 31;
             this.label4.Text = "Tổng số sinh viên:";
             // 
-            // label6
+            // lbTong
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(695, 545);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(24, 19);
-            this.label6.TabIndex = 67;
-            this.label6.Text = "...";
+            this.lbTong.AutoSize = true;
+            this.lbTong.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTong.ForeColor = System.Drawing.Color.Black;
+            this.lbTong.Location = new System.Drawing.Point(695, 545);
+            this.lbTong.Name = "lbTong";
+            this.lbTong.Size = new System.Drawing.Size(24, 19);
+            this.lbTong.TabIndex = 67;
+            this.lbTong.Text = "...";
             // 
             // NhapDiemRenLuyen_QuanLyDiem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lbTong);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.listDS);
@@ -379,7 +381,7 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nmDiem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numDiem)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -401,7 +403,7 @@
         private System.Windows.Forms.TextBox txtLop;
         private System.Windows.Forms.TextBox txtHoTen;
         private System.Windows.Forms.TextBox txtMSSV;
-        private System.Windows.Forms.NumericUpDown nmDiem;
+        private System.Windows.Forms.NumericUpDown numDiem;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
@@ -414,6 +416,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lbTong;
     }
 }
