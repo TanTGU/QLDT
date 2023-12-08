@@ -66,6 +66,7 @@ namespace Quan_Ly_Dao_Tao
         private void DangNhap_Load(object sender, EventArgs e)
         {
             CSDL.KetNoi();
+            tbTK.Focus();
         }
 
         private void DangNhap_FormClosing(object sender, FormClosingEventArgs e)
