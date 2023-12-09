@@ -1,4 +1,5 @@
-﻿using Quan_Ly_Dao_Tao.Database;
+﻿using Quan_Ly_Dao_Tao.BaoCao.From;
+using Quan_Ly_Dao_Tao.Database;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -186,6 +187,36 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Diem
                 }
                 LayThongKe();
             }
+        }
+        bool KiemTra()
+        {
+            for(int i = 0; i < listDS.Items.Count; i++)
+            {
+                if (listDS.Items[i].SubItems[4].Text == "")
+                    return true;
+            }
+            return false;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if(cbNamHoc.Text == "" || cbHK.Text == "" || txtMaLop.Text == "")
+            {
+                MessageBox.Show("Vui lòng chọn đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK,MessageBoxIcon.Question);
+                return;
+            }
+            if (listDS.Items.Count == 0)
+            {
+                MessageBox.Show("Không thể xuất danh sách do dữ liệu rỗng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if(KiemTra())
+            {
+                MessageBox.Show("Không thể xuất danh sách do chưa nhập đủ dữ liệu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            InDanhSachDiemRenLuyen f = new InDanhSachDiemRenLuyen(MaLop, cbNamHoc.Text, cbHK.Text);
+            f.ShowDialog();
         }
 
         private void InDanhSachDiemRenLuyen_QuanLyDiem_Load(object sender, EventArgs e)

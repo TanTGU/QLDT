@@ -99,6 +99,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>InThoiKhoaBieu.xsd</DependentUpon>
     </Compile>
+    <Compile Include="BaoCao\From\InDanhSachDiemRenLuyen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaoCao\From\InDanhSachDiemRenLuyen.Designer.cs">
+      <DependentUpon>InDanhSachDiemRenLuyen.cs</DependentUpon>
+    </Compile>
     <Compile Include="BaoCao\From\InDanhSachGiangVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -435,6 +441,9 @@
     <EmbeddedResource Include="BaoCao\CrystalReport\InThoiKhoaBieu_CrystalReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>InThoiKhoaBieu_CrystalReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaoCao\From\InDanhSachDiemRenLuyen.resx">
+      <DependentUpon>InDanhSachDiemRenLuyen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BaoCao\From\InDanhSachGiangVien.resx">
       <DependentUpon>InDanhSachGiangVien.cs</DependentUpon>
