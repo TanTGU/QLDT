@@ -52,12 +52,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.lbKem = new System.Windows.Forms.Label();
+            this.lbT = new System.Windows.Forms.Label();
+            this.lbTB = new System.Windows.Forms.Label();
+            this.lbY = new System.Windows.Forms.Label();
+            this.lbK = new System.Windows.Forms.Label();
+            this.lbXS = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -65,7 +65,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
-            this.label20 = new System.Windows.Forms.Label();
+            this.lbTong = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -85,6 +85,9 @@
             // 
             this.cbHK.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbHK.FormattingEnabled = true;
+            this.cbHK.Items.AddRange(new object[] {
+            "1",
+            "2"});
             this.cbHK.Location = new System.Drawing.Point(119, 68);
             this.cbHK.Name = "cbHK";
             this.cbHK.Size = new System.Drawing.Size(321, 27);
@@ -222,6 +225,7 @@
             this.listLop.View = System.Windows.Forms.View.Details;
             this.listLop.DrawColumnHeader += new System.Windows.Forms.DrawListViewColumnHeaderEventHandler(this.listLop_DrawColumnHeader);
             this.listLop.DrawItem += new System.Windows.Forms.DrawListViewItemEventHandler(this.listLop_DrawItem);
+            this.listLop.SelectedIndexChanged += new System.EventHandler(this.listLop_SelectedIndexChanged);
             // 
             // groupBox1
             // 
@@ -242,6 +246,7 @@
             // 
             // txtGVCN
             // 
+            this.txtGVCN.Enabled = false;
             this.txtGVCN.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtGVCN.Location = new System.Drawing.Point(81, 94);
             this.txtGVCN.Name = "txtGVCN";
@@ -261,6 +266,7 @@
             // 
             // txtTenLop
             // 
+            this.txtTenLop.Enabled = false;
             this.txtTenLop.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenLop.Location = new System.Drawing.Point(81, 62);
             this.txtTenLop.Name = "txtTenLop";
@@ -269,6 +275,7 @@
             // 
             // txtMaLop
             // 
+            this.txtMaLop.Enabled = false;
             this.txtMaLop.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaLop.Location = new System.Drawing.Point(81, 29);
             this.txtMaLop.Name = "txtMaLop";
@@ -299,12 +306,12 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.label18);
-            this.groupBox3.Controls.Add(this.label17);
-            this.groupBox3.Controls.Add(this.label16);
-            this.groupBox3.Controls.Add(this.label15);
-            this.groupBox3.Controls.Add(this.label14);
-            this.groupBox3.Controls.Add(this.label13);
+            this.groupBox3.Controls.Add(this.lbKem);
+            this.groupBox3.Controls.Add(this.lbT);
+            this.groupBox3.Controls.Add(this.lbTB);
+            this.groupBox3.Controls.Add(this.lbY);
+            this.groupBox3.Controls.Add(this.lbK);
+            this.groupBox3.Controls.Add(this.lbXS);
             this.groupBox3.Controls.Add(this.label12);
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.label10);
@@ -320,71 +327,71 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "THỐNG KÊ";
             // 
-            // label18
+            // lbKem
             // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.Black;
-            this.label18.Location = new System.Drawing.Point(281, 98);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(24, 19);
-            this.label18.TabIndex = 23;
-            this.label18.Text = "...";
+            this.lbKem.AutoSize = true;
+            this.lbKem.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbKem.ForeColor = System.Drawing.Color.Black;
+            this.lbKem.Location = new System.Drawing.Point(281, 98);
+            this.lbKem.Name = "lbKem";
+            this.lbKem.Size = new System.Drawing.Size(24, 19);
+            this.lbKem.TabIndex = 23;
+            this.lbKem.Text = "...";
             // 
-            // label17
+            // lbT
             // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.Black;
-            this.label17.Location = new System.Drawing.Point(281, 33);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(24, 19);
-            this.label17.TabIndex = 22;
-            this.label17.Text = "...";
+            this.lbT.AutoSize = true;
+            this.lbT.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbT.ForeColor = System.Drawing.Color.Black;
+            this.lbT.Location = new System.Drawing.Point(281, 33);
+            this.lbT.Name = "lbT";
+            this.lbT.Size = new System.Drawing.Size(24, 19);
+            this.lbT.TabIndex = 22;
+            this.lbT.Text = "...";
             // 
-            // label16
+            // lbTB
             // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.Black;
-            this.label16.Location = new System.Drawing.Point(281, 65);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(24, 19);
-            this.label16.TabIndex = 21;
-            this.label16.Text = "...";
+            this.lbTB.AutoSize = true;
+            this.lbTB.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTB.ForeColor = System.Drawing.Color.Black;
+            this.lbTB.Location = new System.Drawing.Point(281, 65);
+            this.lbTB.Name = "lbTB";
+            this.lbTB.Size = new System.Drawing.Size(24, 19);
+            this.lbTB.TabIndex = 21;
+            this.lbTB.Text = "...";
             // 
-            // label15
+            // lbY
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.Black;
-            this.label15.Location = new System.Drawing.Point(89, 97);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(24, 19);
-            this.label15.TabIndex = 20;
-            this.label15.Text = "...";
+            this.lbY.AutoSize = true;
+            this.lbY.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbY.ForeColor = System.Drawing.Color.Black;
+            this.lbY.Location = new System.Drawing.Point(89, 97);
+            this.lbY.Name = "lbY";
+            this.lbY.Size = new System.Drawing.Size(24, 19);
+            this.lbY.TabIndex = 20;
+            this.lbY.Text = "...";
             // 
-            // label14
+            // lbK
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(89, 65);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(24, 19);
-            this.label14.TabIndex = 19;
-            this.label14.Text = "...";
+            this.lbK.AutoSize = true;
+            this.lbK.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbK.ForeColor = System.Drawing.Color.Black;
+            this.lbK.Location = new System.Drawing.Point(89, 65);
+            this.lbK.Name = "lbK";
+            this.lbK.Size = new System.Drawing.Size(24, 19);
+            this.lbK.TabIndex = 19;
+            this.lbK.Text = "...";
             // 
-            // label13
+            // lbXS
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(89, 33);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(24, 19);
-            this.label13.TabIndex = 18;
-            this.label13.Text = "...";
+            this.lbXS.AutoSize = true;
+            this.lbXS.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbXS.ForeColor = System.Drawing.Color.Black;
+            this.lbXS.Location = new System.Drawing.Point(89, 33);
+            this.lbXS.Name = "lbXS";
+            this.lbXS.Size = new System.Drawing.Size(24, 19);
+            this.lbXS.TabIndex = 18;
+            this.lbXS.Text = "...";
             // 
             // label12
             // 
@@ -466,16 +473,16 @@
             this.button3.Text = "Xuất danh sách";
             this.button3.UseVisualStyleBackColor = false;
             // 
-            // label20
+            // lbTong
             // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.Color.Black;
-            this.label20.Location = new System.Drawing.Point(692, 538);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(24, 19);
-            this.label20.TabIndex = 84;
-            this.label20.Text = "...";
+            this.lbTong.AutoSize = true;
+            this.lbTong.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTong.ForeColor = System.Drawing.Color.Black;
+            this.lbTong.Location = new System.Drawing.Point(692, 538);
+            this.lbTong.Name = "lbTong";
+            this.lbTong.Size = new System.Drawing.Size(24, 19);
+            this.lbTong.TabIndex = 84;
+            this.lbTong.Text = "...";
             // 
             // label21
             // 
@@ -493,7 +500,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.Controls.Add(this.label20);
+            this.Controls.Add(this.lbTong);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.groupBox3);
@@ -506,7 +513,7 @@
             this.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "InDanhSachDiemRenLuyen_QuanLyDiem";
-            this.Size = new System.Drawing.Size(1359, 577);
+            this.Size = new System.Drawing.Size(1698, 721);
             this.Load += new System.EventHandler(this.InDanhSachDiemRenLuyen_QuanLyDiem_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -545,12 +552,12 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lbKem;
+        private System.Windows.Forms.Label lbT;
+        private System.Windows.Forms.Label lbTB;
+        private System.Windows.Forms.Label lbY;
+        private System.Windows.Forms.Label lbK;
+        private System.Windows.Forms.Label lbXS;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
@@ -558,7 +565,7 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox txtGVCN;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label lbTong;
         private System.Windows.Forms.Label label21;
     }
 }
