@@ -97,6 +97,7 @@
             this.cbHK.Name = "cbHK";
             this.cbHK.Size = new System.Drawing.Size(321, 27);
             this.cbHK.TabIndex = 16;
+            this.cbHK.SelectedIndexChanged += new System.EventHandler(this.cbHK_SelectedIndexChanged);
             // 
             // label5
             // 

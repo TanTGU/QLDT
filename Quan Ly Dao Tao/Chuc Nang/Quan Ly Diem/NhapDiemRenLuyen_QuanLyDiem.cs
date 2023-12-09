@@ -200,6 +200,11 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Diem
             }
         }
 
+        private void cbHK_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void listDS_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(listDS.SelectedItems.Count > 0)
