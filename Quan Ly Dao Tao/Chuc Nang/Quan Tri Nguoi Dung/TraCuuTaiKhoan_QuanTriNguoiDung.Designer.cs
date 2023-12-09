@@ -42,12 +42,12 @@
             this.cbPhanLoai = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.tbTK = new System.Windows.Forms.TextBox();
             this.tbMK = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -207,33 +207,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "THÔNG TIN TÀI KHOẢN";
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.button4);
-            this.groupBox2.Controls.Add(this.tbTimKiem);
-            this.groupBox2.Controls.Add(this.cbPhanLoai);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.groupBox2.Location = new System.Drawing.Point(17, 14);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(498, 182);
-            this.groupBox2.TabIndex = 112;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "THÔNG TIN TÌM KIẾM";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(6, 75);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 19);
-            this.label1.TabIndex = 59;
-            this.label1.Text = "Tên hiển thị:";
-            // 
             // tbTK
             // 
             this.tbTK.Enabled = false;
@@ -274,6 +247,33 @@
             this.label4.TabIndex = 60;
             this.label4.Text = "Tài khoản:";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(6, 75);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(113, 19);
+            this.label1.TabIndex = 59;
+            this.label1.Text = "Tên hiển thị:";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.button4);
+            this.groupBox2.Controls.Add(this.tbTimKiem);
+            this.groupBox2.Controls.Add(this.cbPhanLoai);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.groupBox2.Location = new System.Drawing.Point(17, 14);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(498, 182);
+            this.groupBox2.TabIndex = 112;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "THÔNG TIN TÌM KIẾM";
+            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.White;
@@ -283,10 +283,11 @@
             this.button1.ForeColor = System.Drawing.Color.SteelBlue;
             this.button1.Location = new System.Drawing.Point(534, 533);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(222, 29);
+            this.button1.Size = new System.Drawing.Size(319, 29);
             this.button1.TabIndex = 29;
-            this.button1.Text = "Xuất danh sách";
+            this.button1.Text = "Xuất danh sách tài khoản";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // TraCuuTaiKhoan_QuanTriNguoiDung
             // 

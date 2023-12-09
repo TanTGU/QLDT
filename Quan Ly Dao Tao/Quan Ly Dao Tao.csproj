@@ -128,6 +128,12 @@
     <Compile Include="BaoCao\From\InDanhSachSinhVien.Designer.cs">
       <DependentUpon>InDanhSachSinhVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="BaoCao\From\InDanhSachTaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaoCao\From\InDanhSachTaiKhoan.Designer.cs">
+      <DependentUpon>InDanhSachTaiKhoan.cs</DependentUpon>
+    </Compile>
     <Compile Include="BaoCao\From\InThoiKhoaBieu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -465,6 +471,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BaoCao\From\InDanhSachSinhVien.resx">
       <DependentUpon>InDanhSachSinhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaoCao\From\InDanhSachTaiKhoan.resx">
+      <DependentUpon>InDanhSachTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BaoCao\From\InThoiKhoaBieu.resx">
       <DependentUpon>InThoiKhoaBieu.cs</DependentUpon>

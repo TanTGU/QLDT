@@ -1,4 +1,5 @@
-﻿using Quan_Ly_Dao_Tao.Database;
+﻿using Quan_Ly_Dao_Tao.BaoCao.From;
+using Quan_Ly_Dao_Tao.Database;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -150,6 +151,12 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Tri_Nguoi_Dung
                     e.Graphics.DrawString(listDS.Name, new Font(FontFamily.GenericSansSerif, 12), Brushes.Black, e.Bounds.Left, e.Bounds.Top);
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            InDanhSachTaiKhoan f = new InDanhSachTaiKhoan();
+            f.ShowDialog();
         }
     }
 }
