@@ -289,6 +289,10 @@ namespace Quan_Ly_Dao_Tao.BaoCao.DataSet {
             
             private global::System.Data.DataColumn columnTenDV;
             
+            private global::System.Data.DataColumn columnNamHoc;
+            
+            private global::System.Data.DataColumn columnHocKy;
+            
             private global::System.Data.DataColumn columnXepLoai;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -366,6 +370,22 @@ namespace Quan_Ly_Dao_Tao.BaoCao.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn NamHocColumn {
+                get {
+                    return this.columnNamHoc;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn HocKyColumn {
+                get {
+                    return this.columnHocKy;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn XepLoaiColumn {
                 get {
                     return this.columnXepLoai;
@@ -409,7 +429,7 @@ namespace Quan_Ly_Dao_Tao.BaoCao.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DanhSachDiemRenLuyenRow AddDanhSachDiemRenLuyenRow(string MaSV, string HoTen, string TenLop, string Diem, string TenDV, string XepLoai) {
+            public DanhSachDiemRenLuyenRow AddDanhSachDiemRenLuyenRow(string MaSV, string HoTen, string TenLop, string Diem, string TenDV, string NamHoc, string HocKy, string XepLoai) {
                 DanhSachDiemRenLuyenRow rowDanhSachDiemRenLuyenRow = ((DanhSachDiemRenLuyenRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         MaSV,
@@ -417,6 +437,8 @@ namespace Quan_Ly_Dao_Tao.BaoCao.DataSet {
                         TenLop,
                         Diem,
                         TenDV,
+                        NamHoc,
+                        HocKy,
                         XepLoai};
                 rowDanhSachDiemRenLuyenRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDanhSachDiemRenLuyenRow);
@@ -445,6 +467,8 @@ namespace Quan_Ly_Dao_Tao.BaoCao.DataSet {
                 this.columnTenLop = base.Columns["TenLop"];
                 this.columnDiem = base.Columns["Diem"];
                 this.columnTenDV = base.Columns["TenDV"];
+                this.columnNamHoc = base.Columns["NamHoc"];
+                this.columnHocKy = base.Columns["HocKy"];
                 this.columnXepLoai = base.Columns["XepLoai"];
             }
             
@@ -461,6 +485,10 @@ namespace Quan_Ly_Dao_Tao.BaoCao.DataSet {
                 base.Columns.Add(this.columnDiem);
                 this.columnTenDV = new global::System.Data.DataColumn("TenDV", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTenDV);
+                this.columnNamHoc = new global::System.Data.DataColumn("NamHoc", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNamHoc);
+                this.columnHocKy = new global::System.Data.DataColumn("HocKy", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHocKy);
                 this.columnXepLoai = new global::System.Data.DataColumn("XepLoai", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnXepLoai);
             }
@@ -685,6 +713,38 @@ namespace Quan_Ly_Dao_Tao.BaoCao.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string NamHoc {
+                get {
+                    try {
+                        return ((string)(this[this.tableDanhSachDiemRenLuyen.NamHocColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NamHoc\' in table \'DanhSachDiemRenLuyen\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDanhSachDiemRenLuyen.NamHocColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string HocKy {
+                get {
+                    try {
+                        return ((string)(this[this.tableDanhSachDiemRenLuyen.HocKyColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'HocKy\' in table \'DanhSachDiemRenLuyen\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDanhSachDiemRenLuyen.HocKyColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string XepLoai {
                 get {
                     try {
@@ -757,6 +817,30 @@ namespace Quan_Ly_Dao_Tao.BaoCao.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetTenDVNull() {
                 this[this.tableDanhSachDiemRenLuyen.TenDVColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsNamHocNull() {
+                return this.IsNull(this.tableDanhSachDiemRenLuyen.NamHocColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetNamHocNull() {
+                this[this.tableDanhSachDiemRenLuyen.NamHocColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsHocKyNull() {
+                return this.IsNull(this.tableDanhSachDiemRenLuyen.HocKyColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetHocKyNull() {
+                this[this.tableDanhSachDiemRenLuyen.HocKyColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

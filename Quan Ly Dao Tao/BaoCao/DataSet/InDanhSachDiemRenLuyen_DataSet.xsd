@@ -20,6 +20,8 @@
               <xs:element name="TenLop" msprop:Generator_ColumnPropNameInRow="TenLop" msprop:Generator_ColumnPropNameInTable="TenLopColumn" msprop:Generator_ColumnVarNameInTable="columnTenLop" msprop:Generator_UserColumnName="TenLop" type="xs:string" minOccurs="0" />
               <xs:element name="Diem" msprop:Generator_ColumnPropNameInRow="Diem" msprop:Generator_ColumnPropNameInTable="DiemColumn" msprop:Generator_ColumnVarNameInTable="columnDiem" msprop:Generator_UserColumnName="Diem" type="xs:string" minOccurs="0" />
               <xs:element name="TenDV" msprop:Generator_ColumnPropNameInRow="TenDV" msprop:Generator_ColumnPropNameInTable="TenDVColumn" msprop:Generator_ColumnVarNameInTable="columnTenDV" msprop:Generator_UserColumnName="TenDV" type="xs:string" minOccurs="0" />
+              <xs:element name="NamHoc" msprop:Generator_ColumnPropNameInRow="NamHoc" msprop:Generator_ColumnPropNameInTable="NamHocColumn" msprop:Generator_ColumnVarNameInTable="columnNamHoc" msprop:Generator_UserColumnName="NamHoc" type="xs:string" minOccurs="0" />
+              <xs:element name="HocKy" msprop:Generator_ColumnPropNameInRow="HocKy" msprop:Generator_ColumnPropNameInTable="HocKyColumn" msprop:Generator_ColumnVarNameInTable="columnHocKy" msprop:Generator_UserColumnName="HocKy" type="xs:string" minOccurs="0" />
               <xs:element name="XepLoai" msprop:Generator_ColumnPropNameInRow="XepLoai" msprop:Generator_ColumnPropNameInTable="XepLoaiColumn" msprop:Generator_ColumnVarNameInTable="columnXepLoai" msprop:Generator_UserColumnName="XepLoai" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>

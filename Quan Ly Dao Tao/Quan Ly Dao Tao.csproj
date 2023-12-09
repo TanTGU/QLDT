@@ -52,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaoCao\CrystalReport\InDanhSachDiemRenLuyen_CrystalReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InDanhSachDiemRenLuyen_CrystalReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="BaoCao\CrystalReport\InDanhSachGiangVien_CrystalReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -69,6 +75,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>InThoiKhoaBieu_CrystalReport.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BaoCao\DataSet\InDanhSachDiemRenLuyen_DataSet.cs">
+      <DependentUpon>InDanhSachDiemRenLuyen_DataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="BaoCao\DataSet\InDanhSachDiemRenLuyen_DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -411,6 +420,10 @@
     <Compile Include="Trang Chu\UserNhanVienPhongDaoTao_TrangChu.Designer.cs">
       <DependentUpon>UserNhanVienPhongDaoTao_TrangChu.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BaoCao\CrystalReport\InDanhSachDiemRenLuyen_CrystalReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InDanhSachDiemRenLuyen_CrystalReport.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="BaoCao\CrystalReport\InDanhSachGiangVien_CrystalReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>InDanhSachGiangVien_CrystalReport.cs</LastGenOutput>
