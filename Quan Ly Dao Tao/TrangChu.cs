@@ -128,5 +128,23 @@ namespace Quan_Ly_Dao_Tao
             DangNhap dn = new DangNhap();
             dn.Show();
         }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            ThayDoiMatKhau f = new ThayDoiMatKhau(CSDL.TK, CSDL.MK);
+            f.ShowDialog();
+        }
+
+        private void lbTenHienThi_Click(object sender, EventArgs e)
+        {
+            ThayDoiMatKhau f = new ThayDoiMatKhau(CSDL.TK, CSDL.MK);
+            f.ShowDialog();
+        }
+
+        private void lbLoaiTK_Click(object sender, EventArgs e)
+        {
+            ThayDoiMatKhau f = new ThayDoiMatKhau(CSDL.TK, CSDL.MK);
+            f.ShowDialog();
+        }
     }
 }

@@ -22,6 +22,8 @@ namespace Quan_Ly_Dao_Tao.Database
         public static string MaGV = "";
         public static string TenHienThi = "";
         public static string LoaiTaiKhoan = "";
+        public static string TK = "";
+        public static string MK = "";
         public static SqlConnection cn;
 
         public static void KetNoi()

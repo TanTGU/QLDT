@@ -32,19 +32,19 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TrangChu));
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
-            this.lbLoaiTK = new System.Windows.Forms.Label();
-            this.lbTenHienThi = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel = new System.Windows.Forms.Panel();
             this.tooltip = new System.Windows.Forms.ToolTip(this.components);
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.lbTenHienThi = new System.Windows.Forms.Label();
+            this.lbLoaiTK = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -78,35 +78,6 @@
             this.button1.Text = "Đăng xuất tài khoản";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // lbLoaiTK
-            // 
-            this.lbLoaiTK.AutoSize = true;
-            this.lbLoaiTK.Location = new System.Drawing.Point(697, 44);
-            this.lbLoaiTK.Name = "lbLoaiTK";
-            this.lbLoaiTK.Size = new System.Drawing.Size(330, 19);
-            this.lbLoaiTK.TabIndex = 3;
-            this.lbLoaiTK.Text = "Nhân viên phòng Công tác chính trị Sinh viên";
-            // 
-            // lbTenHienThi
-            // 
-            this.lbTenHienThi.AutoSize = true;
-            this.lbTenHienThi.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTenHienThi.Location = new System.Drawing.Point(697, 13);
-            this.lbTenHienThi.Name = "lbTenHienThi";
-            this.lbTenHienThi.Size = new System.Drawing.Size(159, 23);
-            this.lbTenHienThi.TabIndex = 2;
-            this.lbTenHienThi.Text = "Trần Thanh Tân";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Quan_Ly_Dao_Tao.Properties.Resources.Screenshot_2023_10_29_142741;
-            this.pictureBox2.Location = new System.Drawing.Point(635, 13);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(55, 50);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
             // 
             // panel3
             // 
@@ -168,6 +139,41 @@
             this.panel.Size = new System.Drawing.Size(1359, 611);
             this.panel.TabIndex = 1;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox2.Image = global::Quan_Ly_Dao_Tao.Properties.Resources.Screenshot_2023_10_29_142741;
+            this.pictureBox2.Location = new System.Drawing.Point(635, 13);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(55, 50);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // lbTenHienThi
+            // 
+            this.lbTenHienThi.AutoSize = true;
+            this.lbTenHienThi.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbTenHienThi.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTenHienThi.Location = new System.Drawing.Point(697, 13);
+            this.lbTenHienThi.Name = "lbTenHienThi";
+            this.lbTenHienThi.Size = new System.Drawing.Size(159, 23);
+            this.lbTenHienThi.TabIndex = 2;
+            this.lbTenHienThi.Text = "Trần Thanh Tân";
+            this.lbTenHienThi.Click += new System.EventHandler(this.lbTenHienThi_Click);
+            // 
+            // lbLoaiTK
+            // 
+            this.lbLoaiTK.AutoSize = true;
+            this.lbLoaiTK.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbLoaiTK.Location = new System.Drawing.Point(697, 44);
+            this.lbLoaiTK.Name = "lbLoaiTK";
+            this.lbLoaiTK.Size = new System.Drawing.Size(330, 19);
+            this.lbLoaiTK.TabIndex = 3;
+            this.lbLoaiTK.Text = "Nhân viên phòng Công tác chính trị Sinh viên";
+            this.lbLoaiTK.Click += new System.EventHandler(this.lbLoaiTK_Click);
+            // 
             // TrangChu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -186,10 +192,10 @@
             this.Load += new System.EventHandler(this.TrangChu_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -202,11 +208,11 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label lbLoaiTK;
-        private System.Windows.Forms.Label lbTenHienThi;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolTip tooltip;
+        private System.Windows.Forms.Label lbLoaiTK;
+        private System.Windows.Forms.Label lbTenHienThi;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 

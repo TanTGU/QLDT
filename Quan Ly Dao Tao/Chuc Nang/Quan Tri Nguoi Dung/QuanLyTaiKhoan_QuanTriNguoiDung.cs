@@ -191,7 +191,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Tri_Nguoi_Dung
                 CSDL.XuLy(sql);
                 LayDS();
                 CSDL.GhiLenhXuLySQL(sql);
-                MessageBox.Show("Dã cập nhật tài khoản thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Đã cập nhật tài khoản thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             catch

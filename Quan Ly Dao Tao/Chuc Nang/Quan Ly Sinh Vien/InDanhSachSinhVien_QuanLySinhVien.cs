@@ -144,7 +144,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
         {
             if(tbTenLop.Text == "")
             {
-                MessageBox.Show("Vui lòng lớp cần in danh sách!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                MessageBox.Show("Vui lòng chọn lớp cần in danh sách!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
                 return;
             }
             else

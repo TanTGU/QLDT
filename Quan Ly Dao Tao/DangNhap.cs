@@ -43,6 +43,8 @@ namespace Quan_Ly_Dao_Tao
                         if (dt.Rows[i][4].ToString() != null)
                             CSDL.MaGV = dt.Rows[i][4].ToString();
                         DK = true;
+                        CSDL.TK = tk;
+                        CSDL.MK = mk;
                     }
                 }
                 if(DK)
