@@ -93,10 +93,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Tri_Nguoi_Dung
                 DataTable dt = CSDL.LayDuLieu(sql);
                 if (dt.Rows.Count > 0)
                 {
-                    if (dt.Rows[0][0].ToString() == null)
-                        tbMaGV.Text = "";
-                    else
-                        tbMaGV.Text = dt.Rows[0][0].ToString();
+                    
                     tbHoTen.Text = dt.Rows[0][1].ToString();
                     tbTK.Text = listDS.SelectedItems[0].SubItems[0].Text;
                     tbLoaiTK.Text = cbPhanLoai.Text;

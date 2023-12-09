@@ -70,6 +70,12 @@
       <DependentUpon>InDanhSachSinhVien_CrystalReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="BaoCao\CrystalReport\InDanhSachTaiKhoan_CrystalReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InDanhSachTaiKhoan_CrystalReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="BaoCao\CrystalReport\InThoiKhoaBieu_CrystalReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -93,6 +99,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>InDanhSachSinhVien_DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BaoCao\DataSet\InDanhSachTaiKhoan_DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InDanhSachTaiKhoan_DataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="BaoCao\DataSet\InThoiKhoaBieu.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -438,6 +449,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>InDanhSachSinhVien_CrystalReport.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="BaoCao\CrystalReport\InDanhSachTaiKhoan_CrystalReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InDanhSachTaiKhoan_CrystalReport.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="BaoCao\CrystalReport\InThoiKhoaBieu_CrystalReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>InThoiKhoaBieu_CrystalReport.cs</LastGenOutput>
@@ -646,6 +661,17 @@
     </None>
     <None Include="BaoCao\DataSet\InDanhSachSinhVien_DataSet.xss">
       <DependentUpon>InDanhSachSinhVien_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BaoCao\DataSet\InDanhSachTaiKhoan_DataSet.xsc">
+      <DependentUpon>InDanhSachTaiKhoan_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BaoCao\DataSet\InDanhSachTaiKhoan_DataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>InDanhSachTaiKhoan_DataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="BaoCao\DataSet\InDanhSachTaiKhoan_DataSet.xss">
+      <DependentUpon>InDanhSachTaiKhoan_DataSet.xsd</DependentUpon>
     </None>
     <None Include="BaoCao\DataSet\InThoiKhoaBieu.xsc">
       <DependentUpon>InThoiKhoaBieu.xsd</DependentUpon>
