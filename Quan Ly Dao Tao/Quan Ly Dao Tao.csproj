@@ -70,6 +70,11 @@
       <DependentUpon>InThoiKhoaBieu_CrystalReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="BaoCao\DataSet\InDanhSachDiemRenLuyen_DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InDanhSachDiemRenLuyen_DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BaoCao\DataSet\InDanhSachQuanLyGV_Dataset.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -587,6 +592,17 @@
     <EmbeddedResource Include="Trang Chu\UserNhanVienPhongDaoTao_TrangChu.resx">
       <DependentUpon>UserNhanVienPhongDaoTao_TrangChu.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="BaoCao\DataSet\InDanhSachDiemRenLuyen_DataSet.xsc">
+      <DependentUpon>InDanhSachDiemRenLuyen_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BaoCao\DataSet\InDanhSachDiemRenLuyen_DataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>InDanhSachDiemRenLuyen_DataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="BaoCao\DataSet\InDanhSachDiemRenLuyen_DataSet.xss">
+      <DependentUpon>InDanhSachDiemRenLuyen_DataSet.xsd</DependentUpon>
+    </None>
     <None Include="BaoCao\DataSet\InDanhSachQuanLyGV_Dataset.xsc">
       <DependentUpon>InDanhSachQuanLyGV_Dataset.xsd</DependentUpon>
     </None>

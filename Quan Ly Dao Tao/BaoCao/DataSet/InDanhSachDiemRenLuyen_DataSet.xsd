@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="InDanhSachDiemRenLuyen_DataSet" targetNamespace="http://tempuri.org/InDanhSachDiemRenLuyen_DataSet.xsd" xmlns:mstns="http://tempuri.org/InDanhSachDiemRenLuyen_DataSet.xsd" xmlns="http://tempuri.org/InDanhSachDiemRenLuyen_DataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="InDanhSachDiemRenLuyen_DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="InDanhSachDiemRenLuyen_DataSet" msprop:Generator_DataSetName="InDanhSachDiemRenLuyen_DataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DanhSachDiemRenLuyen" msprop:Generator_RowEvHandlerName="DanhSachDiemRenLuyenRowChangeEventHandler" msprop:Generator_RowDeletedName="DanhSachDiemRenLuyenRowDeleted" msprop:Generator_RowDeletingName="DanhSachDiemRenLuyenRowDeleting" msprop:Generator_RowEvArgName="DanhSachDiemRenLuyenRowChangeEvent" msprop:Generator_TablePropName="DanhSachDiemRenLuyen" msprop:Generator_RowChangedName="DanhSachDiemRenLuyenRowChanged" msprop:Generator_RowChangingName="DanhSachDiemRenLuyenRowChanging" msprop:Generator_TableClassName="DanhSachDiemRenLuyenDataTable" msprop:Generator_RowClassName="DanhSachDiemRenLuyenRow" msprop:Generator_TableVarName="tableDanhSachDiemRenLuyen" msprop:Generator_UserTableName="DanhSachDiemRenLuyen">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MaSV" msprop:Generator_ColumnPropNameInRow="MaSV" msprop:Generator_ColumnPropNameInTable="MaSVColumn" msprop:Generator_ColumnVarNameInTable="columnMaSV" msprop:Generator_UserColumnName="MaSV" type="xs:string" minOccurs="0" />
+              <xs:element name="HoTen" msprop:Generator_ColumnPropNameInRow="HoTen" msprop:Generator_ColumnPropNameInTable="HoTenColumn" msprop:Generator_ColumnVarNameInTable="columnHoTen" msprop:Generator_UserColumnName="HoTen" type="xs:string" minOccurs="0" />
+              <xs:element name="TenLop" msprop:Generator_ColumnPropNameInRow="TenLop" msprop:Generator_ColumnPropNameInTable="TenLopColumn" msprop:Generator_ColumnVarNameInTable="columnTenLop" msprop:Generator_UserColumnName="TenLop" type="xs:string" minOccurs="0" />
+              <xs:element name="Diem" msprop:Generator_ColumnPropNameInRow="Diem" msprop:Generator_ColumnPropNameInTable="DiemColumn" msprop:Generator_ColumnVarNameInTable="columnDiem" msprop:Generator_UserColumnName="Diem" type="xs:string" minOccurs="0" />
+              <xs:element name="TenDV" msprop:Generator_ColumnPropNameInRow="TenDV" msprop:Generator_ColumnPropNameInTable="TenDVColumn" msprop:Generator_ColumnVarNameInTable="columnTenDV" msprop:Generator_UserColumnName="TenDV" type="xs:string" minOccurs="0" />
+              <xs:element name="XepLoai" msprop:Generator_ColumnPropNameInRow="XepLoai" msprop:Generator_ColumnPropNameInTable="XepLoaiColumn" msprop:Generator_ColumnVarNameInTable="columnXepLoai" msprop:Generator_UserColumnName="XepLoai" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
