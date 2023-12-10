@@ -45,6 +45,7 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnnop = new System.Windows.Forms.Button();
             this.tbtrangthai = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.btnxuat = new System.Windows.Forms.Button();
@@ -72,7 +73,6 @@
             this.tbMSSV1 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.btnnop = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -290,6 +290,21 @@
             this.groupBox1.TabIndex = 95;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "THÔNG TIN NỘP HỌC PHÍ";
+            // 
+            // btnnop
+            // 
+            this.btnnop.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnnop.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.btnnop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnnop.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnnop.ForeColor = System.Drawing.Color.White;
+            this.btnnop.Location = new System.Drawing.Point(469, 488);
+            this.btnnop.Name = "btnnop";
+            this.btnnop.Size = new System.Drawing.Size(185, 37);
+            this.btnnop.TabIndex = 108;
+            this.btnnop.Text = "Nộp học phí";
+            this.btnnop.UseVisualStyleBackColor = false;
+            this.btnnop.Click += new System.EventHandler(this.btnnop_Click);
             // 
             // tbtrangthai
             // 
@@ -549,20 +564,6 @@
             this.label11.Size = new System.Drawing.Size(44, 19);
             this.label11.TabIndex = 10;
             this.label11.Text = "Lớp:";
-            // 
-            // btnnop
-            // 
-            this.btnnop.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnnop.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.btnnop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnnop.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnnop.ForeColor = System.Drawing.Color.White;
-            this.btnnop.Location = new System.Drawing.Point(469, 488);
-            this.btnnop.Name = "btnnop";
-            this.btnnop.Size = new System.Drawing.Size(185, 37);
-            this.btnnop.TabIndex = 108;
-            this.btnnop.Text = "Nộp học phí";
-            this.btnnop.UseVisualStyleBackColor = false;
             // 
             // NopHocPhi_QuanLyHocPhi
             // 

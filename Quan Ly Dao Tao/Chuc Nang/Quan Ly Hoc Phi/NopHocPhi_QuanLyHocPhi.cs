@@ -1,4 +1,5 @@
-﻿using Quan_Ly_Dao_Tao.Database;
+﻿using Quan_Ly_Dao_Tao.BaoCao.From;
+using Quan_Ly_Dao_Tao.Database;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -280,6 +281,17 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Hoc_Phi
             if(tbtrangthai.Text == "Chưa nộp học phí")
             {
                 MessageBox.Show("Sinh viên chưa chưa học phí. Không thể xuất hóa đơn", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            InHoaDonDongHocPhi f = new InHoaDonDongHocPhi(tbMSSV1.Text, tbnamhoc.Text, tbhocky.Text);
+            f.ShowDialog();
+        }
+
+        private void btnnop_Click(object sender, EventArgs e)
+        {
+            if (tbtrangthai.Text != "Chưa nộp học phí")
+            {
+                MessageBox.Show("Sinh viên đã nộp học phí", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }
