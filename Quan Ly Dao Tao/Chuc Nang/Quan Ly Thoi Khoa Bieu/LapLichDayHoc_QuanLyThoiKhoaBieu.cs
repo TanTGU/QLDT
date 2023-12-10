@@ -6,7 +6,9 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Net.Sockets;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -133,13 +135,8 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
         private void LoadHocKy1()
         {
             // thêm dữ liệu cho cboHocKy
-            for (int i = 1; i <= 3; i++)
+            for (int i = 1; i < 3; i++)
             {
-                if (i == 3)
-                {
-                    cboHocKy.Items.Add("Hè");
-                    return;
-                }
                 cboHocKy.Items.Add(i);
             }            
         }
@@ -224,8 +221,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
         private void listMH_Click(object sender, EventArgs e)
         {            
             empty();
-            string maMH = listMH.SelectedItems[0].SubItems[0].Text;
-            //string sql = "select ROW_NUMBER()over(order by NhomHP) as STT, T.MaMH, TenMH, NhomHP, Thu, TietGiangDay  from THOIKHOABIEU T, MONHOC M where T.MaMH='" + maMH + "' and T.MaMH = M.MaMH";
+            string maMH = listMH.SelectedItems[0].SubItems[0].Text;            
             string sql = "select ROW_NUMBER()over(order by NhomHP) as STT, T.MaMH, TenMH, NhomHP, Thu, TietGiangDay  \r\nfrom THOIKHOABIEU T, MONHOC M, GIANGVIEN G \r\nwhere T.MaMH='"+maMH+"' and T.MaMH = M.MaMH and T.MaGV = G.MaGV";
             LoadDanhSachNhomHocPhan(sql, maMH);
             string sql1 = "select MaMH, TenMH, SoTC from MONHOC where MaMH='"+maMH+"'";
@@ -261,33 +257,46 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
         {
             string maGV = txtMaGV.Text;
             string maMH = txtMaMH.Text;
-            string nhomHP = txtNhom.Text;
-            int hocKy = Convert.ToInt32(cboHocKy.SelectedItem.ToString());
+            string nhomHP = txtNhom.Text;            
+            int hocKy = Convert.ToInt32(cboHocKy.SelectedItem.ToString());         
+                       
             string namHoc = txtNamHoc.Text;
             int thu = Convert.ToInt32(cboThu.Text);
             string tiet = txtTiet.Text;
             int sotiet = Convert.ToInt32(nuSoTiet.Value);
             string ghiChu = txtGhiChu.Text;
-
-            ThemDuLieu(maGV, maMH, nhomHP, hocKy, namHoc, thu, tiet, sotiet, ghiChu);                        
-
-            // ĐỒNG BỘ DỮ LIỆU LIST HỌC PHẦN SAU KHI THÊM THÀNH CÔNG
-            string sql = "select ROW_NUMBER()over(order by NhomHP) as STT, T.MaMH, TenMH, NhomHP, Thu, TietGiangDay  from THOIKHOABIEU T, MONHOC M where T.MaMH='" + maMH + "' and T.MaMH = M.MaMH";
-            LoadDanhSachNhomHocPhan(sql, maMH);
-        }
-        private void KiemTraNhomHP(string maHP)
-        {
-            int dem = listHP.Items.Count;
-            for(int i=0; i<dem; i++)
+            
+            bool check = KiemTraNhomHP(nhomHP, maMH);
+            
+            if (check)
             {
-                if(string.Equals(maHP, listHP.Items[i].SubItems[3].Text))
-                {
-                    MessageBox.Show("Nhóm đã tồn tại vui lòng chọn nhóm khác!");
-                    return;
-                }               
-                
+                ThemDuLieu(maGV, maMH, nhomHP, hocKy, namHoc, thu, tiet, sotiet, ghiChu);
+                // ĐỒNG BỘ DỮ LIỆU LIST HỌC PHẦN SAU KHI THÊM THÀNH CÔNG
+                string sql = "select ROW_NUMBER()over(order by NhomHP) as STT, T.MaMH, TenMH, NhomHP, Thu, TietGiangDay  from THOIKHOABIEU T, MONHOC M where T.MaMH='" + maMH + "' and T.MaMH = M.MaMH";
+                LoadDanhSachNhomHocPhan(sql, maMH);
             }
+            else
+            {
+                MessageBox.Show("Nhóm học phần bị trùng! Vui lòng chọn lại!");
+            }               
+                                 
+                       
         }
+        private bool KiemTraNhomHP(string nhomHP, string maMH)
+        {
+            bool check = true;
+            string sql = "select ROW_NUMBER()over(order by NhomHP) as STT, T.MaMH, TenMH, NhomHP, Thu, TietGiangDay  from THOIKHOABIEU T, MONHOC M where T.MaMH='" + maMH + "' and T.MaMH = M.MaMH";
+            DataTable dt = CSDL.LayDuLieu(sql);
+            for(int i=0; i<dt.Rows.Count; i++)
+            {
+                if(string.Equals(nhomHP, dt.Rows[i][3].ToString()))
+                {
+                    check = false;
+                }
+            }
+            return check;
+        }
+        
         public static void CapNhatDuLieu(string maGV, string maMH, string nhomHP, int hocKy, string namHoc, int thu, string tiet, int soTiet, string ghiChu)
         {
             string sql = "update THOIKHOABIEU set MaGV = '"+maGV+"', MaMH='"+maMH+"', NhomHP = '" + nhomHP + "', HocKy = " + hocKy + ", NamHoc = '" + namHoc + "', Thu = " + thu + ", TietGiangDay = '" + tiet + "', SoTietThucDay = " + soTiet + ", GhiChu = '" + ghiChu + "' where MaGV = '" + maGV + "' and MaMH = '" + maMH + "' and NhomHP ="+nhomHP+"";
