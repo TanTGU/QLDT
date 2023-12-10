@@ -84,6 +84,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Hoc_Phi
             sql = select + where;
             DataTable dt = CSDL.LayDuLieu(sql);
             tbSLDK.Text = dt.Rows[0][0].ToString();
+            //CSDL.GhiLenhXuLySQL(sql);
         }
         void LayDanhSachSinhVien()
         {
@@ -96,6 +97,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Hoc_Phi
             string where = "where SINHVIEN.MaLop = LOP.MaLop and DANGKYHOCPHAN.MaSV = SINHVIEN.MaSV and SINHVIEN.MaNganh = NGANH.MaNganh and LOP.MaNganh = NGANH.MaNganh and DANGKYHOCPHAN.NamHoc = '"+cbNamHoc.Text+"' and HocKy = "+cbHocKy.Text+" and LOP.MaLop = '"+tbMaLop.Text+"'";
             string sql = select + " " + from + " " + where;
             DataTable dt = CSDL.LayDuLieu(sql);
+            //CSDL.GhiLenhXuLySQL(sql);
             for(int i =0;  i < dt.Rows.Count; i++)
             {
                 select = "select MaSV";
@@ -103,6 +105,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Hoc_Phi
                 where = "where MaSV = '" + dt.Rows[i][0].ToString() +"' and NamHoc = '"+cbNamHoc.Text+"' and HocKy = "+cbHocKy.Text+"";
                 sql = select + " " + from + " " + where;
                 DataTable dt1 = CSDL.LayDuLieu(sql);
+                //CSDL.GhiLenhXuLySQL(sql);
                 if (dt1.Rows.Count > 0)
                 {
                     DongHP++;
@@ -119,7 +122,8 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Hoc_Phi
                     where = "where DANGKYHOCPHAN.MaMH = MONHOC.MaMH and MONHOC.TenNganh = NGANH.TenNganh and HOCPHI.MaNganh = NGANH.MaNganh and DANGKYHOCPHAN.MaSV = '"+ dt.Rows[i][0].ToString() + "' and HocKy = "+cbHocKy.Text+" and NamHoc = '"+cbNamHoc.Text+"'";
                     sql = select + " " + from + " " + where;
                     DataTable dt2 = CSDL.LayDuLieu(sql);
-                    if(dt2.Rows.Count > 0)
+                    //CSDL.GhiLenhXuLySQL(sql);
+                    if (dt2.Rows.Count > 0)
                         listDSDongHP.Items[n].SubItems.Add(string.Format("{0:#,##0}", dt2.Rows[0][0]));
                 }
                 else
@@ -133,11 +137,12 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Hoc_Phi
                     listDSChuaDongHP.Items[n].SubItems.Add(dt.Rows[i][3].ToString());
                     listDSChuaDongHP.Items[n].SubItems.Add(dt.Rows[i][4].ToString());
 
-                    select = "select distinct (MONHOC.SoTC * HOCPHI.SoTien) as ThanhTien";
+                    select = "select SUM((MONHOC.SoTC * HOCPHI.SoTien))  as ThanhTien";
                     from = "from DANGKYHOCPHAN, MONHOC, HOCPHI, NGANH";
                     where = "where DANGKYHOCPHAN.MaMH = MONHOC.MaMH and MONHOC.TenNganh = NGANH.TenNganh and HOCPHI.MaNganh = NGANH.MaNganh and DANGKYHOCPHAN.MaSV = '" + dt.Rows[i][0].ToString() + "' and HocKy = " + cbHocKy.Text + " and NamHoc = '" + cbNamHoc.Text + "'";
                     sql = select + " " + from + " " + where;
                     DataTable dt2 = CSDL.LayDuLieu(sql);
+                    //CSDL.GhiLenhXuLySQL(sql);
                     if (dt2.Rows.Count > 0)
                         listDSChuaDongHP.Items[n].SubItems.Add(string.Format("{0:#,##0}", dt2.Rows[0][0]));
                 }

@@ -55,8 +55,6 @@
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.listDSChuaDongHP = new System.Windows.Forms.ListView();
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -353,34 +351,6 @@
             this.columnHeader1.Text = "Số tiền";
             this.columnHeader1.Width = 131;
             // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.White;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.SteelBlue;
-            this.button3.Location = new System.Drawing.Point(1170, 260);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(166, 31);
-            this.button3.TabIndex = 117;
-            this.button3.Text = "Xuất danh sách";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.SteelBlue;
-            this.button2.Location = new System.Drawing.Point(1170, 535);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(166, 30);
-            this.button2.TabIndex = 120;
-            this.button2.Text = "Xuất danh sách";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
             // listDSChuaDongHP
             // 
             this.listDSChuaDongHP.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -623,10 +593,8 @@
             this.Controls.Add(this.lbChuaDongHP);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.lbDaDongHP);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.listDSChuaDongHP);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.listDSDongHP);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.groupBox4);
@@ -676,8 +644,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ListView listDSChuaDongHP;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader9;

@@ -253,12 +253,12 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Hoc_Phi
                         DataTable dt1 = CSDL.LayDuLieu(sql);
                         if (dt1.Rows.Count > 0 )
                         {
-                            btnnop.Enabled = false;
+                            //btnnop.Enabled = false;
                             tbtrangthai.Text = "Đã nộp học phí";
                         }
                         else
                         {
-                            btnnop.Enabled = true;
+                            //btnnop.Enabled = true;
                             tbtrangthai.Text = "Chưa nộp học phí";
                         }
                     }
@@ -267,6 +267,20 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Hoc_Phi
                 {
                     MessageBox.Show("Hệ thống đã xảy ra lỗi. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error );
                 }
+            }
+        }
+
+        private void btnxuat_Click(object sender, EventArgs e)
+        {
+            if(listMH.Items.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn thông tin cần xuất hóa đơn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                return;
+            }
+            if(tbtrangthai.Text == "Chưa nộp học phí")
+            {
+                MessageBox.Show("Sinh viên chưa chưa học phí. Không thể xuất hóa đơn", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
         }
     }
