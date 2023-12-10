@@ -192,7 +192,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Mon_Hoc
             }
            */
             CSDL.XuLy(sql);
-
+            CSDL.GhiLenhXuLySQL(sql);
             MessageBox.Show("Đã thêm thông tin môn mới!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         
@@ -247,8 +247,8 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Mon_Hoc
                 MessageBox.Show("Sửa thông tin môn học không thành công. Vui lòng thử lại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }*/
             CSDL.XuLy(sql);
-
-            MessageBox.Show("Đã sửa  thông tin môn học thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            CSDL.GhiLenhXuLySQL(sql);
+            MessageBox.Show("Đã sửa thông tin môn học thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void button4_Click(object sender, EventArgs e)//xoa
@@ -266,7 +266,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Mon_Hoc
                 try
                 {
                     CSDL.XuLy(sql);
-
+                    CSDL.GhiLenhXuLySQL(sql);
                     MessageBox.Show("Đã xóa  thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch

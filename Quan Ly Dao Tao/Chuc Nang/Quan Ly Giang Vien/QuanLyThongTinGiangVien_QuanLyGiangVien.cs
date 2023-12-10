@@ -183,7 +183,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Giang_Vien
             try
             {
                 CSDL.XuLy(sql);
-                
+                CSDL.GhiLenhXuLySQL(sql);
                 MessageBox.Show("Đã thêm thông tin giảng viên mới!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch
@@ -237,7 +237,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Giang_Vien
             try
             {
                 CSDL.XuLy(sql);
-
+                CSDL.GhiLenhXuLySQL(sql);
                 MessageBox.Show("Đã sửa thông tin giảng viên mới!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch
@@ -262,7 +262,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Giang_Vien
                 try
                 {
                     CSDL.XuLy(sql);
-                    
+                    CSDL.GhiLenhXuLySQL(sql);
                     MessageBox.Show("Đã xóa sinh viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch
