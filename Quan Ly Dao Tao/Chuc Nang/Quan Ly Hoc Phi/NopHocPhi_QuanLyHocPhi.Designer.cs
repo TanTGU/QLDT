@@ -56,8 +56,6 @@
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.tbnguoithu = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
             this.tbtongcong = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -265,8 +263,6 @@
             this.groupBox1.Controls.Add(this.label16);
             this.groupBox1.Controls.Add(this.btnxuat);
             this.groupBox1.Controls.Add(this.listMH);
-            this.groupBox1.Controls.Add(this.tbnguoithu);
-            this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.tbtongcong);
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.label13);
@@ -394,25 +390,6 @@
             // 
             this.columnHeader8.Text = "Thành tiền";
             this.columnHeader8.Width = 148;
-            // 
-            // tbnguoithu
-            // 
-            this.tbnguoithu.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbnguoithu.Location = new System.Drawing.Point(121, 472);
-            this.tbnguoithu.Name = "tbnguoithu";
-            this.tbnguoithu.Size = new System.Drawing.Size(254, 27);
-            this.tbnguoithu.TabIndex = 103;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.Black;
-            this.label15.Location = new System.Drawing.Point(16, 475);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(95, 19);
-            this.label15.TabIndex = 102;
-            this.label15.Text = "Người thu:";
             // 
             // tbtongcong
             // 
@@ -627,8 +604,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
-        private System.Windows.Forms.TextBox tbnguoithu;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox tbtongcong;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button btnxuat;

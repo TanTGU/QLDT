@@ -32,6 +32,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Hoc_Phi
 
 
         }
+        string MaSV = "";
 
         void LayDSLop()
         {
@@ -215,6 +216,53 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Hoc_Phi
             LayDSLop();
         }
 
+        void LayThongTinHocPhi()
+        {
+            try
+            {
+                string sql = "";
+                string select = "select MONHOC.MaMH, MONHOC.TenMH, MONHOC.SoTC, HOCPHI.SoTien, (MONHOC.SoTC * HOCPHI.SoTien) as ThanhTien from DANGKYHOCPHAN, MONHOC, HOCPHI, NGANH ";
+                string where = "where DANGKYHOCPHAN.MaMH = MONHOC.MaMH and MONHOC.TenNganh = NGANH.TenNganh and HOCPHI.MaNganh = NGANH.MaNganh and DANGKYHOCPHAN.MaSV = '" + MaSV + "' and HocKy = " + tbhocky.Text + " and NamHoc = '" + tbnamhoc.Text + "'";
+                sql = select + where;
+                DataTable dt = CSDL.LayDuLieu(sql);
+                ThanhTien.Clear();
+                TongCong = 0;
+                listMH.Items.Clear();
+                if (dt.Rows.Count > 0)
+                {
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        listMH.Items.Add((i + 1).ToString());
+                        listMH.Items[i].SubItems.Add(dt.Rows[i][0].ToString());
+                        listMH.Items[i].SubItems.Add(dt.Rows[i][1].ToString());
+                        listMH.Items[i].SubItems.Add(dt.Rows[i][2].ToString());
+                        listMH.Items[i].SubItems.Add(string.Format("{0:#,##0}", dt.Rows[i][3]));
+                        listMH.Items[i].SubItems.Add(string.Format("{0:#,##0}", dt.Rows[i][4]));
+                        ThanhTien.Add(Convert.ToDouble(dt.Rows[i][4].ToString()));
+                        TongCong += ThanhTien[i];
+                    }
+                    tbtongcong.Text = (string.Format("{0:#,##0}", TongCong));
+
+                    sql = "select *from DONGHOCPHI where MaSV = '" + tbMSSV1.Text + "' and HocKy = " + tbhocky.Text + " and NamHoc = '" + tbnamhoc.Text + "'";
+                    DataTable dt1 = CSDL.LayDuLieu(sql);
+                    if (dt1.Rows.Count > 0)
+                    {
+                        //btnnop.Enabled = false;
+                        tbtrangthai.Text = "Đã nộp học phí";
+                    }
+                    else
+                    {
+                        //btnnop.Enabled = true;
+                        tbtrangthai.Text = "Chưa nộp học phí";
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Hệ thống đã xảy ra lỗi. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void listDS_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(listDS.SelectedItems.Count > 0)
@@ -225,49 +273,9 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Hoc_Phi
                 tblop.Text = cblop.Text;
                 tbnamhoc.Text = cbnamhoc.Text;
                 tbhocky.Text = cbhocky.Text;
-                listMH.Items.Clear();
-                try
-                {
-                    string sql = "";
-                    string select = "select MONHOC.MaMH, MONHOC.TenMH, MONHOC.SoTC, HOCPHI.SoTien, (MONHOC.SoTC * HOCPHI.SoTien) as ThanhTien from DANGKYHOCPHAN, MONHOC, HOCPHI, NGANH ";
-                    string where = "where DANGKYHOCPHAN.MaMH = MONHOC.MaMH and MONHOC.TenNganh = NGANH.TenNganh and HOCPHI.MaNganh = NGANH.MaNganh and DANGKYHOCPHAN.MaSV = '" + listDS.SelectedItems[0].SubItems[0].Text + "' and HocKy = " + tbhocky.Text + " and NamHoc = '" + tbnamhoc.Text + "'";
-                    sql = select + where;
-                    DataTable dt = CSDL.LayDuLieu(sql);
-                    ThanhTien.Clear();
-                    TongCong = 0;
-                    if(dt.Rows.Count > 0)
-                    {
-                        for(int i = 0; i < dt.Rows.Count; i++)
-                        {
-                            listMH.Items.Add((i+1).ToString());
-                            listMH.Items[i].SubItems.Add(dt.Rows[i][0].ToString());
-                            listMH.Items[i].SubItems.Add(dt.Rows[i][1].ToString());
-                            listMH.Items[i].SubItems.Add(dt.Rows[i][2].ToString());
-                            listMH.Items[i].SubItems.Add(string.Format("{0:#,##0}", dt.Rows[i][3]));
-                            listMH.Items[i].SubItems.Add(string.Format("{0:#,##0}", dt.Rows[i][4]));
-                            ThanhTien.Add(Convert.ToDouble(dt.Rows[i][4].ToString()));
-                            TongCong += ThanhTien[i];
-                        }
-                        tbtongcong.Text = (string.Format("{0:#,##0}", TongCong));
-
-                        sql = "select *from DONGHOCPHI where MaSV = '"+tbMSSV1.Text+"' and HocKy = "+tbhocky.Text+" and NamHoc = '"+tbnamhoc.Text+"'";
-                        DataTable dt1 = CSDL.LayDuLieu(sql);
-                        if (dt1.Rows.Count > 0 )
-                        {
-                            //btnnop.Enabled = false;
-                            tbtrangthai.Text = "Đã nộp học phí";
-                        }
-                        else
-                        {
-                            //btnnop.Enabled = true;
-                            tbtrangthai.Text = "Chưa nộp học phí";
-                        }
-                    }
-                }
-                catch
-                {
-                    MessageBox.Show("Hệ thống đã xảy ra lỗi. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error );
-                }
+                
+                MaSV = tbMSSV1.Text;
+                LayThongTinHocPhi();
             }
         }
 
@@ -287,12 +295,44 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Hoc_Phi
             f.ShowDialog();
         }
 
+        string LayMaLop(string Ten)
+        {
+            string result = "";
+            string sql = $"select MaLop from LOP where TenLop = N'{Ten}'";
+            DataTable dt = CSDL.LayDuLieu(sql);
+            if (dt.Rows.Count > 0)
+                result = dt.Rows[0][0].ToString();
+            return result;
+        }
+
         private void btnnop_Click(object sender, EventArgs e)
         {
             if (tbtrangthai.Text != "Chưa nộp học phí")
             {
                 MessageBox.Show("Sinh viên đã nộp học phí", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
+            }
+            else
+            {
+                DateTime now = DateTime.Now;
+
+
+                Random random = new Random();
+                int randomNumber1 = random.Next(10, 99); 
+                int randomNumber2 = random.Next(10, 99); 
+
+                string TongCong = tbtongcong.Text.Replace(",", "");
+
+                string Ma = $"{now.Day:D2}{now.Month:D2}{now.Year}{now.Hour:D2}{now.Minute:D2}{randomNumber1:D2}{randomNumber2:D2}";
+                string sql = $"insert into DONGHOCPHI(SoPhieu, MaSV, MaLop,HocKy,NamHoc,SoTienDong, ThoiGianNop) values('{Ma}', '{tbMSSV1.Text}', '{LayMaLop(tblop.Text)}', {tbhocky.Text}, '{tbnamhoc.Text}', {TongCong}, '{DateTime.Now.ToString("yyyy/MM/dd")}')";
+                DialogResult result = MessageBox.Show("Nộp học phí cho sinh viên " + tbhoten.Text + "?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    CSDL.XuLy(sql);
+                    CSDL.GhiLenhXuLySQL(sql);
+                    LayThongTinHocPhi();
+                    MessageBox.Show("Đã nộp học phí thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
     }
