@@ -252,7 +252,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
             string sql = "insert THOIKHOABIEU(MaGV, MaMH, NhomHP, HocKy, NamHoc, Thu, TietGiangDay, SoTietThucDay, GhiChu) " +
                 "values('" + maGV + "', '" + maMH + "', '" + nhomHP + "', " + hocKy + ", '" + namHoc + "', " + thu + ", '" + tiet + "', " + soTiet + ", '" + ghiChu + "')";
             CSDL.XuLy(sql);
-            CSDL.GhiLenhXuLySQL(sql);
+            //CSDL.GhiLenhXuLySQL(sql);
         }
         private void btnThem_Click(object sender, EventArgs e)
         {
@@ -301,7 +301,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
         public static void CapNhatDuLieu(string maGV, string maMH, string nhomHP, int hocKy, string namHoc, int thu, string tiet, int soTiet, string ghiChu)
         {
             string sql = "update THOIKHOABIEU set MaGV = '"+maGV+"', MaMH='"+maMH+"', NhomHP = '" + nhomHP + "', HocKy = " + hocKy + ", NamHoc = '" + namHoc + "', Thu = " + thu + ", TietGiangDay = '" + tiet + "', SoTietThucDay = " + soTiet + ", GhiChu = '" + ghiChu + "' where MaGV = '" + maGV + "' and MaMH = '" + maMH + "' and NhomHP ="+nhomHP+"";
-            CSDL.GhiLenhXuLySQL(sql);
+            //CSDL.GhiLenhXuLySQL(sql);
             CSDL.XuLy(sql);
         }
         private void btnCapNhat_Click(object sender, EventArgs e)
@@ -325,7 +325,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
         public static void XoaDuLieu(string maMH, string nhomHP)
         {
             string sql = "delete from THOIKHOABIEU where MaMH = '" + maMH + "' and NhomHP ='"+nhomHP+"'";
-            CSDL.GhiLenhXuLySQL(sql);
+            //CSDL.GhiLenhXuLySQL(sql);
             CSDL.XuLy(sql);
         }
         private void btnXoa_Click(object sender, EventArgs e)

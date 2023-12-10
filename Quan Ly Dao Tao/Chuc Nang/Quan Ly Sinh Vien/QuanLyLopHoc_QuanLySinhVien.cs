@@ -260,7 +260,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
             {
                 string sql = $"insert into DONVI(MaDV, TenDV, SoDT) values('{tbMaDV_1.Text}', N'{tbTenDV_1.Text}', '{tbSDT.Text}')";
                 CSDL.XuLy(sql);
-                CSDL.GhiLenhXuLySQL(sql);
+                //CSDL.GhiLenhXuLySQL(sql);
                 LayDSDonVi();
                 tbMaDV_1.Enabled = false;
                 MessageBox.Show("Đã thêm thông tin đơn vị mới!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -289,7 +289,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
             {
                 string sql = $"UPDATE DONVI SET TenDV = N'{tbTenDV_1.Text}', SoDT = '{tbSDT.Text}' WHERE MaDV = '{tbMaDV_1.Text}'";
                 CSDL.XuLy(sql);
-                CSDL.GhiLenhXuLySQL(sql);
+                //CSDL.GhiLenhXuLySQL(sql);
                 LayDSDonVi();
                 tbMaDV_1.Enabled = false;
                 MessageBox.Show("Đã cập nhật thông tin đơn vị!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -319,7 +319,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
                     tbMaDV_1.Enabled = false;
                     tbMaDV_1.Text = "";
                     tbTenDV_1.Text = "";
-                    CSDL.GhiLenhXuLySQL(sql);
+                    //CSDL.GhiLenhXuLySQL(sql);
                     MessageBox.Show("Đã xóa đơn vị thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch
@@ -345,7 +345,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
             {
                 string sql = $"insert into NGANH(MaNganh,TenNganh,MaDV) values('{tbMaNganh_1.Text}', N'{tbTenNganh_1.Text}','{tbMaDV_1.Text}')";
                 CSDL.XuLy(sql);
-                CSDL.GhiLenhXuLySQL(sql);
+                //CSDL.GhiLenhXuLySQL(sql);
                 LayDSNganh();
                 tbMaNganh_1.Enabled = false;
                 MessageBox.Show("Đã thêm thông tin ngành mới!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -373,7 +373,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
             {
                 string sql = $"UPDATE NGANH SET TenNganh = N'{tbTenNganh_1.Text}', MaDV = '{tbMaDV.Text}' WHERE MaNganh = '{tbMaNganh_1.Text}';";
                 CSDL.XuLy(sql);
-                CSDL.GhiLenhXuLySQL(sql);
+                //CSDL.GhiLenhXuLySQL(sql);
                 LayDSNganh();
                 tbMaNganh_1.Enabled = false;
                 MessageBox.Show("Đã cập nhật thông tin ngành!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -401,7 +401,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
                     CSDL.XuLy(sql);
                     LayDSNganh();
                     tbMaNganh_1.Enabled = false;
-                    CSDL.GhiLenhXuLySQL(sql);
+                    //CSDL.GhiLenhXuLySQL(sql);
                     tbMaNganh_1.Text = "";
                     tbTenNganh_1.Text = "";
                     MessageBox.Show("Đã xóa thông tin ngành thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -456,7 +456,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
                 string GVCN = (tbMaGVCN.Text == "" ? "null" : "'" + tbMaGVCN.Text + "'");
                 string sql = $"insert into LOP(MaLop, TenLop, MaNganh, BacDaoTao, HinhThucDaoTao, GVCN) values('{tbMaLop.Text}', N'{tbTenLop.Text}', '{tbMaNganh_1.Text}', '{LayMaBacDaoTao(cbBac.Text)}', 'CQ', {GVCN})";
                 CSDL.XuLy(sql);
-                CSDL.GhiLenhXuLySQL(sql);
+                //CSDL.GhiLenhXuLySQL(sql);
                 LayDSLop();
                 MessageBox.Show("Đã thêm thông tin lớp mới thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -503,7 +503,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
                 string GVCN = (tbMaGVCN.Text == "" ? "null" : "'" + tbMaGVCN.Text + "'");
                 string sql = $"UPDATE LOP SET TenLop = N'{tbTenLop.Text}', MaNganh = '{tbMaNganh_1.Text}', BacDaoTao = '{LayMaBacDaoTao(cbBac.Text)}', HinhThucDaoTao = 'CQ', GVCN = {GVCN} WHERE MaLop = '{tbMaLop.Text}'";
                 CSDL.XuLy(sql);
-                CSDL.GhiLenhXuLySQL(sql);
+                //CSDL.GhiLenhXuLySQL(sql);
                 LayDSLop();
                 MessageBox.Show("Đã cập nhật thông tin lớp thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -531,7 +531,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Sinh_Vien
                     CSDL.XuLy(sql);
                     LayDSLop();
                     tbMaLop.Enabled = false;
-                    CSDL.GhiLenhXuLySQL(sql);
+                    //CSDL.GhiLenhXuLySQL(sql);
                     tbMaLop.Text = "";
                     tbTenLop.Text = "";
                     tbMaGVCN.Text = "";

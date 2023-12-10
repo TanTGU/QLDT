@@ -45,6 +45,7 @@ namespace Quan_Ly_Dao_Tao.Database
             SqlCommand cmd = new SqlCommand(sql, cn);
             cmd.ExecuteNonQuery();
             cn.Close();
+            CSDL.GhiLenhXuLySQL(sql);
         }
 
         // Ghi các lệnh xử lý sql ở file XuLySQL.txt trong ổ D

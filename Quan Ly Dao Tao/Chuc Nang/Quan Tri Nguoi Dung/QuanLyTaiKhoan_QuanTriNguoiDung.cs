@@ -166,7 +166,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Tri_Nguoi_Dung
                 string sql = $"insert into TAIKHOAN(TK, MK, LoaiTK, TenHienThi, MaGV) values ('{tbTK.Text}', '{tbMK.Text}', '{LayMaLoaiTK(cbPhanLoai.Text)}', N'{tbHoTen.Text}', null)";
                 CSDL.XuLy(sql);
                
-                CSDL.GhiLenhXuLySQL(sql);
+               // CSDL.GhiLenhXuLySQL(sql);
                 LayDS();
                 MessageBox.Show("Dã thêm tài khoản mới thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -190,7 +190,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Tri_Nguoi_Dung
                 string sql = $"UPDATE TAIKHOAN SET MK = '{tbMK.Text}', TenHienThi = N'{tbHoTen.Text}' WHERE TK = '{tbTK.Text}'";
                 CSDL.XuLy(sql);
                 LayDS();
-                CSDL.GhiLenhXuLySQL(sql);
+                //CSDL.GhiLenhXuLySQL(sql);
                 MessageBox.Show("Đã cập nhật tài khoản thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
@@ -216,7 +216,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Tri_Nguoi_Dung
                 {
                     CSDL.XuLy(sql);
                     LayDS();
-                    CSDL.GhiLenhXuLySQL(sql);
+                    //CSDL.GhiLenhXuLySQL(sql);
                     MessageBox.Show("Đã xóa tài khoản thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch

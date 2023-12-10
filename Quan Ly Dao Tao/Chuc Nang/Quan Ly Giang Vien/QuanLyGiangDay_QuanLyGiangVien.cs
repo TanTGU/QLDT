@@ -311,7 +311,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Giang_Vien
             {
                 CSDL.XuLy(sql);
                 LayDSGiangDay();
-                CSDL.GhiLenhXuLySQL(sql);
+                //CSDL.GhiLenhXuLySQL(sql);
                 MessageBox.Show("Đã thêm thông tin chuyên môn thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch
@@ -329,7 +329,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Giang_Vien
                 string sql = $"delete CHUYENMON where MaGV = '{magv}' and MaMH = '{mamh}'";
                 CSDL.XuLy(sql);
                 LayDSGiangDay();
-                CSDL.GhiLenhXuLySQL(sql);
+                //CSDL.GhiLenhXuLySQL(sql);
                 MessageBox.Show("Đã xóa thông tin chuyen môn thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch

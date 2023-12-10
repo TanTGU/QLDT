@@ -147,7 +147,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Hoc_Phi
             {
                 CSDL.XuLy(sql);
                 LayDSHocPhi();
-                CSDL.GhiLenhXuLySQL(sql);
+                //CSDL.GhiLenhXuLySQL(sql);
                 MessageBox.Show("Đã cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch

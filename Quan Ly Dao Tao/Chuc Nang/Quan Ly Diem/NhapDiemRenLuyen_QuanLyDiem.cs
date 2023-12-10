@@ -172,7 +172,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Diem
                 {
                     sql = $"UPDATE DIEMRENLUYEN SET Diem = {numDiem.Value.ToString()} WHERE MaSV = '{txtMSSV.Text}' AND HocKy = {cbHK.Text} AND NamHoc = '{cbNamHoc.Text}'";
                     CSDL.XuLy(sql);
-                    CSDL.GhiLenhXuLySQL(sql);
+                    //CSDL.GhiLenhXuLySQL(sql);
                     LayDSSinhVien(MaLop);
                     MessageBox.Show("Đã nhập điểm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -188,7 +188,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Diem
                 {
                     sql = $"insert into DIEMRENLUYEN (MaSV, HocKy, NamHoc, Diem) values ('{txtMSSV.Text}', {cbHK.Text}, '{cbNamHoc.Text}', {numDiem.Value.ToString()})";
                     CSDL.XuLy(sql);
-                    CSDL.GhiLenhXuLySQL(sql);
+                    //CSDL.GhiLenhXuLySQL(sql);
                     LayDSSinhVien(MaLop);
                     MessageBox.Show("Đã nhập điểm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }

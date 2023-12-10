@@ -329,11 +329,16 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Hoc_Phi
                 if (result == DialogResult.Yes)
                 {
                     CSDL.XuLy(sql);
-                    CSDL.GhiLenhXuLySQL(sql);
+                    //CSDL.GhiLenhXuLySQL(sql);
                     LayThongTinHocPhi();
                     MessageBox.Show("Đã nộp học phí thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
