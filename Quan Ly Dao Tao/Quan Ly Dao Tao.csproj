@@ -116,10 +116,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>InHoaDon_DataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="BaoCao\DataSet\InThoiKhoaBieu.Designer.cs">
+    <Compile Include="BaoCao\DataSet\InThoiKhoaBieu_DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>InThoiKhoaBieu.xsd</DependentUpon>
+      <DependentUpon>InThoiKhoaBieu_DataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="BaoCao\From\InDanhSachDiemRenLuyen.cs">
       <SubType>Form</SubType>
@@ -726,16 +726,16 @@
     <None Include="BaoCao\DataSet\InHoaDon_DataSet.xss">
       <DependentUpon>InHoaDon_DataSet.xsd</DependentUpon>
     </None>
-    <None Include="BaoCao\DataSet\InThoiKhoaBieu.xsc">
-      <DependentUpon>InThoiKhoaBieu.xsd</DependentUpon>
+    <None Include="BaoCao\DataSet\InThoiKhoaBieu_DataSet.xsc">
+      <DependentUpon>InThoiKhoaBieu_DataSet.xsd</DependentUpon>
     </None>
-    <None Include="BaoCao\DataSet\InThoiKhoaBieu.xsd">
+    <None Include="BaoCao\DataSet\InThoiKhoaBieu_DataSet.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>InThoiKhoaBieu.Designer.cs</LastGenOutput>
+      <LastGenOutput>InThoiKhoaBieu_DataSet.Designer.cs</LastGenOutput>
     </None>
-    <None Include="BaoCao\DataSet\InThoiKhoaBieu.xss">
-      <DependentUpon>InThoiKhoaBieu.xsd</DependentUpon>
+    <None Include="BaoCao\DataSet\InThoiKhoaBieu_DataSet.xss">
+      <DependentUpon>InThoiKhoaBieu_DataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
