@@ -58,6 +58,12 @@
       <DependentUpon>InDanhSachDiemRenLuyen_CrystalReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="BaoCao\CrystalReport\InDanhSachDKHP_CrystalReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InDanhSachDKHP_CrystalReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="BaoCao\CrystalReport\InDanhSachGiangVien_CrystalReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -96,6 +102,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>InDanhSachDiemRenLuyen_DataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="BaoCao\DataSet\InDanhSachDKHP_DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InDanhSachDKHP_DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BaoCao\DataSet\InDanhSachQuanLyGV_Dataset.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -126,6 +137,12 @@
     </Compile>
     <Compile Include="BaoCao\From\InDanhSachDiemRenLuyen.Designer.cs">
       <DependentUpon>InDanhSachDiemRenLuyen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaoCao\From\InDanhSachDKHP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaoCao\From\InDanhSachDKHP.Designer.cs">
+      <DependentUpon>InDanhSachDKHP.cs</DependentUpon>
     </Compile>
     <Compile Include="BaoCao\From\InDanhSachGiangVien.cs">
       <SubType>Form</SubType>
@@ -470,6 +487,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>InDanhSachDiemRenLuyen_CrystalReport.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="BaoCao\CrystalReport\InDanhSachDKHP_CrystalReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InDanhSachDKHP_CrystalReport.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="BaoCao\CrystalReport\InDanhSachGiangVien_CrystalReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>InDanhSachGiangVien_CrystalReport.cs</LastGenOutput>
@@ -492,6 +513,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BaoCao\From\InDanhSachDiemRenLuyen.resx">
       <DependentUpon>InDanhSachDiemRenLuyen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaoCao\From\InDanhSachDKHP.resx">
+      <DependentUpon>InDanhSachDKHP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BaoCao\From\InDanhSachGiangVien.resx">
       <DependentUpon>InDanhSachGiangVien.cs</DependentUpon>
@@ -681,6 +705,17 @@
     </None>
     <None Include="BaoCao\DataSet\InDanhSachDiemRenLuyen_DataSet.xss">
       <DependentUpon>InDanhSachDiemRenLuyen_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BaoCao\DataSet\InDanhSachDKHP_DataSet.xsc">
+      <DependentUpon>InDanhSachDKHP_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BaoCao\DataSet\InDanhSachDKHP_DataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>InDanhSachDKHP_DataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="BaoCao\DataSet\InDanhSachDKHP_DataSet.xss">
+      <DependentUpon>InDanhSachDKHP_DataSet.xsd</DependentUpon>
     </None>
     <None Include="BaoCao\DataSet\InDanhSachQuanLyGV_Dataset.xsc">
       <DependentUpon>InDanhSachQuanLyGV_Dataset.xsd</DependentUpon>
