@@ -147,7 +147,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Mon_Hoc
             }
             else
             {
-                MessageBox.Show("Không thể xuất danh sách môn học!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Vui lòng chọn ngành cần xuất danh sách môn học!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
             }
         }
     }
