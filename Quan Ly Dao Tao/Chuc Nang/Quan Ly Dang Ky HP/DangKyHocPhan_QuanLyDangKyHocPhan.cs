@@ -171,7 +171,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Dang_Ky_HP
         private void LoadDSMHDK()
         {
             listDK.Items.Clear();
-            string sql = "select D.MaMH, TenMH, D.NhomHP, Thu, TietGiangDay from DANGKYHOCPHAN D, SINHVIEN S, THOIKHOABIEU T, MONHOC M \r\nwhere S.MaSV = '"+tbTimKiem.Text+"' and D.MaSV = S.MaSV and D.NhomHP = T.NhomHP and T.MaMH = D.MaMH and D.MaMH = M.MaMH";
+            string sql = "select D.MaMH, TenMH, D.NhomHP, Thu, TietGiangDay from DANGKYHOCPHAN D, SINHVIEN S, THOIKHOABIEU T, MONHOC M \r\nwhere S.MaSV = '"+tbTimKiem.Text+  $"' and D.MaSV = S.MaSV and D.NhomHP = T.NhomHP and T.MaMH = D.MaMH and D.MaMH = M.MaMH and T.NamHoc = '{cbNamHoc.Text}' and T.HocKy = {cbHocKy.Text}";
             DataTable dt  = CSDL.LayDuLieu(sql);
             for(int i=0; i<dt.Rows.Count; i++)
             {
@@ -189,23 +189,29 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Dang_Ky_HP
         }
         private void btnDangKy_Click(object sender, EventArgs e)
         {
-            string maSV = lbMaSV.Text;
-            string maMH = listMH.SelectedItems[0].SubItems[0].Text;
-            string nhomHP = listMH.SelectedItems[0].SubItems[2].Text;
-            int hocKy =Convert.ToInt32(cbHocKy.SelectedItem.ToString());
-            string namHoc = cbNamHoc.SelectedItem.ToString();
-            string ngayDK = "";
-            string ngayDongTien = "";
-            string ngayHuyDK = "";
-            string ghiChu = "";
-            // ĐĂNG KÝ HỌC PHẦN
-            ThemDuLieu(maSV, maMH, nhomHP, hocKy, namHoc, ngayDK, ngayHuyDK, ngayDongTien, ghiChu);
+            try
+            {
+                string maSV = lbMaSV.Text;
+                string maMH = listMH.SelectedItems[0].SubItems[0].Text;
+                string nhomHP = listMH.SelectedItems[0].SubItems[2].Text;
+                int hocKy = Convert.ToInt32(cbHocKy.SelectedItem.ToString());
+                string namHoc = cbNamHoc.SelectedItem.ToString();
+                string ngayDK = "";
+                string ngayDongTien = "";
+                string ngayHuyDK = "";
+                string ghiChu = "";
+                // ĐĂNG KÝ HỌC PHẦN
+                ThemDuLieu(maSV, maMH, nhomHP, hocKy, namHoc, ngayDK, ngayHuyDK, ngayDongTien, ghiChu);
 
-            int thu = Convert.ToInt32(listMH.SelectedItems[0].SubItems[3].Text);
-            string tiet = listMH.SelectedItems[0].SubItems[4].Text;
-            string tenHP = listMH.SelectedItems[0].SubItems[1].Text;
-            LoadDSMHDK();
-
+                int thu = Convert.ToInt32(listMH.SelectedItems[0].SubItems[3].Text);
+                string tiet = listMH.SelectedItems[0].SubItems[4].Text;
+                string tenHP = listMH.SelectedItems[0].SubItems[1].Text;
+                LoadDSMHDK();
+            }
+            catch
+            {
+                MessageBox.Show("Không thể đăng ký học phần. Vui lòng kiểm tra lại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
 

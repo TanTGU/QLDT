@@ -1,4 +1,5 @@
-﻿using Quan_Ly_Dao_Tao.Database;
+﻿using Quan_Ly_Dao_Tao.BaoCao.From;
+using Quan_Ly_Dao_Tao.Database;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -134,6 +135,19 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Mon_Hoc
                         txttenTQ.Text = dt1.Rows[0][1].ToString();
                     }
                 }
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if(listDS.Items.Count > 0)
+            {
+                InDanhSachMonHoc f = new InDanhSachMonHoc(cbnganhhoc.Text);
+                f.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn ngành cần xuất danh sách môn học!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
             }
         }
     }

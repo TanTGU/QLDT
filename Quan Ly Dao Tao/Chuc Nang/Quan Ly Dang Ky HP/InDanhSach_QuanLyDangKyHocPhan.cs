@@ -1,4 +1,5 @@
-﻿using Quan_Ly_Dao_Tao.Database;
+﻿using Quan_Ly_Dao_Tao.BaoCao.From;
+using Quan_Ly_Dao_Tao.Database;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -190,7 +191,15 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Dang_Ky_HP
 
         private void btnXuatDS_Click(object sender, EventArgs e)
         {
-
+            if(listDS.Items.Count > 0)
+            {
+                InDanhSachDKHP f = new InDanhSachDKHP(lbMaHP.Text, lbNhomHP.Text, lbNamHoc.Text, lbHocKy.Text);
+                f.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Không thể xuất danh sách do không có sinh viên đăng ký!", "Lỗi" , MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
