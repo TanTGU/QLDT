@@ -463,8 +463,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Thoi_Khoa_Bieu
             }
         }
         private void LoadThongTinNhomHocPhan(string sql, string maMH)
-        {
-            //sql = "select MaMH, TenMH, SoTC from MONHOC where MaMH='MH10110'";
+        {            
             DataTable dt = new DataTable();
             dt = CSDL.LayDuLieu(sql);
             if (dt.Rows.Count > 0)
