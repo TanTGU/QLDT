@@ -114,17 +114,17 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Hoc_Phi
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string sql = $"UPDATE HOCPHI SET SoTien = {tbMucHocPhi.Text} where MaNganh= '{tbMaNganh.Text}'";
-            try
-            {
-                CSDL.XuLy(sql);
-                LayDSHocPhi();
-                MessageBox.Show("Đã cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch
-            {
-                MessageBox.Show("Cập nhật không thành công. Vui lòng thử lại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            //string sql = $"UPDATE HOCPHI SET SoTien = {tbMucHocPhi.Text} where MaNganh= '{tbMaNganh.Text}'";
+            //try
+            //{
+            //    CSDL.XuLy(sql);
+            //    LayDSHocPhi();
+            //    MessageBox.Show("Đã cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
+            //catch
+            //{
+            //    MessageBox.Show("Cập nhật không thành công. Vui lòng thử lại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
 
         void LayDSHocPhi()

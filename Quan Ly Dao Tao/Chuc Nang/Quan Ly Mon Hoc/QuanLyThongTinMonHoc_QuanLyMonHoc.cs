@@ -263,7 +263,7 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Mon_Hoc
             DialogResult result = MessageBox.Show($"Bạn thật sự muốn xóa môn {maHP}?", "Lưu ý", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
             {
-                try
+                /*try
                 {
                     CSDL.XuLy(sql);
                     //CSDL.GhiLenhXuLySQL(sql);
@@ -272,7 +272,10 @@ namespace Quan_Ly_Dao_Tao.Chuc_Nang.Quan_Ly_Mon_Hoc
                 catch
                 {
                     MessageBox.Show("Không thể xóa thông tin môn học!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                }*/
+                CSDL.XuLy(sql);
+                //CSDL.GhiLenhXuLySQL(sql);
+                MessageBox.Show("Đã xóa  thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
         }
